@@ -1,0 +1,24 @@
+name: analytics_engineering_snowflake_dbt
+version: '0.1.0'
+config-version: 2
+
+profile: ae_snowflake_portfolio
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests/dbt"]
+macro-paths: ["macros"]
+analysis-paths: ["analyses"]
+
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  analytics_engineering_snowflake_dbt:
+    staging:
+      +schema: staging
+      +materialized: view
+
+seeds:
+  analytics_engineering_snowflake_dbt:
+    +schema: raw
+    +quote_columns: false

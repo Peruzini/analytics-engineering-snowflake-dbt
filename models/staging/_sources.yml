@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Dados de e-commerce sintéticos, carregados com dbt seed."
+    schema: "{{ target.schema }}_raw"
+    tables:
+      - name: raw_customers
+        description: "Cadastro de clientes fictícios."
+      - name: raw_products
+        description: "Catálogo de produtos fictícios."
+      - name: raw_campaigns
+        description: "Campanhas e canais simulados."
+      - name: raw_orders
+        description: "Pedidos simulados."
+      - name: raw_order_items
+        description: "Itens dos pedidos simulados."
+      - name: raw_payments
+        description: "Pagamentos simulados para pedidos concluídos ou reembolsados."

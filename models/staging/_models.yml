@@ -1,0 +1,104 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Uma linha por cliente, com cadastro padronizado."
+    columns:
+      - name: customer_id
+        description: "Chave de negócio do cliente."
+        data_tests: [not_null, unique]
+      - name: email
+        data_tests: [not_null, unique]
+      - name: created_at
+        data_tests: [not_null]
+
+  - name: stg_products
+    description: "Uma linha por produto do catálogo."
+    columns:
+      - name: product_id
+        data_tests: [not_null, unique]
+      - name: list_price
+        data_tests: [not_null]
+
+  - name: stg_campaigns
+    description: "Campanhas fictícias de aquisição."
+    columns:
+      - name: campaign_id
+        data_tests: [not_null, unique]
+      - name: channel
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['organic', 'paid_search', 'social', 'email']
+
+  - name: stg_orders
+    description: "Uma linha por pedido, independente de status."
+    columns:
+      - name: order_id
+        data_tests: [not_null, unique]
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_customers')
+              field: customer_id
+      - name: campaign_id
+        description: "Opcional; pedidos sem campanha não violam integridade."
+        data_tests:
+          - relationships:
+              to: ref('stg_campaigns')
+              field: campaign_id
+      - name: order_date
+        data_tests: [not_null]
+      - name: order_status
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['completed', 'cancelled', 'pending', 'refunded']
+
+  - name: stg_order_items
+    description: "Grão: uma linha por item de pedido."
+    columns:
+      - name: order_item_id
+        data_tests: [not_null, unique]
+      - name: order_id
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+      - name: product_id
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_products')
+              field: product_id
+      - name: quantity
+        data_tests: [not_null]
+      - name: unit_price
+        data_tests: [not_null]
+      - name: discount_amount
+        data_tests: [not_null]
+
+  - name: stg_payments
+    description: "Pagamentos de pedidos concluídos ou reembolsados; valor não é receita reconhecida."
+    columns:
+      - name: payment_id
+        data_tests: [not_null, unique]
+      - name: order_id
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+      - name: amount
+        data_tests: [not_null]
+      - name: payment_status
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['paid', 'refunded']
+      - name: payment_method
+        data_tests:
+          - accepted_values:
+              values: ['card', 'pix']
