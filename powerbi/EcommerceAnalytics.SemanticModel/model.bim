@@ -1,0 +1,895 @@
+{
+  "name": "EcommerceAnalytics",
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "pt-BR",
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "DimData",
+        "columns": [
+          {
+            "name": "Data",
+            "dataType": "dateTime",
+            "sourceColumn": "Data",
+            "summarizeBy": "none",
+            "isKey": true,
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ]
+          },
+          {
+            "name": "Ano",
+            "dataType": "int64",
+            "sourceColumn": "Ano",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Mes",
+            "dataType": "int64",
+            "sourceColumn": "Mes",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "AnoMes",
+            "dataType": "string",
+            "sourceColumn": "AnoMes",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Dia",
+            "dataType": "int64",
+            "sourceColumn": "Dia",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimData",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Datas = List.Dates(#date(2026, 1, 1), 365, #duration(1,0,0,0)),",
+                "    Fonte = Table.FromList(Datas, Splitter.SplitByNothing(), {\"Data\"}),",
+                "    Tipos = Table.TransformColumnTypes(Fonte, {{\"Data\", type date}}),",
+                "    Ano = Table.AddColumn(Tipos, \"Ano\", each Date.Year([Data]), Int64.Type),",
+                "    Mes = Table.AddColumn(Ano, \"Mes\", each Date.Month([Data]), Int64.Type),",
+                "    AnoMes = Table.AddColumn(Mes, \"AnoMes\", each Date.ToText([Data], \"yyyy-MM\"), type text),",
+                "    Dia = Table.AddColumn(AnoMes, \"Dia\", each Date.Day([Data]), Int64.Type)",
+                "in",
+                "    Dia"
+              ]
+            }
+          }
+        ],
+        "dataCategory": "Time"
+      },
+      {
+        "name": "DimClientes",
+        "columns": [
+          {
+            "name": "customer_id",
+            "dataType": "string",
+            "sourceColumn": "customer_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "email",
+            "dataType": "string",
+            "sourceColumn": "email",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "region",
+            "dataType": "string",
+            "sourceColumn": "region",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "created_at",
+            "dataType": "dateTime",
+            "sourceColumn": "created_at",
+            "summarizeBy": "none",
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimClientes",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/powerbi/data/dim_customers.csv\",",
+                "    Fonte = Csv.Document(Web.Contents(Url), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
+                "    Tipos = Table.TransformColumnTypes(Cabecalhos, {{\"customer_id\", type text}, {\"email\", type text}, {\"region\", type text}, {\"created_at\", type date}}, \"en-US\")",
+                "in",
+                "    Tipos"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "DimProdutos",
+        "columns": [
+          {
+            "name": "product_id",
+            "dataType": "string",
+            "sourceColumn": "product_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_name",
+            "dataType": "string",
+            "sourceColumn": "product_name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "category",
+            "dataType": "string",
+            "sourceColumn": "category",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "list_price",
+            "dataType": "double",
+            "sourceColumn": "list_price",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "DimProdutos",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/powerbi/data/dim_products.csv\",",
+                "    Fonte = Csv.Document(Web.Contents(Url), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
+                "    Tipos = Table.TransformColumnTypes(Cabecalhos, {{\"product_id\", type text}, {\"product_name\", type text}, {\"category\", type text}, {\"list_price\", type number}}, \"en-US\")",
+                "in",
+                "    Tipos"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FatoPedidos",
+        "columns": [
+          {
+            "name": "order_id",
+            "dataType": "string",
+            "sourceColumn": "order_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_id",
+            "dataType": "string",
+            "sourceColumn": "customer_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "campaign_id",
+            "dataType": "string",
+            "sourceColumn": "campaign_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_date",
+            "dataType": "dateTime",
+            "sourceColumn": "order_date",
+            "summarizeBy": "none",
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ]
+          },
+          {
+            "name": "order_status",
+            "dataType": "string",
+            "sourceColumn": "order_status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "item_count",
+            "dataType": "int64",
+            "sourceColumn": "item_count",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "unit_count",
+            "dataType": "int64",
+            "sourceColumn": "unit_count",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "gross_item_amount",
+            "dataType": "double",
+            "sourceColumn": "gross_item_amount",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "discount_amount",
+            "dataType": "double",
+            "sourceColumn": "discount_amount",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "net_item_amount",
+            "dataType": "double",
+            "sourceColumn": "net_item_amount",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "payment_count",
+            "dataType": "int64",
+            "sourceColumn": "payment_count",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "payment_amount",
+            "dataType": "double",
+            "sourceColumn": "payment_amount",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "recognized_revenue",
+            "dataType": "double",
+            "sourceColumn": "recognized_revenue",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "refunded_amount",
+            "dataType": "double",
+            "sourceColumn": "refunded_amount",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "completed_order_flag",
+            "dataType": "int64",
+            "sourceColumn": "completed_order_flag",
+            "summarizeBy": "none"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FatoPedidos",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/powerbi/data/fct_orders.csv\",",
+                "    Fonte = Csv.Document(Web.Contents(Url), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
+                "    Tipos = Table.TransformColumnTypes(Cabecalhos, {{\"order_id\", type text}, {\"customer_id\", type text}, {\"campaign_id\", type text}, {\"order_date\", type date}, {\"order_status\", type text}, {\"item_count\", Int64.Type}, {\"unit_count\", Int64.Type}, {\"gross_item_amount\", type number}, {\"discount_amount\", type number}, {\"net_item_amount\", type number}, {\"payment_count\", Int64.Type}, {\"payment_amount\", type number}, {\"recognized_revenue\", type number}, {\"refunded_amount\", type number}, {\"completed_order_flag\", Int64.Type}}, \"en-US\")",
+                "in",
+                "    Tipos"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "FatoItens",
+        "columns": [
+          {
+            "name": "order_item_id",
+            "dataType": "string",
+            "sourceColumn": "order_item_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_id",
+            "dataType": "string",
+            "sourceColumn": "order_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "product_id",
+            "dataType": "string",
+            "sourceColumn": "product_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "customer_id",
+            "dataType": "string",
+            "sourceColumn": "customer_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "campaign_id",
+            "dataType": "string",
+            "sourceColumn": "campaign_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "order_date",
+            "dataType": "dateTime",
+            "sourceColumn": "order_date",
+            "summarizeBy": "none",
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ]
+          },
+          {
+            "name": "order_status",
+            "dataType": "string",
+            "sourceColumn": "order_status",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "quantity",
+            "dataType": "int64",
+            "sourceColumn": "quantity",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "unit_price",
+            "dataType": "double",
+            "sourceColumn": "unit_price",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "discount_amount",
+            "dataType": "double",
+            "sourceColumn": "discount_amount",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "gross_item_amount",
+            "dataType": "double",
+            "sourceColumn": "gross_item_amount",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "net_item_amount",
+            "dataType": "double",
+            "sourceColumn": "net_item_amount",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "recognized_item_revenue",
+            "dataType": "double",
+            "sourceColumn": "recognized_item_revenue",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "FatoItens",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/powerbi/data/fct_order_items.csv\",",
+                "    Fonte = Csv.Document(Web.Contents(Url), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
+                "    Tipos = Table.TransformColumnTypes(Cabecalhos, {{\"order_item_id\", type text}, {\"order_id\", type text}, {\"product_id\", type text}, {\"customer_id\", type text}, {\"campaign_id\", type text}, {\"order_date\", type date}, {\"order_status\", type text}, {\"quantity\", Int64.Type}, {\"unit_price\", type number}, {\"discount_amount\", type number}, {\"gross_item_amount\", type number}, {\"net_item_amount\", type number}, {\"recognized_item_revenue\", type number}}, \"en-US\")",
+                "in",
+                "    Tipos"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ResumoDiario",
+        "columns": [
+          {
+            "name": "order_date",
+            "dataType": "dateTime",
+            "sourceColumn": "order_date",
+            "summarizeBy": "none",
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ]
+          },
+          {
+            "name": "order_count",
+            "dataType": "int64",
+            "sourceColumn": "order_count",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "completed_orders",
+            "dataType": "int64",
+            "sourceColumn": "completed_orders",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "pending_orders",
+            "dataType": "int64",
+            "sourceColumn": "pending_orders",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "cancelled_orders",
+            "dataType": "int64",
+            "sourceColumn": "cancelled_orders",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "refunded_orders",
+            "dataType": "int64",
+            "sourceColumn": "refunded_orders",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "gross_order_amount",
+            "dataType": "double",
+            "sourceColumn": "gross_order_amount",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "discount_amount",
+            "dataType": "double",
+            "sourceColumn": "discount_amount",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "net_order_amount_all_statuses",
+            "dataType": "double",
+            "sourceColumn": "net_order_amount_all_statuses",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "recognized_revenue",
+            "dataType": "double",
+            "sourceColumn": "recognized_revenue",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "refunded_amount",
+            "dataType": "double",
+            "sourceColumn": "refunded_amount",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "avg_completed_ticket",
+            "dataType": "double",
+            "sourceColumn": "avg_completed_ticket",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ResumoDiario",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/powerbi/data/mart_daily_sales.csv\",",
+                "    Fonte = Csv.Document(Web.Contents(Url), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
+                "    Tipos = Table.TransformColumnTypes(Cabecalhos, {{\"order_date\", type date}, {\"order_count\", Int64.Type}, {\"completed_orders\", Int64.Type}, {\"pending_orders\", Int64.Type}, {\"cancelled_orders\", Int64.Type}, {\"refunded_orders\", Int64.Type}, {\"gross_order_amount\", type number}, {\"discount_amount\", type number}, {\"net_order_amount_all_statuses\", type number}, {\"recognized_revenue\", type number}, {\"refunded_amount\", type number}, {\"avg_completed_ticket\", type number}}, \"en-US\")",
+                "in",
+                "    Tipos"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ResumoClientes",
+        "columns": [
+          {
+            "name": "customer_id",
+            "dataType": "string",
+            "sourceColumn": "customer_id",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "region",
+            "dataType": "string",
+            "sourceColumn": "region",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "created_at",
+            "dataType": "dateTime",
+            "sourceColumn": "created_at",
+            "summarizeBy": "none",
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ]
+          },
+          {
+            "name": "lifetime_orders",
+            "dataType": "int64",
+            "sourceColumn": "lifetime_orders",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "completed_orders",
+            "dataType": "int64",
+            "sourceColumn": "completed_orders",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "first_order_date",
+            "dataType": "dateTime",
+            "sourceColumn": "first_order_date",
+            "summarizeBy": "none",
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ]
+          },
+          {
+            "name": "last_order_date",
+            "dataType": "dateTime",
+            "sourceColumn": "last_order_date",
+            "summarizeBy": "none",
+            "formatString": "dd/MM/yyyy",
+            "annotations": [
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              }
+            ]
+          },
+          {
+            "name": "lifetime_recognized_revenue",
+            "dataType": "double",
+            "sourceColumn": "lifetime_recognized_revenue",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "lifetime_refunded_amount",
+            "dataType": "double",
+            "sourceColumn": "lifetime_refunded_amount",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "avg_completed_ticket",
+            "dataType": "double",
+            "sourceColumn": "avg_completed_ticket",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ResumoClientes",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/powerbi/data/mart_customer_ltv.csv\",",
+                "    Fonte = Csv.Document(Web.Contents(Url), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
+                "    Tipos = Table.TransformColumnTypes(Cabecalhos, {{\"customer_id\", type text}, {\"region\", type text}, {\"created_at\", type date}, {\"lifetime_orders\", Int64.Type}, {\"completed_orders\", Int64.Type}, {\"first_order_date\", type date}, {\"last_order_date\", type date}, {\"lifetime_recognized_revenue\", type number}, {\"lifetime_refunded_amount\", type number}, {\"avg_completed_ticket\", type number}}, \"en-US\")",
+                "in",
+                "    Tipos"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ResumoCanais",
+        "columns": [
+          {
+            "name": "channel",
+            "dataType": "string",
+            "sourceColumn": "channel",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "planned_budget_amount",
+            "dataType": "double",
+            "sourceColumn": "planned_budget_amount",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "order_count",
+            "dataType": "int64",
+            "sourceColumn": "order_count",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "completed_orders",
+            "dataType": "int64",
+            "sourceColumn": "completed_orders",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "recognized_revenue",
+            "dataType": "double",
+            "sourceColumn": "recognized_revenue",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          },
+          {
+            "name": "refunded_amount",
+            "dataType": "double",
+            "sourceColumn": "refunded_amount",
+            "summarizeBy": "none",
+            "formatString": "#,0.00"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ResumoCanais",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/powerbi/data/mart_channel_performance.csv\",",
+                "    Fonte = Csv.Document(Web.Contents(Url), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
+                "    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
+                "    Tipos = Table.TransformColumnTypes(Cabecalhos, {{\"channel\", type text}, {\"planned_budget_amount\", type number}, {\"order_count\", Int64.Type}, {\"completed_orders\", Int64.Type}, {\"recognized_revenue\", type number}, {\"refunded_amount\", type number}}, \"en-US\")",
+                "in",
+                "    Tipos"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Medidas",
+        "columns": [
+          {
+            "name": "Chave",
+            "dataType": "int64",
+            "sourceColumn": "Chave",
+            "summarizeBy": "none",
+            "isHidden": true
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Medidas",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Fonte = #table(type table [Chave=Int64.Type], {{1}})",
+                "in",
+                "    Fonte"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Receita Reconhecida",
+            "expression": "SUM(FatoPedidos[recognized_revenue])",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Pedidos Totais",
+            "expression": "DISTINCTCOUNT(FatoPedidos[order_id])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Pedidos Concluídos",
+            "expression": "SUM(FatoPedidos[completed_order_flag])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Pedidos Pendentes",
+            "expression": "CALCULATE([Pedidos Totais], FatoPedidos[order_status] = \"pending\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Pedidos Cancelados",
+            "expression": "CALCULATE([Pedidos Totais], FatoPedidos[order_status] = \"cancelled\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Pedidos Reembolsados",
+            "expression": "CALCULATE([Pedidos Totais], FatoPedidos[order_status] = \"refunded\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Ticket Médio",
+            "expression": "DIVIDE([Receita Reconhecida], [Pedidos Concluídos])",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Taxa Conclusão %",
+            "expression": "DIVIDE([Pedidos Concluídos], [Pedidos Totais])",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Taxa Reembolso %",
+            "expression": "DIVIDE([Pedidos Reembolsados], [Pedidos Totais])",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Valor Bruto Itens",
+            "expression": "SUM(FatoItens[gross_item_amount])",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Descontos Itens",
+            "expression": "SUM(FatoItens[discount_amount])",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Reembolsos Valor",
+            "expression": "SUM(FatoPedidos[refunded_amount])",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Receita Itens",
+            "expression": "SUM(FatoItens[recognized_item_revenue])",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Unidades Pedidos Concluídos",
+            "expression": "CALCULATE(SUM(FatoItens[quantity]), FatoItens[order_status] = \"completed\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Clientes Cadastrados",
+            "expression": "DISTINCTCOUNT(DimClientes[customer_id])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Clientes Compradores",
+            "expression": "CALCULATE(DISTINCTCOUNT(FatoPedidos[customer_id]), FatoPedidos[order_status] = \"completed\")",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Receita por Cliente Comprador",
+            "expression": "DIVIDE([Receita Reconhecida], [Clientes Compradores])",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Receita Acumulada",
+            "expression": "VAR UltimaData = MAX(DimData[Data]) RETURN CALCULATE([Receita Reconhecida], FILTER(ALLSELECTED(DimData[Data]), DimData[Data] <= UltimaData))",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Receita Rolling 7d",
+            "expression": "CALCULATE([Receita Reconhecida], DATESINPERIOD(DimData[Data], MAX(DimData[Data]), -7, DAY))",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Receita por Canal - Histórico",
+            "expression": "SUM(ResumoCanais[recognized_revenue])",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Budget Planejado - Total",
+            "expression": "SUM(ResumoCanais[planned_budget_amount])",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Pedidos por Canal - Histórico",
+            "expression": "SUM(ResumoCanais[order_count])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Pedidos Concluídos por Canal",
+            "expression": "SUM(ResumoCanais[completed_orders])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Ticket Médio por Canal",
+            "expression": "DIVIDE([Receita por Canal - Histórico], [Pedidos Concluídos por Canal])",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Receita Histórica Clientes",
+            "expression": "SUM(ResumoClientes[lifetime_recognized_revenue])",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Pedidos Históricos Clientes",
+            "expression": "SUM(ResumoClientes[lifetime_orders])",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Descontos sobre Bruto %",
+            "expression": "DIVIDE([Descontos Itens], [Valor Bruto Itens])",
+            "formatString": "0.0%"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "rel_pedidos_data",
+        "fromTable": "FatoPedidos",
+        "fromColumn": "order_date",
+        "toTable": "DimData",
+        "toColumn": "Data"
+      },
+      {
+        "name": "rel_pedidos_cliente",
+        "fromTable": "FatoPedidos",
+        "fromColumn": "customer_id",
+        "toTable": "DimClientes",
+        "toColumn": "customer_id"
+      },
+      {
+        "name": "rel_itens_pedidos",
+        "fromTable": "FatoItens",
+        "fromColumn": "order_id",
+        "toTable": "FatoPedidos",
+        "toColumn": "order_id"
+      },
+      {
+        "name": "rel_itens_produtos",
+        "fromTable": "FatoItens",
+        "fromColumn": "product_id",
+        "toTable": "DimProdutos",
+        "toColumn": "product_id"
+      },
+      {
+        "name": "rel_clientes_historico",
+        "fromTable": "ResumoClientes",
+        "fromColumn": "customer_id",
+        "toTable": "DimClientes",
+        "toColumn": "customer_id"
+      }
+    ]
+  }
+}
