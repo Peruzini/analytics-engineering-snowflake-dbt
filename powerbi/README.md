@@ -13,6 +13,6 @@ Entrypoint: [EcommerceAnalytics.pbip](EcommerceAnalytics.pbip). O projeto precis
 3. Conferir os relatórios PASS; se houver drift, executar `python scripts/export_powerbi.py`, revisar e commitar novas saídas.
 
 ## Critérios do case
-Receita = completed. Budget = planejado. Reembolso separado. Agregados `ResumoCanais` e `ResumoDiario` não são fatos detalhados; medidas não somam grãos diferentes. Quatro páginas e 27 medidas DAX estão versionadas no Git.
+Receita = completed. Budget = planejado. Reembolso separado. Agregados `ResumoCanais` e `ResumoDiario` não são fatos detalhados; medidas não somam grãos diferentes. Quatro páginas, 43 visuais e 39 medidas DAX estão versionadas no Git. A página de canais usa `FatoPedidos[channel]` com filtros temporais; veja [MVP-04B](../docs/MVP04B_ANALISE.md).
 
 Documentação completa: [MVP04_POWERBI.md](../docs/MVP04_POWERBI.md).

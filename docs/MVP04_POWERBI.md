@@ -18,8 +18,8 @@ Nenhuma etapa rotineira precisa de Snowflake ou runner GitHub Actions.
 | Artefato | Caminho | Conteúdo |
 | --- | --- | --- |
 | PBIP | `powerbi/EcommerceAnalytics.pbip` | Atalho do projeto editável |
-| Report PBIR | `powerbi/EcommerceAnalytics.Report/definition/` | 4 páginas, 41 visuais, tema e layout |
-| Modelo tabular | `powerbi/EcommerceAnalytics.SemanticModel/model.bim` | 9 tabelas, 5 relacionamentos, 27 medidas DAX |
+| Report PBIR | `powerbi/EcommerceAnalytics.Report/definition/` | 4 páginas, 43 visuais, tema e layout |
+| Modelo tabular | `powerbi/EcommerceAnalytics.SemanticModel/model.bim` | 9 tabelas, 5 relacionamentos, 39 medidas DAX |
 | Dados | `powerbi/data/` | 7 CSV sintéticos de marts/dimensões |
 | Exportação | `scripts/export_powerbi.py` | Gerador/checker dos 7 CSV diretamente dos dbt marts via DuckDB |
 | Validação | `tests/test_powerbi_data.py` + `tests/test_powerbi_structure.py` | Reconciliação por grão, esquema, paths, refs |
@@ -42,16 +42,16 @@ As sete saídas do cenário MVP-04A foram produzidas de forma determinística a 
 
 `DimClientes[customer_id]` → `ResumoClientes[customer_id]` (1:1 na fixture)
 
-**ResumoCanais e ResumoDiario são agregados independentes**. Não conectá-los também às tabelas-fato: isso poderia introduzir caminhos ambíguos/duplicidade de receita. A página de canais usa apenas o agregado de período integral, portanto não responde aos filtros de data das páginas transacionais. No Power BI, isso deve ficar claro.
+**ResumoCanais e ResumoDiario são agregados independentes**. Não conectá-los também às tabelas-fato: isso poderia introduzir caminhos ambíguos/duplicidade de receita. **MVP-04B:** `fct_orders` passa a conter `channel` por pedido, alimentando `FatoPedidos[channel]`. A página Canais e Pedidos agora usa o fato detalhado e filtros de data; `ResumoCanais` permanece apenas como histórico de referência (budget planejado). Não somar os dois grãos.
 
 ### Dashboard: quatro páginas
 
 | Página | Questão | Visuais |
 | --- | --- | --- |
-| Visão Executiva | Receita reconhecida, volume e ticket | Cartões, filtro período/região, série temporal, tabela região |
-| Receita e Pedidos | Efeito dos status e reembolsos | Cartões, filtros status/período, série com janela móvel, tabela diária |
-| Clientes e Produtos | Quem e o quê geram receita | Cartões, filtros região/categoria, ranking produtos, tabela |
-| Canais e Aquisição | Receita atribuída por canal e budget | Cartões, slicer canal, barras, tabela histórica |
+| Visão Executiva | Receita reconhecida, volume e ticket | Cartões, filtro período/região, receita mensal vs mês anterior, tabela região |
+| Receita e Pedidos | Efeito dos status e reembolsos | Cartões, filtros status/período, receita diária vs média móvel 7d, tabela **mensal** de MoM, receita/dia e taxas |
+| Clientes e Produtos | Quem e o quê geram receita | Recompra no período (induzida pelo cenário), receita de itens por produto, participação e unidades |
+| Canais e Pedidos | Como receita e status variam por canal/mês? | Cartões, slicers de canal/mês, série mensal, barras e tabela analítica de fatos |
 
 ### Definições que não podem ser alteradas silenciosamente
 - Receita reconhecida = apenas pedidos `completed`.
@@ -62,13 +62,15 @@ As sete saídas do cenário MVP-04A foram produzidas de forma determinística a 
 - LTV = `lifetime_recognized_revenue` observada; não predição. Custos/margem não disponíveis.
 - Não somar receita de fato de pedidos + fato de itens + marts, pois representaria a mesma receita em diferentes grãos.
 
+**Interpretação:** as diferenças entre canais, recompra elevada e sazonalidade são programadas no gerador, não descobertas causais de comércio real. Veja [análise e indicadores MVP-04B](MVP04B_ANALISE.md).
+
 ### Importação final
 O PBIP importa os CSVs por Power Query M via `Web.Contents` em URL público no GitHub. Isso requer internet e autenticação **Anônima** no primeiro refresh, mas nenhum secret ou conta Snowflake. Manter pastas `.Report` e `.SemanticModel` ao lado de `.pbip`; o Desktop não abre corretamente um `.pbip` isolado.
 
 ### Gates para encerramento
 - [x] Dataset 04A ampliado e reconciliado na geração: 4.200 pedidos, 8.400 itens, 365 dias.
 - [x] Código de exportação DuckDB e testes no Git.
-- [x] PBIP, modelo, 27 medidas, 4 páginas/41 visuais em formato editável.
+- [x] PBIP, modelo, 39 medidas, 4 páginas/43 visuais em formato editável; canal por pedido adicionado no MVP-04B.
 - [ ] `python scripts/generate_data.py --check` e `python -m unittest discover -s tests -v` após atualização do clone.
 - [ ] `python scripts/local_ci.py --full` no novo dataset e `python scripts/export_powerbi.py --check` (paridade dbt real).
 - [ ] Round-trip abrir → atualizar → conferir → salvar no Power BI Desktop.

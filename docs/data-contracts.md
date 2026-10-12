@@ -17,7 +17,7 @@
 | --- | --- | --- |
 | dim_customers | cliente | segmentação por região |
 | dim_products | produto | categoria, catálogo |
-| fct_orders | pedido | receitas, descontos, status e quantidade de pedidos |
+| fct_orders | pedido | receitas, descontos, status, **canal atribuído** e quantidade de pedidos |
 | fct_order_items | item | análise por produto |
 | mart_daily_sales | dia com pedidos | evolução e ticket médio |
 | mart_customer_ltv | cliente | histórico de pedidos e LTV observada |
@@ -25,6 +25,7 @@
 
 ## Regras financeiras
 
+- **MVP-04B:** `fct_orders.channel` é derivado de `stg_campaigns.channel` por `campaign_id`, com `unattributed` quando nulo; mantém grão `order_id`. A nova coluna exige recriação/full-refresh em ambiente previamente materializado com o contrato anterior.
 - `completed`: somente este status contribui para `recognized_revenue`.
 - `refunded`: receita zero neste case e valor separado em `refunded_amount`.
 - `pending` / `cancelled`: receita zero e status preservado.

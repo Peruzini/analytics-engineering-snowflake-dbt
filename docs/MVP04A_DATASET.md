@@ -18,7 +18,7 @@ Substituir a antiga base sintética pequena por um **cenário analítico longitu
 - Gerador canônico das **seis seeds** em `scripts/generate_data.py` (Python stdlib, operações financeiras em centavos inteiros, sem aleatoriedade).
 - Outputs em `seeds/raw_*.csv`, com **mesmas colunas, chaves e status** do MVP-03.
 - Os sete CSVs em `powerbi/data/*.csv` foram construídos aplicando as mesmas regras SQL publicadas e conciliados na geração. **Não foram exportados pela execução dbt** nesta etapa; a verificação canônica `python scripts/export_powerbi.py --check` é gate obrigatório.
-- Modelo Power BI mantém 9 tabelas, 5 relacionamentos, 27 medidas e 4 páginas. `DimData` abrange todos os 365 dias do cenário.
+- No fechamento do **MVP-04A**, o modelo mantinha 9 tabelas, 5 relacionamentos, 27 medidas e 4 páginas; o **MVP-04B** adicionou 12 medidas (total 39), canal no fato e dois visuais. `DimData` abrange os 365 dias.
 
 ## Regras de negócio
 - **Receita reconhecida:** apenas pedidos `completed`; `refunded`, `cancelled` e `pending` geram receita reconhecida zero (regra didática, não norma contábil geral).
@@ -36,6 +36,8 @@ Esta mudança é um **reset controlado de dados sintéticos**, não atualizaçã
 - Se uma integração Snowflake excepcional for autorizada futuramente, planejar o `dbt seed --full-refresh` e `dbt run --full-refresh` (ou recriação isolada do schema), com validação de snapshot e destino antes de qualquer run. **Nenhum refresh Snowflake foi executado aqui**.
 - Evidências de 12/10/2026, incluindo 88 dbt tests green, pertencem **ao dataset anterior**; não transferir o PASS para o novo cenário.
 - Auditoria prévia de R$ 14.250,40 permanece como [histórico](AUDITORIA_MVP04_2026-10-12.md), não representa os números atuais.
+
+Atualização posterior: [MVP-04B — Análise e indicadores](MVP04B_ANALISE.md).
 
 ## Qualidade / gates
 1. **Git:** 13 CSVs versionados e totais reconciliados na geração.

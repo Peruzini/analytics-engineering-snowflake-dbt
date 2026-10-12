@@ -42,10 +42,11 @@ O dbt usa o padrão `<target.schema>_<custom_schema>`; isso separa o ambiente de
 - Pagamentos são agregados antes de juntar aos pedidos; isso evita fanout.
 - A receita reconhecida só conta pedidos completed (regra didática documentada).
 - `mart_channel_performance` preserva pedidos sem campanha como `unattributed`.
+- **MVP-04B:** `fct_orders.channel` também registra o canal no grão de pedido, permitindo análises por data/canal no Power BI sem somar o mart agregado.
 - `planned_budget_amount` não é gasto real de mídia.
 
 ## Validação e limites
 
 `profiles.yml` local permanece ignorado. O pipeline Snowflake **foi executado com sucesso no baseline anterior à migração** (6 seeds, 15 modelos, 1 snapshot e 88 testes), evidenciado em [relatório](SNOWFLAKE_INTEGRATION_BASELINE_2026-10-12.md). Na arquitetura atual, testes rotineiros usam dbt + DuckDB no PC; Actions apenas manual self-hosted. O MVP-04A ampliou a fixture sintética para 12 meses e exportou 7 CSVs versionados, ainda pendentes da paridade dbt. A aprovação Snowflake é do dataset anterior, não do atual. [Cenário MVP-04A](MVP04A_DATASET.md) · [Plano Power BI](MVP04_POWERBI.md).
 
-Consulte [grãos e métricas](model-lineage.md) e [contratos](data-contracts.md).
+Consulte [grãos e métricas](model-lineage.md), [contratos](data-contracts.md) e [análise MVP-04B](MVP04B_ANALISE.md).
