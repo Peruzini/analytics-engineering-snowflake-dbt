@@ -5,7 +5,7 @@ import unittest
 from decimal import Decimal
 from pathlib import Path
 
-from scripts.generate_data import build_rows, render_csvs, HEADERS
+from scripts.generate_data import build_rows, render_csvs, HEADERS, CONFIG, orders_per_day
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -25,11 +25,34 @@ class TestSeedQuality(unittest.TestCase):
                 self.assertEqual((ROOT / "seeds" / filename).read_text(encoding="utf-8"), expected)
 
     def test_row_counts(self):
-        self.assertEqual(len(self.data["raw_customers.csv"]), 12)
-        self.assertEqual(len(self.data["raw_products.csv"]), 8)
-        self.assertEqual(len(self.data["raw_campaigns.csv"]), 4)
-        self.assertEqual(len(self.data["raw_orders.csv"]), 36)
-        self.assertEqual(len(self.data["raw_order_items.csv"]), 72)
+        self.assertEqual(len(self.data["raw_customers.csv"]), CONFIG["customers"])
+        self.assertEqual(len(self.data["raw_products.csv"]), len(CONFIG["product_catalog"]))
+        self.assertEqual(len(self.data["raw_campaigns.csv"]), len(CONFIG["channels"]) * CONFIG["campaigns_per_channel"])
+        self.assertEqual(len(self.data["raw_orders.csv"]), CONFIG["orders"])
+        self.assertGreaterEqual(len(self.data["raw_order_items.csv"]), CONFIG["orders"])
+
+
+    def test_twelve_months_and_seasonality(self):
+        from collections import Counter
+        from datetime import date
+        orders = self.data["raw_orders.csv"]
+        months = Counter(r["order_date"][:7] for r in orders)
+        self.assertEqual(len(months), 12)
+        self.assertEqual(min(r["order_date"] for r in orders), CONFIG["start_date"])
+        self.assertEqual(max(r["order_date"] for r in orders), "2026-09-30")
+        self.assertGreater(months["2025-11"], months["2026-02"])
+        self.assertTrue(all(q > 0 for _, q in orders_per_day()))
+
+    def test_repurchase_and_diverse_channels(self):
+        from collections import Counter
+        orders = self.data["raw_orders.csv"]
+        counts = Counter(r["customer_id"] for r in orders)
+        self.assertGreaterEqual(sum(x > 1 for x in counts.values()), 250)
+        campaigns = {c["campaign_id"]: c["channel"] for c in self.data["raw_campaigns.csv"]}
+        actual = {campaigns.get(o["campaign_id"], "unattributed") for o in orders}
+        self.assertEqual(actual, set(CONFIG["channels"]) | {"unattributed"})
+        self.assertEqual({r["region"] for r in self.data["raw_customers.csv"]},
+                         {"SP", "RJ", "MG", "PR", "SC", "RS", "BA"})
 
     def test_all_business_keys_unique_and_nonempty(self):
         keys = {

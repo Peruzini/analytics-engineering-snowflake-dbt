@@ -6,7 +6,7 @@ from decimal import Decimal
 from pathlib import Path
 import unittest
 
-from scripts.generate_data import build_rows, HEADERS
+from scripts.generate_data import build_rows, HEADERS, CONFIG
 
 EXPECTED_MODELS = {
     "intermediate": {"int_order_financials", "int_customer_orders"},
@@ -93,7 +93,7 @@ class TestFinancialExpectations(unittest.TestCase):
     def test_all_statuses_present_and_non_completed_excluded(self):
         statuses = {o["order_status"] for o in self.orders}
         self.assertEqual(statuses, {"completed", "pending", "cancelled", "refunded"})
-        self.assertEqual(len(self.orders), 36)
+        self.assertEqual(len(self.orders), CONFIG["orders"])
         for order in self.orders:
             should_recognize = order["order_status"] == "completed"
             if order["order_status"] in {"refunded", "pending", "cancelled"}:

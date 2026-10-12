@@ -1,8 +1,8 @@
 """Validate published Power BI CSV dataset contracts without any cloud calls."""
-from collections import defaultdict
 import csv
 from decimal import Decimal
 from pathlib import Path
+from scripts.generate_data import CONFIG
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,19 +15,22 @@ def load(name):
 class TestPowerBIFixtures(unittest.TestCase):
     def test_row_counts_and_unique_keys(self):
         for name, key, count in [
-            ("dim_customers", "customer_id", 12),
-            ("dim_products", "product_id", 8),
-            ("fct_orders", "order_id", 36),
-            ("fct_order_items", "order_item_id", 72),
-            ("mart_daily_sales", "order_date", 28),
-            ("mart_customer_ltv", "customer_id", 12),
+            ("dim_customers", "customer_id", CONFIG["customers"]),
+            ("dim_products", "product_id", len(CONFIG["product_catalog"])),
+            ("fct_orders", "order_id", CONFIG["orders"]),
+            ("fct_order_items", "order_item_id", None),
+            ("mart_daily_sales", "order_date", CONFIG["days"]),
+            ("mart_customer_ltv", "customer_id", CONFIG["customers"]),
             ("mart_channel_performance", "channel", 5),
         ]:
             with self.subTest(table=name):
                 rows = load(name)
-                self.assertEqual(len(rows), count)
+                if count is not None:
+                    self.assertEqual(len(rows), count)
+                else:
+                    self.assertGreater(len(rows), CONFIG["orders"])
                 keys = [row[key] for row in rows]
-                self.assertEqual(len(set(keys)), count)
+                self.assertEqual(len(set(keys)), len(rows))
 
     def test_revenue_reconciles_across_grains(self):
         orders, items, daily, customers, channels = (

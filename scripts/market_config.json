@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "start_date": "2025-10-01",
+  "days": 365,
+  "orders": 4200,
+  "customers": 420,
+  "channels": [
+    "organic",
+    "paid_search",
+    "social",
+    "email"
+  ],
+  "campaigns_per_channel": 3,
+  "product_catalog": [
+    {
+      "product_id": "P001",
+      "product_name": "Notebook Stand",
+      "category": "accessories",
+      "list_price_cents": 8990
+    },
+    {
+      "product_id": "P002",
+      "product_name": "USB Hub",
+      "category": "accessories",
+      "list_price_cents": 12900
+    },
+    {
+      "product_id": "P003",
+      "product_name": "Mechanical Keyboard",
+      "category": "peripherals",
+      "list_price_cents": 24990
+    },
+    {
+      "product_id": "P004",
+      "product_name": "Wireless Mouse",
+      "category": "peripherals",
+      "list_price_cents": 11990
+    },
+    {
+      "product_id": "P005",
+      "product_name": "Desk Lamp",
+      "category": "office",
+      "list_price_cents": 15900
+    },
+    {
+      "product_id": "P006",
+      "product_name": "Notebook",
+      "category": "office",
+      "list_price_cents": 2490
+    },
+    {
+      "product_id": "P007",
+      "product_name": "Water Bottle",
+      "category": "lifestyle",
+      "list_price_cents": 4990
+    },
+    {
+      "product_id": "P008",
+      "product_name": "Backpack",
+      "category": "lifestyle",
+      "list_price_cents": 19900
+    },
+    {
+      "product_id": "P009",
+      "product_name": "Webcam HD",
+      "category": "peripherals",
+      "list_price_cents": 21990
+    },
+    {
+      "product_id": "P010",
+      "product_name": "Ergonomic Chair",
+      "category": "office",
+      "list_price_cents": 89900
+    },
+    {
+      "product_id": "P011",
+      "product_name": "Desk Mat",
+      "category": "accessories",
+      "list_price_cents": 6990
+    },
+    {
+      "product_id": "P012",
+      "product_name": "Monitor 24in",
+      "category": "peripherals",
+      "list_price_cents": 94900
+    },
+    {
+      "product_id": "P013",
+      "product_name": "Monitor Arm",
+      "category": "accessories",
+      "list_price_cents": 29990
+    },
+    {
+      "product_id": "P014",
+      "product_name": "Bluetooth Speaker",
+      "category": "audio",
+      "list_price_cents": 18990
+    },
+    {
+      "product_id": "P015",
+      "product_name": "Noise-Cancel Headset",
+      "category": "audio",
+      "list_price_cents": 45990
+    },
+    {
+      "product_id": "P016",
+      "product_name": "Laptop Sleeve",
+      "category": "accessories",
+      "list_price_cents": 7990
+    },
+    {
+      "product_id": "P017",
+      "product_name": "Smart Plug",
+      "category": "home",
+      "list_price_cents": 12990
+    },
+    {
+      "product_id": "P018",
+      "product_name": "LED Strip",
+      "category": "home",
+      "list_price_cents": 8990
+    },
+    {
+      "product_id": "P019",
+      "product_name": "Desk Organizer",
+      "category": "office",
+      "list_price_cents": 5990
+    },
+    {
+      "product_id": "P020",
+      "product_name": "Pen Set",
+      "category": "office",
+      "list_price_cents": 1990
+    },
+    {
+      "product_id": "P021",
+      "product_name": "USB-C Cable",
+      "category": "accessories",
+      "list_price_cents": 3990
+    },
+    {
+      "product_id": "P022",
+      "product_name": "Power Bank",
+      "category": "accessories",
+      "list_price_cents": 15990
+    },
+    {
+      "product_id": "P023",
+      "product_name": "External SSD",
+      "category": "peripherals",
+      "list_price_cents": 44990
+    },
+    {
+      "product_id": "P024",
+      "product_name": "Wi-Fi Router",
+      "category": "peripherals",
+      "list_price_cents": 29990
+    },
+    {
+      "product_id": "P025",
+      "product_name": "Portable Fan",
+      "category": "home",
+      "list_price_cents": 11990
+    },
+    {
+      "product_id": "P026",
+      "product_name": "Coffee Mug",
+      "category": "lifestyle",
+      "list_price_cents": 3990
+    },
+    {
+      "product_id": "P027",
+      "product_name": "Thermal Mug",
+      "category": "lifestyle",
+      "list_price_cents": 6990
+    },
+    {
+      "product_id": "P028",
+      "product_name": "Travel Organizer",
+      "category": "lifestyle",
+      "list_price_cents": 8990
+    },
+    {
+      "product_id": "P029",
+      "product_name": "Fitness Band",
+      "category": "lifestyle",
+      "list_price_cents": 24990
+    },
+    {
+      "product_id": "P030",
+      "product_name": "Desk Clock",
+      "category": "home",
+      "list_price_cents": 11990
+    },
+    {
+      "product_id": "P031",
+      "product_name": "Monitor Light Bar",
+      "category": "office",
+      "list_price_cents": 24990
+    },
+    {
+      "product_id": "P032",
+      "product_name": "Phone Stand",
+      "category": "accessories",
+      "list_price_cents": 4990
+    },
+    {
+      "product_id": "P033",
+      "product_name": "Webcam Cover",
+      "category": "accessories",
+      "list_price_cents": 1490
+    },
+    {
+      "product_id": "P034",
+      "product_name": "HDMI Adapter",
+      "category": "accessories",
+      "list_price_cents": 7990
+    },
+    {
+      "product_id": "P035",
+      "product_name": "Compact Printer",
+      "category": "office",
+      "list_price_cents": 64900
+    },
+    {
+      "product_id": "P036",
+      "product_name": "Notebook Cooler",
+      "category": "peripherals",
+      "list_price_cents": 13990
+    },
+    {
+      "product_id": "P037",
+      "product_name": "Wireless Charger",
+      "category": "home",
+      "list_price_cents": 16990
+    },
+    {
+      "product_id": "P038",
+      "product_name": "USB Microphone",
+      "category": "audio",
+      "list_price_cents": 32990
+    },
+    {
+      "product_id": "P039",
+      "product_name": "Earbuds",
+      "category": "audio",
+      "list_price_cents": 21990
+    },
+    {
+      "product_id": "P040",
+      "product_name": "Keycap Set",
+      "category": "peripherals",
+      "list_price_cents": 10990
+    }
+  ],
+  "month_weight_adjustments": {
+    "1": -6,
+    "2": -15,
+    "3": 0,
+    "4": 4,
+    "5": 7,
+    "6": 2,
+    "7": 9,
+    "8": 27,
+    "9": 12,
+    "10": 18,
+    "11": 68,
+    "12": 48
+  },
+  "channel_status_thresholds": {
+    "organic": [
+      5,
+      4,
+      3
+    ],
+    "paid_search": [
+      7,
+      5,
+      4
+    ],
+    "social": [
+      10,
+      6,
+      5
+    ],
+    "email": [
+      3,
+      3,
+      3
+    ],
+    "unattributed": [
+      9,
+      5,
+      4
+    ]
+  }
+}
