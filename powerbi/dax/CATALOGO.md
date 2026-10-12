@@ -1,6 +1,6 @@
-# Catálogo DAX — Ecommerce Analytics
+# Catálogo DAX — Ecommerce Analytics (MVP-04B)
 
-O código executável das medidas está no arquivo `powerbi/EcommerceAnalytics.SemanticModel/model.bim`.
+**Fonte de execução:** [model.bim](../EcommerceAnalytics.SemanticModel/model.bim). Este arquivo serve para revisão; não duplicar as medidas manualmente no Desktop.
 
 | Medida | Expressão DAX | Formato |
 | --- | --- | --- |
@@ -31,5 +31,16 @@ O código executável das medidas está no arquivo `powerbi/EcommerceAnalytics.S
 | Receita Histórica Clientes | `SUM(ResumoClientes[lifetime_recognized_revenue])` | R$ #,0.00 |
 | Pedidos Históricos Clientes | `SUM(ResumoClientes[lifetime_orders])` | #,0 |
 | Descontos sobre Bruto % | `DIVIDE([Descontos Itens], [Valor Bruto Itens])` | 0.0% |
+| Receita Mês Anterior | `VAR DataAtual = MIN(DimData[Data]) VAR InicioAnterior = EOMONTH(DataAtual, -2) + 1 VAR FimAnterior = EOMONTH(DataAtual, -1) RETURN IF(HASONEVALUE(DimData[AnoMes]), CALCULATE([Receita Reconhecida], REMOVEFILTERS(DimData), DATESBETWEEN(DimData[Data], InicioAnterior, FimAnterior)))` | R$ #,0.00 |
+| Variação Receita MoM % | `VAR Anterior = [Receita Mês Anterior] RETURN DIVIDE([Receita Reconhecida] - Anterior, Anterior)` | 0.0% |
+| Receita Média Móvel 7d | `VAR Fim = MAX(DimData[Data]) VAR Primeira = MINX(ALL(DimData[Data]), DimData[Data]) VAR Inicio = MAX(Primeira, Fim - 6) RETURN DIVIDE(CALCULATE([Receita Reconhecida], REMOVEFILTERS(DimData), DATESBETWEEN(DimData[Data], Inicio, Fim)), Fim - Inicio + 1)` | R$ #,0.00 |
+| Taxa Cancelamento % | `DIVIDE([Pedidos Cancelados], [Pedidos Totais])` | 0.0% |
+| Desconto Concluídos | `CALCULATE(SUM(FatoItens[discount_amount]), FatoItens[order_status] = "completed")` | R$ #,0.00 |
+| Bruto Concluídos | `CALCULATE(SUM(FatoItens[gross_item_amount]), FatoItens[order_status] = "completed")` | R$ #,0.00 |
+| Taxa Desconto Concluídos % | `DIVIDE([Desconto Concluídos], [Bruto Concluídos])` | 0.0% |
+| Clientes Recorrentes (2+) | `COUNTROWS(FILTER(VALUES(DimClientes[customer_id]), CALCULATE([Pedidos Concluídos]) >= 2))` | #,0 |
+| Taxa Recompra Período % | `DIVIDE([Clientes Recorrentes (2+)], [Clientes Compradores])` | 0.0% |
+| Participação Receita Canal % | `DIVIDE([Receita Reconhecida], CALCULATE([Receita Reconhecida], REMOVEFILTERS(FatoPedidos[channel])))` | 0.0% |
+| Participação Receita Produto % | `DIVIDE([Receita Itens], CALCULATE([Receita Itens], ALLSELECTED(DimProdutos)))` | 0.0% |
 
-Nota: medidas de ResumoCanais são históricas e não respondem a filtros de data. Orçamento planejado não é gasto nem autoriza ROAS/CAC.
+**Importante:** métricas com *Histórico* e orçamento planejado vêm de `ResumoCanais`, sem filtro temporal. A página de canais do MVP-04B utiliza `FatoPedidos[channel]` para análise por período/região; nunca combinar valores agregados históricos com métricas filtradas como se tivessem o mesmo contexto. A recompra mede 2+ pedidos `completed` na seleção, não retenção de coorte. `Variação Receita MoM %` requer seleção de um único mês e não deve ser usada como taxa YoY. Produtos usam o grão de itens; não usar receita de pedidos para filtrar por produto sem relação reversa.

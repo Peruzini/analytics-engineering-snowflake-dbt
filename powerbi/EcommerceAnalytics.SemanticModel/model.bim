@@ -856,6 +856,61 @@
             "name": "Descontos sobre Bruto %",
             "expression": "DIVIDE([Descontos Itens], [Valor Bruto Itens])",
             "formatString": "0.0%"
+          },
+          {
+            "name": "Receita Mês Anterior",
+            "expression": "VAR DataAtual = MIN(DimData[Data]) VAR InicioAnterior = EOMONTH(DataAtual, -2) + 1 VAR FimAnterior = EOMONTH(DataAtual, -1) RETURN IF(HASONEVALUE(DimData[AnoMes]), CALCULATE([Receita Reconhecida], REMOVEFILTERS(DimData), DATESBETWEEN(DimData[Data], InicioAnterior, FimAnterior)))",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Variação Receita MoM %",
+            "expression": "VAR Anterior = [Receita Mês Anterior] RETURN DIVIDE([Receita Reconhecida] - Anterior, Anterior)",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Receita Média Móvel 7d",
+            "expression": "VAR Fim = MAX(DimData[Data]) VAR Primeira = MINX(ALL(DimData[Data]), DimData[Data]) VAR Inicio = MAX(Primeira, Fim - 6) RETURN DIVIDE(CALCULATE([Receita Reconhecida], REMOVEFILTERS(DimData), DATESBETWEEN(DimData[Data], Inicio, Fim)), Fim - Inicio + 1)",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Taxa Cancelamento %",
+            "expression": "DIVIDE([Pedidos Cancelados], [Pedidos Totais])",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Desconto Concluídos",
+            "expression": "CALCULATE(SUM(FatoItens[discount_amount]), FatoItens[order_status] = \"completed\")",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Bruto Concluídos",
+            "expression": "CALCULATE(SUM(FatoItens[gross_item_amount]), FatoItens[order_status] = \"completed\")",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Taxa Desconto Concluídos %",
+            "expression": "DIVIDE([Desconto Concluídos], [Bruto Concluídos])",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Clientes Recorrentes (2+)",
+            "expression": "COUNTROWS(FILTER(VALUES(DimClientes[customer_id]), CALCULATE([Pedidos Concluídos]) >= 2))",
+            "formatString": "#,0"
+          },
+          {
+            "name": "Taxa Recompra Período %",
+            "expression": "DIVIDE([Clientes Recorrentes (2+)], [Clientes Compradores])",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Participação Receita Canal %",
+            "expression": "DIVIDE([Receita Reconhecida], CALCULATE([Receita Reconhecida], REMOVEFILTERS(FatoPedidos[channel])))",
+            "formatString": "0.0%"
+          },
+          {
+            "name": "Participação Receita Produto %",
+            "expression": "DIVIDE([Receita Itens], CALCULATE([Receita Itens], ALLSELECTED(DimProdutos)))",
+            "formatString": "0.0%"
           }
         ]
       }
