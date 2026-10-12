@@ -31,6 +31,12 @@ models:
           - relationships:
               to: ref('stg_campaigns')
               field: campaign_id
+      - name: channel
+        description: "Canal atribuído via campanha, ou unattributed sem campanha; grão do pedido."
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ['organic', 'paid_search', 'social', 'email', 'unattributed']
       - name: order_date
         data_tests: [not_null]
       - name: order_status

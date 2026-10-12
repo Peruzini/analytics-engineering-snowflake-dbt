@@ -32,6 +32,22 @@ class TestPowerBIFixtures(unittest.TestCase):
                 keys = [row[key] for row in rows]
                 self.assertEqual(len(set(keys)), len(rows))
 
+    def test_channel_attribution_and_revenue(self):
+        from collections import defaultdict
+        root = ROOT / "seeds"
+        with (root / "raw_campaigns.csv").open(encoding="utf-8", newline="") as stream:
+            campaigns = {r["campaign_id"]: r["channel"] for r in csv.DictReader(stream)}
+        sums = defaultdict(lambda: Decimal("0"))
+        counts = defaultdict(int)
+        for row in load("fct_orders"):
+            expected = campaigns.get(row["campaign_id"], "unattributed")
+            self.assertEqual(row["channel"], expected)
+            sums[expected] += Decimal(row["recognized_revenue"])
+            counts[expected] += 1
+        for row in load("mart_channel_performance"):
+            self.assertEqual(Decimal(row["recognized_revenue"]), sums[row["channel"]])
+            self.assertEqual(int(row["order_count"]), counts[row["channel"]])
+
     def test_revenue_reconciles_across_grains(self):
         orders, items, daily, customers, channels = (
             load(n) for n in ("fct_orders", "fct_order_items", "mart_daily_sales",

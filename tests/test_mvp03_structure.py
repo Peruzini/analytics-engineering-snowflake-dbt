@@ -9,6 +9,7 @@ SINGULAR_TESTS = {
     "assert_order_items_reconcile.sql",
     "assert_customer_ltv_reconciles.sql",
     "assert_channel_revenue_reconciles.sql",
+    "assert_order_channel_attribution.sql",
 }
 
 

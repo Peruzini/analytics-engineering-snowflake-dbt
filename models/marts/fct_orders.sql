@@ -6,12 +6,12 @@
 ) }}
 
 -- Grain: one order, including cancelled, pending and refunded orders.
--- In absence of reliable updated_at, scan the small source and MERGE only
+-- In absence of reliable updated_at, scan the source and MERGE only
 -- new/changed rows. No date watermark means late updates are not silently lost.
 -- Hard-deleted source orders are not removed automatically.
 with incoming as (
     select
-        order_id, customer_id, campaign_id, order_date, order_status,
+        order_id, customer_id, campaign_id, channel, order_date, order_status,
         item_count, unit_count, gross_item_amount, discount_amount,
         net_item_amount, payment_count, payment_amount,
         recognized_revenue, refunded_amount, completed_order_flag
@@ -27,6 +27,7 @@ where not exists (
         and             existing.order_id is not distinct from incoming.order_id
         and             existing.customer_id is not distinct from incoming.customer_id
         and             existing.campaign_id is not distinct from incoming.campaign_id
+        and             existing.channel is not distinct from incoming.channel
         and             existing.order_date is not distinct from incoming.order_date
         and             existing.order_status is not distinct from incoming.order_status
         and             existing.item_count is not distinct from incoming.item_count

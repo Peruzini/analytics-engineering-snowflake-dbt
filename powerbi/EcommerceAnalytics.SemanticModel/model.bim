@@ -195,6 +195,12 @@
             "summarizeBy": "none"
           },
           {
+            "name": "channel",
+            "dataType": "string",
+            "sourceColumn": "channel",
+            "summarizeBy": "none"
+          },
+          {
             "name": "order_date",
             "dataType": "dateTime",
             "sourceColumn": "order_date",
@@ -291,7 +297,7 @@
                 "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/powerbi/data/fct_orders.csv\",",
                 "    Fonte = Csv.Document(Web.Contents(Url), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
                 "    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
-                "    Tipos = Table.TransformColumnTypes(Cabecalhos, {{\"order_id\", type text}, {\"customer_id\", type text}, {\"campaign_id\", type text}, {\"order_date\", type date}, {\"order_status\", type text}, {\"item_count\", Int64.Type}, {\"unit_count\", Int64.Type}, {\"gross_item_amount\", type number}, {\"discount_amount\", type number}, {\"net_item_amount\", type number}, {\"payment_count\", Int64.Type}, {\"payment_amount\", type number}, {\"recognized_revenue\", type number}, {\"refunded_amount\", type number}, {\"completed_order_flag\", Int64.Type}}, \"en-US\")",
+                "    Tipos = Table.TransformColumnTypes(Cabecalhos, {{\"order_id\", type text}, {\"customer_id\", type text}, {\"campaign_id\", type text}, {\"channel\", type text}, {\"order_date\", type date}, {\"order_status\", type text}, {\"item_count\", Int64.Type}, {\"unit_count\", Int64.Type}, {\"gross_item_amount\", type number}, {\"discount_amount\", type number}, {\"net_item_amount\", type number}, {\"payment_count\", Int64.Type}, {\"payment_amount\", type number}, {\"recognized_revenue\", type number}, {\"refunded_amount\", type number}, {\"completed_order_flag\", Int64.Type}}, \"en-US\")",
                 "in",
                 "    Tipos"
               ]
