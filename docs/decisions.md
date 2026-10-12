@@ -30,11 +30,14 @@ O snapshot de clientes usa check strategy em e-mail e região (não `created_at`
 ## ADR-010 — Integração isolada e manual
 Nenhuma conexão Snowflake é acionada por push. O workflow de integração exige confirmação `yes`, secrets configurados e role restrita. CI comum permanece offline.
 
-## Backlog
-Executar e evidenciar teste real no Snowflake quando houver conta configurada. MVP-04: Power BI.
-
 ## ADR-011 — Local-first, sem Actions automáticas (12/10/2026)
 Gates no PC, workflows apenas manuais self-hosted, sem uso de Actions Artifact. Evidência JSON local, publicação revisada em Git. [Política](LOCAL_EXECUTION_POLICY.md).
 
 ## ADR-012 — Teste SQL real em DuckDB
 Para validar dados/modelos localmente sem Snowflake, usar TRY_CAST compatível nos staging e incremental delete+insert no DuckDB, preservando merge no Snowflake. DuckDB PASS não substitui integração Snowflake.
+
+## ADR-013 — Evidência de integração Snowflake anterior à migração
+A [Run #38315794938](https://github.com/Peruzini/analytics-engineering-snowflake-dbt/actions/runs/38315794938) executou de fato no Snowflake o commit `1007ddaa`: 6 seeds, 15 modelos, 1 snapshot e 88 testes PASS. Essa evidência não valida o SQL modificado na migração local. [Relatório](SNOWFLAKE_INTEGRATION_BASELINE_2026-10-12.md).
+
+## Backlog
+Validar localmente no PC o commit pós-migração (`LOCAL_FULL_PASS`), sem repetir a Run Snowflake por padrão. MVP-04: Power BI.

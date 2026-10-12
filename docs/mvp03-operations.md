@@ -2,7 +2,7 @@
 
 ## Status
 
-Transição de execução local versionada em 12/10/2026. O workflow de integração **não foi executado** com credenciais reais. O usuário de serviço, chave pública e oito secrets foram configurados pelo responsável; a execução no Windows ainda aguarda validação.
+**Integração Snowflake real PASS em 12/10/2026 no commit `1007ddaa`**, antes da transição: [Run #38315794938](https://github.com/Peruzini/analytics-engineering-snowflake-dbt/actions/runs/38315794938) executou `dbt debug`, 6 seeds, 15 modelos, 1 snapshot e 88 testes sem falhas. Veja [evidência de baseline](SNOWFLAKE_INTEGRATION_BASELINE_2026-10-12.md). A transição local posterior ainda aguarda `LOCAL_FULL_PASS` no Windows; o SQL pós-migração não foi reexecutado no Snowflake.
 
 ## Autenticação sem senha do Google
 
@@ -32,7 +32,7 @@ Configurar em `Settings > Secrets and variables > Actions` no repositório:
 | `DBT_SNOWFLAKE_WAREHOUSE` | `AE_PORTFOLIO_WH` |
 | `DBT_SNOWFLAKE_SCHEMA` | `AE_PORTFOLIO` |
 
-Não cadastrar `DBT_SNOWFLAKE_PASSWORD`. O runner grava a chave privada em arquivo temporário com permissões `0600` e o dbt usa `private_key_path` + `private_key_passphrase`.
+Não cadastrar `DBT_SNOWFLAKE_PASSWORD`. O workflow Linux anterior usava permissões `0600`. O novo runner Windows grava a chave em arquivo temporário sob o usuário do runner e remove ao final; recomenda-se execução com conta Windows dedicada e ACL restrita. O dbt usa `private_key_path` + `private_key_passphrase`.
 
 ### Criar a chave no Windows (OpenSSL)
 
@@ -55,13 +55,13 @@ Executar `python scripts/local_ci.py --full` no PC; valida modelos com DuckDB, n
 
 ## Integração excepcional no Snowflake
 
-Após autorização explícita, registrar runner Windows `ae-local` neste repositório e abrir `Actions > Snowflake Integration (Manual Self-Hosted) > Run workflow` com `confirm=yes`. Mesmo com execução no PC, Snowflake consome créditos. Confirmar `dbt debug/seed/run/snapshot/test` e guardar evidência; não declarar PASS antes.
+Uma integração real já foi aprovada no baseline. Para **nova** validação após a migração, obter autorização explícita, registrar runner Windows `ae-local` neste repositório e abrir `Actions > Snowflake Integration (Manual Self-Hosted) > Run workflow` com `confirm=yes`. Mesmo com execução no PC, Snowflake consome créditos. Confirmar `dbt debug/seed/run/snapshot/test` e guardar evidência; não declarar PASS antes.
 
 ## Validações funcionais pendentes
 
 - Provar idempotência do MERGE e atualização de pedido alterado.
 - Provar histórico SCD2 após mudança simulada de email/região.
-- Confirmar todas as cinco reconciliações SQL e os testes genéricos.
+- As cinco reconciliações SQL e os testes genéricos **passaram no baseline**; reexecutar apenas se for necessário validar a versão pós-migração.
 - Validar o isolamento de schema e registrar consumo aproximado.
 
 Consulte a documentação oficial: https://docs.snowflake.com/en/user-guide/key-pair-auth
