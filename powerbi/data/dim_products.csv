@@ -1,0 +1,9 @@
+product_id,product_name,category,list_price
+P001,Notebook Stand,accessories,89.90
+P002,USB Hub,accessories,129.00
+P003,Mechanical Keyboard,peripherals,249.90
+P004,Wireless Mouse,peripherals,119.90
+P005,Desk Lamp,office,159.00
+P006,Notebook,office,24.90
+P007,Water Bottle,lifestyle,49.90
+P008,Backpack,lifestyle,199.00
