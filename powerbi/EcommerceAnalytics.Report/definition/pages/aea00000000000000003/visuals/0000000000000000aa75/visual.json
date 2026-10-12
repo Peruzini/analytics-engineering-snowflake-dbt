@@ -68,6 +68,21 @@
                       "Entity": "Medidas"
                     }
                   },
+                  "Property": "Participação Receita Produto %"
+                }
+              },
+              "queryRef": "Medidas.Participação Receita Produto %",
+              "nativeQueryRef": "Participação Receita Produto %",
+              "displayName": "Participação Receita Produto %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
                   "Property": "Unidades Pedidos Concluídos"
                 }
               },
@@ -219,7 +234,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Detalhamento de produtos'"
+                  "Value": "'Produtos — receita, participação e unidades'"
                 }
               }
             },

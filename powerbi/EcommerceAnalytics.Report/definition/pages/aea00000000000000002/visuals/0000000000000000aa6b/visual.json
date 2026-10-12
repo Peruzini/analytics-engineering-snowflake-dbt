@@ -57,15 +57,32 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Receita Rolling 7d"
+                  "Property": "Receita Média Móvel 7d"
                 }
               },
-              "queryRef": "Medidas.Receita Rolling 7d",
-              "nativeQueryRef": "Receita Rolling 7d",
-              "displayName": "Receita Rolling 7d"
+              "queryRef": "Medidas.Receita Média Móvel 7d",
+              "nativeQueryRef": "Receita Média Móvel 7d",
+              "displayName": "Receita Média Móvel 7d"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimData"
+                  }
+                },
+                "Property": "Data"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "sortDefinition": {
@@ -168,7 +185,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita reconhecida e janela móvel de 7 dias'"
+                  "Value": "'Receita diária versus média móvel de 7 dias'"
                 }
               }
             },

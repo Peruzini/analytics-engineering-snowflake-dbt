@@ -23,12 +23,12 @@
                       "Entity": "DimData"
                     }
                   },
-                  "Property": "Data"
+                  "Property": "AnoMes"
                 }
               },
-              "queryRef": "DimData.Data",
-              "nativeQueryRef": "Data",
-              "displayName": "Data"
+              "queryRef": "DimData.AnoMes",
+              "nativeQueryRef": "AnoMes",
+              "displayName": "AnoMes"
             }
           ]
         },
@@ -57,15 +57,32 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Receita Acumulada"
+                  "Property": "Receita Mês Anterior"
                 }
               },
-              "queryRef": "Medidas.Receita Acumulada",
-              "nativeQueryRef": "Receita Acumulada",
-              "displayName": "Receita Acumulada"
+              "queryRef": "Medidas.Receita Mês Anterior",
+              "nativeQueryRef": "Receita Mês Anterior",
+              "displayName": "Receita Mês Anterior"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimData"
+                  }
+                },
+                "Property": "AnoMes"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "sortDefinition": {
@@ -168,7 +185,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita diária e acumulada'"
+                  "Value": "'Receita mensal versus mês anterior'"
                 }
               }
             },

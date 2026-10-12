@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Unidades Pedidos Concluídos"
+                  "Property": "Taxa Recompra Período %"
                 }
               },
-              "queryRef": "Medidas.Unidades Pedidos Concluídos",
-              "nativeQueryRef": "Unidades Pedidos Concluídos",
-              "displayName": "Unidades Pedidos Concluídos"
+              "queryRef": "Medidas.Taxa Recompra Período %",
+              "nativeQueryRef": "Taxa Recompra Período %",
+              "displayName": "Taxa Recompra Período %"
             }
           ]
         }
@@ -82,7 +82,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Unidades Pedidos Concluídos'"
+                  "Value": "'Taxa Recompra Período %'"
                 }
               }
             },

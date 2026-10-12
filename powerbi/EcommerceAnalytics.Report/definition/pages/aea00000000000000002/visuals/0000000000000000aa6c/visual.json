@@ -23,12 +23,12 @@
                       "Entity": "DimData"
                     }
                   },
-                  "Property": "Data"
+                  "Property": "AnoMes"
                 }
               },
-              "queryRef": "DimData.Data",
-              "nativeQueryRef": "Data",
-              "displayName": "Data"
+              "queryRef": "DimData.AnoMes",
+              "nativeQueryRef": "AnoMes",
+              "displayName": "Mês"
             },
             {
               "field": {
@@ -53,6 +53,36 @@
                       "Entity": "Medidas"
                     }
                   },
+                  "Property": "Receita Mês Anterior"
+                }
+              },
+              "queryRef": "Medidas.Receita Mês Anterior",
+              "nativeQueryRef": "Receita Mês Anterior",
+              "displayName": "Receita Mês Anterior"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Variação Receita MoM %"
+                }
+              },
+              "queryRef": "Medidas.Variação Receita MoM %",
+              "nativeQueryRef": "Variação Receita MoM %",
+              "displayName": "Variação Receita MoM %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
                   "Property": "Pedidos Totais"
                 }
               },
@@ -68,12 +98,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Pedidos Concluídos"
+                  "Property": "Taxa Cancelamento %"
                 }
               },
-              "queryRef": "Medidas.Pedidos Concluídos",
-              "nativeQueryRef": "Pedidos Concluídos",
-              "displayName": "Pedidos Concluídos"
+              "queryRef": "Medidas.Taxa Cancelamento %",
+              "nativeQueryRef": "Taxa Cancelamento %",
+              "displayName": "Taxa Cancelamento %"
             },
             {
               "field": {
@@ -83,12 +113,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Ticket Médio"
+                  "Property": "Taxa Reembolso %"
                 }
               },
-              "queryRef": "Medidas.Ticket Médio",
-              "nativeQueryRef": "Ticket Médio",
-              "displayName": "Ticket Médio"
+              "queryRef": "Medidas.Taxa Reembolso %",
+              "nativeQueryRef": "Taxa Reembolso %",
+              "displayName": "Taxa Reembolso %"
             }
           ]
         }
@@ -234,7 +264,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Detalhamento diário filtrável'"
+                  "Value": "'Resumo mensal — receita, variação e status'"
                 }
               }
             },

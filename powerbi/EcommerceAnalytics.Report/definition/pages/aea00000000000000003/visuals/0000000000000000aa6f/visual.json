@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Receita Itens"
+                  "Property": "Clientes Recorrentes (2+)"
                 }
               },
-              "queryRef": "Medidas.Receita Itens",
-              "nativeQueryRef": "Receita Itens",
-              "displayName": "Receita Itens"
+              "queryRef": "Medidas.Clientes Recorrentes (2+)",
+              "nativeQueryRef": "Clientes Recorrentes (2+)",
+              "displayName": "Clientes Recorrentes (2+)"
             }
           ]
         }
@@ -82,7 +82,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita Itens'"
+                  "Value": "'Clientes Recorrentes (2+)'"
                 }
               }
             },

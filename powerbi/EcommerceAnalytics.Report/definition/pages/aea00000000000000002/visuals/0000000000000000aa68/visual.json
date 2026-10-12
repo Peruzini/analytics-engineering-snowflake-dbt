@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Taxa Conclusão %"
+                  "Property": "Taxa Cancelamento %"
                 }
               },
-              "queryRef": "Medidas.Taxa Conclusão %",
-              "nativeQueryRef": "Taxa Conclusão %",
-              "displayName": "Taxa Conclusão %"
+              "queryRef": "Medidas.Taxa Cancelamento %",
+              "nativeQueryRef": "Taxa Cancelamento %",
+              "displayName": "Taxa Cancelamento %"
             }
           ]
         }
@@ -82,7 +82,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa Conclusão %'"
+                  "Value": "'Taxa Cancelamento %'"
                 }
               }
             },

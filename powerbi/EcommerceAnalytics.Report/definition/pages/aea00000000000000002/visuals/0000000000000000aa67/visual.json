@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Descontos Itens"
+                  "Property": "Taxa Desconto Concluídos %"
                 }
               },
-              "queryRef": "Medidas.Descontos Itens",
-              "nativeQueryRef": "Descontos Itens",
-              "displayName": "Descontos Itens"
+              "queryRef": "Medidas.Taxa Desconto Concluídos %",
+              "nativeQueryRef": "Taxa Desconto Concluídos %",
+              "displayName": "Taxa Desconto Concluídos %"
             }
           ]
         }
@@ -82,7 +82,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Descontos Itens'"
+                  "Value": "'Taxa Desconto Concluídos %'"
                 }
               }
             },
