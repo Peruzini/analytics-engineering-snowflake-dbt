@@ -38,3 +38,11 @@ Leia [modelo e linhagem](model-lineage.md).
 ## Verificação
 
 CI offline executa testes Python sobre os datasets, valida YAML, modelos existentes e `dbt parse`. Os testes genéricos dbt (`unique`, `not_null`, `relationships`, `accepted_values`) ficam declarados para execução futura em Snowflake. A execução real de `dbt seed/run/test` e a conciliação SQL serão validadas separadamente no MVP-03.
+
+## Implementação MVP-03
+
+- `fct_orders` usa `materialized='incremental'` e `incremental_strategy='merge'`, com `unique_key='order_id'`. Comparação NULL-safe identifica novas linhas ou mudanças em todos os 15 campos; exclusões físicas não são propagadas.
+- `snap_customers` usa estratégia `check` em `email` e `region`, preservando versões históricas a cada execução com mudanças de dados.
+- Cinco testes SQL em `tests/dbt/` retornam linhas de divergência; somente serão validados de verdade depois de executar `dbt test` no Snowflake.
+
+[Protocolo operacional](mvp03-operations.md).

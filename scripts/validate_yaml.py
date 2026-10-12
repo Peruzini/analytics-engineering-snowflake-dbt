@@ -1,4 +1,4 @@
-"""Offline YAML syntax validation (no warehouse access)."""
+"""Offline YAML syntax validation. No warehouse access."""
 from pathlib import Path
 import yaml
 
@@ -9,6 +9,9 @@ paths = [
     Path("models/staging/_models.yml"),
     Path("models/intermediate/_models.yml"),
     Path("models/marts/_models.yml"),
+    Path("snapshots/customers.yml"),
+    Path(".github/workflows/ci.yml"),
+    Path(".github/workflows/snowflake-integration.yml"),
 ]
 for path in paths:
     with path.open(encoding="utf-8") as handle:

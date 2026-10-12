@@ -4,13 +4,13 @@
 
 **Portfólio técnico de Analytics Engineering:** dados sintéticos de e-commerce, transformações SQL com dbt, contratos, testes de qualidade e CI. O projeto foi desenhado para execução no Snowflake, com verificações offline reproduzíveis.
 
-> **Status: MVP-02 — staging, intermediate e marts publicados.** A CI offline valida código, modelo e dados sintéticos; o projeto ainda não foi executado contra um Snowflake real. Incremental, snapshots e dashboard ficam para etapas seguintes.
+> **Status: MVP-03 — incremental, snapshot, testes SQL de reconciliação e integração manual configurados.** CI offline não equivale à execução dos modelos no Snowflake. O workflow real depende de secrets e de disparo manual explícito.
 
 ## Problema de negócio
 
 Uma operação de e-commerce recebe dados de clientes, produtos, campanhas, pedidos, itens e pagamentos. Antes de calcular receita, margem, ticket médio, recompra ou aquisição, é necessário padronizar chaves, estados, datas e valores e garantir integridade referencial.
 
-O MVP-01 entregou a camada staging. O **MVP-02 acrescenta 2 modelos intermediate e 7 modelos de analytics**, incluindo dimensões, fatos e marts, com receita reconhecida apenas em pedidos concluídos.
+O MVP-01 entregou staging; o **MVP-02** acrescentou 2 modelos intermediate e 7 modelos analíticos. O **MVP-03** acrescenta controle incremental, histórico de clientes, testes SQL e execução Snowflake manual, preservando a regra de receita de pedidos concluídos.
 
 ## Arquitetura
 
@@ -30,19 +30,25 @@ dbt staging -> Snowflake target_schema_staging
 7 dimensions, facts and marts (target_schema_analytics)
              |
              v
-MVP-03: SQL reconciliation, incremental and snapshots
+MVP-03: MERGE incremental + customer snapshot + SQL reconciliation
+             |
+             v
+Optional manual Snowflake integration (no automatic run)
+             |
+             v
 MVP-04: Power BI on analytics marts
 ```
 
 O padrão `target_schema_<custom_schema>` é o comportamento padrão de schema customizado do dbt. Não há necessidade de credenciais para gerar dados sintéticos nem para validar sintaxe localmente.
 
-## Evidências dos MVPs 01–02
+## Evidências dos MVPs 01–03
 
 - **6 fontes CSV sintéticas** e gerador determinístico com Python (stdlib).
 - **6 modelos staging, 2 intermediate e 7 modelos analíticos**, usando `source()`, `ref()`, contratos, grãos explícitos e status preservados.
-- **Testes dbt** para unicidade, obrigatoriedade, integridade referencial e domínios.
+- **Testes dbt** para unicidade, obrigatoriedade, integridade referencial e domínios, além de **5 testes SQL singulares** para conciliação de métricas.
 - **Testes Python** para integridade dos CSVs, reprodutibilidade e reconciliação matemática offline de receita entre dia, cliente e canal.
-- **CI** com validação Python, YAML e `dbt parse`, sem acesso a dados privados nem conexão real ao Snowflake.
+- **MVP-03:** MERGE incremental de `fct_orders`, snapshot SCD2 de clientes e workflow manual `dbt seed/run/snapshot/test` (não executado automaticamente).
+- **CI offline** com validação Python, YAML e `dbt parse`, sem acesso ao Snowflake.
 - Documentação de arquitetura, dicionário de dados e decisões técnicas.
 
 ## Como executar
@@ -82,7 +88,7 @@ dbt test --profiles-dir .
 dbt docs generate --profiles-dir .
 ```
 
-Esses comandos **não foram executados no Snowflake como parte deste MVP**. `profiles.yml` é ignorado no Git e não deve ser commitado.
+A execução SQL real depende de conta e credenciais configuradas. O workflow manual também inclui `dbt snapshot`. **Não afirmar validação Snowflake sem uma run de integração verde.** `profiles.yml` não deve ser commitado. Veja [como configurar e validar o MVP-03](docs/mvp03-operations.md).
 
 ## Estrutura
 
@@ -90,16 +96,19 @@ Esses comandos **não foram executados no Snowflake como parte deste MVP**. `pro
 - `scripts/` — geração determinística;
 - `models/staging/` — 6 modelos staging;
 - `models/intermediate/` — agregações financeiras por pedido e regra de receita;
-- `models/marts/` — 2 dimensões, 2 fatos e 3 marts analíticos;
+- `models/marts/` — 2 dimensões, 2 fatos e 3 marts analíticos, com `fct_orders` incremental;
 - `models/staging/_sources.yml` — definições das seis fontes;
 - `models/staging/_models.yml` — testes e documentação;
+- `snapshots/` — snapshot SCD2 de clientes;
+- `tests/dbt/` — cinco testes de reconciliação SQL;
 - `tests/` — testes Python de qualidade e reprodução;
 - `docs/` — arquitetura, contratos, linhagem e decisões;
-- `.github/workflows/ci.yml` — validação offline.
+- `.github/workflows/ci.yml` — validação offline;
+- `.github/workflows/snowflake-integration.yml` — integração Snowflake exclusivamente manual.
 
 ## Próximos marcos
 
-1. **MVP-03:** reconciliação SQL no warehouse, snapshots, incremental e execução Snowflake.
+1. **Validação externa do MVP-03:** configurar acesso Snowflake e executar o workflow manual, registrando evidências de `dbt seed/run/snapshot/test`.
 2. **MVP-04:** Power BI consumindo os marts.
 
 Importante: o orçamento de campanhas é **planejado**, não gasto real. Não há base suficiente para calcular ROAS, CAC ou margem.

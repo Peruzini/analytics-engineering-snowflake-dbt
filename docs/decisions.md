@@ -21,5 +21,14 @@ Neste case, somente pedidos `completed` geram receita reconhecida. Pedidos `refu
 ## ADR-007 — Contratos de grão
 Itens e pagamentos são agregados separadamente antes do join por pedido. Fatos preservam grãos distintos de pedidos e itens para não multiplicar valores.
 
+## ADR-008 — Incremental por comparação de alterações
+Sem campo confiável de atualização nos dados originais, `fct_orders` compara toda a pequena origem a cada run e envia ao MERGE apenas os pedidos novos ou modificados. Esse desenho evita perder mudanças antigas, mas não realiza CDC nem captura exclusões físicas; é uma escolha consciente para o portfólio, não o padrão ideal para grandes volumes.
+
+## ADR-009 — Snapshot por comparação de atributos
+O snapshot de clientes usa check strategy em e-mail e região (não `created_at`, que representa cadastro). A execução do snapshot é distinta do modelo corrente de clientes.
+
+## ADR-010 — Integração isolada e manual
+Nenhuma conexão Snowflake é acionada por push. O workflow de integração exige confirmação `yes`, secrets configurados e role restrita. CI comum permanece offline.
+
 ## Backlog
-MVP-03: testes de conciliação SQL, snapshots, incremental e integração Snowflake. MVP-04: Power BI.
+Executar e evidenciar teste real no Snowflake quando houver conta configurada. MVP-04: Power BI.

@@ -1,4 +1,4 @@
-# Arquitetura — MVP-02
+# Arquitetura — MVP-03
 
 ## Pipeline
 
@@ -15,6 +15,10 @@ O projeto usa seis CSVs sintéticos gerados de forma determinística e versionad
             |
             v
        2 dimensions + 2 facts + 3 aggregated marts
+            |
+            +--> fct_orders incremental MERGE
+            +--> snap_customers (SCD2)
+            +--> 5 SQL reconciliation tests
             |
             v
        Power BI (MVP-04)

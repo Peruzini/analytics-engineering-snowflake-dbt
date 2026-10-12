@@ -1,0 +1,13 @@
+version: 2
+
+# dbt 1.9+ YAML snapshot: track mutable customer attributes (SCD Type 2).
+snapshots:
+  - name: snap_customers
+    relation: ref('stg_customers')
+    description: "Historiza mudanças de email e região com strategy check."
+    config:
+      schema: snapshots
+      unique_key: customer_id
+      strategy: check
+      check_cols: [email, region]
+      hard_deletes: ignore
