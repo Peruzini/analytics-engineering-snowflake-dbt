@@ -859,7 +859,7 @@
           },
           {
             "name": "Receita Mês Anterior",
-            "expression": "VAR DataAtual = MIN(DimData[Data]) VAR InicioAnterior = EOMONTH(DataAtual, -2) + 1 VAR FimAnterior = EOMONTH(DataAtual, -1) RETURN IF(HASONEVALUE(DimData[AnoMes]), CALCULATE([Receita Reconhecida], REMOVEFILTERS(DimData), DATESBETWEEN(DimData[Data], InicioAnterior, FimAnterior)))",
+            "expression": "VAR DataAtual = MIN(DimData[Data]) VAR InicioAnterior = EOMONTH(DataAtual, -2) + 1 VAR FimAnterior = EOMONTH(DataAtual, -1) RETURN IF(HASONEVALUE(DimData[AnoMes]), CALCULATE([Receita Reconhecida], FILTER(ALL(DimData), DimData[Data] >= InicioAnterior && DimData[Data] <= FimAnterior)))",
             "formatString": "R$ #,0.00"
           },
           {
@@ -869,7 +869,7 @@
           },
           {
             "name": "Receita Média Móvel 7d",
-            "expression": "VAR Fim = MAX(DimData[Data]) VAR Primeira = MINX(ALL(DimData[Data]), DimData[Data]) VAR Inicio = MAX(Primeira, Fim - 6) RETURN DIVIDE(CALCULATE([Receita Reconhecida], REMOVEFILTERS(DimData), DATESBETWEEN(DimData[Data], Inicio, Fim)), Fim - Inicio + 1)",
+            "expression": "VAR Fim = MAX(DimData[Data]) VAR Primeira = MINX(ALL(DimData[Data]), DimData[Data]) VAR Inicio = MAX(Primeira, Fim - 6) RETURN DIVIDE(CALCULATE([Receita Reconhecida], FILTER(ALL(DimData), DimData[Data] >= Inicio && DimData[Data] <= Fim)), Fim - Inicio + 1)",
             "formatString": "R$ #,0.00"
           },
           {
@@ -911,6 +911,11 @@
             "name": "Participação Receita Produto %",
             "expression": "DIVIDE([Receita Itens], CALCULATE([Receita Itens], ALLSELECTED(DimProdutos)))",
             "formatString": "0.0%"
+          },
+          {
+            "name": "Receita por Dia",
+            "expression": "DIVIDE([Receita Reconhecida], DISTINCTCOUNT(DimData[Data]))",
+            "formatString": "R$ #,0.00"
           }
         ]
       }

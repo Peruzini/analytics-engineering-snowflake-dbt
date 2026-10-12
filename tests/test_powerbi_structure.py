@@ -41,7 +41,7 @@ class TestPBIP(unittest.TestCase):
         model = read(MODEL / "model.bim")["model"]
         tables = {t["name"]: {c["name"] for c in t["columns"]} |
                   {m["name"] for m in t.get("measures", [])} for t in model["tables"]}
-        self.assertEqual(len(tables["Medidas"]), 38)
+        self.assertEqual(len(tables["Medidas"]), 39)
         for path in (REPORT / "definition/pages").glob("*/visuals/*/visual.json"):
             visual = read(path)
             self.assertEqual(visual["name"], path.parent.name)

@@ -53,6 +53,21 @@
                       "Entity": "Medidas"
                     }
                   },
+                  "Property": "Receita por Dia"
+                }
+              },
+              "queryRef": "Medidas.Receita por Dia",
+              "nativeQueryRef": "Receita por Dia",
+              "displayName": "Receita por Dia"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
                   "Property": "Receita Mês Anterior"
                 }
               },

@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "aea00000000000000004",
-  "displayName": "Canais e Aquisição",
+  "displayName": "Canais e Pedidos",
   "displayOption": "FitToPage",
   "height": 960,
   "width": 1280,
