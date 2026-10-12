@@ -1,4 +1,4 @@
-name: Snowflake Integration (Manual)
+name: Snowflake Integration (Manual Self-Hosted)
 
 on:
   workflow_dispatch:
@@ -20,9 +20,8 @@ concurrency:
 jobs:
   integration:
     if: ${{ inputs.confirm == 'yes' }}
-    name: dbt seed/run/snapshot/test (key pair)
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
+    runs-on: [self-hosted, Windows, X64, ae-local]
+    timeout-minutes: 40
     env:
       DBT_SNOWFLAKE_ACCOUNT: ${{ secrets.DBT_SNOWFLAKE_ACCOUNT }}
       DBT_SNOWFLAKE_USER: ${{ secrets.DBT_SNOWFLAKE_USER }}
@@ -33,55 +32,45 @@ jobs:
       DBT_SNOWFLAKE_WAREHOUSE: ${{ secrets.DBT_SNOWFLAKE_WAREHOUSE }}
       DBT_SNOWFLAKE_SCHEMA: ${{ secrets.DBT_SNOWFLAKE_SCHEMA }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          cache: pip
-
-      - name: Validate dedicated Snowflake configuration
-        shell: bash
+      - uses: actions/checkout@v4
+      - name: Check configuration without Snowflake access
+        shell: powershell
         run: |
-          for key in DBT_SNOWFLAKE_ACCOUNT DBT_SNOWFLAKE_USER DBT_SNOWFLAKE_PRIVATE_KEY DBT_SNOWFLAKE_PRIVATE_KEY_PASSPHRASE DBT_SNOWFLAKE_ROLE DBT_SNOWFLAKE_DATABASE DBT_SNOWFLAKE_WAREHOUSE DBT_SNOWFLAKE_SCHEMA; do
-            if [ -z "${!key}" ]; then
-              echo "::error::Configure repository secret $key before dispatch."
-              exit 1
-            fi
-          done
-          if [ "$DBT_SNOWFLAKE_SCHEMA" = "PUBLIC" ]; then
-            echo "::error::Use a dedicated schema, not PUBLIC."
-            exit 1
-          fi
-
-      - name: Prepare private key file (encrypted PKCS8)
-        shell: bash
+          foreach ($name in @('DBT_SNOWFLAKE_ACCOUNT','DBT_SNOWFLAKE_USER','DBT_SNOWFLAKE_PRIVATE_KEY',
+                              'DBT_SNOWFLAKE_PRIVATE_KEY_PASSPHRASE','DBT_SNOWFLAKE_ROLE',
+                              'DBT_SNOWFLAKE_DATABASE','DBT_SNOWFLAKE_WAREHOUSE','DBT_SNOWFLAKE_SCHEMA')) {
+            if (-not [Environment]::GetEnvironmentVariable($name)) { throw "Missing secret: $name" }
+          }
+          if ($env:DBT_SNOWFLAKE_SCHEMA -eq 'PUBLIC') { throw 'Use dedicated schema.' }
+      - name: Prepare temporary private key
+        shell: powershell
         run: |
-          umask 077
-          key_file="${RUNNER_TEMP}/dbt_snowflake_key.p8"
-          printf '%s\n' "$DBT_SNOWFLAKE_PRIVATE_KEY" > "$key_file"
-          chmod 600 "$key_file"
-          echo "DBT_SNOWFLAKE_PRIVATE_KEY_PATH=$key_file" >> "$GITHUB_ENV"
-
-      - name: Install dbt
-        run: python -m pip install -r requirements.txt
-
-      - name: Prepare ignored dbt profile
-        run: cp profiles.yml.example profiles.yml
-
+          $keyFile = Join-Path $env:RUNNER_TEMP 'dbt_snowflake_key.p8'
+          [System.IO.File]::WriteAllText($keyFile,
+            ($env:DBT_SNOWFLAKE_PRIVATE_KEY + [Environment]::NewLine),
+            (New-Object System.Text.UTF8Encoding($false)))
+          "DBT_SNOWFLAKE_PRIVATE_KEY_PATH=$keyFile" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+      - name: Prepare ignored profile
+        shell: powershell
+        run: Copy-Item profiles.yml.example profiles.yml
       - name: Check Snowflake connection
+        shell: powershell
         run: dbt debug --profiles-dir .
-
-      - name: Load synthetic seeds
+      - name: Load data
+        shell: powershell
         run: dbt seed --profiles-dir .
-
-      - name: Build staging, intermediate and marts
+      - name: Build models
+        shell: powershell
         run: dbt run --profiles-dir .
-
-      - name: Snapshot mutable customers
+      - name: Snapshot
+        shell: powershell
         run: dbt snapshot --profiles-dir .
-
-      - name: Run generic and SQL reconciliation tests
+      - name: Test
+        shell: powershell
         run: dbt test --profiles-dir .
+      - name: Remove key and ignored profile
+        if: always()
+        shell: powershell
+        run: |
+          Remove-Item (Join-Path $env:RUNNER_TEMP 'dbt_snowflake_key.p8') -Force -ErrorAction SilentlyContinue
+          Remove-Item profiles.yml -Force -ErrorAction SilentlyContinue

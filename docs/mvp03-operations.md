@@ -2,11 +2,11 @@
 
 ## Status
 
-CI offline verde: a instalação e o parse do projeto são verificados sem conexão ao Snowflake. O workflow de integração **não foi executado** com credenciais reais.
+Transição de execução local versionada em 12/10/2026. O workflow de integração **não foi executado** com credenciais reais. O usuário de serviço, chave pública e oito secrets foram configurados pelo responsável; a execução no Windows ainda aguarda validação.
 
 ## Autenticação sem senha do Google
 
-O GitHub Actions usa um **usuário Snowflake de serviço** (`TYPE = SERVICE`) com chave privada criptografada PKCS8. Seu login Google/SSO permanece exclusivo para uso pessoal. Não use senha do Google em Secrets.
+A integração manual self-hosted usa um **usuário Snowflake de serviço** (`TYPE = SERVICE`) com chave privada criptografada PKCS8. Seu login Google/SSO permanece exclusivo para uso pessoal. Não use senha do Google em Secrets.
 
 ### Preparar usuário de serviço
 
@@ -49,13 +49,13 @@ No Snowflake, `RSA_PUBLIC_KEY` recebe apenas o texto base64 da chave pública, e
 
 **Nunca** commitar o arquivo `.p8`, colar chave privada ou passphrase no chat, nem publicar logs com seus conteúdos.
 
-## Execução
+## Execução local antes da integração
 
-1. Concluir usuário de serviço, role e os **oito** Secrets.
-2. Abrir `Actions > Snowflake Integration (Manual) > Run workflow`.
-3. Selecionar `confirm=yes`; isso pode consumir créditos Snowflake.
-4. Verificar `dbt debug`, `dbt seed`, `dbt run`, `dbt snapshot` e `dbt test`.
-5. Guardar link/commit da run e evidências. Uma CI offline verde não substitui essa integração.
+Executar `python scripts/local_ci.py --full` no PC; valida modelos com DuckDB, não consulta Snowflake. Ver [política local](LOCAL_EXECUTION_POLICY.md) e [setup Windows](LOCAL_SETUP_WINDOWS.md).
+
+## Integração excepcional no Snowflake
+
+Após autorização explícita, registrar runner Windows `ae-local` neste repositório e abrir `Actions > Snowflake Integration (Manual Self-Hosted) > Run workflow` com `confirm=yes`. Mesmo com execução no PC, Snowflake consome créditos. Confirmar `dbt debug/seed/run/snapshot/test` e guardar evidência; não declarar PASS antes.
 
 ## Validações funcionais pendentes
 

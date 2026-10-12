@@ -11,3 +11,8 @@ target/
 dbt_packages/
 logs/
 user.yml
+.local-evidence/
+*.p8
+*.key
+*.duckdb
+snowflake-keys/

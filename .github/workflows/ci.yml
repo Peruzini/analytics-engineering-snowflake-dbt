@@ -1,50 +1,22 @@
-name: Analytics Engineering Offline CI
+name: Analytics Engineering Local CI (Manual)
 
 on:
-  push:
-    branches: [main]
-  pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: ae-local-ci
+  cancel-in-progress: false
+
 jobs:
   quality:
-    name: Python checks, YAML and dbt parse
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
+    name: Offline dbt and DuckDB on PC
+    runs-on: [self-hosted, Windows, X64, ae-local]
+    timeout-minutes: 30
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Python 3.11
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-          cache: pip
-
-      - name: Verify deterministic seed files
-        run: python scripts/generate_data.py --output-dir seeds --check
-
-      - name: Test synthetic data and marts business rules
-        run: python -m unittest discover -s tests -v
-
-      - name: Install dbt Snowflake adapter and YAML parser
-        run: python -m pip install -r requirements.txt
-
-      - name: Validate YAML
-        run: python scripts/validate_yaml.py
-
-      - name: Parse dbt project without warehouse connection
-        env:
-          DBT_SNOWFLAKE_ACCOUNT: example-account
-          DBT_SNOWFLAKE_USER: ci-placeholder
-          DBT_SNOWFLAKE_PRIVATE_KEY_PATH: /tmp/dbt-ci-placeholder.p8
-          DBT_SNOWFLAKE_PRIVATE_KEY_PASSPHRASE: ci-placeholder
-          DBT_SNOWFLAKE_ROLE: TRANSFORMER
-          DBT_SNOWFLAKE_DATABASE: PORTFOLIO_DB
-          DBT_SNOWFLAKE_WAREHOUSE: COMPUTE_WH
-          DBT_SNOWFLAKE_SCHEMA: DBT_CI
-        run: |
-          cp profiles.yml.example profiles.yml
-          dbt parse --profiles-dir . --no-partial-parse
+      - uses: actions/checkout@v4
+      - name: Run installed local gates
+        shell: powershell
+        run: python scripts/local_ci.py --full

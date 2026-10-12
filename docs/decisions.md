@@ -6,7 +6,7 @@ Fixtures determinísticas em Python puro, sem segredos, terceiros ou dados reais
 ## ADR-002 — dbt + Snowflake em camadas
 Schemas no formato `<target.schema>_<custom_schema>`, preservando isolamento por ambiente.
 
-## ADR-003 — CI offline primeiro
+## ADR-003 — CI offline primeiro (histórico; substituído pela ADR-011)
 GitHub Actions valida testes Python, YAML e parse dbt sem se conectar ao warehouse.
 
 ## ADR-004 — Preservação dos dados de origem
@@ -32,3 +32,9 @@ Nenhuma conexão Snowflake é acionada por push. O workflow de integração exig
 
 ## Backlog
 Executar e evidenciar teste real no Snowflake quando houver conta configurada. MVP-04: Power BI.
+
+## ADR-011 — Local-first, sem Actions automáticas (12/10/2026)
+Gates no PC, workflows apenas manuais self-hosted, sem uso de Actions Artifact. Evidência JSON local, publicação revisada em Git. [Política](LOCAL_EXECUTION_POLICY.md).
+
+## ADR-012 — Teste SQL real em DuckDB
+Para validar dados/modelos localmente sem Snowflake, usar TRY_CAST compatível nos staging e incremental delete+insert no DuckDB, preservando merge no Snowflake. DuckDB PASS não substitui integração Snowflake.
