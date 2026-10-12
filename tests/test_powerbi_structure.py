@@ -55,6 +55,23 @@ class TestPBIP(unittest.TestCase):
                 self.assertIn("raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/", expr)
                 self.assertIn("/powerbi/data/", expr)
 
+    def test_dax_measure_dependencies(self):
+        import re
+        model = read(MODEL / "model.bim")["model"]
+        tables = {t["name"]: {c["name"] for c in t["columns"]}
+                  for t in model["tables"]}
+        measure_names = {m["name"] for t in model["tables"]
+                         for m in t.get("measures", [])}
+        for table in model["tables"]:
+            for measure in table.get("measures", []):
+                dax = measure["expression"]
+                for table_name, field_name in re.findall(
+                        r"([A-Za-zÀ-ÿ][\wÀ-ÿ]*)\[([^\]]+)\]", dax):
+                    self.assertIn(field_name, tables[table_name],
+                                  f"{measure['name']}: {table_name}[{field_name}]")
+                for ref in re.findall(r"(?<![A-Za-z0-9_])\[([^\]]+)\]", dax):
+                    self.assertIn(ref, measure_names, f"{measure['name']}: [{ref}]")
+
     def test_all_pbir_files_are_json(self):
         for path in REPORT.rglob("*.json"):
             with self.subTest(path=path):

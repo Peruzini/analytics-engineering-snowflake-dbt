@@ -90,6 +90,8 @@ O projeto editável está em [powerbi/EcommerceAnalytics.pbip](powerbi/Ecommerce
 
 Os relatórios leem os CSVs públicos do próprio repositório por Power Query M; não precisam do Snowflake. A validação real de paridade `python scripts/export_powerbi.py --check` e o round-trip no Desktop ainda são pendentes.
 
+Auditoria de referências e dados: [AUDITORIA_MVP04_2026-10-12](docs/AUDITORIA_MVP04_2026-10-12.md).
+
 Detalhes: [MVP04_POWERBI](docs/MVP04_POWERBI.md) · [Catálogo DAX](powerbi/dax/CATALOGO.md) · [Projeto PBIP](powerbi/README.md).
 
 ## Próximos marcos
