@@ -1,39 +1,47 @@
-# Arquitetura — MVP-01
+# Arquitetura — MVP-02
 
-## Entrada e saída
+## Pipeline
 
-O projeto usa exclusivamente seis datasets sintéticos. São carregados como seeds do dbt, no schema padrão `<target.schema>_raw`. As seis views `stg_*` são publicadas em `<target.schema>_staging`.
-
-O naming padrão do dbt é intencional, pois preserva isolamento entre ambientes sem sobrescrever tabelas de outros usuários.
+O projeto usa seis CSVs sintéticos gerados de forma determinística e versionados.
 
 ```text
-raw_customers  -> stg_customers
-raw_products   -> stg_products
-raw_campaigns  -> stg_campaigns
-raw_orders     -> stg_orders
-raw_order_items-> stg_order_items
-raw_payments   -> stg_payments
+6 CSVs -> dbt seed (RAW)
+            |
+            v
+       6 staging views
+            |
+            v
+       2 intermediate views
+            |
+            v
+       2 dimensions + 2 facts + 3 aggregated marts
+            |
+            v
+       Power BI (MVP-04)
 ```
 
-## Grão e regras
+## Esquemas por ambiente
 
-- Clientes: uma linha por `customer_id`.
-- Produtos: uma linha por `product_id`.
-- Campanhas: uma linha por `campaign_id`.
-- Pedidos: uma linha por `order_id`, inclusive cancelados/pendentes/reembolsados.
-- Itens: uma linha por `order_item_id` e relacionamento N:1 com pedidos e produtos.
-- Pagamentos: uma linha por `payment_id`. Apenas pedidos completed/refunded possuem pagamento na amostra.
+O dbt usa o padrão `<target.schema>_<custom_schema>`; isso separa o ambiente de cada usuário.
 
-O valor de pagamento reembolsado é um **montante de transação** e não receita reconhecida. A regra de receita será definida e validada nos marts, sem misturar cancelamento, estorno e reconhecimento.
+| Layer | Schema esperado se target.schema=DBT_DEV |
+| --- | --- |
+| Seeds | DBT_DEV_raw |
+| Staging | DBT_DEV_staging |
+| Intermediate | DBT_DEV_intermediate |
+| Marts | DBT_DEV_analytics |
 
-## Qualidade
+## Cuidados na modelagem
 
-A camada staging apenas padroniza nomenclatura, tipos e strings. Não faz deduplicação silenciosa nem remove pedidos por status. Contratos testam unicidade, não nulos, referências e domínios.
+- Todos os 36 pedidos sintéticos continuam em `fct_orders`, independentemente de status.
+- Os 72 itens sintéticos são preservados em `fct_order_items`.
+- Pagamentos são agregados antes de juntar aos pedidos; isso evita fanout.
+- A receita reconhecida só conta pedidos completed (regra didática documentada).
+- `mart_channel_performance` preserva pedidos sem campanha como `unattributed`.
+- `planned_budget_amount` não é gasto real de mídia.
 
-## Segurança e ambiente
+## Validação e limites
 
-Credenciais são recebidas por variáveis de ambiente. `profiles.yml` local não é versionado. O CI usa placeholders e `dbt parse` sem abrir conexão com Snowflake.
+`profiles.yml` local permanece ignorado. A GitHub Actions executa testes Python/YAML e `dbt parse`, sem acessar Snowflake. Não foram executados `dbt seed/run/test` no warehouse, tampouco incremental ou snapshot nesta etapa.
 
-## Etapas futuras
-
-MVP-02 implementará intermediate, fatos e dimensões; MVP-03 implementará testes de conciliação, snapshots, incremental e execução de integração real.
+Consulte [grãos e métricas](model-lineage.md) e [contratos](data-contracts.md).

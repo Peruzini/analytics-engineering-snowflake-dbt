@@ -1,4 +1,4 @@
-name: MVP-01 Offline CI
+name: Analytics Engineering Offline CI
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   quality:
-    name: Python, YAML and dbt parse
+    name: Python checks, YAML and dbt parse
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -26,7 +26,7 @@ jobs:
       - name: Verify deterministic seed files
         run: python scripts/generate_data.py --output-dir seeds --check
 
-      - name: Test CSV data quality
+      - name: Test synthetic data and marts business rules
         run: python -m unittest discover -s tests -v
 
       - name: Install dbt Snowflake adapter and YAML parser

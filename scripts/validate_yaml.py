@@ -7,6 +7,8 @@ paths = [
     Path("profiles.yml.example"),
     Path("models/staging/_sources.yml"),
     Path("models/staging/_models.yml"),
+    Path("models/intermediate/_models.yml"),
+    Path("models/marts/_models.yml"),
 ]
 for path in paths:
     with path.open(encoding="utf-8") as handle:

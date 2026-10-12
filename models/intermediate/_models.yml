@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: int_order_financials
+    description: "Grão: pedido com itens; totais e pagamentos agregados antes do join."
+    columns:
+      - name: order_id
+        data_tests: [not_null, unique]
+      - name: gross_item_amount
+        data_tests: [not_null]
+      - name: net_item_amount
+        data_tests: [not_null]
+      - name: item_count
+        data_tests: [not_null]
+
+  - name: int_customer_orders
+    description: "Grão: todos os pedidos; receita apenas de pedidos completed."
+    columns:
+      - name: order_id
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('stg_orders')
+              field: order_id
+      - name: customer_id
+        data_tests: [not_null]
+      - name: order_status
+        data_tests:
+          - accepted_values:
+              values: ['completed', 'cancelled', 'pending', 'refunded']
+      - name: net_item_amount
+        description: "Nulo revela pedido sem itens; erro de qualidade."
+        data_tests: [not_null]
+      - name: recognized_revenue
+        data_tests: [not_null]

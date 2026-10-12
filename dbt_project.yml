@@ -17,6 +17,12 @@ models:
     staging:
       +schema: staging
       +materialized: view
+    intermediate:
+      +schema: intermediate
+      +materialized: view
+    marts:
+      +schema: analytics
+      +materialized: table
 
 seeds:
   analytics_engineering_snowflake_dbt:

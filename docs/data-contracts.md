@@ -1,34 +1,40 @@
-# Contratos de Dados — MVP-01
+# Contratos de Dados — MVP-02
 
-| Source | Grão | Chave | Principal regra |
-| --- | --- | --- | --- |
-| raw_customers | cliente | customer_id | email único, cadastro com data |
-| raw_products | produto | product_id | preço de lista não nulo |
-| raw_campaigns | campanha | campaign_id | canal conhecido |
-| raw_orders | pedido | order_id | cliente existente, campanha opcional, status conhecido |
-| raw_order_items | item de pedido | order_item_id | pedido e produto existentes, quantidade e valores não nulos |
-| raw_payments | pagamento | payment_id | pedido existente e método/status conhecido |
+## Sources e staging
 
-## Estados de pedido
+| Source | Grão | Chave |
+| --- | --- | --- |
+| raw_customers | cliente | customer_id |
+| raw_products | produto | product_id |
+| raw_campaigns | campanha | campaign_id |
+| raw_orders | pedido | order_id |
+| raw_order_items | item de pedido | order_item_id |
+| raw_payments | pagamento | payment_id |
 
-- `completed`: pedido concluído, com pagamento `paid` na amostra;
-- `refunded`: pedido reembolsado, com evento `refunded`;
-- `pending`: pedido pendente, sem pagamento;
-- `cancelled`: pedido cancelado, sem pagamento.
+## Contratos de marts
 
-## Regras financeiras da amostra
+| Modelo | Grão | Uso |
+| --- | --- | --- |
+| dim_customers | cliente | segmentação por região |
+| dim_products | produto | categoria, catálogo |
+| fct_orders | pedido | receitas, descontos, status e quantidade de pedidos |
+| fct_order_items | item | análise por produto |
+| mart_daily_sales | dia com pedidos | evolução e ticket médio |
+| mart_customer_ltv | cliente | histórico de pedidos e LTV observada |
+| mart_channel_performance | canal incluindo unattributed | atribuição e orçamento planejado |
 
-Valor bruto de item: `quantity * unit_price`.
+## Regras financeiras
 
-Valor líquido de item: `quantity * unit_price - discount_amount`.
+- `completed`: somente este status contribui para `recognized_revenue`.
+- `refunded`: receita zero neste case e valor separado em `refunded_amount`.
+- `pending` / `cancelled`: receita zero e status preservado.
+- `net_item_amount` não equivale a receita, pois abrange todos os status.
+- `planned_budget_amount` não equivale a despesa realizada.
+- `lifetime_recognized_revenue` é receita reconhecida acumulada, não LTV predita.
+- A regra é uma simplificação didática, não política contábil universal.
 
-Valor do pagamento sintético: soma dos valores líquidos dos itens do pedido.
+Leia [modelo e linhagem](model-lineage.md).
 
-**Importante:** valor transacionado não equivale automaticamente a receita contábil. Os marts deverão documentar tratamento de pedidos reembolsados/cancelados e conciliar as duas camadas.
+## Verificação
 
-## Testes
-
-- dbt: `not_null`, `unique`, `relationships`, `accepted_values`;
-- Python: comparação byte a byte dos CSVs, chaves de negócio, referências e reconciliação do valor do pagamento.
-
-A execução de testes dbt no warehouse requer Snowflake configurado. O CI do MVP-01 só valida parse e testes Python.
+CI offline executa testes Python sobre os datasets, valida YAML, modelos existentes e `dbt parse`. Os testes genéricos dbt (`unique`, `not_null`, `relationships`, `accepted_values`) ficam declarados para execução futura em Snowflake. A execução real de `dbt seed/run/test` e a conciliação SQL serão validadas separadamente no MVP-03.

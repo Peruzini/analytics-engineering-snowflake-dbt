@@ -1,31 +1,25 @@
 # Decisões Técnicas
 
 ## ADR-001 — Dados sintéticos versionados
-
-**Decisão:** utilizar fixtures determinísticas geradas apenas com a biblioteca padrão do Python.
-
-**Motivo:** recrutadores e colaboradores podem reproduzir os mesmos dados sem acesso a empresas, APIs ou credenciais.
+Fixtures determinísticas em Python puro, sem segredos, terceiros ou dados reais.
 
 ## ADR-002 — dbt + Snowflake em camadas
-
-**Decisão:** carregar seeds em `<target.schema>_raw` e modelos em `<target.schema>_staging` pelo comportamento padrão de schema do dbt.
-
-**Motivo:** manter isolamento de ambientes e evitar macros de override prematuras.
+Schemas no formato `<target.schema>_<custom_schema>`, preservando isolamento por ambiente.
 
 ## ADR-003 — CI offline primeiro
+GitHub Actions valida testes Python, YAML e parse dbt sem se conectar ao warehouse.
 
-**Decisão:** GitHub Actions verifica CSVs, testes Python, sintaxe YAML e `dbt parse` com placeholders.
+## ADR-004 — Preservação dos dados de origem
+Staging não filtra status e não executa deduplicação silenciosa. Violações de contrato são descobertas por testes.
 
-**Motivo:** CI não deve exigir conta Snowflake nem consumir créditos para verificações sintáticas. Testes de integração serão adicionados separadamente.
+## ADR-005 — Receita por status
+Neste case, somente pedidos `completed` geram receita reconhecida. Pedidos `refunded` geram receita zero e valor de reembolso separado; `pending` e `cancelled` preservados. É uma simplificação didática, não uma regra contábil universal.
 
-## ADR-004 — Preservar dados inválidos para observabilidade
+## ADR-006 — Budget planejado não é gasto
+`mart_channel_performance` agrega budget planejado. Não calcula ROAS/CAC sem custo efetivo ou dados de tráfego.
 
-**Decisão:** no MVP-01, staging não remove registros por status nem faz deduplicação oculta.
-
-**Motivo:** a camada de transformação deve ser auditável; dados fora de contrato devem falhar em testes, não desaparecer silenciosamente.
+## ADR-007 — Contratos de grão
+Itens e pagamentos são agregados separadamente antes do join por pedido. Fatos preservam grãos distintos de pedidos e itens para não multiplicar valores.
 
 ## Backlog
-
-- MVP-02: intermediate e dimensional marts;
-- MVP-03: conciliação, incremental, snapshot e Snowflake integrado;
-- MVP-04: dashboard Power BI.
+MVP-03: testes de conciliação SQL, snapshots, incremental e integração Snowflake. MVP-04: Power BI.
