@@ -1,50 +1,67 @@
-# MVP-03 — Execução e validação Snowflake
+# MVP-03 — Execução e validação no Snowflake
 
-## O que foi publicado
+## Status
 
-1. **fct_orders incremental:** estratégia MERGE com chave `order_id`. Para não perder atualizações antigas, compara todos os campos de interesse e envia apenas pedidos novos ou modificados. Sem `updated_at` confiável nos dados sintéticos, ainda lê toda a pequena origem. Não trata exclusões físicas de pedidos.
-2. **snap_customers:** snapshot dbt 1.9+ com `check` em `email` e `region`, grão `customer_id`. Executar novamente depois de modificar uma dessas colunas produz nova versão histórica.
-3. **5 testes SQL singulares:** receita por status/pagamento, conciliação diária, pedidos x itens, clientes x LTV e canais. dbt considera sucesso quando cada teste retorna zero linhas.
-4. **Workflow manual:** `.github/workflows/snowflake-integration.yml` — não roda em push/PR e exige escolha explícita `yes`.
+CI offline verde: a instalação e o parse do projeto são verificados sem conexão ao Snowflake. O workflow de integração **não foi executado** com credenciais reais.
 
-## Requisitos para integração
+## Autenticação sem senha do Google
 
-Criar uma conta Snowflake própria e um usuário/role com permissões mínimas para criar e atualizar objetos somente em database/schema dedicados ao portfólio.
+O GitHub Actions usa um **usuário Snowflake de serviço** (`TYPE = SERVICE`) com chave privada criptografada PKCS8. Seu login Google/SSO permanece exclusivo para uso pessoal. Não use senha do Google em Secrets.
 
-Em GitHub Settings > Secrets and variables > Actions > Repository secrets, definir:
+### Preparar usuário de serviço
 
-| Secret | Exemplo de escopo |
+1. Gerar em máquina local uma chave RSA privada **criptografada PKCS8** e uma chave pública. Guardar a chave privada em local seguro, fora do repositório.
+2. No Snowflake, usando uma role que possa criar usuários, criar `AE_PORTFOLIO_CI` com `TYPE = SERVICE` e `RSA_PUBLIC_KEY` igual ao conteúdo base64 da chave pública (sem cabeçalho/rodapé).
+3. Com `SECURITYADMIN`, executar `GRANT ROLE AE_PORTFOLIO_ROLE TO USER AE_PORTFOLIO_CI;`.
+4. Assegurar que `AE_PORTFOLIO_ROLE` possua permissões de USAGE e CREATE SCHEMA na database e USAGE no warehouse de testes.
+
+O usuário de serviço precisa permanecer limitado a ambientes de teste. Não fornecer papéis administrativos ao workflow.
+
+### Secrets obrigatórios do GitHub
+
+Configurar em `Settings > Secrets and variables > Actions` no repositório:
+
+| Secret | Conteúdo |
 | --- | --- |
-| DBT_SNOWFLAKE_ACCOUNT | Identificador da conta Snowflake |
-| DBT_SNOWFLAKE_USER | Usuário específico do portfólio |
-| DBT_SNOWFLAKE_PASSWORD | Senha do usuário (não commitar) |
-| DBT_SNOWFLAKE_ROLE | Role limitada |
-| DBT_SNOWFLAKE_DATABASE | Database sandbox |
-| DBT_SNOWFLAKE_WAREHOUSE | Warehouse pequeno, com auto-suspend |
-| DBT_SNOWFLAKE_SCHEMA | Schema dedicado; não usar PUBLIC |
+| `DBT_SNOWFLAKE_ACCOUNT` | Identificador organização-conta |
+| `DBT_SNOWFLAKE_USER` | `AE_PORTFOLIO_CI` (usuário de serviço) |
+| `DBT_SNOWFLAKE_PRIVATE_KEY` | Texto inteiro do arquivo privado criptografado `.p8`, incluindo BEGIN/END |
+| `DBT_SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` | Frase secreta usada para criptografar a chave |
+| `DBT_SNOWFLAKE_ROLE` | `AE_PORTFOLIO_ROLE` |
+| `DBT_SNOWFLAKE_DATABASE` | `AE_PORTFOLIO_DB` |
+| `DBT_SNOWFLAKE_WAREHOUSE` | `AE_PORTFOLIO_WH` |
+| `DBT_SNOWFLAKE_SCHEMA` | `AE_PORTFOLIO` |
 
-O dbt cria, por padrão, os schemas derivados `<SCHEMA>_raw`, `<SCHEMA>_staging`, `<SCHEMA>_intermediate`, `<SCHEMA>_analytics` e `<SCHEMA>_snapshots`. O papel precisa ter permissões para criá-los; não usar role de produção.
+Não cadastrar `DBT_SNOWFLAKE_PASSWORD`. O runner grava a chave privada em arquivo temporário com permissões `0600` e o dbt usa `private_key_path` + `private_key_passphrase`.
 
-## Como executar
+### Criar a chave no Windows (OpenSSL)
 
-1. Configurar secrets e acesso Snowflake; não passar credenciais por chat.
-2. Abrir Actions > **Snowflake Integration (Manual)** > Run workflow.
-3. Selecionar `confirm=yes`.
-4. Inspecionar `dbt debug`, `dbt seed`, `dbt run`, `dbt snapshot` e `dbt test`.
-5. Registrar SHA, run URL, status, quantidades e testes. Se falhar, **não** divulgar integração validada.
+No Git Bash ou PowerShell com OpenSSL instalado, na pasta **fora do repositório**:
 
-**Custos:** executar manualmente pode consumir créditos do Snowflake e minutos do GitHub Actions. Não há agendamento.
+```bash
+openssl genrsa 3072 | openssl pkcs8 -topk8 -v2 aes-256-cbc -out snowflake_ci_key.p8
+openssl pkey -in snowflake_ci_key.p8 -pubout -out snowflake_ci_key.pub
+```
 
-## Verificação do incremental
+A ferramenta solicitará uma passphrase para proteger a chave. Guarde-a em gerenciador de senhas.
 
-Após uma execução verde inicial, fazer nova run sem mudar seeds: nenhum registro deve mudar semanticamente, e não deve haver multiplicação de `order_id`. Um teste mais forte requer atualizar o status de um pedido em ambiente de demonstração, reexecutar seed e dbt run, e comprovar o merge; restaurar a fixture original e reexecutar depois. Não alterar dados ou disparar novas runs automaticamente.
+No Snowflake, `RSA_PUBLIC_KEY` recebe apenas o texto base64 da chave pública, excluindo `-----BEGIN PUBLIC KEY-----`, `-----END PUBLIC KEY-----` e quebras de linha.
 
-O `merge` compara dados existentes com a origem e ignora linhas idênticas; ele não propaga exclusões físicas. `dbt --full-refresh` é caminho manual para reconstrução quando necessário.
+**Nunca** commitar o arquivo `.p8`, colar chave privada ou passphrase no chat, nem publicar logs com seus conteúdos.
 
-## Verificação do snapshot
+## Execução
 
-A primeira run captura clientes correntes. Uma mudança posterior em `email` ou `region` seguida de `dbt snapshot` cria versão histórica, com `dbt_valid_from`/`dbt_valid_to`. O projeto não usa `created_at` como timestamp de modificação.
+1. Concluir usuário de serviço, role e os **oito** Secrets.
+2. Abrir `Actions > Snowflake Integration (Manual) > Run workflow`.
+3. Selecionar `confirm=yes`; isso pode consumir créditos Snowflake.
+4. Verificar `dbt debug`, `dbt seed`, `dbt run`, `dbt snapshot` e `dbt test`.
+5. Guardar link/commit da run e evidências. Uma CI offline verde não substitui essa integração.
 
-## Distinção importante
+## Validações funcionais pendentes
 
-A CI normal executa somente testes Python, validação YAML e `dbt parse`. Isso confirma configuração e dependências, **não** execução SQL real no Snowflake. O workflow manual somente pode ser considerado comprovado após uma run real verde.
+- Provar idempotência do MERGE e atualização de pedido alterado.
+- Provar histórico SCD2 após mudança simulada de email/região.
+- Confirmar todas as cinco reconciliações SQL e os testes genéricos.
+- Validar o isolamento de schema e registrar consumo aproximado.
+
+Consulte a documentação oficial: https://docs.snowflake.com/en/user-guide/key-pair-auth

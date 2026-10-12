@@ -39,7 +39,8 @@ jobs:
         env:
           DBT_SNOWFLAKE_ACCOUNT: example-account
           DBT_SNOWFLAKE_USER: ci-placeholder
-          DBT_SNOWFLAKE_PASSWORD: ci-placeholder
+          DBT_SNOWFLAKE_PRIVATE_KEY_PATH: /tmp/dbt-ci-placeholder.p8
+          DBT_SNOWFLAKE_PRIVATE_KEY_PASSPHRASE: ci-placeholder
           DBT_SNOWFLAKE_ROLE: TRANSFORMER
           DBT_SNOWFLAKE_DATABASE: PORTFOLIO_DB
           DBT_SNOWFLAKE_WAREHOUSE: COMPUTE_WH

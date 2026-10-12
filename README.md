@@ -4,7 +4,7 @@
 
 **Portfólio técnico de Analytics Engineering:** dados sintéticos de e-commerce, transformações SQL com dbt, contratos, testes de qualidade e CI. O projeto foi desenhado para execução no Snowflake, com verificações offline reproduzíveis.
 
-> **Status: MVP-03 — incremental, snapshot, testes SQL de reconciliação e integração manual configurados.** CI offline não equivale à execução dos modelos no Snowflake. O workflow real depende de secrets e de disparo manual explícito.
+> **Status: MVP-03 — incremental, snapshot, testes SQL de reconciliação e integração manual configurados.** CI offline não equivale à execução dos modelos no Snowflake. O workflow real usa autenticação por **chave privada**, com usuário de serviço, secrets e disparo manual explícito.
 
 ## Problema de negócio
 
@@ -68,7 +68,7 @@ python -m pip install -r requirements.txt
 
 ### 3. Parse do projeto sem conectar ao Snowflake
 
-O arquivo `profiles.yml.example` é apenas um modelo, sem segredos. Crie um `profiles.yml` local a partir dele e defina variáveis de ambiente (`DBT_SNOWFLAKE_ACCOUNT`, `DBT_SNOWFLAKE_USER`, `DBT_SNOWFLAKE_PASSWORD`). Para testar somente o parse, podem ser placeholders, pois não há execução de consultas:
+O arquivo `profiles.yml.example` é apenas um modelo, sem segredos. Crie um `profiles.yml` local a partir dele e defina variáveis de ambiente (`DBT_SNOWFLAKE_ACCOUNT`, `DBT_SNOWFLAKE_USER`, `DBT_SNOWFLAKE_PRIVATE_KEY_PATH`, `DBT_SNOWFLAKE_PRIVATE_KEY_PASSPHRASE`). Para testar somente o parse, podem ser placeholders, pois não há execução de consultas:
 
 ```bash
 cp profiles.yml.example profiles.yml
@@ -79,7 +79,7 @@ No CI, esse arquivo é criado no runner com valores fictícios. O workflow não 
 
 ### 4. Rodar de fato no Snowflake (opcional e com credenciais próprias)
 
-Configure o perfil Snowflake com conta, usuário, credencial, `warehouse`, `database`, `role` e `schema` válidos. Depois:
+Configure usuário Snowflake de serviço e autenticação por chave privada; o procedimento está em [MVP-03 — operações](docs/mvp03-operations.md). Use `warehouse`, `database`, `role` e `schema` dedicados. Depois:
 
 ```bash
 dbt seed --profiles-dir .
@@ -88,7 +88,7 @@ dbt test --profiles-dir .
 dbt docs generate --profiles-dir .
 ```
 
-A execução SQL real depende de conta e credenciais configuradas. O workflow manual também inclui `dbt snapshot`. **Não afirmar validação Snowflake sem uma run de integração verde.** `profiles.yml` não deve ser commitado. Veja [como configurar e validar o MVP-03](docs/mvp03-operations.md).
+A execução SQL real depende de conta Snowflake e chave privada configurada. O workflow manual também inclui `dbt snapshot`. **Não afirmar validação Snowflake sem uma run de integração verde.** `profiles.yml` não deve ser commitado. Veja [como configurar e validar o MVP-03](docs/mvp03-operations.md).
 
 ## Estrutura
 
