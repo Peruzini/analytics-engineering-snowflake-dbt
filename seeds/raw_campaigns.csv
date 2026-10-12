@@ -1,5 +1,13 @@
 campaign_id,channel,budget_amount
-M001,organic,1150.00
-M002,paid_search,1300.00
-M003,social,1450.00
-M004,email,1600.00
+M001,organic,925.00
+M002,paid_search,1050.00
+M003,social,1175.00
+M004,email,1300.00
+M005,organic,1425.00
+M006,paid_search,1550.00
+M007,social,1675.00
+M008,email,1800.00
+M009,organic,1925.00
+M010,paid_search,2050.00
+M011,social,2175.00
+M012,email,2300.00
