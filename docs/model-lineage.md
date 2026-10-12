@@ -39,4 +39,4 @@ Consulte a linhagem real no `dbt docs generate` quando houver ambiente Snowflake
 - Orçamento: budget **planejado** das campanhas. Não representa mídia paga. Não calcular ROAS ou CAC sem custos reais.
 - Margem não é calculada porque não existem custos de produto.
 
-**Limite:** testes Python comprovam regras sobre a fixture; `dbt parse` valida dependências SQL/Jinja, mas não executa queries Snowflake. Testes de conciliação SQL e execução de integração virão no MVP-03.
+**Evidência real:** o baseline Snowflake de 12/10/2026 executou modelos, snapshot e 88 testes PASS. O MVP-04 lê 7 saídas versionadas no Git (não consulta o warehouse). A equivalência byte a byte dessas exportações com dbt DuckDB ainda precisa ser auditada no PC; ver [plano MVP-04](MVP04_POWERBI.md).

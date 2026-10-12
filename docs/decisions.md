@@ -41,3 +41,6 @@ A [Run #38315794938](https://github.com/Peruzini/analytics-engineering-snowflake
 
 ## Backlog
 Validar localmente no PC o commit pós-migração (`LOCAL_FULL_PASS`), sem repetir a Run Snowflake por padrão. MVP-04: Power BI.
+
+## ADR-014 — Fleet-first para Power BI
+Construir o PBIP com modelo tabular, PBIR, DAX e dados primeiro em Git. O Desktop fica reservado para validação final. Fontes Power Query M usam GitHub raw público para evitar Snowflake e paths absolutos. [MVP-04](MVP04_POWERBI.md).

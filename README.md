@@ -84,10 +84,18 @@ Veja [política de execução local](docs/LOCAL_EXECUTION_POLICY.md), [guia Wind
 - `.github/workflows/ci.yml` — execução somente manual em runner próprio;
 - `.github/workflows/snowflake-integration.yml` — integração Snowflake futura em runner próprio; baseline anterior já teve integração real PASS.
 
+## MVP-04 — Power BI desenvolvido no Git
+
+O projeto editável está em [powerbi/EcommerceAnalytics.pbip](powerbi/EcommerceAnalytics.pbip), com formato PBIR, 4 páginas, 41 visuais, modelo tabular, 27 medidas DAX e 7 CSVs sintéticos versionados. A sequência reproduz o [Fleet Analytics](https://github.com/Peruzini/bi-analytics-portfolio/tree/main/powerbi/fleet): **preparar tudo no Git, validar dados/código e só depois abrir no Power BI Desktop**.
+
+Os relatórios leem os CSVs públicos do próprio repositório por Power Query M; não precisam do Snowflake. A validação real de paridade `python scripts/export_powerbi.py --check` e o round-trip no Desktop ainda são pendentes.
+
+Detalhes: [MVP04_POWERBI](docs/MVP04_POWERBI.md) · [Catálogo DAX](powerbi/dax/CATALOGO.md) · [Projeto PBIP](powerbi/README.md).
+
 ## Próximos marcos
 
 1. **Validar a execução local no Windows:** obter `LOCAL_FULL_PASS` e registrar a evidência; preservar a [integração real já aprovada no baseline](docs/SNOWFLAKE_INTEGRATION_BASELINE_2026-10-12.md).
-2. **MVP-04:** Power BI consumindo os marts.
+2. **MVP-04:** auditar os CSVs contra dbt, validar estrutura e só depois fazer round-trip no Power BI Desktop.
 
 Importante: o orçamento de campanhas é **planejado**, não gasto real. Não há base suficiente para calcular ROAS, CAC ou margem.
 

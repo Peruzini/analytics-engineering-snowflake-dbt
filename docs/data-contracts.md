@@ -37,12 +37,12 @@ Leia [modelo e linhagem](model-lineage.md).
 
 ## Verificação
 
-CI offline executa testes Python sobre os datasets, valida YAML, modelos existentes e `dbt parse`. Os testes genéricos dbt (`unique`, `not_null`, `relationships`, `accepted_values`) ficam declarados para execução futura em Snowflake. A execução real de `dbt seed/run/test` e a conciliação SQL serão validadas separadamente no MVP-03.
+Python, YAML, DuckDB e dbt são validados localmente. Já houve execução Snowflake real anterior à migração, com 6 seeds, 15 modelos, 1 snapshot e 88 testes PASS ([evidência](SNOWFLAKE_INTEGRATION_BASELINE_2026-10-12.md)). Para MVP-04, o script `scripts/export_powerbi.py --check` deve comparar os 7 CSVs com saídas canônicas dbt DuckDB, antes de abrir o Power BI.
 
 ## Implementação MVP-03
 
 - `fct_orders` usa `materialized='incremental'` e `incremental_strategy='merge'`, com `unique_key='order_id'`. Comparação NULL-safe identifica novas linhas ou mudanças em todos os 15 campos; exclusões físicas não são propagadas.
 - `snap_customers` usa estratégia `check` em `email` e `region`, preservando versões históricas a cada execução com mudanças de dados.
-- Cinco testes SQL em `tests/dbt/` retornam linhas de divergência; somente serão validados de verdade depois de executar `dbt test` no Snowflake.
+- Cinco testes SQL em `tests/dbt/` retornam linhas de divergência; todos tiveram PASS na execução Snowflake baseline de 12/10/2026.
 
 [Protocolo operacional](mvp03-operations.md).

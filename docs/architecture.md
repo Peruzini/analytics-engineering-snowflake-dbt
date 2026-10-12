@@ -46,6 +46,6 @@ O dbt usa o padrão `<target.schema>_<custom_schema>`; isso separa o ambiente de
 
 ## Validação e limites
 
-`profiles.yml` local permanece ignorado. A GitHub Actions executa testes Python/YAML e `dbt parse`, sem acessar Snowflake. Não foram executados `dbt seed/run/test` no warehouse, tampouco incremental ou snapshot nesta etapa.
+`profiles.yml` local permanece ignorado. O pipeline Snowflake **foi executado com sucesso no baseline anterior à migração** (6 seeds, 15 modelos, 1 snapshot e 88 testes), evidenciado em [relatório](SNOWFLAKE_INTEGRATION_BASELINE_2026-10-12.md). Na arquitetura atual, testes rotineiros usam dbt + DuckDB no PC; Actions apenas manual self-hosted. O MVP-04 exporta 7 CSVs versionados e modela o PBIP no Git. [Plano](MVP04_POWERBI.md).
 
 Consulte [grãos e métricas](model-lineage.md) e [contratos](data-contracts.md).

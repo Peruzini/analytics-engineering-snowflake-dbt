@@ -16,3 +16,5 @@ user.yml
 *.key
 *.duckdb
 snowflake-keys/
+**/.pbi/
+*.pbix
