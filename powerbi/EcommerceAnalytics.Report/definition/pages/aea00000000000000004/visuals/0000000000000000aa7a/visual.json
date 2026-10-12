@@ -4,7 +4,7 @@
   "position": {
     "x": 24,
     "y": 215,
-    "width": 370,
+    "width": 296,
     "height": 70,
     "z": 4800,
     "tabOrder": 4800
@@ -20,15 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ResumoCanais"
+                      "Entity": "FatoPedidos"
                     }
                   },
                   "Property": "channel"
                 }
               },
-              "queryRef": "ResumoCanais.channel",
+              "queryRef": "FatoPedidos.channel",
               "nativeQueryRef": "channel",
-              "displayName": "channel"
+              "displayName": "Canal"
             }
           ]
         }

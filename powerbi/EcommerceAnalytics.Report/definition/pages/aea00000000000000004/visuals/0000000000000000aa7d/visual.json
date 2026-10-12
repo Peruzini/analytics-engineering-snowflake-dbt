@@ -20,75 +20,105 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ResumoCanais"
+                      "Entity": "FatoPedidos"
                     }
                   },
                   "Property": "channel"
                 }
               },
-              "queryRef": "ResumoCanais.channel",
+              "queryRef": "FatoPedidos.channel",
               "nativeQueryRef": "channel",
               "displayName": "Canal"
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ResumoCanais"
+                      "Entity": "Medidas"
                     }
                   },
-                  "Property": "order_count"
+                  "Property": "Receita Reconhecida"
                 }
               },
-              "queryRef": "ResumoCanais.order_count",
-              "nativeQueryRef": "order_count",
-              "displayName": "Pedidos"
+              "queryRef": "Medidas.Receita Reconhecida",
+              "nativeQueryRef": "Receita Reconhecida",
+              "displayName": "Receita Reconhecida"
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ResumoCanais"
+                      "Entity": "Medidas"
                     }
                   },
-                  "Property": "completed_orders"
+                  "Property": "Participação Receita Canal %"
                 }
               },
-              "queryRef": "ResumoCanais.completed_orders",
-              "nativeQueryRef": "completed_orders",
-              "displayName": "Concluídos"
+              "queryRef": "Medidas.Participação Receita Canal %",
+              "nativeQueryRef": "Participação Receita Canal %",
+              "displayName": "Participação Receita Canal %"
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ResumoCanais"
+                      "Entity": "Medidas"
                     }
                   },
-                  "Property": "recognized_revenue"
+                  "Property": "Pedidos Totais"
                 }
               },
-              "queryRef": "ResumoCanais.recognized_revenue",
-              "nativeQueryRef": "recognized_revenue",
-              "displayName": "Receita reconhecida"
+              "queryRef": "Medidas.Pedidos Totais",
+              "nativeQueryRef": "Pedidos Totais",
+              "displayName": "Pedidos Totais"
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "ResumoCanais"
+                      "Entity": "Medidas"
                     }
                   },
-                  "Property": "planned_budget_amount"
+                  "Property": "Taxa Conclusão %"
                 }
               },
-              "queryRef": "ResumoCanais.planned_budget_amount",
-              "nativeQueryRef": "planned_budget_amount",
-              "displayName": "Budget planejado"
+              "queryRef": "Medidas.Taxa Conclusão %",
+              "nativeQueryRef": "Taxa Conclusão %",
+              "displayName": "Taxa Conclusão %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Taxa Reembolso %"
+                }
+              },
+              "queryRef": "Medidas.Taxa Reembolso %",
+              "nativeQueryRef": "Taxa Reembolso %",
+              "displayName": "Taxa Reembolso %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Ticket Médio"
+                }
+              },
+              "queryRef": "Medidas.Ticket Médio",
+              "nativeQueryRef": "Ticket Médio",
+              "displayName": "Ticket Médio"
             }
           ]
         }
@@ -234,7 +264,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Histórico integral por canal'"
+                  "Value": "'Canal — receita, representatividade e qualidade dos pedidos'"
                 }
               }
             },

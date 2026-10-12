@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Receita por Canal - Histórico"
+                  "Property": "Receita Reconhecida"
                 }
               },
-              "queryRef": "Medidas.Receita por Canal - Histórico",
-              "nativeQueryRef": "Receita por Canal - Histórico",
-              "displayName": "Receita por Canal - Histórico"
+              "queryRef": "Medidas.Receita Reconhecida",
+              "nativeQueryRef": "Receita Reconhecida",
+              "displayName": "Receita Reconhecida"
             }
           ]
         }
@@ -82,7 +82,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita por Canal - Histórico'"
+                  "Value": "'Receita Reconhecida'"
                 }
               }
             },

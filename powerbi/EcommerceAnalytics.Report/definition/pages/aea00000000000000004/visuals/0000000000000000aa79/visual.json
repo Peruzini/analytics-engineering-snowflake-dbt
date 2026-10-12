@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Ticket Médio por Canal"
+                  "Property": "Taxa Reembolso %"
                 }
               },
-              "queryRef": "Medidas.Ticket Médio por Canal",
-              "nativeQueryRef": "Ticket Médio por Canal",
-              "displayName": "Ticket Médio por Canal"
+              "queryRef": "Medidas.Taxa Reembolso %",
+              "nativeQueryRef": "Taxa Reembolso %",
+              "displayName": "Taxa Reembolso %"
             }
           ]
         }
@@ -82,7 +82,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Ticket Médio por Canal'"
+                  "Value": "'Taxa Reembolso %'"
                 }
               }
             },

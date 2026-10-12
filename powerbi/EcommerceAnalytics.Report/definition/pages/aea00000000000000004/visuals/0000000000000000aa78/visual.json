@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Pedidos por Canal - Histórico"
+                  "Property": "Taxa Conclusão %"
                 }
               },
-              "queryRef": "Medidas.Pedidos por Canal - Histórico",
-              "nativeQueryRef": "Pedidos por Canal - Histórico",
-              "displayName": "Pedidos por Canal - Histórico"
+              "queryRef": "Medidas.Taxa Conclusão %",
+              "nativeQueryRef": "Taxa Conclusão %",
+              "displayName": "Taxa Conclusão %"
             }
           ]
         }
@@ -82,7 +82,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pedidos por Canal - Histórico'"
+                  "Value": "'Taxa Conclusão %'"
                 }
               }
             },

@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Budget Planejado - Total"
+                  "Property": "Pedidos Totais"
                 }
               },
-              "queryRef": "Medidas.Budget Planejado - Total",
-              "nativeQueryRef": "Budget Planejado - Total",
-              "displayName": "Budget Planejado - Total"
+              "queryRef": "Medidas.Pedidos Totais",
+              "nativeQueryRef": "Pedidos Totais",
+              "displayName": "Pedidos Totais"
             }
           ]
         }
@@ -82,7 +82,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Budget Planejado - Total'"
+                  "Value": "'Pedidos Totais'"
                 }
               }
             },

@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "0000000000000000aa7b",
   "position": {
-    "x": 410,
-    "y": 217,
-    "width": 840,
-    "height": 56,
+    "x": 650,
+    "y": 219,
+    "width": 606,
+    "height": 58,
     "z": 4900,
     "tabOrder": 4900
   },
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Budget planejado não equivale a gasto real. Sem ROAS nem CAC.",
+                    "value": "Análise descritiva por período e canal · orçamento apenas planejado, sem CAC/ROAS.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "13px",
