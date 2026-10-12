@@ -37,12 +37,12 @@ Leia [modelo e linhagem](model-lineage.md).
 
 ## Verificação
 
-Python, YAML, DuckDB e dbt são validados localmente. Já houve execução Snowflake real anterior à migração, com 6 seeds, 15 modelos, 1 snapshot e 88 testes PASS ([evidência](SNOWFLAKE_INTEGRATION_BASELINE_2026-10-12.md)). Para MVP-04, o script `scripts/export_powerbi.py --check` deve comparar os 7 CSVs com saídas canônicas dbt DuckDB, antes de abrir o Power BI.
+Python, YAML, DuckDB e dbt são validados localmente. Já houve execução Snowflake real anterior à migração, com 6 seeds, 15 modelos, 1 snapshot e 88 testes PASS ([evidência](SNOWFLAKE_INTEGRATION_BASELINE_2026-10-12.md)). O MVP-04A ampliou o dataset, portanto a antiga evidência não cobre as novas seeds; o script `scripts/export_powerbi.py --check` precisa comparar os sete CSVs atuais com saídas canônicas dbt DuckDB antes de abrir o Power BI. Ver [MVP-04A](MVP04A_DATASET.md).
 
 ## Implementação MVP-03
 
-- `fct_orders` usa `materialized='incremental'` e `incremental_strategy='merge'`, com `unique_key='order_id'`. Comparação NULL-safe identifica novas linhas ou mudanças em todos os 15 campos; exclusões físicas não são propagadas.
+- `fct_orders` usa `materialized='incremental'`, `unique_key='order_id'` e `incremental_strategy='merge'` em Snowflake (`delete+insert` no DuckDB). Comparação NULL-safe identifica novas linhas ou mudanças em todos os 15 campos; exclusões físicas não são propagadas.
 - `snap_customers` usa estratégia `check` em `email` e `region`, preservando versões históricas a cada execução com mudanças de dados.
-- Cinco testes SQL em `tests/dbt/` retornam linhas de divergência; todos tiveram PASS na execução Snowflake baseline de 12/10/2026.
+- Cinco testes SQL em `tests/dbt/` retornam linhas de divergência; todos tiveram PASS **somente no baseline antigo** da execução Snowflake de 12/10/2026. A nova fixture ainda precisa da revalidação dbt.
 
 [Protocolo operacional](mvp03-operations.md).

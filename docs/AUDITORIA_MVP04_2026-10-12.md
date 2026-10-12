@@ -1,3 +1,5 @@
+> **AUDITORIA HISTÓRICA (dataset anterior).** Este documento registra o commit-base `b516f40` com 36 pedidos e não corresponde ao novo cenário MVP-04A (4.200 pedidos). Consulte [MVP-04A](MVP04A_DATASET.md) para os dados vigentes.
+
 # Auditoria estática MVP-04 — 12/10/2026
 
 ## Escopo e referência

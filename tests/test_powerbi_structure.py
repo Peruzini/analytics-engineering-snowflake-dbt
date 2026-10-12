@@ -12,6 +12,19 @@ def read(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 class TestPBIP(unittest.TestCase):
+    def test_date_dimension_covers_market_scenario(self):
+        from datetime import date, timedelta
+        from scripts.generate_data import CONFIG
+        model = read(MODEL / "model.bim")["model"]
+        calendar = next(t for t in model["tables"] if t["name"] == "DimData")
+        expression = "\n".join(calendar["partitions"][0]["source"]["expression"])
+        start = date.fromisoformat(CONFIG["start_date"])
+        self.assertIn(
+            f"#date({start.year}, {start.month}, {start.day}), {CONFIG['days']}",
+            expression
+        )
+        self.assertEqual((start + timedelta(days=CONFIG["days"]-1)).isoformat(), "2026-09-30")
+
     def test_entrypoint_and_four_pages(self):
         pbip = read(BI / "EcommerceAnalytics.pbip")
         self.assertEqual(pbip["artifacts"][0]["report"]["path"], REPORT.name)

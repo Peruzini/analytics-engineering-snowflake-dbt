@@ -2,7 +2,7 @@
 
 **Portfólio técnico de Analytics Engineering:** dados sintéticos, dbt, testes SQL, Snowflake como integração final e DuckDB para execução local sem créditos.
 
-> **Status: MVP-03 Snowflake validado em 12/10/2026 no baseline anterior à migração**: 6 seeds, 15 modelos, 1 snapshot e 88 testes PASS ([Run #38315794938](https://github.com/Peruzini/analytics-engineering-snowflake-dbt/actions/runs/38315794938)). A transição local com DuckDB foi versionada depois e ainda precisa de `LOCAL_FULL_PASS` no PC; a versão pós-migração **não foi revalidada no Snowflake**.
+> **Status:** MVP-04A com 12 meses de dados sintéticos e 7 marts versionados no Git; novos testes dbt/paridade CSV ainda pendentes. O **MVP-03 anterior** teve execução Snowflake PASS (6 seeds, 15 modelos, 1 snapshot, 88 testes) em [12/10/2026](https://github.com/Peruzini/analytics-engineering-snowflake-dbt/actions/runs/38315794938), mas **essa evidência não valida o novo dataset**. O usuário também confirmou `LOCAL_FULL_PASS` na configuração anterior; após a ampliação, é necessária nova execução.
 
 ## Problema de negócio
 
@@ -86,6 +86,8 @@ Veja [política de execução local](docs/LOCAL_EXECUTION_POLICY.md), [guia Wind
 
 ## MVP-04 — Power BI desenvolvido no Git
 
+**Dados MVP-04A atualizados:** 4.200 pedidos, 8.400 itens, 420 clientes, 40 produtos e 365 dias de 2025-10 a 2026-09. Receita sintética reconciliada na geração: R$ 2.699.981,55. [Cenário, regras e gates](docs/MVP04A_DATASET.md).
+
 O projeto editável está em [powerbi/EcommerceAnalytics.pbip](powerbi/EcommerceAnalytics.pbip), com formato PBIR, 4 páginas, 41 visuais, modelo tabular, 27 medidas DAX e 7 CSVs sintéticos versionados. A sequência reproduz o [Fleet Analytics](https://github.com/Peruzini/bi-analytics-portfolio/tree/main/powerbi/fleet): **preparar tudo no Git, validar dados/código e só depois abrir no Power BI Desktop**.
 
 Os relatórios leem os CSVs públicos do próprio repositório por Power Query M; não precisam do Snowflake. A validação real de paridade `python scripts/export_powerbi.py --check` e o round-trip no Desktop ainda são pendentes.
@@ -96,8 +98,8 @@ Detalhes: [MVP04_POWERBI](docs/MVP04_POWERBI.md) · [Catálogo DAX](powerbi/dax/
 
 ## Próximos marcos
 
-1. **Validar a execução local no Windows:** obter `LOCAL_FULL_PASS` e registrar a evidência; preservar a [integração real já aprovada no baseline](docs/SNOWFLAKE_INTEGRATION_BASELINE_2026-10-12.md).
-2. **MVP-04:** auditar os CSVs contra dbt, validar estrutura e só depois fazer round-trip no Power BI Desktop.
+1. **Revalidar a nova fixture no Windows:** `LOCAL_FULL_PASS` e paridade CSV↔dbt para o **novo dataset**; preservar a [integração real apenas do baseline anterior](docs/SNOWFLAKE_INTEGRATION_BASELINE_2026-10-12.md).
+2. **MVP-04B:** revisar perguntas de negócio e métricas; auditar CSVs contra dbt e só depois fazer round-trip no Power BI Desktop.
 
 Importante: o orçamento de campanhas é **planejado**, não gasto real. Não há base suficiente para calcular ROAS, CAC ou margem.
 

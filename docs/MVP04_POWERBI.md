@@ -1,6 +1,6 @@
 # MVP-04 — Power BI | Ecommerce Analytics
 
-**Status 12/10/2026:** projeto PBIP/TMSL/PBIR versionado no Git; avaliação estática automatizada preparada. **Ainda não foi aberto, carregado ou salvo pelo Power BI Desktop**. A paridade do CSV contra execução local dbt e o teste real no Desktop são gates pendentes.
+**Status 12/10/2026:** projeto PBIP/TMSL/PBIR versionado no Git; dataset ampliado no [MVP-04A](MVP04A_DATASET.md). A antiga auditoria de 36 pedidos é histórica; os novos CSVs possuem 4.200 pedidos, 8.400 itens, 420 clientes e 365 dias. Testes dbt e equivalência com o exportador ainda pendentes. **Ainda não foi aberto, carregado ou salvo pelo Power BI Desktop**. A paridade do CSV contra execução local dbt e o teste real no Desktop são gates pendentes.
 
 ## Regra operacional: Git antes do Desktop
 
@@ -28,7 +28,7 @@ Nenhuma etapa rotineira precisa de Snowflake ou runner GitHub Actions.
 ### Linhagem
 `seeds/ (6 fontes) → dbt seed/staging/intermediate/marts no DuckDB → 7 CSV → Power Query M (GitHub raw/main) → modelo Tabular Power BI → visuais.`
 
-As sete saídas no Git foram inicialmente produzidas de forma determinística a partir das seeds e regras documentadas. **Ainda precisam ser comparadas byte a byte com o exportador dbt em execução real no PC**. Uma divergência requer correção, não ajuste oculto do teste.
+As sete saídas do cenário MVP-04A foram produzidas de forma determinística a partir das seeds e regras SQL documentadas, sem execução dbt nesta atualização. **Ainda precisam ser comparadas byte a byte com o exportador dbt em execução real no PC**. Uma divergência requer correção, não ajuste oculto do teste.
 
 ### Modelo relacional principal
 
@@ -66,11 +66,11 @@ As sete saídas no Git foram inicialmente produzidas de forma determinística a 
 O PBIP importa os CSVs por Power Query M via `Web.Contents` em URL público no GitHub. Isso requer internet e autenticação **Anônima** no primeiro refresh, mas nenhum secret ou conta Snowflake. Manter pastas `.Report` e `.SemanticModel` ao lado de `.pbip`; o Desktop não abre corretamente um `.pbip` isolado.
 
 ### Gates para encerramento
-- [x] Dados sintéticos e reconciliação inicial entre pedidos/itens/diário.
+- [x] Dataset 04A ampliado e reconciliado na geração: 4.200 pedidos, 8.400 itens, 365 dias.
 - [x] Código de exportação DuckDB e testes no Git.
 - [x] PBIP, modelo, 27 medidas, 4 páginas/41 visuais em formato editável.
-- [ ] `python -m unittest discover -s tests -v` após atualização do clone.
-- [ ] `python scripts/export_powerbi.py --check` (paridade dbt real).
+- [ ] `python scripts/generate_data.py --check` e `python -m unittest discover -s tests -v` após atualização do clone.
+- [ ] `python scripts/local_ci.py --full` no novo dataset e `python scripts/export_powerbi.py --check` (paridade dbt real).
 - [ ] Round-trip abrir → atualizar → conferir → salvar no Power BI Desktop.
 - [ ] Evidência final de screenshots e documentação do case.
 

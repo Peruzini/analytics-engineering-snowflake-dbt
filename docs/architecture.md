@@ -37,8 +37,8 @@ O dbt usa o padrão `<target.schema>_<custom_schema>`; isso separa o ambiente de
 
 ## Cuidados na modelagem
 
-- Todos os 36 pedidos sintéticos continuam em `fct_orders`, independentemente de status.
-- Os 72 itens sintéticos são preservados em `fct_order_items`.
+- Todos os **4.200** pedidos sintéticos continuam em `fct_orders`, independentemente de status.
+- Os **8.400** itens sintéticos são preservados em `fct_order_items`.
 - Pagamentos são agregados antes de juntar aos pedidos; isso evita fanout.
 - A receita reconhecida só conta pedidos completed (regra didática documentada).
 - `mart_channel_performance` preserva pedidos sem campanha como `unattributed`.
@@ -46,6 +46,6 @@ O dbt usa o padrão `<target.schema>_<custom_schema>`; isso separa o ambiente de
 
 ## Validação e limites
 
-`profiles.yml` local permanece ignorado. O pipeline Snowflake **foi executado com sucesso no baseline anterior à migração** (6 seeds, 15 modelos, 1 snapshot e 88 testes), evidenciado em [relatório](SNOWFLAKE_INTEGRATION_BASELINE_2026-10-12.md). Na arquitetura atual, testes rotineiros usam dbt + DuckDB no PC; Actions apenas manual self-hosted. O MVP-04 exporta 7 CSVs versionados e modela o PBIP no Git. [Plano](MVP04_POWERBI.md).
+`profiles.yml` local permanece ignorado. O pipeline Snowflake **foi executado com sucesso no baseline anterior à migração** (6 seeds, 15 modelos, 1 snapshot e 88 testes), evidenciado em [relatório](SNOWFLAKE_INTEGRATION_BASELINE_2026-10-12.md). Na arquitetura atual, testes rotineiros usam dbt + DuckDB no PC; Actions apenas manual self-hosted. O MVP-04A ampliou a fixture sintética para 12 meses e exportou 7 CSVs versionados, ainda pendentes da paridade dbt. A aprovação Snowflake é do dataset anterior, não do atual. [Cenário MVP-04A](MVP04A_DATASET.md) · [Plano Power BI](MVP04_POWERBI.md).
 
 Consulte [grãos e métricas](model-lineage.md) e [contratos](data-contracts.md).

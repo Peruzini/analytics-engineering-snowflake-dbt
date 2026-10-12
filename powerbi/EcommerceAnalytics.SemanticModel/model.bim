@@ -56,7 +56,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Datas = List.Dates(#date(2026, 1, 1), 365, #duration(1,0,0,0)),",
+                "    Datas = List.Dates(#date(2025, 10, 1), 365, #duration(1,0,0,0)),",
                 "    Fonte = Table.FromList(Datas, Splitter.SplitByNothing(), {\"Data\"}),",
                 "    Tipos = Table.TransformColumnTypes(Fonte, {{\"Data\", type date}}),",
                 "    Ano = Table.AddColumn(Tipos, \"Ano\", each Date.Year([Data]), Int64.Type),",
