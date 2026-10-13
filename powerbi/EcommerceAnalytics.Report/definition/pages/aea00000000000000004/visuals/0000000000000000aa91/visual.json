@@ -51,24 +51,24 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimData"
+                  }
+                },
+                "Property": "AnoMes"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
-    },
-    "sortDefinition": {
-      "sort": [
-        {
-          "field": {
-            "Column": {
-              "Expression": {
-                "SourceRef": {
-                  "Entity": "DimData"
-                }
-              },
-              "Property": "AnoMes"
-            }
-          },
-          "direction": "Ascending"
-        }
-      ]
     },
     "visualContainerObjects": {
       "background": [

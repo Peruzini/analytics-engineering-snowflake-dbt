@@ -87,6 +87,29 @@ class TestPBIP(unittest.TestCase):
                 for ref in re.findall(r"(?<![A-Za-z0-9_])\[([^\]]+)\]", dax):
                     self.assertIn(ref, measure_names, f"{measure['name']}: [{ref}]")
 
+    def test_sort_definition_uses_query_schema_location(self):
+        """PBIR sortDefinition belongs under visual.query, not visual."""
+        found = 0
+        for path in (REPORT / "definition/pages").glob("*/visuals/*/visual.json"):
+            visual = read(path)["visual"]
+            self.assertNotIn("sortDefinition", visual, str(path))
+            sort_definition = visual.get("query", {}).get("sortDefinition")
+            if sort_definition is None:
+                continue
+            found += 1
+            projected = {
+                (ref["field"].get("Column") or ref["field"].get("Measure"))["Property"]
+                for state in visual["query"].get("queryState", {}).values()
+                for ref in state.get("projections", [])
+            }
+            self.assertTrue(sort_definition["sort"], str(path))
+            for clause in sort_definition["sort"]:
+                spec = clause["field"].get("Column") or clause["field"].get("Measure")
+                self.assertIsNotNone(spec, str(path))
+                self.assertIn(spec["Property"], projected, str(path))
+                self.assertIn(clause["direction"], {"Ascending", "Descending"}, str(path))
+        self.assertEqual(found, 6)
+
     def test_all_pbir_files_are_json(self):
         for path in REPORT.rglob("*.json"):
             with self.subTest(path=path):

@@ -51,24 +51,24 @@
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Medidas"
+                  }
+                },
+                "Property": "Receita Itens"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
-    },
-    "sortDefinition": {
-      "sort": [
-        {
-          "field": {
-            "Measure": {
-              "Expression": {
-                "SourceRef": {
-                  "Entity": "Medidas"
-                }
-              },
-              "Property": "Receita Itens"
-            }
-          },
-          "direction": "Descending"
-        }
-      ]
     },
     "visualContainerObjects": {
       "background": [
