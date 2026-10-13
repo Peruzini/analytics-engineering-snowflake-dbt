@@ -12,7 +12,7 @@
 | ---: | ---: | ---: | ---: |
 | **4.200** | **R$ 2.699.981,55** | **39 medidas** | **4 páginas / 50 visuais** |
 
-**Comece aqui:** [Estudo de caso](docs/PORTFOLIO_CASE_STUDY.md) · [Projeto PBIP editável](powerbi/EcommerceAnalytics.pbip) · [Gates de validação e evidências](docs/MVP04D_RELEASE.md) · [DAX](powerbi/dax/CATALOGO.md).
+**Comece aqui:** [Estudo de caso](docs/PORTFOLIO_CASE_STUDY.md) · [Projeto PBIP editável](powerbi/EcommerceAnalytics.pbip) · [Gates de validação e evidências](docs/MVP04D_RELEASE.md) · [Auditoria estática](docs/MVP04D_AUDITORIA_ESTATICA.md) · [DAX](powerbi/dax/CATALOGO.md).
 
 **Status: pré-release.** A etapa MVP-04D foi preparada no Git, mas a nova execução dbt/CSV e a revisão no Power BI Desktop continuam pendentes. O PASS Snowflake anterior não valida a nova fixture.
 

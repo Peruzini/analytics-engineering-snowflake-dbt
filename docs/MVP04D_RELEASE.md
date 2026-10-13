@@ -13,6 +13,8 @@
 | G4 Desktop | Abrir PBIP, refresh, verificar DAX, filtros, relações e renderização | Pendente |
 | G5 Portfólio | Capturas reais das quatro páginas e evidência referenciada por commit | Pendente |
 
+[Auditoria estática G0 do GitHub](MVP04D_AUDITORIA_ESTATICA.md): 50 visuais e sete CSVs revisados sem problemas de referências, geometria ou conciliação; isso não substitui G1–G4.
+
 ## Fluxo local simplificado
 
 Apenas quando o desenvolvimento no Git estiver pronto, no Git Bash, dentro do clone atualizado:
