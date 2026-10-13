@@ -18,7 +18,7 @@ Nenhuma etapa rotineira precisa de Snowflake ou runner GitHub Actions.
 | Artefato | Caminho | Conteúdo |
 | --- | --- | --- |
 | PBIP | `powerbi/EcommerceAnalytics.pbip` | Atalho do projeto editável |
-| Report PBIR | `powerbi/EcommerceAnalytics.Report/definition/` | 4 páginas, 43 visuais, tema e layout |
+| Report PBIR | `powerbi/EcommerceAnalytics.Report/definition/` | 4 páginas, 50 visuais, tema e layout |
 | Modelo tabular | `powerbi/EcommerceAnalytics.SemanticModel/model.bim` | 9 tabelas, 5 relacionamentos, 39 medidas DAX |
 | Dados | `powerbi/data/` | 7 CSV sintéticos de marts/dimensões |
 | Exportação | `scripts/export_powerbi.py` | Gerador/checker dos 7 CSV diretamente dos dbt marts via DuckDB |
@@ -43,6 +43,8 @@ As sete saídas do cenário MVP-04A foram produzidas de forma determinística a 
 `DimClientes[customer_id]` → `ResumoClientes[customer_id]` (1:1 na fixture)
 
 **ResumoCanais e ResumoDiario são agregados independentes**. Não conectá-los também às tabelas-fato: isso poderia introduzir caminhos ambíguos/duplicidade de receita. **MVP-04B:** `fct_orders` passa a conter `channel` por pedido, alimentando `FatoPedidos[channel]`. A página Canais e Pedidos agora usa o fato detalhado e filtros de data; `ResumoCanais` permanece apenas como histórico de referência (budget planejado). Não somar os dois grãos.
+
+**MVP-04C:** as quatro páginas receberam uma identidade visual única, leitura guiada, notas estáticas explicitamente rotuladas e rodapé de dados sintéticos. A página de produtos mostra categorias no gráfico e SKUs no detalhe. Ver [MVP-04C — UX e storytelling](MVP04C_UX_STORYTELLING.md).
 
 ### Dashboard: quatro páginas
 
@@ -70,11 +72,13 @@ O PBIP importa os CSVs por Power Query M via `Web.Contents` em URL público no G
 ### Gates para encerramento
 - [x] Dataset 04A ampliado e reconciliado na geração: 4.200 pedidos, 8.400 itens, 365 dias.
 - [x] Código de exportação DuckDB e testes no Git.
-- [x] PBIP, modelo, 39 medidas, 4 páginas/43 visuais em formato editável; canal por pedido adicionado no MVP-04B.
+- [x] PBIP, modelo, 39 medidas, 4 páginas/50 visuais em formato editável; canal por pedido adicionado no MVP-04B.
 - [ ] `python scripts/generate_data.py --check` e `python -m unittest discover -s tests -v` após atualização do clone.
 - [ ] `python scripts/local_ci.py --full` no novo dataset e `python scripts/export_powerbi.py --check` (paridade dbt real).
 - [ ] Round-trip abrir → atualizar → conferir → salvar no Power BI Desktop.
 - [ ] Evidência final de screenshots e documentação do case.
+
+- [ ] Auditar geometria/layout com `tests/test_mvp04c_ux.py` e inspecionar o resultado renderizado no Desktop.
 
 ## Referências
 - Fleet: https://github.com/Peruzini/bi-analytics-portfolio/tree/main/powerbi/fleet

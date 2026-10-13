@@ -27,7 +27,7 @@ Valor total do case: **R$ 2.699.981,55 de receita reconhecida**, conciliada entr
 - **Canal no grão de pedido:** `int_customer_orders` mapeia `stg_campaigns` para `channel`, com fallback `unattributed`. `fct_orders` preserva esse campo e a lógica incremental; o CSV e `FatoPedidos[channel]` correspondem à mesma informação.
 - **Canais agora respeitam período:** a quarta página usa `FatoPedidos[channel]` e `DimData[AnoMes]`, evitando a limitação dos agregados históricos desconectados de data.
 - **39 medidas DAX** no modelo: 27 anteriores + 12 novas relacionadas a tendência mensal, média diária/móvel, status, descontos em completed, recompra no período e participação de receita por canal/produto.
-- **4 páginas e 43 visuais**, incluindo série mensal por canal, resumo mensal com MoM e revenue/day, análise de recompra e ranking por produto.
+- **4 páginas e 43 visuais ao concluir 04B**, incluindo série mensal por canal, resumo mensal com MoM e revenue/day, análise de recompra e ranking por produto.
 - **Separação de grãos:** produto se calcula no fato de itens. Receita agregada histórica de `ResumoCanais` não é combinada com métricas filtradas do fato detalhado.
 - **Primeiro mês sem comparação anterior:** a medida de MoM retorna BLANK sem mês anterior válido. Não há comparação YoY confiável com apenas 12 meses.
 - **Budget planejado** continua documentado no agregado, mas **não** é spend real; não há ROAS, CAC ou margem.
@@ -43,4 +43,4 @@ Valor total do case: **R$ 2.699.981,55 de receita reconhecida**, conciliada entr
 A integração Snowflake de 88 testes PASS foi feita **antes** do dataset MVP-04A e da nova coluna `channel`. Não reaproveitar essa evidência como aprovação do MVP-04B.
 
 ## Próximo marco
-**MVP-04C — UX e storytelling:** revisar disposição/contraste dos gráficos e interpretação dos filtros. Apenas depois de finalizar o projeto pelo Git executar os gates locais e abrir no Power BI Desktop.
+**MVP-04C — UX e storytelling:** a etapa seguinte reorganizou a narrativa e ampliou de 43 para 50 visuais editáveis (ver [documentação](MVP04C_UX_STORYTELLING.md)). Permanecem os gates locais e a validação visual real do Desktop.

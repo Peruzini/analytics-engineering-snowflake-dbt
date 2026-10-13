@@ -88,18 +88,20 @@ Veja [política de execução local](docs/LOCAL_EXECUTION_POLICY.md), [guia Wind
 
 **Dados MVP-04A atualizados:** 4.200 pedidos, 8.400 itens, 420 clientes, 40 produtos e 365 dias de 2025-10 a 2026-09. Receita sintética reconciliada na geração: R$ 2.699.981,55. [Cenário, regras e gates](docs/MVP04A_DATASET.md).
 
-O projeto editável está em [powerbi/EcommerceAnalytics.pbip](powerbi/EcommerceAnalytics.pbip), com formato PBIR, 4 páginas, **43 visuais**, modelo tabular, **39 medidas DAX** e 7 CSVs sintéticos versionados. A sequência reproduz o [Fleet Analytics](https://github.com/Peruzini/bi-analytics-portfolio/tree/main/powerbi/fleet): **preparar tudo no Git, validar dados/código e só depois abrir no Power BI Desktop**.
+O projeto editável está em [powerbi/EcommerceAnalytics.pbip](powerbi/EcommerceAnalytics.pbip), com formato PBIR, 4 páginas, **50 visuais**, modelo tabular, **39 medidas DAX** e 7 CSVs sintéticos versionados. A sequência reproduz o [Fleet Analytics](https://github.com/Peruzini/bi-analytics-portfolio/tree/main/powerbi/fleet): **preparar tudo no Git, validar dados/código e só depois abrir no Power BI Desktop**.
 
 O **MVP-04B** acrescentou canal no grão do pedido e medidas de MoM, receita/dia, cancelamento, descontos e recompra. A página **Canais e Pedidos** agora filtra períodos. [Análise e evidências](docs/MVP04B_ANALISE.md). Os relatórios leem os CSVs públicos do próprio repositório por Power Query M; não precisam do Snowflake. A validação real de paridade `python scripts/export_powerbi.py --check` e o round-trip no Desktop ainda são pendentes.
 
-Auditoria de referências e dados: [AUDITORIA_MVP04_2026-10-12](docs/AUDITORIA_MVP04_2026-10-12.md).
+**MVP-04C:** experiência visual padronizada para leitura executiva, quatro histórias e comparação por categoria. [UX e storytelling](docs/MVP04C_UX_STORYTELLING.md).
+
+Auditoria histórica (dataset anterior): [AUDITORIA_MVP04_2026-10-12](docs/AUDITORIA_MVP04_2026-10-12.md).
 
 Detalhes: [MVP04_POWERBI](docs/MVP04_POWERBI.md) · [Catálogo DAX](powerbi/dax/CATALOGO.md) · [Projeto PBIP](powerbi/README.md).
 
 ## Próximos marcos
 
 1. **Revalidar a nova fixture no Windows:** `LOCAL_FULL_PASS` e paridade CSV↔dbt para o **novo dataset**; preservar a [integração real apenas do baseline anterior](docs/SNOWFLAKE_INTEGRATION_BASELINE_2026-10-12.md).
-2. **MVP-04C:** revisar UX e storytelling dos quatro painéis; depois auditar os CSVs atuais com dbt e fazer round-trip no Power BI Desktop.
+2. **Validação final:** executar testes Python, dbt local, paridade CSV↔dbt e então fazer round-trip no Power BI Desktop; registrar capturas reais e estudo de caso.
 
 Importante: o orçamento de campanhas é **planejado**, não gasto real. Não há base suficiente para calcular ROAS, CAC ou margem.
 

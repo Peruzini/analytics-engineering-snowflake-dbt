@@ -42,7 +42,7 @@ class TestMVP04BSemantics(unittest.TestCase):
             obj = load(file)
             types.append(obj["visual"]["visualType"])
             all_refs.extend(projections(obj["visual"]))
-        self.assertEqual(len(list((page / "visuals").glob("*/visual.json"))), 12)
+        self.assertEqual(len(list((page / "visuals").glob("*/visual.json"))), 13)
         self.assertIn(("FatoPedidos", "channel"), all_refs)
         self.assertIn(("DimData", "AnoMes"), all_refs)
         self.assertIn(("Medidas", "Participação Receita Canal %"), all_refs)
