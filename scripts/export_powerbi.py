@@ -1,6 +1,12 @@
-"""Build dbt marts in a local DuckDB and export deterministic Power BI CSVs.
+"""Compare or export canonical dbt/DuckDB marts to versioned Power BI CSVs.
 
-Requires installed dbt-duckdb, dbt-snowflake and Python 3.11. No Snowflake access.
+Examples:
+  python scripts/export_powerbi.py --check
+  python scripts/export_powerbi.py --check --duckdb-path /tmp/portfolio.duckdb
+
+Default uses a disposable local dbt DuckDB. --duckdb-path reads an existing
+database (no second dbt run); restricted to --check for safe one-pass QA.
+No Snowflake connection or hosted Actions.
 """
 from __future__ import annotations
 
@@ -53,52 +59,76 @@ def as_csv(cursor, column_names):
         writer.writerow(output)
     return contents.getvalue()
 
+def first_difference(expected, actual):
+    old = expected.splitlines()
+    new = actual.splitlines()
+    for lineno in range(max(len(old), len(new))):
+        left = old[lineno] if lineno < len(old) else "<missing>"
+        right = new[lineno] if lineno < len(new) else "<missing>"
+        if left != right:
+            return f"line {lineno + 1}: committed={left[:120]!r}, dbt={right[:120]!r}"
+    return "unknown byte difference"
+
+def verify_or_export(dbpath: Path, check: bool):
+    mismatches = []
+    connection = duckdb.connect(dbpath.as_posix(), read_only=True)
+    try:
+        for table, key in TABLES.items():
+            cursor = connection.execute(
+                f'SELECT * FROM "ae_local_analytics"."{table}" ORDER BY "{key}"'
+            )
+            columns = [x[0] for x in cursor.description]
+            actual = as_csv(cursor, columns)
+            target = DATA / f"{table}.csv"
+            if check:
+                expected = target.read_text(encoding="utf-8") if target.is_file() else ""
+                if expected != actual:
+                    mismatches.append(table)
+                    print(f"DRIFT {table}: {first_difference(expected, actual)}", file=sys.stderr)
+            else:
+                DATA.mkdir(parents=True, exist_ok=True)
+                target.write_text(actual, encoding="utf-8", newline="")
+            print(f"{table}: {len(actual.splitlines())-1} rows", flush=True)
+    finally:
+        connection.close()
+    if mismatches:
+        print("POWERBI_EXPORT_DRIFT: " + ", ".join(mismatches), file=sys.stderr)
+        return 1
+    print("POWERBI_EXPORT_MATCH" if check else "POWERBI_EXPORT_WRITTEN")
+    return 0
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--check", action="store_true", help="Check against committed files; do not overwrite")
+    parser.add_argument("--check", action="store_true",
+                        help="Fail on any byte difference from committed CSVs")
+    parser.add_argument("--duckdb-path", type=Path,
+                        help="Reuse an existing local dbt DuckDB without running dbt again")
     args = parser.parse_args()
-    with tempfile.TemporaryDirectory(prefix="ae-bi-export-") as temp_dir:
-        p = Path(temp_dir)
-        profile = p / "profile"
+    if args.duckdb_path:
+        if not args.check:
+            parser.error("--duckdb-path requires --check (read-only)")
+        if not args.duckdb_path.is_file():
+            parser.error(f"DuckDB database not found: {args.duckdb_path}")
+        return verify_or_export(args.duckdb_path, check=True)
+    with tempfile.TemporaryDirectory(prefix="ae-bi-export-") as tempdir:
+        temp = Path(tempdir)
+        profile = temp / "profile"
         profile.mkdir()
-        dbpath = (p / "bi.duckdb").as_posix()
+        dbpath = temp / "bi.duckdb"
         (profile / "profiles.yml").write_text(
             "ae_snowflake_portfolio:\n"
             "  target: local\n"
             "  outputs:\n"
             "    local:\n"
             "      type: duckdb\n"
-            f"      path: '{dbpath}'\n"
+            f"      path: '{dbpath.as_posix()}'\n"
             "      schema: ae_local\n"
             "      threads: 2\n", encoding="utf-8")
         for action in (["seed"], ["run"], ["run", "--select", "fct_orders"], ["snapshot"], ["test"]):
             command = ["dbt", *action, "--profiles-dir", str(profile), "--target", "local"]
             print("Executing:", " ".join(command), flush=True)
             subprocess.run(command, cwd=ROOT, check=True)
-        connection = duckdb.connect(dbpath, read_only=True)
-        bad = []
-        try:
-            for name, key in TABLES.items():
-                cursor = connection.execute(
-                    f'SELECT * FROM "ae_local_analytics"."{name}" ORDER BY "{key}"'
-                )
-                column_names = [c[0] for c in cursor.description]
-                actual = as_csv(cursor, column_names)
-                target = DATA / f"{name}.csv"
-                if args.check:
-                    if not target.exists() or target.read_text(encoding="utf-8") != actual:
-                        bad.append(name)
-                else:
-                    DATA.mkdir(parents=True, exist_ok=True)
-                    target.write_text(actual, encoding="utf-8", newline="")
-                print(name, "rows:", len(actual.splitlines())-1)
-        finally:
-            connection.close()
-    if bad:
-        print("POWERBI_EXPORT_DRIFT:", ", ".join(bad), file=sys.stderr)
-        return 1
-    print("POWERBI_EXPORT_MATCH" if args.check else "POWERBI_EXPORT_WRITTEN")
-    return 0
+        return verify_or_export(dbpath, args.check)
 
 if __name__ == "__main__":
     raise SystemExit(main())

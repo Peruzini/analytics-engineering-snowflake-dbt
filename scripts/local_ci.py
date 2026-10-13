@@ -32,7 +32,11 @@ def hashes():
     paths = [ROOT / x for x in ("dbt_project.yml", "requirements.txt", "profiles.yml.example")]
     for folder, pattern in (("seeds", "*.csv"), ("models", "*.sql"), ("models", "*.yml"),
                             ("snapshots", "*.yml"), ("tests/dbt", "*.sql"),
-                            ("tests", "test_*.py"), ("scripts", "*.py")):
+                            ("tests", "test_*.py"), ("scripts", "*.py"),
+                            ("scripts", "market_config.json"), ("powerbi/data", "*.csv"),
+                            ("powerbi", "*.pbip"), ("powerbi", "*.pbism"),
+                            ("powerbi", "*.pbir"), ("powerbi", "*.bim"),
+                            ("powerbi", "*.json")):
         paths += list((ROOT / folder).rglob(pattern))
     return {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
             for p in sorted(set(paths)) if p.is_file()}
@@ -97,6 +101,10 @@ def main():
                     ("duckdb-tests", ["test"]),
                 ):
                     call(report, name, [dbt, *command, *opts])
+                call(report, "duckdb-powerbi-parity", [
+                    sys.executable, "scripts/export_powerbi.py", "--check",
+                    "--duckdb-path", str(temp / "portfolio.duckdb"),
+                ])
         report["status"] = "LOCAL_FULL_PASS" if args.full else "LOCAL_QUICK_PASS"
     except Exception as exc:
         print(f"LOCAL_VALIDATION_FAILED: {exc}", file=sys.stderr)
