@@ -3,11 +3,11 @@
   "name": "0000000000000000aa5f",
   "position": {
     "x": 642,
-    "y": 100,
+    "y": 114,
     "width": 295,
-    "height": 102,
-    "z": 2100,
-    "tabOrder": 2100
+    "height": 108,
+    "z": 2200,
+    "tabOrder": 2200
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Pedidos Concluídos"
+                  "Property": "Ticket Médio"
                 }
               },
-              "queryRef": "Medidas.Pedidos Concluídos",
-              "nativeQueryRef": "Pedidos Concluídos",
-              "displayName": "Pedidos Concluídos"
+              "queryRef": "Medidas.Ticket Médio",
+              "nativeQueryRef": "Ticket Médio",
+              "displayName": "Ticket Médio"
             }
           ]
         }
@@ -50,7 +50,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0D9488'"
+                      "Value": "'#15263F'"
                     }
                   }
                 }
@@ -82,7 +82,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pedidos Concluídos'"
+                  "Value": "'Ticket Médio'"
                 }
               }
             },
@@ -158,7 +158,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#E2E8F0'"
+                      "Value": "'#DAE3EC'"
                     }
                   }
                 }
@@ -167,7 +167,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "9D"
                 }
               }
             },

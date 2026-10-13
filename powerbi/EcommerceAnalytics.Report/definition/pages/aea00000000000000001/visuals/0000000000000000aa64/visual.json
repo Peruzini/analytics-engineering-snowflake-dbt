@@ -3,11 +3,11 @@
   "name": "0000000000000000aa64",
   "position": {
     "x": 24,
-    "y": 645,
+    "y": 638,
     "width": 1232,
-    "height": 268,
-    "z": 2600,
-    "tabOrder": 2600
+    "height": 270,
+    "z": 5500,
+    "tabOrder": 5500
   },
   "visual": {
     "visualType": "tableEx",
@@ -43,7 +43,7 @@
               },
               "queryRef": "Medidas.Receita Reconhecida",
               "nativeQueryRef": "Receita Reconhecida",
-              "displayName": "Receita Reconhecida"
+              "displayName": "Receita"
             },
             {
               "field": {
@@ -58,7 +58,7 @@
               },
               "queryRef": "Medidas.Pedidos Concluídos",
               "nativeQueryRef": "Pedidos Concluídos",
-              "displayName": "Pedidos Concluídos"
+              "displayName": "Pedidos concluídos"
             },
             {
               "field": {
@@ -73,7 +73,7 @@
               },
               "queryRef": "Medidas.Ticket Médio",
               "nativeQueryRef": "Ticket Médio",
-              "displayName": "Ticket Médio"
+              "displayName": "Ticket médio"
             }
           ]
         }
@@ -102,7 +102,18 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F172A'"
+                      "Value": "'#15263F'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F1F5F9'"
                     }
                   }
                 }
@@ -126,7 +137,29 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F172A'"
+                      "Value": "'#334155'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F8FAFC'"
                     }
                   }
                 }
@@ -183,7 +216,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#E2E8F0'"
+                      "Value": "'#DAE3EC'"
                     }
                   }
                 }
@@ -192,7 +225,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "9D"
                 }
               }
             },
@@ -219,14 +252,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita e pedidos por região'"
+                  "Value": "'Receita e volume por região'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "13D"
                 }
               }
             },
@@ -235,7 +268,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F172A'"
+                      "Value": "'#14263D'"
                     }
                   }
                 }

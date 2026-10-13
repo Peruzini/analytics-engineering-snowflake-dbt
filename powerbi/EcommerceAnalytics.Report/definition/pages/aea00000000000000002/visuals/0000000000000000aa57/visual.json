@@ -3,11 +3,11 @@
   "name": "0000000000000000aa57",
   "position": {
     "x": 24,
-    "y": 10,
+    "y": 12,
     "width": 1232,
-    "height": 42,
-    "z": 1300,
-    "tabOrder": 1300
+    "height": 60,
+    "z": 1000,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "ECOMMERCE ANALYTICS | RECEITA E PEDIDOS",
+                    "value": "02 / 04    ECOMMERCE ANALYTICS  •  PEDIDOS & EFICIÊNCIA",
                     "textStyle": {
                       "fontFamily": "Segoe UI Semibold",
-                      "fontSize": "25px",
-                      "color": "#0F172A"
+                      "fontSize": "24px",
+                      "color": "#FFFFFF"
                     }
                   }
                 ],
@@ -41,7 +41,25 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#12283F'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }
@@ -54,7 +72,32 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#12283F'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }

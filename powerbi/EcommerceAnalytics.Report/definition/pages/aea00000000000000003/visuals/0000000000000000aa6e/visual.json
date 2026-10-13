@@ -3,11 +3,11 @@
   "name": "0000000000000000aa6e",
   "position": {
     "x": 333,
-    "y": 100,
+    "y": 114,
     "width": 295,
-    "height": 102,
-    "z": 3600,
-    "tabOrder": 3600
+    "height": 108,
+    "z": 2100,
+    "tabOrder": 2100
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Clientes Compradores"
+                  "Property": "Clientes Recorrentes (2+)"
                 }
               },
-              "queryRef": "Medidas.Clientes Compradores",
-              "nativeQueryRef": "Clientes Compradores",
-              "displayName": "Clientes Compradores"
+              "queryRef": "Medidas.Clientes Recorrentes (2+)",
+              "nativeQueryRef": "Clientes Recorrentes (2+)",
+              "displayName": "Clientes Recorrentes (2+)"
             }
           ]
         }
@@ -50,7 +50,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0D9488'"
+                      "Value": "'#15263F'"
                     }
                   }
                 }
@@ -82,7 +82,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Clientes Compradores'"
+                  "Value": "'Clientes Recorrentes (2+)'"
                 }
               }
             },
@@ -158,7 +158,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#E2E8F0'"
+                      "Value": "'#DAE3EC'"
                     }
                   }
                 }
@@ -167,7 +167,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "9D"
                 }
               }
             },

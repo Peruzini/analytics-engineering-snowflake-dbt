@@ -3,11 +3,11 @@
   "name": "0000000000000000aa6c",
   "position": {
     "x": 24,
-    "y": 633,
+    "y": 638,
     "width": 1232,
-    "height": 281,
-    "z": 3400,
-    "tabOrder": 3400
+    "height": 270,
+    "z": 5500,
+    "tabOrder": 5500
   },
   "visual": {
     "visualType": "tableEx",
@@ -43,7 +43,7 @@
               },
               "queryRef": "Medidas.Receita Reconhecida",
               "nativeQueryRef": "Receita Reconhecida",
-              "displayName": "Receita Reconhecida"
+              "displayName": "Receita"
             },
             {
               "field": {
@@ -58,22 +58,7 @@
               },
               "queryRef": "Medidas.Receita por Dia",
               "nativeQueryRef": "Receita por Dia",
-              "displayName": "Receita por Dia"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas"
-                    }
-                  },
-                  "Property": "Receita Mês Anterior"
-                }
-              },
-              "queryRef": "Medidas.Receita Mês Anterior",
-              "nativeQueryRef": "Receita Mês Anterior",
-              "displayName": "Receita Mês Anterior"
+              "displayName": "Receita / dia"
             },
             {
               "field": {
@@ -88,7 +73,7 @@
               },
               "queryRef": "Medidas.Variação Receita MoM %",
               "nativeQueryRef": "Variação Receita MoM %",
-              "displayName": "Variação Receita MoM %"
+              "displayName": "Variação MoM"
             },
             {
               "field": {
@@ -98,12 +83,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Pedidos Totais"
+                  "Property": "Pedidos Concluídos"
                 }
               },
-              "queryRef": "Medidas.Pedidos Totais",
-              "nativeQueryRef": "Pedidos Totais",
-              "displayName": "Pedidos Totais"
+              "queryRef": "Medidas.Pedidos Concluídos",
+              "nativeQueryRef": "Pedidos Concluídos",
+              "displayName": "Concluídos"
             },
             {
               "field": {
@@ -118,7 +103,7 @@
               },
               "queryRef": "Medidas.Taxa Cancelamento %",
               "nativeQueryRef": "Taxa Cancelamento %",
-              "displayName": "Taxa Cancelamento %"
+              "displayName": "Cancelamento"
             },
             {
               "field": {
@@ -133,7 +118,7 @@
               },
               "queryRef": "Medidas.Taxa Reembolso %",
               "nativeQueryRef": "Taxa Reembolso %",
-              "displayName": "Taxa Reembolso %"
+              "displayName": "Reembolso"
             }
           ]
         }
@@ -162,7 +147,18 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F172A'"
+                      "Value": "'#15263F'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F1F5F9'"
                     }
                   }
                 }
@@ -186,7 +182,29 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F172A'"
+                      "Value": "'#334155'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F8FAFC'"
                     }
                   }
                 }
@@ -243,7 +261,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#E2E8F0'"
+                      "Value": "'#DAE3EC'"
                     }
                   }
                 }
@@ -252,7 +270,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "9D"
                 }
               }
             },
@@ -279,14 +297,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Resumo mensal — receita, variação e status'"
+                  "Value": "'Resumo mensal — evolução e qualidade dos pedidos'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "13D"
                 }
               }
             },
@@ -295,7 +313,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F172A'"
+                      "Value": "'#14263D'"
                     }
                   }
                 }

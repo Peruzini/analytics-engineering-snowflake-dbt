@@ -3,11 +3,11 @@
   "name": "0000000000000000aa79",
   "position": {
     "x": 951,
-    "y": 100,
+    "y": 114,
     "width": 295,
-    "height": 102,
-    "z": 4700,
-    "tabOrder": 4700
+    "height": 108,
+    "z": 2300,
+    "tabOrder": 2300
   },
   "visual": {
     "visualType": "cardVisual",
@@ -50,7 +50,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0D9488'"
+                      "Value": "'#15263F'"
                     }
                   }
                 }
@@ -158,7 +158,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#E2E8F0'"
+                      "Value": "'#DAE3EC'"
                     }
                   }
                 }
@@ -167,7 +167,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "9D"
                 }
               }
             },

@@ -3,11 +3,11 @@
   "name": "0000000000000000aa70",
   "position": {
     "x": 951,
-    "y": 100,
+    "y": 114,
     "width": 295,
-    "height": 102,
-    "z": 3800,
-    "tabOrder": 3800
+    "height": 108,
+    "z": 2300,
+    "tabOrder": 2300
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Taxa Recompra Período %"
+                  "Property": "Receita Itens"
                 }
               },
-              "queryRef": "Medidas.Taxa Recompra Período %",
-              "nativeQueryRef": "Taxa Recompra Período %",
-              "displayName": "Taxa Recompra Período %"
+              "queryRef": "Medidas.Receita Itens",
+              "nativeQueryRef": "Receita Itens",
+              "displayName": "Receita Itens"
             }
           ]
         }
@@ -50,7 +50,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0D9488'"
+                      "Value": "'#15263F'"
                     }
                   }
                 }
@@ -82,7 +82,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa Recompra Período %'"
+                  "Value": "'Receita Itens'"
                 }
               }
             },
@@ -158,7 +158,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#E2E8F0'"
+                      "Value": "'#DAE3EC'"
                     }
                   }
                 }
@@ -167,7 +167,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "9D"
                 }
               }
             },

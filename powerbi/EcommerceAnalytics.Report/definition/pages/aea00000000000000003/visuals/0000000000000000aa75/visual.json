@@ -3,11 +3,11 @@
   "name": "0000000000000000aa75",
   "position": {
     "x": 24,
-    "y": 643,
+    "y": 638,
     "width": 1232,
-    "height": 280,
-    "z": 4300,
-    "tabOrder": 4300
+    "height": 270,
+    "z": 5500,
+    "tabOrder": 5500
   },
   "visual": {
     "visualType": "tableEx",
@@ -58,7 +58,7 @@
               },
               "queryRef": "Medidas.Receita Itens",
               "nativeQueryRef": "Receita Itens",
-              "displayName": "Receita Itens"
+              "displayName": "Receita itens"
             },
             {
               "field": {
@@ -73,7 +73,7 @@
               },
               "queryRef": "Medidas.Participação Receita Produto %",
               "nativeQueryRef": "Participação Receita Produto %",
-              "displayName": "Participação Receita Produto %"
+              "displayName": "Participação"
             },
             {
               "field": {
@@ -88,7 +88,7 @@
               },
               "queryRef": "Medidas.Unidades Pedidos Concluídos",
               "nativeQueryRef": "Unidades Pedidos Concluídos",
-              "displayName": "Unidades Pedidos Concluídos"
+              "displayName": "Unidades concluídas"
             }
           ]
         }
@@ -117,7 +117,18 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F172A'"
+                      "Value": "'#15263F'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F1F5F9'"
                     }
                   }
                 }
@@ -141,7 +152,29 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F172A'"
+                      "Value": "'#334155'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F8FAFC'"
                     }
                   }
                 }
@@ -198,7 +231,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#E2E8F0'"
+                      "Value": "'#DAE3EC'"
                     }
                   }
                 }
@@ -207,7 +240,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "9D"
                 }
               }
             },
@@ -234,14 +267,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Produtos — receita, participação e unidades'"
+                  "Value": "'Detalhe de produtos — mix e contribuição'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "13D"
                 }
               }
             },
@@ -250,7 +283,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F172A'"
+                      "Value": "'#14263D'"
                     }
                   }
                 }

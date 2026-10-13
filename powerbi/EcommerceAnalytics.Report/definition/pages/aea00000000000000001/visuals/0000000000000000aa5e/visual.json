@@ -3,11 +3,11 @@
   "name": "0000000000000000aa5e",
   "position": {
     "x": 333,
-    "y": 100,
+    "y": 114,
     "width": 295,
-    "height": 102,
-    "z": 2000,
-    "tabOrder": 2000
+    "height": 108,
+    "z": 2100,
+    "tabOrder": 2100
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Pedidos Totais"
+                  "Property": "Pedidos Concluídos"
                 }
               },
-              "queryRef": "Medidas.Pedidos Totais",
-              "nativeQueryRef": "Pedidos Totais",
-              "displayName": "Pedidos Totais"
+              "queryRef": "Medidas.Pedidos Concluídos",
+              "nativeQueryRef": "Pedidos Concluídos",
+              "displayName": "Pedidos Concluídos"
             }
           ]
         }
@@ -50,7 +50,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0D9488'"
+                      "Value": "'#15263F'"
                     }
                   }
                 }
@@ -82,7 +82,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pedidos Totais'"
+                  "Value": "'Pedidos Concluídos'"
                 }
               }
             },
@@ -158,7 +158,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#E2E8F0'"
+                      "Value": "'#DAE3EC'"
                     }
                   }
                 }
@@ -167,7 +167,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "9D"
                 }
               }
             },

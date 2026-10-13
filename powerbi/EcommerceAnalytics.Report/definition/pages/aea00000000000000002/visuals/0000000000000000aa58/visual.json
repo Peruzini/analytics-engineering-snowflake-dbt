@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "0000000000000000aa58",
   "position": {
-    "x": 24,
-    "y": 54,
-    "width": 1232,
+    "x": 27,
+    "y": 79,
+    "width": 1228,
     "height": 28,
-    "z": 1400,
-    "tabOrder": 1400
+    "z": 1100,
+    "tabOrder": 1100
   },
   "visual": {
     "visualType": "textbox",
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Status, reembolsos, descontos e evolução temporal",
+                    "value": "Qual parte dos pedidos gera receita e como evoluem as exceções?",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "13px",
-                      "color": "#475569"
+                      "fontSize": "14px",
+                      "color": "#536477"
                     }
                   }
                 ],

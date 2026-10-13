@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "0000000000000000aa7b",
   "position": {
-    "x": 650,
-    "y": 219,
-    "width": 606,
-    "height": 58,
-    "z": 4900,
-    "tabOrder": 4900
+    "x": 24,
+    "y": 309,
+    "width": 1232,
+    "height": 53,
+    "z": 3900,
+    "tabOrder": 3900
   },
   "visual": {
     "visualType": "textbox",
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Análise descritiva por período e canal · orçamento apenas planejado, sem CAC/ROAS.",
+                    "value": "REFERÊNCIA DO PERÍODO COMPLETO  •  Conclusão: email 91,45% vs social 80,47%. Diferenças programadas; não inferir causalidade nem ROAS/CAC.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "13px",
-                      "color": "#475569"
+                      "color": "#1E3A63"
                     }
                   }
                 ],
@@ -41,7 +41,25 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#EFF6FF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }
@@ -54,7 +72,32 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#BFDBFE'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }

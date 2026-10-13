@@ -3,11 +3,11 @@
   "name": "0000000000000000aa73",
   "position": {
     "x": 24,
-    "y": 310,
+    "y": 379,
     "width": 604,
-    "height": 310,
-    "z": 4100,
-    "tabOrder": 4100
+    "height": 244,
+    "z": 4500,
+    "tabOrder": 4500
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -23,12 +23,12 @@
                       "Entity": "DimProdutos"
                     }
                   },
-                  "Property": "product_name"
+                  "Property": "category"
                 }
               },
-              "queryRef": "DimProdutos.product_name",
-              "nativeQueryRef": "product_name",
-              "displayName": "product_name"
+              "queryRef": "DimProdutos.category",
+              "nativeQueryRef": "category",
+              "displayName": "category"
             }
           ]
         },
@@ -117,7 +117,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#E2E8F0'"
+                      "Value": "'#DAE3EC'"
                     }
                   }
                 }
@@ -126,7 +126,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "9D"
                 }
               }
             },
@@ -153,14 +153,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita reconhecida por produto'"
+                  "Value": "'Receita reconhecida por categoria'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "13D"
                 }
               }
             },
@@ -169,7 +169,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F172A'"
+                      "Value": "'#14263D'"
                     }
                   }
                 }

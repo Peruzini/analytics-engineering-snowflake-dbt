@@ -3,11 +3,11 @@
   "name": "0000000000000000aa7d",
   "position": {
     "x": 24,
-    "y": 642,
+    "y": 638,
     "width": 1232,
-    "height": 280,
-    "z": 5100,
-    "tabOrder": 5100
+    "height": 270,
+    "z": 5500,
+    "tabOrder": 5500
   },
   "visual": {
     "visualType": "tableEx",
@@ -43,7 +43,7 @@
               },
               "queryRef": "Medidas.Receita Reconhecida",
               "nativeQueryRef": "Receita Reconhecida",
-              "displayName": "Receita Reconhecida"
+              "displayName": "Receita"
             },
             {
               "field": {
@@ -58,7 +58,7 @@
               },
               "queryRef": "Medidas.Participação Receita Canal %",
               "nativeQueryRef": "Participação Receita Canal %",
-              "displayName": "Participação Receita Canal %"
+              "displayName": "Part. receita"
             },
             {
               "field": {
@@ -73,7 +73,7 @@
               },
               "queryRef": "Medidas.Pedidos Totais",
               "nativeQueryRef": "Pedidos Totais",
-              "displayName": "Pedidos Totais"
+              "displayName": "Pedidos"
             },
             {
               "field": {
@@ -88,7 +88,7 @@
               },
               "queryRef": "Medidas.Taxa Conclusão %",
               "nativeQueryRef": "Taxa Conclusão %",
-              "displayName": "Taxa Conclusão %"
+              "displayName": "Conclusão"
             },
             {
               "field": {
@@ -103,7 +103,7 @@
               },
               "queryRef": "Medidas.Taxa Reembolso %",
               "nativeQueryRef": "Taxa Reembolso %",
-              "displayName": "Taxa Reembolso %"
+              "displayName": "Reembolso"
             },
             {
               "field": {
@@ -118,7 +118,7 @@
               },
               "queryRef": "Medidas.Ticket Médio",
               "nativeQueryRef": "Ticket Médio",
-              "displayName": "Ticket Médio"
+              "displayName": "Ticket"
             }
           ]
         }
@@ -147,7 +147,18 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F172A'"
+                      "Value": "'#15263F'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F1F5F9'"
                     }
                   }
                 }
@@ -171,7 +182,29 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F172A'"
+                      "Value": "'#334155'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F8FAFC'"
                     }
                   }
                 }
@@ -228,7 +261,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#E2E8F0'"
+                      "Value": "'#DAE3EC'"
                     }
                   }
                 }
@@ -237,7 +270,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "9D"
                 }
               }
             },
@@ -264,14 +297,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Canal — receita, representatividade e qualidade dos pedidos'"
+                  "Value": "'Canais — participação, receita e status'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "13D"
                 }
               }
             },
@@ -280,7 +313,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F172A'"
+                      "Value": "'#14263D'"
                     }
                   }
                 }

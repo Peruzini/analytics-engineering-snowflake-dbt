@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "0000000000000000aa5c",
   "position": {
-    "x": 24,
-    "y": 54,
-    "width": 1232,
+    "x": 27,
+    "y": 79,
+    "width": 1228,
     "height": 28,
-    "z": 1800,
-    "tabOrder": 1800
+    "z": 1100,
+    "tabOrder": 1100
   },
   "visual": {
     "visualType": "textbox",
@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "Sazonalidade por canal, participação na receita e qualidade dos pedidos · simulação",
+                    "value": "Como receita e conclusão se distribuem entre canais e meses?",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "13px",
-                      "color": "#475569"
+                      "fontSize": "14px",
+                      "color": "#536477"
                     }
                   }
                 ],

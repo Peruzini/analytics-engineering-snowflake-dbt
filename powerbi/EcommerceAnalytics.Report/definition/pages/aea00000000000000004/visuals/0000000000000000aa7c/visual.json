@@ -3,11 +3,11 @@
   "name": "0000000000000000aa7c",
   "position": {
     "x": 644,
-    "y": 308,
+    "y": 379,
     "width": 612,
-    "height": 318,
-    "z": 5000,
-    "tabOrder": 5000
+    "height": 244,
+    "z": 4600,
+    "tabOrder": 4600
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -28,7 +28,7 @@
               },
               "queryRef": "FatoPedidos.channel",
               "nativeQueryRef": "channel",
-              "displayName": "Canal"
+              "displayName": "channel"
             }
           ]
         },
@@ -117,7 +117,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#E2E8F0'"
+                      "Value": "'#DAE3EC'"
                     }
                   }
                 }
@@ -126,7 +126,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "9D"
                 }
               }
             },
@@ -160,7 +160,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "13D"
                 }
               }
             },
@@ -169,7 +169,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F172A'"
+                      "Value": "'#14263D'"
                     }
                   }
                 }

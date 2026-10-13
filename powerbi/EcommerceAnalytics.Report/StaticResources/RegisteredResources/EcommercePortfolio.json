@@ -1,31 +1,31 @@
 {
-  "name": "Analytics Engineering | Ecommerce",
+  "name": "Ecommerce Analytics — Executive",
   "dataColors": [
     "#2563EB",
-    "#0D9488",
-    "#F59E0B",
+    "#0F766E",
+    "#D97706",
     "#7C3AED",
-    "#E11D48",
-    "#0891B2"
+    "#0891B2",
+    "#64748B"
   ],
   "background": "#FFFFFF",
-  "foreground": "#0F172A",
+  "foreground": "#14263D",
   "tableAccent": "#2563EB",
   "textClasses": {
     "label": {
       "fontFace": "Segoe UI",
       "fontSize": 11,
-      "color": "#475569"
+      "color": "#536477"
     },
     "title": {
       "fontFace": "Segoe UI Semibold",
       "fontSize": 13,
-      "color": "#0F172A"
+      "color": "#14263D"
     },
     "callout": {
       "fontFace": "Segoe UI Semibold",
       "fontSize": 24,
-      "color": "#0F172A"
+      "color": "#14263D"
     }
   }
 }

@@ -3,11 +3,11 @@
   "name": "0000000000000000aa63",
   "position": {
     "x": 24,
-    "y": 302,
+    "y": 379,
     "width": 1232,
-    "height": 325,
-    "z": 2500,
-    "tabOrder": 2500
+    "height": 244,
+    "z": 4500,
+    "tabOrder": 4500
   },
   "visual": {
     "visualType": "lineChart",
@@ -28,7 +28,7 @@
               },
               "queryRef": "DimData.AnoMes",
               "nativeQueryRef": "AnoMes",
-              "displayName": "AnoMes"
+              "displayName": "Mês"
             }
           ]
         },
@@ -66,23 +66,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DimData"
-                  }
-                },
-                "Property": "AnoMes"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ]
       }
     },
     "sortDefinition": {
@@ -95,7 +78,7 @@
                   "Entity": "DimData"
                 }
               },
-              "Property": "Data"
+              "Property": "AnoMes"
             }
           },
           "direction": "Ascending"
@@ -149,7 +132,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#E2E8F0'"
+                      "Value": "'#DAE3EC'"
                     }
                   }
                 }
@@ -158,7 +141,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "9D"
                 }
               }
             },
@@ -185,14 +168,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita mensal versus mês anterior'"
+                  "Value": "'Receita mensal vs. mês anterior'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "13D"
                 }
               }
             },
@@ -201,7 +184,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F172A'"
+                      "Value": "'#14263D'"
                     }
                   }
                 }

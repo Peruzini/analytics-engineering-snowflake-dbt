@@ -3,11 +3,11 @@
   "name": "0000000000000000aa91",
   "position": {
     "x": 24,
-    "y": 308,
+    "y": 379,
     "width": 604,
-    "height": 318,
-    "z": 5500,
-    "tabOrder": 5500
+    "height": 244,
+    "z": 4500,
+    "tabOrder": 4500
   },
   "visual": {
     "visualType": "lineChart",
@@ -51,23 +51,6 @@
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DimData"
-                  }
-                },
-                "Property": "Data"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ]
       }
     },
     "sortDefinition": {
@@ -134,7 +117,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#E2E8F0'"
+                      "Value": "'#DAE3EC'"
                     }
                   }
                 }
@@ -143,7 +126,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "9D"
                 }
               }
             },
@@ -170,14 +153,14 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita mensal — canal selecionado'"
+                  "Value": "'Evolução mensal da receita por canal'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
+                  "Value": "13D"
                 }
               }
             },
@@ -186,7 +169,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F172A'"
+                      "Value": "'#14263D'"
                     }
                   }
                 }
