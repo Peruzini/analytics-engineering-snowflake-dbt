@@ -4,6 +4,18 @@
 
 > **Status:** MVP-04A com 12 meses de dados sintéticos e 7 marts versionados no Git; novos testes dbt/paridade CSV ainda pendentes. O **MVP-03 anterior** teve execução Snowflake PASS (6 seeds, 15 modelos, 1 snapshot, 88 testes) em [12/10/2026](https://github.com/Peruzini/analytics-engineering-snowflake-dbt/actions/runs/38315794938), mas **essa evidência não valida o novo dataset**. O usuário também confirmou `LOCAL_FULL_PASS` na configuração anterior; após a ampliação, é necessária nova execução.
 
+## Case de portfólio — E-commerce Analytics
+
+**Dados sintéticos → engenharia de dados testável → narrativa visual para tomada de decisão.**
+
+| Pedidos | Receita sintética | DAX | Dashboards |
+| ---: | ---: | ---: | ---: |
+| **4.200** | **R$ 2.699.981,55** | **39 medidas** | **4 páginas / 50 visuais** |
+
+**Comece aqui:** [Estudo de caso](docs/PORTFOLIO_CASE_STUDY.md) · [Projeto PBIP editável](powerbi/EcommerceAnalytics.pbip) · [Gates de validação e evidências](docs/MVP04D_RELEASE.md) · [DAX](powerbi/dax/CATALOGO.md).
+
+**Status: pré-release.** A etapa MVP-04D foi preparada no Git, mas a nova execução dbt/CSV e a revisão no Power BI Desktop continuam pendentes. O PASS Snowflake anterior não valida a nova fixture.
+
 ## Problema de negócio
 
 Uma operação de e-commerce recebe dados de clientes, produtos, campanhas, pedidos, itens e pagamentos. Antes de calcular receita, margem, ticket médio, recompra ou aquisição, é necessário padronizar chaves, estados, datas e valores e garantir integridade referencial.
@@ -43,7 +55,7 @@ O padrão `target_schema_<custom_schema>` é o comportamento padrão de schema c
 
 - **6 fontes CSV sintéticas** e gerador determinístico com Python (stdlib).
 - **6 modelos staging, 2 intermediate e 7 modelos analíticos**, usando `source()`, `ref()`, contratos, grãos explícitos e status preservados.
-- **Testes dbt** para unicidade, obrigatoriedade, integridade referencial e domínios, além de **5 testes SQL singulares** para conciliação de métricas.
+- **Testes dbt** para unicidade, obrigatoriedade, integridade referencial e domínios, além de **6 testes SQL singulares** para conciliação de métricas.
 - **Testes Python** para integridade dos CSVs, reprodutibilidade e reconciliação matemática offline de receita entre dia, cliente e canal.
 - **MVP-03:** MERGE incremental de `fct_orders`, snapshot SCD2 de clientes e workflow manual `dbt seed/run/snapshot/test` (executado manualmente com PASS no baseline).
 - **Validação no PC** com Python, YAML, `dbt parse` offline e execução SQL completa no DuckDB (pendente de PASS no Windows).
@@ -61,7 +73,7 @@ python scripts/local_ci.py --quick
 python scripts/local_ci.py --full
 ```
 
-O modo `--full` executa dbt com DuckDB local temporário (seed, run, incremental, snapshot, test) e faz parse de Snowflake offline com placeholders. **Sem consumo de Actions hospedado nem consultas Snowflake.** O resultado verificável fica em `.local-evidence/latest.json`. Para preparar evidência revisável no Git, após commitar o código: `python scripts/local_ci.py --full --publish`.
+O modo `--full` executa dbt com DuckDB local temporário (seed, run, incremental, snapshot, test), faz parse de Snowflake offline com placeholders **e valida a paridade dos 7 CSVs contra o mesmo banco DuckDB**, sem duplicar o pipeline. **Sem consumo de Actions hospedado nem consultas Snowflake.** O resultado verificável fica em `.local-evidence/latest.json`. Para preparar evidência revisável no Git, após commitar o código: `python scripts/local_ci.py --full --publish`.
 
 **Execução GitHub Actions:** ambos workflows agora são somente manuais e usam runner Windows self-hosted `ae-local`, que ainda precisa ser registrado neste repositório. A execução direta via Git Bash dispensa esse runner. O Snowflake real permanece uma validação excepcional, confirmada, com créditos.
 
@@ -78,7 +90,7 @@ Veja [política de execução local](docs/LOCAL_EXECUTION_POLICY.md), [guia Wind
 - `models/staging/_sources.yml` — definições das seis fontes;
 - `models/staging/_models.yml` — testes e documentação;
 - `snapshots/` — snapshot SCD2 de clientes;
-- `tests/dbt/` — cinco testes de reconciliação SQL;
+- `tests/dbt/` — seis testes SQL (cinco conciliações e atribuição de canal);
 - `tests/` — testes Python de qualidade e reprodução;
 - `docs/` — arquitetura, contratos, linhagem e decisões;
 - `.github/workflows/ci.yml` — execução somente manual em runner próprio;
@@ -90,7 +102,7 @@ Veja [política de execução local](docs/LOCAL_EXECUTION_POLICY.md), [guia Wind
 
 O projeto editável está em [powerbi/EcommerceAnalytics.pbip](powerbi/EcommerceAnalytics.pbip), com formato PBIR, 4 páginas, **50 visuais**, modelo tabular, **39 medidas DAX** e 7 CSVs sintéticos versionados. A sequência reproduz o [Fleet Analytics](https://github.com/Peruzini/bi-analytics-portfolio/tree/main/powerbi/fleet): **preparar tudo no Git, validar dados/código e só depois abrir no Power BI Desktop**.
 
-O **MVP-04B** acrescentou canal no grão do pedido e medidas de MoM, receita/dia, cancelamento, descontos e recompra. A página **Canais e Pedidos** agora filtra períodos. [Análise e evidências](docs/MVP04B_ANALISE.md). Os relatórios leem os CSVs públicos do próprio repositório por Power Query M; não precisam do Snowflake. A validação real de paridade `python scripts/export_powerbi.py --check` e o round-trip no Desktop ainda são pendentes.
+O **MVP-04B** acrescentou canal no grão do pedido e medidas de MoM, receita/dia, cancelamento, descontos e recompra. A página **Canais e Pedidos** agora filtra períodos. [Análise e evidências](docs/MVP04B_ANALISE.md). Os relatórios leem os CSVs públicos do próprio repositório por Power Query M; não precisam do Snowflake. A paridade com dbt atual é parte de `python scripts/local_ci.py --full` (gate `duckdb-powerbi-parity`); ainda falta executar esse gate e validar o round-trip no Desktop.
 
 **MVP-04C:** experiência visual padronizada para leitura executiva, quatro histórias e comparação por categoria. [UX e storytelling](docs/MVP04C_UX_STORYTELLING.md).
 
@@ -101,7 +113,7 @@ Detalhes: [MVP04_POWERBI](docs/MVP04_POWERBI.md) · [Catálogo DAX](powerbi/dax/
 ## Próximos marcos
 
 1. **Revalidar a nova fixture no Windows:** `LOCAL_FULL_PASS` e paridade CSV↔dbt para o **novo dataset**; preservar a [integração real apenas do baseline anterior](docs/SNOWFLAKE_INTEGRATION_BASELINE_2026-10-12.md).
-2. **Validação final:** executar testes Python, dbt local, paridade CSV↔dbt e então fazer round-trip no Power BI Desktop; registrar capturas reais e estudo de caso.
+2. **MVP-04D:** [executar gates de aceite](docs/MVP04D_RELEASE.md), conferir paridade CSV↔dbt, depois fazer round-trip no Desktop e anexar capturas reais ao [case](docs/PORTFOLIO_CASE_STUDY.md).
 
 Importante: o orçamento de campanhas é **planejado**, não gasto real. Não há base suficiente para calcular ROAS, CAC ou margem.
 

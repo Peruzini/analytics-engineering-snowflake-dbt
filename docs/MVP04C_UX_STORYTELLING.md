@@ -57,4 +57,4 @@ A página de produtos deixa de mostrar até **40 nomes individuais num gráfico 
 5. Verificar que receita de itens não multiplica a receita por pedido e que os históricos desconectados não são somados aos fatos.
 6. Salvar o PBIP após inspeção; versionar correções e produzir screenshots reais. Sem declarar visual aprovado antes disso.
 
-**Próximo marco:** gates locais de integridade + paridade dbt; depois inspeção no Power BI Desktop e empacotamento do portfólio.
+**Próximo marco:** [MVP-04D — gates de aceite](MVP04D_RELEASE.md), inspeção real no Power BI Desktop e [estudo de caso](PORTFOLIO_CASE_STUDY.md).

@@ -39,7 +39,7 @@ def hashes():
                             ("powerbi", "*.json")):
         paths += list((ROOT / folder).rglob(pattern))
     return {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
-            for p in sorted(set(paths)) if p.is_file()}
+            for p in sorted(set(paths)) if p.is_file() and ".pbi" not in p.parts}
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)

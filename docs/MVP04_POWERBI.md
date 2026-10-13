@@ -7,7 +7,7 @@
 Reproduzir o processo do [Fleet Analytics](https://github.com/Peruzini/bi-analytics-portfolio/tree/main/powerbi/fleet):
 1. Construir e revisar fontes, dados sintéticos, modelo semântico, DAX, PBIR, tema e documentação **no Git**.
 2. Validar sintaxe e integridade das referências via `python -m unittest discover -s tests -v`.
-3. Validar os dados versionados contra a execução verdadeira do dbt sobre DuckDB via `python scripts/export_powerbi.py --check`. Se houver drift, executar `python scripts/export_powerbi.py`, revisar CSVs e commitar a correção.
+3. Executar `python scripts/local_ci.py --full` (dbt DuckDB + comparação byte a byte dos 7 CSVs **no mesmo banco temporário**). Em caso de drift, investigar a primeira diferença antes de atualizar os CSVs. O comando `python scripts/export_powerbi.py --check` continua disponível, porém refaz dbt.
 4. Somente após ambos os gates PASS, clonar/atualizar o projeto completo no PC, abrir `powerbi/EcommerceAnalytics.pbip`, atualizar dados, conferir relacionamentos/DAX, avaliar visualmente as 4 páginas e salvar no Desktop. Esse round-trip não está comprovado.
 5. Versionar eventuais correções do round-trip; não publicar capturas ou resultados fictícios.
 
@@ -74,11 +74,15 @@ O PBIP importa os CSVs por Power Query M via `Web.Contents` em URL público no G
 - [x] Código de exportação DuckDB e testes no Git.
 - [x] PBIP, modelo, 39 medidas, 4 páginas/50 visuais em formato editável; canal por pedido adicionado no MVP-04B.
 - [ ] `python scripts/generate_data.py --check` e `python -m unittest discover -s tests -v` após atualização do clone.
-- [ ] `python scripts/local_ci.py --full` no novo dataset e `python scripts/export_powerbi.py --check` (paridade dbt real).
+- [ ] `python scripts/local_ci.py --full` no dataset atual, incluindo a etapa `duckdb-powerbi-parity` e `LOCAL_FULL_PASS`.
 - [ ] Round-trip abrir → atualizar → conferir → salvar no Power BI Desktop.
 - [ ] Evidência final de screenshots e documentação do case.
 
 - [ ] Auditar geometria/layout com `tests/test_mvp04c_ux.py` e inspecionar o resultado renderizado no Desktop.
+
+## Homologação do MVP-04D
+
+[Checklist e evidências de validação](MVP04D_RELEASE.md) · [Estudo de caso profissional](PORTFOLIO_CASE_STUDY.md).
 
 ## Referências
 - Fleet: https://github.com/Peruzini/bi-analytics-portfolio/tree/main/powerbi/fleet
