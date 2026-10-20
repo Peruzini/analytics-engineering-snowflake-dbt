@@ -2,7 +2,7 @@
 
 **Portfólio técnico de Analytics Engineering:** dados sintéticos, dbt, testes SQL, Snowflake como integração final e DuckDB para execução local sem créditos.
 
-> **Status:** MVP-04A com 12 meses de dados sintéticos e 7 marts versionados no Git; novos testes dbt/paridade CSV ainda pendentes. O **MVP-03 anterior** teve execução Snowflake PASS (6 seeds, 15 modelos, 1 snapshot, 88 testes) em [12/10/2026](https://github.com/Peruzini/analytics-engineering-snowflake-dbt/actions/runs/38315794938), mas **essa evidência não valida o novo dataset**. O usuário também confirmou `LOCAL_FULL_PASS` na configuração anterior; após a ampliação, é necessária nova execução.
+> **Status MVP-04D (19/10/2026):** projeto de e-commerce com 12 meses de dados sintéticos, 7 marts e PBIP versionado. Em 13/10, o responsável informou que a validação local completa terminou verde, **sem publicar o log verificável no Git**. O Power BI Desktop detectou uma incompatibilidade de PBIR (`sortDefinition`) corrigida no [commit 7734f16](https://github.com/Peruzini/analytics-engineering-snowflake-dbt/commit/7734f16fd3f1412cfcaf374ebce425823f42d3ca); **a reabertura e o round-trip ainda não foram confirmados**. O baseline anterior do Snowflake teve 88 testes PASS, mas não certifica a fixture atual.
 
 ## Case de portfólio — E-commerce Analytics
 
@@ -14,7 +14,7 @@
 
 **Comece aqui:** [Estudo de caso](docs/PORTFOLIO_CASE_STUDY.md) · [Projeto PBIP editável](powerbi/EcommerceAnalytics.pbip) · [Gates de validação e evidências](docs/MVP04D_RELEASE.md) · [Auditoria estática](docs/MVP04D_AUDITORIA_ESTATICA.md) · [DAX](powerbi/dax/CATALOGO.md).
 
-**Status: pré-release.** A etapa MVP-04D foi preparada no Git, mas a nova execução dbt/CSV e a revisão no Power BI Desktop continuam pendentes. O PASS Snowflake anterior não valida a nova fixture.
+**Status: pré-release.** A execução local foi informada como verde, ainda sem evidência publicada. O round-trip visual do Power BI Desktop e as capturas reais continuam pendentes.
 
 ## Problema de negócio
 
