@@ -1,0 +1,644 @@
+{
+  "candidate": "8a03da87503314ec1ff1f35a7c3ddbcb1f728b8f",
+  "browser": "158.0.8127.37",
+  "scope": "final CSS revision, Chromium touch emulation, not physical mobile",
+  "checks": [
+    {
+      "name": "sha256/1440x900-executiva.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged/1440x900-executiva.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "sha256/1440x900-pedidos.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged/1440x900-pedidos.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "sha256/1440x900-clientes.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged/1440x900-clientes.png",
+      "pass_": false,
+      "detail": null
+    },
+    {
+      "name": "sha256/1440x900-canais.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged/1440x900-canais.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "sha256/1024x768-executiva.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged/1024x768-executiva.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "sha256/1024x768-pedidos.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged/1024x768-pedidos.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "sha256/1024x768-clientes.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged/1024x768-clientes.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "sha256/1024x768-canais.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged/1024x768-canais.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "sha256/390x844-executiva.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged/390x844-executiva.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "sha256/390x844-pedidos.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged/390x844-pedidos.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "sha256/390x844-clientes.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged/390x844-clientes.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "sha256/390x844-canais.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "unchanged/390x844-canais.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "sha256/320x720-executiva.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "sha256/320x720-pedidos.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "sha256/320x720-clientes.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "sha256/320x720-canais.png",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/KPI single line",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/touch filter",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/persistence",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/reset",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/fit",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/PNG",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/CSV",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/empty",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/KPI single line",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/touch filter",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/persistence",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/reset",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/fit",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/PNG",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/CSV",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/empty",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/KPI single line",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/touch filter",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/persistence",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/reset",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/fit",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/PNG",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/CSV",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/empty",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/KPI single line",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/touch filter",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/persistence",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/reset",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/fit",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/PNG",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/CSV",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/empty",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/console",
+      "pass_": true,
+      "detail": []
+    },
+    {
+      "name": "320x720/executiva/KPI single line",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/touch filter",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/persistence",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/reset",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/fit",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/PNG",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/CSV",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/empty",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/KPI single line",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/touch filter",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/persistence",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/reset",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/fit",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/PNG",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/CSV",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/empty",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/KPI single line",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/touch filter",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/persistence",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/reset",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/fit",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/PNG",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/CSV",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/empty",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/KPI single line",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/touch filter",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/persistence",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/reset",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/fit",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/PNG",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/CSV",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/empty",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/console",
+      "pass_": true,
+      "detail": []
+    },
+    {
+      "name": "1024x768/executiva/KPI single line",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/touch filter",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/persistence",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/reset",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/fit",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/PNG",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/CSV",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/empty",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/KPI single line",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/touch filter",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/persistence",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/reset",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/fit",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/PNG",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/CSV",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/empty",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/KPI single line",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/touch filter",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/persistence",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/reset",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/fit",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/PNG",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/CSV",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/empty",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/KPI single line",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/touch filter",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/persistence",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/reset",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/fit",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/PNG",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/CSV",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/empty",
+      "pass_": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/console",
+      "pass_": true,
+      "detail": []
+    }
+  ],
+  "screenshots_verified": 16,
+  "pass": false
+}

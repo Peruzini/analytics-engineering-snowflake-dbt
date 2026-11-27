@@ -1,0 +1,720 @@
+{
+  "lab": "ecommerce-analytics",
+  "browser": "158.0.8127.37",
+  "checks": [
+    {
+      "name": "1440x900/executiva/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1440x900/executiva/grain",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/PNG/monthly",
+      "pass": true,
+      "detail": {
+        "bytes": 53099,
+        "dims": [
+          1440,
+          600
+        ]
+      }
+    },
+    {
+      "name": "1440x900/executiva/PNG/regions",
+      "pass": true,
+      "detail": {
+        "bytes": 57353,
+        "dims": [
+          1440,
+          580
+        ]
+      }
+    },
+    {
+      "name": "1440x900/executiva/PNG/day-average",
+      "pass": true,
+      "detail": {
+        "bytes": 57069,
+        "dims": [
+          1440,
+          600
+        ]
+      }
+    },
+    {
+      "name": "1440x900/executiva/CSV",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/keyboard filter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/reset",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/pointer filter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/filter persistence",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/empty context",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1440x900/pedidos/grain",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/exception",
+      "pass": false,
+      "detail": "Timeout 15000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================"
+    },
+    {
+      "name": "1440x900/clientes/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1440x900/clientes/grain",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/PNG/categories",
+      "pass": true,
+      "detail": {
+        "bytes": 60090,
+        "dims": [
+          1440,
+          516
+        ]
+      }
+    },
+    {
+      "name": "1440x900/clientes/PNG/heatmap",
+      "pass": true,
+      "detail": {
+        "bytes": 98361,
+        "dims": [
+          1440,
+          670
+        ]
+      }
+    },
+    {
+      "name": "1440x900/clientes/PNG/repurchase",
+      "pass": true,
+      "detail": {
+        "bytes": 73846,
+        "dims": [
+          1440,
+          660
+        ]
+      }
+    },
+    {
+      "name": "1440x900/clientes/PNG/products",
+      "pass": true,
+      "detail": {
+        "bytes": 51794,
+        "dims": [
+          1440,
+          640
+        ]
+      }
+    },
+    {
+      "name": "1440x900/clientes/CSV",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/keyboard filter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/reset",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/pointer filter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/filter persistence",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/empty context",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1440x900/canais/grain",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/PNG/share",
+      "pass": true,
+      "detail": {
+        "bytes": 46346,
+        "dims": [
+          1440,
+          452
+        ]
+      }
+    },
+    {
+      "name": "1440x900/canais/PNG/channels",
+      "pass": true,
+      "detail": {
+        "bytes": 118577,
+        "dims": [
+          1440,
+          1090
+        ]
+      }
+    },
+    {
+      "name": "1440x900/canais/PNG/channel-efficiency",
+      "pass": true,
+      "detail": {
+        "bytes": 69698,
+        "dims": [
+          1440,
+          660
+        ]
+      }
+    },
+    {
+      "name": "1440x900/canais/CSV",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/keyboard filter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/reset",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/pointer filter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/filter persistence",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/empty context",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/console",
+      "pass": false,
+      "detail": [
+        "Failed to load resource: the server responded with a status of 404 (File not found)"
+      ]
+    },
+    {
+      "name": "1024x768/executiva/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024x768/pedidos/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024x768/clientes/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024x768/canais/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024x768/console",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "390x844/executiva/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "390x844/pedidos/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "390x844/clientes/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "390x844/canais/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "390x844/console",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "320x720/executiva/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "320x720/pedidos/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "320x720/clientes/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "320x720/canais/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "320x720/console",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "1440x900-executiva.png",
+      "sha256": "6dc1cc62492a6675d6838ed3498b7a4a7d274e66ae415d32b49dccb4214783d7"
+    },
+    {
+      "file": "1440x900-pedidos.png",
+      "sha256": "4db0f39bc08ece5efd16d5ca772e7c9abbb16dcd1ef9a01f814cff15a36e8601"
+    },
+    {
+      "file": "1440x900-clientes.png",
+      "sha256": "78bcab278ba83c17bcb67d076418e27d2bfb17358093dd097e10a3996c25f404"
+    },
+    {
+      "file": "1440x900-canais.png",
+      "sha256": "648351a97570b00e35f6b02ba930a9e6e1d8fa6b54437f83abb62adf6e08a97f"
+    },
+    {
+      "file": "1024x768-executiva.png",
+      "sha256": "fd2cda501fc0e17eeac6e65dd31f28178f569bdf226bb800b5d5e75555c54375"
+    },
+    {
+      "file": "1024x768-pedidos.png",
+      "sha256": "eee30f0759f3b37ef4f9ee4e61d95b6fad4608165ba78feaf19afe7db21bbbcc"
+    },
+    {
+      "file": "1024x768-clientes.png",
+      "sha256": "c050901463770a89514752b6f70e04e8770a5735a0b1bd775413cf1cc81dbd7a"
+    },
+    {
+      "file": "1024x768-canais.png",
+      "sha256": "b7cd6da3f36bfc7c1ccdb31dd6150f34c9155b4df6bed9e2409225cf93ae7daa"
+    },
+    {
+      "file": "390x844-executiva.png",
+      "sha256": "0a007b2723bf62a6399c000077c25ef5c17022f881cc9aaab1099cf851fa40c6"
+    },
+    {
+      "file": "390x844-pedidos.png",
+      "sha256": "e21c45bafa887d1f1a5c9f6a66221bb0c46e3254f94f0de5336ddc4bb15bfd85"
+    },
+    {
+      "file": "390x844-clientes.png",
+      "sha256": "bb68b01b55e9b25873cc35fa3579d61c955ffc7f01d20c333085f76761f02bcf"
+    },
+    {
+      "file": "390x844-canais.png",
+      "sha256": "8f6c9f54195b8151c0bc33d6a1c081bbda18216beed9651e5a4db163a6f5c175"
+    },
+    {
+      "file": "320x720-executiva.png",
+      "sha256": "f97d14f13751e21a07f1df548ed919a0bc997b4ed691b86a26ca002475500000"
+    },
+    {
+      "file": "320x720-pedidos.png",
+      "sha256": "408234e5686c52d5314f8acb949a2ea2880f57cefb465b1823e525ac3e580b1d"
+    },
+    {
+      "file": "320x720-clientes.png",
+      "sha256": "dd20f0143e1fed31a08921ecea295dc070d90f76d1341ca1d6e91812dd96ee51"
+    },
+    {
+      "file": "320x720-canais.png",
+      "sha256": "ea9dbe8eb1769a9cae1e611b5c929ea57af9badbe85e2aecb3a512f9c48dd4df"
+    }
+  ],
+  "pass": false
+}
