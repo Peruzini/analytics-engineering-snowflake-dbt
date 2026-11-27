@@ -1,0 +1,277 @@
+{
+  "candidate": "6ac501802992f01e5bae996fac63b0d19e23384c",
+  "base": "194d23a5ae8621877ae3c5d66319a7eec340349e",
+  "snapshot": "b1c285cfd54564b2849f9e7a9c61f42c2e782b91",
+  "files": {
+    "dim_customers.csv": "48a4f6f32c3137dd27da1204a5ce29dc8a4c778d",
+    "dim_products.csv": "d0857543626ca4e725f04b6eb73fc79ff67064d4",
+    "fct_orders.csv": "f205cfa47e67f836dea27c5bd7e4d8fe5063a209",
+    "fct_order_items.csv": "e521188417641ae237dd9b0ee47cf93e95e16de7"
+  },
+  "scope": "CSV integrais e módulos recuperados do GitHub; execução JS de lógica e geração HTML/SVG; sem navegador ou dbt.",
+  "checks": [
+    {
+      "name": "Contagens quatro CSVs",
+      "pass": true
+    },
+    {
+      "name": "Calendário 365 dias",
+      "pass": true
+    },
+    {
+      "name": "Receita em dois grãos",
+      "pass": true
+    },
+    {
+      "name": "Pedidos e concluídos",
+      "pass": true
+    },
+    {
+      "name": "Compradores e recorrentes",
+      "pass": true
+    },
+    {
+      "name": "Ticket",
+      "pass": true
+    },
+    {
+      "name": "Seis categorias",
+      "pass": true
+    },
+    {
+      "name": "Categorias somam receita",
+      "pass": true
+    },
+    {
+      "name": "Compradores não aditivos",
+      "pass": true
+    },
+    {
+      "name": "Categoria e região",
+      "pass": true
+    },
+    {
+      "name": "Quatro status e taxas condicionadas",
+      "pass": true
+    },
+    {
+      "name": "Cinco canais",
+      "pass": true
+    },
+    {
+      "name": "Participações somam 100%",
+      "pass": true
+    },
+    {
+      "name": "Denominador remove canal",
+      "pass": true
+    },
+    {
+      "name": "Categoria não altera grão pedido",
+      "pass": true
+    },
+    {
+      "name": "Canal não altera grão item",
+      "pass": true
+    },
+    {
+      "name": "Mensal e diário conciliam",
+      "pass": true
+    },
+    {
+      "name": "Média móvel primeiro dia",
+      "pass": true
+    },
+    {
+      "name": "Média móvel atravessa fronteira",
+      "pass": true
+    },
+    {
+      "name": "Acumulado reinicia",
+      "pass": true
+    },
+    {
+      "name": "Pareto final 100%",
+      "pass": true
+    },
+    {
+      "name": "Heatmap concilia",
+      "pass": true
+    },
+    {
+      "name": "Sem compradores: taxa nula",
+      "pass": true
+    },
+    {
+      "name": "Sem pedidos: vazio",
+      "pass": true
+    },
+    {
+      "name": "Datas inválidas",
+      "pass": true
+    },
+    {
+      "name": "CSV com aspas e vírgula",
+      "pass": true
+    },
+    {
+      "name": "Centavos exatos",
+      "pass": true
+    },
+    {
+      "name": "Inventário 14 gráficos",
+      "pass": true
+    },
+    {
+      "name": "Render executiva 0",
+      "pass": true
+    },
+    {
+      "name": "Render pedidos 0",
+      "pass": true
+    },
+    {
+      "name": "Render clientes 0",
+      "pass": true
+    },
+    {
+      "name": "Render canais 0",
+      "pass": true
+    },
+    {
+      "name": "Render executiva 1",
+      "pass": true
+    },
+    {
+      "name": "Render pedidos 1",
+      "pass": true
+    },
+    {
+      "name": "Render clientes 1",
+      "pass": true
+    },
+    {
+      "name": "Render canais 1",
+      "pass": true
+    },
+    {
+      "name": "Render executiva 2",
+      "pass": true
+    },
+    {
+      "name": "Render pedidos 2",
+      "pass": true
+    },
+    {
+      "name": "Render clientes 2",
+      "pass": true
+    },
+    {
+      "name": "Render canais 2",
+      "pass": true
+    },
+    {
+      "name": "Render executiva 3",
+      "pass": true
+    },
+    {
+      "name": "Render pedidos 3",
+      "pass": true
+    },
+    {
+      "name": "Render clientes 3",
+      "pass": true
+    },
+    {
+      "name": "Render canais 3",
+      "pass": true
+    },
+    {
+      "name": "Render executiva 4",
+      "pass": true
+    },
+    {
+      "name": "Render pedidos 4",
+      "pass": true
+    },
+    {
+      "name": "Render clientes 4",
+      "pass": true
+    },
+    {
+      "name": "Render canais 4",
+      "pass": true
+    },
+    {
+      "name": "Render executiva 5",
+      "pass": true
+    },
+    {
+      "name": "Render pedidos 5",
+      "pass": true
+    },
+    {
+      "name": "Render clientes 5",
+      "pass": true
+    },
+    {
+      "name": "Render canais 5",
+      "pass": true
+    },
+    {
+      "name": "Render executiva 6",
+      "pass": true
+    },
+    {
+      "name": "Render pedidos 6",
+      "pass": true
+    },
+    {
+      "name": "Render clientes 6",
+      "pass": true
+    },
+    {
+      "name": "Render canais 6",
+      "pass": true
+    }
+  ],
+  "pages": 4,
+  "charts": 14,
+  "counts": [
+    420,
+    40,
+    4200,
+    8400
+  ],
+  "global": {
+    "orders": 4200,
+    "completed": 3588,
+    "counts": {
+      "completed": 3588,
+      "cancelled": 254,
+      "refunded": 197,
+      "pending": 161
+    },
+    "revenueCents": 269998155,
+    "refundCents": 15641028,
+    "ticket": 752.5032190635451,
+    "completion": 0.8542857142857143,
+    "cancelRate": 0.060476190476190475,
+    "refundRate": 0.04690476190476191
+  },
+  "customers": {
+    "rows": 8400,
+    "buyers": 420,
+    "repeat": 414,
+    "rate": 0.9857142857142858,
+    "revenueCents": 269998155,
+    "units": 14369,
+    "revenuePerBuyer": 6428.527499999999,
+    "discountRate": 0.059982164606394606
+  },
+  "limits": [
+    "Desktop Commander offline; browser, PNG, acessibilidade e responsividade não homologados",
+    "SVG nativo sem ECharts",
+    "Categoria apenas grão item; canal apenas grão pedido"
+  ]
+}
