@@ -30,5 +30,447 @@
         }
       }
     ]
-  }
+  },
+  "visualInteractions": [
+    {
+      "source": "0000000000000000aa61",
+      "target": "0000000000000000aa5d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa61",
+      "target": "0000000000000000aa5e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa61",
+      "target": "0000000000000000aa5f",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa61",
+      "target": "0000000000000000aa60",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa61",
+      "target": "0000000000000000aa62",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa61",
+      "target": "0000000000000000aa63",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa61",
+      "target": "0000000000000000aa64",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa61",
+      "target": "c2050000000000000001",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa61",
+      "target": "d3e20000000000000001",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa61",
+      "target": "d3e20000000000000002",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa61",
+      "target": "d3e20000000000000003",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa62",
+      "target": "0000000000000000aa5d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa62",
+      "target": "0000000000000000aa5e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa62",
+      "target": "0000000000000000aa5f",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa62",
+      "target": "0000000000000000aa60",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa62",
+      "target": "0000000000000000aa61",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa62",
+      "target": "0000000000000000aa63",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa62",
+      "target": "0000000000000000aa64",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa62",
+      "target": "c2050000000000000001",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa62",
+      "target": "d3e20000000000000001",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa62",
+      "target": "d3e20000000000000002",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa62",
+      "target": "d3e20000000000000003",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa63",
+      "target": "0000000000000000aa5d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa63",
+      "target": "0000000000000000aa5e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa63",
+      "target": "0000000000000000aa5f",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa63",
+      "target": "0000000000000000aa60",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa63",
+      "target": "0000000000000000aa61",
+      "type": "NoFilter"
+    },
+    {
+      "source": "0000000000000000aa63",
+      "target": "0000000000000000aa62",
+      "type": "NoFilter"
+    },
+    {
+      "source": "0000000000000000aa63",
+      "target": "0000000000000000aa64",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa63",
+      "target": "c2050000000000000001",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa63",
+      "target": "d3e20000000000000001",
+      "type": "NoFilter"
+    },
+    {
+      "source": "0000000000000000aa63",
+      "target": "d3e20000000000000002",
+      "type": "NoFilter"
+    },
+    {
+      "source": "0000000000000000aa63",
+      "target": "d3e20000000000000003",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa64",
+      "target": "0000000000000000aa5d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa64",
+      "target": "0000000000000000aa5e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa64",
+      "target": "0000000000000000aa5f",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa64",
+      "target": "0000000000000000aa60",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa64",
+      "target": "0000000000000000aa61",
+      "type": "NoFilter"
+    },
+    {
+      "source": "0000000000000000aa64",
+      "target": "0000000000000000aa62",
+      "type": "NoFilter"
+    },
+    {
+      "source": "0000000000000000aa64",
+      "target": "0000000000000000aa63",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa64",
+      "target": "c2050000000000000001",
+      "type": "DataFilter"
+    },
+    {
+      "source": "0000000000000000aa64",
+      "target": "d3e20000000000000001",
+      "type": "NoFilter"
+    },
+    {
+      "source": "0000000000000000aa64",
+      "target": "d3e20000000000000002",
+      "type": "NoFilter"
+    },
+    {
+      "source": "0000000000000000aa64",
+      "target": "d3e20000000000000003",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c2050000000000000001",
+      "target": "0000000000000000aa5d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c2050000000000000001",
+      "target": "0000000000000000aa5e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c2050000000000000001",
+      "target": "0000000000000000aa5f",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c2050000000000000001",
+      "target": "0000000000000000aa60",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c2050000000000000001",
+      "target": "0000000000000000aa61",
+      "type": "NoFilter"
+    },
+    {
+      "source": "c2050000000000000001",
+      "target": "0000000000000000aa62",
+      "type": "NoFilter"
+    },
+    {
+      "source": "c2050000000000000001",
+      "target": "0000000000000000aa63",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c2050000000000000001",
+      "target": "0000000000000000aa64",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c2050000000000000001",
+      "target": "d3e20000000000000001",
+      "type": "NoFilter"
+    },
+    {
+      "source": "c2050000000000000001",
+      "target": "d3e20000000000000002",
+      "type": "NoFilter"
+    },
+    {
+      "source": "c2050000000000000001",
+      "target": "d3e20000000000000003",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000001",
+      "target": "0000000000000000aa5d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000001",
+      "target": "0000000000000000aa5e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000001",
+      "target": "0000000000000000aa5f",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000001",
+      "target": "0000000000000000aa60",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000001",
+      "target": "0000000000000000aa61",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000001",
+      "target": "0000000000000000aa62",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000001",
+      "target": "0000000000000000aa63",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000001",
+      "target": "0000000000000000aa64",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000001",
+      "target": "c2050000000000000001",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000001",
+      "target": "d3e20000000000000002",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000001",
+      "target": "d3e20000000000000003",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000002",
+      "target": "0000000000000000aa5d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000002",
+      "target": "0000000000000000aa5e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000002",
+      "target": "0000000000000000aa5f",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000002",
+      "target": "0000000000000000aa60",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000002",
+      "target": "0000000000000000aa61",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000002",
+      "target": "0000000000000000aa62",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000002",
+      "target": "0000000000000000aa63",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000002",
+      "target": "0000000000000000aa64",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000002",
+      "target": "c2050000000000000001",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000002",
+      "target": "d3e20000000000000001",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000002",
+      "target": "d3e20000000000000003",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000003",
+      "target": "0000000000000000aa5d",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000003",
+      "target": "0000000000000000aa5e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000003",
+      "target": "0000000000000000aa5f",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000003",
+      "target": "0000000000000000aa60",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000003",
+      "target": "0000000000000000aa61",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d3e20000000000000003",
+      "target": "0000000000000000aa62",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d3e20000000000000003",
+      "target": "0000000000000000aa63",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000003",
+      "target": "0000000000000000aa64",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000003",
+      "target": "c2050000000000000001",
+      "type": "DataFilter"
+    },
+    {
+      "source": "d3e20000000000000003",
+      "target": "d3e20000000000000001",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d3e20000000000000003",
+      "target": "d3e20000000000000002",
+      "type": "NoFilter"
+    }
+  ]
 }

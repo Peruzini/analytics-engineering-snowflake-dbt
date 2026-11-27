@@ -1,0 +1,208 @@
+{
+  "candidate": "a6ba59575ecf90c2ed207636ac95a5920542543f",
+  "base": "3039711",
+  "status": "PASS representative functional acceptance",
+  "native": {
+    "historicalComparisonsBeforeSave": 316,
+    "historicalComparisonsAfterReopen": 316,
+    "independentCsvComparisons": 220,
+    "totalComparisons": 852,
+    "failures": 0,
+    "scenarios": 11,
+    "syncGroups": 4,
+    "slicers": 17,
+    "localCategorySlicer": 1,
+    "interactionRules": 414,
+    "representativeCrossFilterPages": 4,
+    "savedAndReopenedPages": 4,
+    "cacheRestoredWithoutRefresh": true,
+    "savedSyncGroupsMatch": true,
+    "savedInteractionRulesMatch": true,
+    "modelGitBlobIdenticalToBase": true,
+    "desktopProcessesAfter": 0,
+    "newAnalysisServicesProcessesAfter": 0
+  },
+  "tests": {
+    "unittest": 52,
+    "failed": 0
+  },
+  "uiCards": {
+    "combined-executive": [
+      "Receita reconhecida, R$ 3.805,15 cartão",
+      "Pedidos concluídos, 9 cartão",
+      "Ticket médio, R$ 422,79 cartão",
+      "MoM — meses completos, -- cartão"
+    ],
+    "combined-orders": [
+      "Pedidos totais, 9 cartão",
+      "Conclusão, 100,00% cartão",
+      "Cancelamento, 0,00% cartão",
+      "Reembolso, 0,00% cartão"
+    ],
+    "combined-products": [
+      "Receita de itens, R$ 3.805,15 cartão",
+      "Compradores distintos, 8 cartão",
+      "Recorrentes (2+), 1 cartão",
+      "Taxa de recompra, 12,50% cartão"
+    ],
+    "category-products": [
+      "Receita de itens, R$ 219,38 cartão",
+      "Compradores distintos, 3 cartão",
+      "Recorrentes (2+), 0 cartão",
+      "Taxa de recompra, 0,00% cartão"
+    ],
+    "combined-channels": [
+      "Receita reconhecida, R$ 3.805,15 cartão",
+      "Pedidos totais, 9 cartão",
+      "Ticket médio, R$ 422,79 cartão",
+      "Conclusão, 100,00% cartão"
+    ],
+    "reopened-executive": [
+      "Receita reconhecida, R$ 3.805,15 cartão",
+      "Pedidos concluídos, 9 cartão",
+      "Ticket médio, R$ 422,79 cartão",
+      "MoM — meses completos, -- cartão"
+    ],
+    "reopened-orders": [
+      "Pedidos totais, 9 cartão",
+      "Conclusão, 100,00% cartão",
+      "Cancelamento, 0,00% cartão",
+      "Reembolso, 0,00% cartão"
+    ],
+    "reopened-products": [
+      "Receita de itens, R$ 219,38 cartão",
+      "Compradores distintos, 3 cartão",
+      "Recorrentes (2+), 0 cartão",
+      "Taxa de recompra, 0,00% cartão"
+    ],
+    "reopened-channels": [
+      "Receita reconhecida, R$ 3.805,15 cartão",
+      "Pedidos totais, 9 cartão",
+      "Ticket médio, R$ 422,79 cartão",
+      "Conclusão, 100,00% cartão"
+    ],
+    "cross-executive": [
+      "Receita reconhecida, R$ 413.470,22 cartão",
+      "Pedidos concluídos, 516 cartão",
+      "Ticket médio, R$ 801,30 cartão",
+      "MoM — meses completos, 1,86% cartão"
+    ],
+    "cross-orders": [
+      "Pedidos totais, 3.588 cartão",
+      "Conclusão, 100,00% cartão",
+      "Cancelamento, 0,00% cartão",
+      "Reembolso, 0,00% cartão"
+    ],
+    "cross-products": [
+      "Receita de itens, R$ 345.592,82 cartão",
+      "Compradores distintos, 414 cartão",
+      "Recorrentes (2+), 375 cartão",
+      "Taxa de recompra, 90,58% cartão"
+    ],
+    "cross-channels": [
+      "Receita reconhecida, R$ 691.123,87 cartão",
+      "Pedidos totais, 938 cartão",
+      "Ticket médio, R$ 825,72 cartão",
+      "Conclusão, 89,23% cartão"
+    ]
+  },
+  "evidence": [
+    {
+      "name": "baseline",
+      "sha256": "55ae94ed7b319705085abfeda3f11813e8c1af7dc208a0676e67d4e3a93b95d5",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/baseline.png"
+    },
+    {
+      "name": "category-products",
+      "sha256": "d61253dd3923f3afe6d9cb69198c6367016db33ab3bb58a2093cb0d063f345d6",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/category-products.png"
+    },
+    {
+      "name": "combined-channels",
+      "sha256": "9a830bb06e77efad540d98176edd171adb72f4cc7c2e83321cea7e2c9d37da12",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/combined-channels.png"
+    },
+    {
+      "name": "combined-executive",
+      "sha256": "daf9d5d26992afa764ef1f877bdaf4588363cf307fee801ce2ae235374076ae8",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/combined-executive.png"
+    },
+    {
+      "name": "combined-orders",
+      "sha256": "3bb9fb28b68f07af9c8093d64670aaac0efdb51c8332a309c30132dddbe72fe4",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/combined-orders.png"
+    },
+    {
+      "name": "combined-products",
+      "sha256": "ec4f157ab4fafc66fc3b940158d914857761d0de3d3f8fbe27391ae18f43b3e7",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/combined-products.png"
+    },
+    {
+      "name": "cross-channels",
+      "sha256": "06cc8d285c6cc3619d62e76f25db9643499447276c85c81f61090b44a065ca3e",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/cross-channels.png"
+    },
+    {
+      "name": "cross-executive",
+      "sha256": "dd62589191a12ad2ad008724e158c1b981ca1fecc59292482f651f2f0c0d00ce",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/cross-executive.png"
+    },
+    {
+      "name": "cross-orders",
+      "sha256": "191605bfcc6efed02bc6c34a0de3697e53844041da4535be2318ae977c8ef445",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/cross-orders.png"
+    },
+    {
+      "name": "cross-products",
+      "sha256": "e00f5176a17253d62b0ea84858f6452cd642b5dc474e11bde2a26358a04c7767",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/cross-products.png"
+    },
+    {
+      "name": "reopened-channels",
+      "sha256": "d268ed863851dea0c093c6319719498f440d156da52547e7e6ae070b576116b0",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/reopened-channels.png"
+    },
+    {
+      "name": "reopened-executive",
+      "sha256": "57a63bf9e11363c6cabbd9a2f56a2c2b39a82aefc1bc24c08b1be76a7f37156d",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/reopened-executive.png"
+    },
+    {
+      "name": "reopened-orders",
+      "sha256": "88f4d314b3ff4936e681ff72651cee54387473fbc0696f9b936a80d668372ea7",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/reopened-orders.png"
+    },
+    {
+      "name": "reopened-products",
+      "sha256": "2553365639af2635a8a0a47dd262cf98e2d31c1b74529f45d282401744124078",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/reopened-products.png"
+    },
+    {
+      "name": "reset-channels",
+      "sha256": "4220b3571679471e62fb4074258796f19fa25c8e2d779e568ede3e912a69b0ef",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/reset-channels.png"
+    },
+    {
+      "name": "reset-orders",
+      "sha256": "67c0ff008ca1e5e4e08899292f9ce36f1397bd2f7f5ba21303c5284891b2b6e7",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/reset-orders.png"
+    },
+    {
+      "name": "reset-products",
+      "sha256": "3e8a93e0d6055002657b14c080898f78cb4c9654b252ed8641640ac885c0bbe3",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/reset-products.png"
+    },
+    {
+      "name": "saved",
+      "sha256": "39590f940f3536084a2c711ef8cb143be55a878f39ef2c1871fb6c7d31274c9e",
+      "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f2b-inspection/saved.png"
+    }
+  ],
+  "limitations": [
+    "Multi-selection and empty context validated via DAX only.",
+    "414 interaction rules checked structurally and after save; representative direct chart interactions on four pages, not exhaustive pairs.",
+    "Extra DAX queries for selected shares, Pareto, references and MoM recorded separately; not counted as independent comparisons.",
+    "Saved test copy and cache not committed.",
+    "Normal Desktop closure timed out; terminated only own disposable PIDs after saving. Mobile/accessibility remain D3F2C."
+  ]
+}

@@ -14,7 +14,7 @@ PAGES = REPORT / "definition" / "pages"
 EXPECTED = {
     "aea00000000000000001": ("Visão Executiva", 16, "RECEITA & PERFORMANCE"),
     "aea00000000000000002": ("Receita e Pedidos", 17, "PEDIDOS & EFICIÊNCIA"),
-    "aea00000000000000003": ("Clientes e Produtos", 17, "CLIENTES & MIX"),
+    "aea00000000000000003": ("Clientes e Produtos", 18, "CLIENTES & MIX"),
     "aea00000000000000004": ("Canais e Pedidos", 16, "CANAIS & ATRIBUIÇÃO"),
 }
 
@@ -42,7 +42,7 @@ class TestReportUX(unittest.TestCase):
         manifest = load(PAGES / "pages.json")
         self.assertEqual(manifest["pageOrder"], list(EXPECTED))
         self.assertEqual(manifest["activePageName"], list(EXPECTED)[0])
-        self.assertEqual(sum(len(v) for v in self.page_content.values()), 66)
+        self.assertEqual(sum(len(v) for v in self.page_content.values()), 67)
         for page_id, (label, count, title) in EXPECTED.items():
             with self.subTest(page=label):
                 self.assertEqual(load(PAGES / page_id / "page.json")["displayName"], label)
@@ -88,7 +88,7 @@ class TestReportUX(unittest.TestCase):
             self.assertEqual({v["position"]["y"] for v in cards}, {178})
             self.assertEqual({v["position"]["height"] for v in cards}, {92})
             tabs = [v for v in visuals if v["visual"]["visualType"] == "slicer"]
-            self.assertEqual(len(tabs), 4)
+            self.assertEqual(len(tabs), 5 if page_id == "aea00000000000000003" else 4)
             self.assertEqual({v["position"]["y"] for v in tabs}, {106})
             self.assertEqual(len([v for v in visuals if v["visual"]["visualType"] == "tableEx"]), 1)
             self.assertEqual(len([v for v in visuals if v["visual"]["visualType"] in {"lineChart", "clusteredBarChart", "scatterChart", "pivotTable", "lineClusteredColumnComboChart"}]), 3 if page_id in (list(EXPECTED)[0], list(EXPECTED)[3]) else 4)

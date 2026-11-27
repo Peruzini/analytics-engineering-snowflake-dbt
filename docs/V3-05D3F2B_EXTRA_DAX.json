@@ -1,0 +1,131 @@
+{
+  "statuses": [
+    {
+      "FatoPedidos[Status PT]": "Pendentes",
+      "[orders]": 161,
+      "[share]": 0.04294478527607362
+    },
+    {
+      "FatoPedidos[Status PT]": "Concluídos",
+      "[orders]": 3588,
+      "[share]": 0.9570552147239264
+    }
+  ],
+  "channels": [
+    {
+      "FatoPedidos[Canal PT]": "E-mail",
+      "[revenue]": 93409.97,
+      "[share]": 0.22591704427951306,
+      "[refTicket]": 835.7978813559322,
+      "[refCompletion]": 0.9076923076923077
+    },
+    {
+      "FatoPedidos[Canal PT]": "Orgânico",
+      "[revenue]": 103838.33,
+      "[share]": 0.25113859469734,
+      "[refTicket]": 835.7978813559322,
+      "[refCompletion]": 0.9076923076923077
+    }
+  ],
+  "categories": [
+    {
+      "DimProdutos[Categoria PT]": "Acessórios",
+      "[revenue]": 13164.559999999987,
+      "[rate]": 0.5555555555555556,
+      "[refRevenue]": 17306.388333333336,
+      "[refRepurchase]": 0.6727272727272727
+    },
+    {
+      "DimProdutos[Categoria PT]": "Periféricos",
+      "[revenue]": 34088.80000000004,
+      "[rate]": 0.2777777777777778,
+      "[refRevenue]": 17306.388333333336,
+      "[refRepurchase]": 0.6727272727272727
+    },
+    {
+      "DimProdutos[Categoria PT]": "Office",
+      "[revenue]": 28404.670000000002,
+      "[rate]": 0.28125,
+      "[refRevenue]": 17306.388333333336,
+      "[refRepurchase]": 0.6727272727272727
+    },
+    {
+      "DimProdutos[Categoria PT]": "Lifestyle",
+      "[revenue]": 6838.329999999998,
+      "[rate]": 0.2,
+      "[refRevenue]": 17306.388333333336,
+      "[refRepurchase]": 0.6727272727272727
+    },
+    {
+      "DimProdutos[Categoria PT]": "Áudio",
+      "[revenue]": 14339.069999999998,
+      "[rate]": 0.05,
+      "[refRevenue]": 17306.388333333336,
+      "[refRepurchase]": 0.6727272727272727
+    },
+    {
+      "DimProdutos[Categoria PT]": "Casa",
+      "[revenue]": 7002.899999999998,
+      "[rate]": 0.13043478260869565,
+      "[refRevenue]": 17306.388333333336,
+      "[refRepurchase]": 0.6727272727272727
+    }
+  ],
+  "pareto": [
+    {
+      "DimProdutos[product_id]": "P013",
+      "[revenue]": 17799.039999999994,
+      "[share]": 0.3383431733777233
+    },
+    {
+      "DimProdutos[product_id]": "P022",
+      "[revenue]": 6907.659999999998,
+      "[share]": 0.46965135657268015
+    },
+    {
+      "DimProdutos[product_id]": "P002",
+      "[revenue]": 5779.2,
+      "[share]": 0.5795085661516541
+    },
+    {
+      "DimProdutos[product_id]": "P016",
+      "[revenue]": 5085.589999999999,
+      "[share]": 0.6761808956198735
+    },
+    {
+      "DimProdutos[product_id]": "P034",
+      "[revenue]": 4997.71,
+      "[share]": 0.7711827081345699
+    },
+    {
+      "DimProdutos[product_id]": "P001",
+      "[revenue]": 4854.549999999999,
+      "[share]": 0.8634631823804183
+    },
+    {
+      "DimProdutos[product_id]": "P011",
+      "[revenue]": 3292.25,
+      "[share]": 0.9260457886643982
+    },
+    {
+      "DimProdutos[product_id]": "P032",
+      "[revenue]": 1724.02,
+      "[share]": 0.9588178032093772
+    },
+    {
+      "DimProdutos[product_id]": "P021",
+      "[revenue]": 1554.09,
+      "[share]": 0.9883596067175767
+    },
+    {
+      "DimProdutos[product_id]": "P033",
+      "[revenue]": 612.3599999999998,
+      "[share]": 1
+    }
+  ],
+  "mom": [
+    {
+      "[mom]": 0.42059084578912126
+    }
+  ]
+}

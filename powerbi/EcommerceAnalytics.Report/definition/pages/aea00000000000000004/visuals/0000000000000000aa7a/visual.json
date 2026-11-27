@@ -207,6 +207,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "Ecommerce_FatoPedidos_Canal_PT",
+      "fieldChanges": true,
+      "filterChanges": true
     }
   }
 }

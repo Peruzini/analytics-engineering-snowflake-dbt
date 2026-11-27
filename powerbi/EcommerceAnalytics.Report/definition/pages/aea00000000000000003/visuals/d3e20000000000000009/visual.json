@@ -2,9 +2,9 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "d3e20000000000000009",
   "position": {
-    "x": 1074,
+    "x": 864,
     "y": 106,
-    "width": 340,
+    "width": 270,
     "height": 60,
     "z": 6000,
     "tabOrder": 6000
@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FatoItens"
+                      "Entity": "FatoPedidos"
                     }
                   },
                   "Property": "Status PT"
                 }
               },
-              "queryRef": "FatoItens.Status PT",
+              "queryRef": "FatoPedidos.Status PT",
               "nativeQueryRef": "Status PT",
               "displayName": "Status"
             }
@@ -207,6 +207,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "Ecommerce_FatoPedidos_Status_PT",
+      "fieldChanges": true,
+      "filterChanges": true
     }
   }
 }
