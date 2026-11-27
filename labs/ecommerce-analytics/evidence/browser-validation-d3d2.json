@@ -1,0 +1,1099 @@
+{
+  "lab": "ecommerce-analytics",
+  "browser": "158.0.8127.37",
+  "checks": [
+    {
+      "name": "1440x900/executiva/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/unique IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/chart fit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/scatter labels",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1440x900/executiva/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1440x900/executiva/grain",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/PNG/monthly",
+      "pass": true,
+      "detail": {
+        "bytes": 43103,
+        "dims": [
+          1120,
+          490
+        ]
+      }
+    },
+    {
+      "name": "1440x900/executiva/PNG/regions",
+      "pass": true,
+      "detail": {
+        "bytes": 50258,
+        "dims": [
+          1120,
+          510
+        ]
+      }
+    },
+    {
+      "name": "1440x900/executiva/PNG/day-average",
+      "pass": true,
+      "detail": {
+        "bytes": 44074,
+        "dims": [
+          1120,
+          490
+        ]
+      }
+    },
+    {
+      "name": "1440x900/executiva/CSV",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/keyboard filter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/reset",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/pointer filter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/filter persistence",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/executiva/empty context",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/unique IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/chart fit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/scatter labels",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1440x900/pedidos/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1440x900/pedidos/grain",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/PNG/order-status",
+      "pass": true,
+      "detail": {
+        "bytes": 24512,
+        "dims": [
+          1120,
+          244
+        ]
+      }
+    },
+    {
+      "name": "1440x900/pedidos/PNG/rates",
+      "pass": true,
+      "detail": {
+        "bytes": 52548,
+        "dims": [
+          1120,
+          490
+        ]
+      }
+    },
+    {
+      "name": "1440x900/pedidos/PNG/daily",
+      "pass": true,
+      "detail": {
+        "bytes": 64062,
+        "dims": [
+          1120,
+          490
+        ]
+      }
+    },
+    {
+      "name": "1440x900/pedidos/PNG/cumulative",
+      "pass": true,
+      "detail": {
+        "bytes": 37983,
+        "dims": [
+          1120,
+          490
+        ]
+      }
+    },
+    {
+      "name": "1440x900/pedidos/CSV",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/keyboard filter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/reset",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/pointer filter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/filter persistence",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/pedidos/empty context",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/unique IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/chart fit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/scatter labels",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1440x900/clientes/heatmap contrast",
+      "pass": true,
+      "detail": {
+        "cells": 42,
+        "minimum": 4.913391298816079
+      }
+    },
+    {
+      "name": "1440x900/clientes/percentage axis",
+      "pass": true,
+      "detail": [
+        57.51,
+        68.13,
+        78.76,
+        89.38,
+        100
+      ]
+    },
+    {
+      "name": "1440x900/clientes/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1440x900/clientes/grain",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/PNG/categories",
+      "pass": true,
+      "detail": {
+        "bytes": 53233,
+        "dims": [
+          1120,
+          452
+        ]
+      }
+    },
+    {
+      "name": "1440x900/clientes/PNG/heatmap",
+      "pass": true,
+      "detail": {
+        "bytes": 93273,
+        "dims": [
+          1120,
+          558
+        ]
+      }
+    },
+    {
+      "name": "1440x900/clientes/PNG/repurchase",
+      "pass": true,
+      "detail": {
+        "bytes": 61913,
+        "dims": [
+          1120,
+          600
+        ]
+      }
+    },
+    {
+      "name": "1440x900/clientes/PNG/products",
+      "pass": true,
+      "detail": {
+        "bytes": 44192,
+        "dims": [
+          1120,
+          570
+        ]
+      }
+    },
+    {
+      "name": "1440x900/clientes/CSV",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/keyboard filter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/reset",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/pointer filter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/filter persistence",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/clientes/empty context",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/unique IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/chart fit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/scatter labels",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1440x900/canais/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1440x900/canais/grain",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/PNG/share",
+      "pass": true,
+      "detail": {
+        "bytes": 40231,
+        "dims": [
+          1120,
+          394
+        ]
+      }
+    },
+    {
+      "name": "1440x900/canais/PNG/channel-efficiency",
+      "pass": true,
+      "detail": {
+        "bytes": 63218,
+        "dims": [
+          1120,
+          600
+        ]
+      }
+    },
+    {
+      "name": "1440x900/canais/PNG/channels",
+      "pass": true,
+      "detail": {
+        "bytes": 111699,
+        "dims": [
+          1120,
+          1090
+        ]
+      }
+    },
+    {
+      "name": "1440x900/canais/CSV",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/keyboard filter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/reset",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/pointer filter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/filter persistence",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/canais/empty context",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1440x900/console",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024x768/executiva/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/unique IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/chart fit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/executiva/scatter labels",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024x768/executiva/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024x768/pedidos/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/unique IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/chart fit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/pedidos/scatter labels",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024x768/pedidos/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024x768/clientes/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/unique IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/chart fit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/clientes/scatter labels",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024x768/clientes/heatmap contrast",
+      "pass": true,
+      "detail": {
+        "cells": 42,
+        "minimum": 4.913391298816079
+      }
+    },
+    {
+      "name": "1024x768/clientes/percentage axis",
+      "pass": true,
+      "detail": [
+        57.51,
+        68.13,
+        78.76,
+        89.38,
+        100
+      ]
+    },
+    {
+      "name": "1024x768/clientes/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024x768/canais/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/unique IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/chart fit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "1024x768/canais/scatter labels",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024x768/canais/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "1024x768/console",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "390x844/executiva/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/unique IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/chart fit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/executiva/scatter labels",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "390x844/executiva/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "390x844/pedidos/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/unique IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/chart fit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/pedidos/scatter labels",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "390x844/pedidos/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "390x844/clientes/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/unique IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/chart fit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/clientes/scatter labels",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "390x844/clientes/heatmap contrast",
+      "pass": true,
+      "detail": {
+        "cells": 42,
+        "minimum": 4.913391298816079
+      }
+    },
+    {
+      "name": "390x844/clientes/percentage axis",
+      "pass": true,
+      "detail": [
+        57.51,
+        78.76,
+        100
+      ]
+    },
+    {
+      "name": "390x844/clientes/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "390x844/canais/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/unique IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/chart fit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "390x844/canais/scatter labels",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "390x844/canais/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "390x844/console",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "320x720/executiva/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/unique IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/chart fit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/executiva/scatter labels",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "320x720/executiva/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "320x720/pedidos/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/unique IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/chart fit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/pedidos/scatter labels",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "320x720/pedidos/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "320x720/clientes/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/unique IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/chart fit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/clientes/scatter labels",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "320x720/clientes/heatmap contrast",
+      "pass": true,
+      "detail": {
+        "cells": 42,
+        "minimum": 4.913391298816079
+      }
+    },
+    {
+      "name": "320x720/clientes/percentage axis",
+      "pass": true,
+      "detail": [
+        57.51,
+        78.76,
+        100
+      ]
+    },
+    {
+      "name": "320x720/clientes/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "320x720/canais/KPIs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/charts",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/body width",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/valid SVG",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/unique IDs",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/chart fit",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "320x720/canais/scatter labels",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "320x720/canais/text in SVG",
+      "pass": true,
+      "detail": []
+    },
+    {
+      "name": "320x720/console",
+      "pass": true,
+      "detail": []
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "1440x900-executiva.png",
+      "sha256": "62e26041b27257c3234011521c40fec34768629508d3cbddb1236a67ce1e41b0"
+    },
+    {
+      "file": "1440x900-pedidos.png",
+      "sha256": "7748580ba4cc5b340527131a168a4ebb5df52dc0c96e9d85ea074838cbfed8a9"
+    },
+    {
+      "file": "1440x900-clientes.png",
+      "sha256": "a3ac96d6fe52c67a5c12394909e8724f0366cd9fb59939cf489a744daecc339b"
+    },
+    {
+      "file": "1440x900-canais.png",
+      "sha256": "f90c32b80fa9fe56c74b87533699d171b4955cc1840a22ebe60e43c01a11bf8b"
+    },
+    {
+      "file": "1024x768-executiva.png",
+      "sha256": "473d7523a3b41c46023380b3f49ae25ffd9e6ba5269bd38cad3c0045ea85eac3"
+    },
+    {
+      "file": "1024x768-pedidos.png",
+      "sha256": "343fd86fc4f5c5d390118b20e5790fbd1534d726b5251952f2588423aceb42e5"
+    },
+    {
+      "file": "1024x768-clientes.png",
+      "sha256": "959fed312fcd74d8d7d9ffe8da8dba6c2c05759661a814acd444f8b5b73b6e8a"
+    },
+    {
+      "file": "1024x768-canais.png",
+      "sha256": "63145e743881e7639d814aed78b3278660cd32fbd24c5c88b1a93729f020c42f"
+    },
+    {
+      "file": "390x844-executiva.png",
+      "sha256": "8f4f80244b220196da073ff083ded67623a7e26a71911fd3a87ce4bf0e70d476"
+    },
+    {
+      "file": "390x844-pedidos.png",
+      "sha256": "da96516ebce3b627606242ef067040d7c8173e63b3c8675490b6a178d1a6f1d1"
+    },
+    {
+      "file": "390x844-clientes.png",
+      "sha256": "54381556a8329d9bf389e12c37d5413305916077326f27e6fadbd9c459b68240"
+    },
+    {
+      "file": "390x844-canais.png",
+      "sha256": "fb9140a91e9d1ec6cd53a637fb7e7a91849ff044f125907749eadf336a7beaf1"
+    },
+    {
+      "file": "320x720-executiva.png",
+      "sha256": "a309b92b4b1dc1f799b7ed2cbd75e356b3992896beeb5b0744c9350c333e74be"
+    },
+    {
+      "file": "320x720-pedidos.png",
+      "sha256": "792d5c5fabce11f667b602ebedf8d6a3b21807a3e5cb49b6a3079731ea8c60a4"
+    },
+    {
+      "file": "320x720-clientes.png",
+      "sha256": "9a6489a242223e670f0c0873356ee12b58ed69acf1e4c27ad1012eae22dff800"
+    },
+    {
+      "file": "320x720-canais.png",
+      "sha256": "79970cff1dd2e533e1560f0b147d73dabcdf55f7c83b6e0016dea3007708dedb"
+    }
+  ],
+  "pass": true
+}
