@@ -1,0 +1,187 @@
+{
+  "snapshotCommit": "b1c285cfd54564b2849f9e7a9c61f42c2e782b91",
+  "files": {
+    "dim_customers.csv": "48a4f6f32c3137dd27da1204a5ce29dc8a4c778d",
+    "dim_products.csv": "d0857543626ca4e725f04b6eb73fc79ff67064d4",
+    "fct_order_items.csv": "e521188417641ae237dd9b0ee47cf93e95e16de7",
+    "fct_orders.csv": "f205cfa47e67f836dea27c5bd7e4d8fe5063a209",
+    "mart_channel_performance.csv": "65d5348a5d24f91e20c18cc62e3fe51ea699aa56",
+    "mart_customer_ltv.csv": "15166e583eed91fe0fbb3741fdf1cee4ea1e629e",
+    "mart_daily_sales.csv": "0e8b79b9b54df6aa939e7eed40d7cbce0c967236"
+  },
+  "scope": "13 independent checks executed against all seven CSV files, not dbt/M/DAX.",
+  "checks": [
+    {
+      "name": "7 contagens CSV",
+      "pass": true
+    },
+    {
+      "name": "chaves únicas",
+      "pass": true
+    },
+    {
+      "name": "integridade e status item/pedido",
+      "pass": true
+    },
+    {
+      "name": "cinco grãos conciliados",
+      "pass": true
+    },
+    {
+      "name": "receita por pedido reconciliada",
+      "pass": true
+    },
+    {
+      "name": "receita apenas concluída",
+      "pass": true
+    },
+    {
+      "name": "compradores e recompra globais",
+      "pass": true
+    },
+    {
+      "name": "categorias conciliam receita sem duplicidade",
+      "pass": true
+    },
+    {
+      "name": "recompra por categoria usa pedido distinto",
+      "pass": true
+    },
+    {
+      "name": "status particionam pedidos",
+      "pass": true
+    },
+    {
+      "name": "taxas limitadas no filtro de status",
+      "pass": true
+    },
+    {
+      "name": "filtros combinados de categoria e região",
+      "pass": true
+    },
+    {
+      "name": "canais conciliados",
+      "pass": true
+    }
+  ],
+  "counts": [
+    420,
+    40,
+    8400,
+    4200,
+    5,
+    420,
+    365
+  ],
+  "global": {
+    "orders": 4200,
+    "completed": 3588,
+    "buyers": 420,
+    "repeat": 414,
+    "revenueCents": 269998155
+  },
+  "categories": [
+    {
+      "category": "accessories",
+      "buyers": 414,
+      "repeat": 375,
+      "revenueCents": 34559282,
+      "rate": 0.9057971014492754
+    },
+    {
+      "category": "audio",
+      "buyers": 334,
+      "repeat": 211,
+      "revenueCents": 40012907,
+      "rate": 0.6317365269461078
+    },
+    {
+      "category": "home",
+      "buyers": 335,
+      "repeat": 213,
+      "revenueCents": 20456156,
+      "rate": 0.6358208955223881
+    },
+    {
+      "category": "lifestyle",
+      "buyers": 376,
+      "repeat": 307,
+      "revenueCents": 23659475,
+      "rate": 0.8164893617021277
+    },
+    {
+      "category": "office",
+      "buyers": 385,
+      "repeat": 312,
+      "revenueCents": 69663141,
+      "rate": 0.8103896103896104
+    },
+    {
+      "category": "peripherals",
+      "buyers": 391,
+      "repeat": 346,
+      "revenueCents": 81647194,
+      "rate": 0.8849104859335039
+    }
+  ],
+  "status": [
+    {
+      "status": "completed",
+      "orders": 3588,
+      "cancelRate": 0,
+      "refundRate": 0,
+      "revenueCents": 269998155
+    },
+    {
+      "status": "cancelled",
+      "orders": 254,
+      "cancelRate": 1,
+      "refundRate": 0,
+      "revenueCents": 0
+    },
+    {
+      "status": "refunded",
+      "orders": 197,
+      "cancelRate": 0,
+      "refundRate": 1,
+      "revenueCents": 0
+    },
+    {
+      "status": "pending",
+      "orders": 161,
+      "cancelRate": 0,
+      "refundRate": 0,
+      "revenueCents": 0
+    }
+  ],
+  "combined": {
+    "category": "accessories",
+    "region": "BA",
+    "buyers": 60,
+    "repeat": 54,
+    "rate": 0.9,
+    "revenueCents": 5260647
+  },
+  "channels": [
+    {
+      "channel": "email",
+      "revenueCents": 68776356
+    },
+    {
+      "channel": "organic",
+      "revenueCents": 69112387
+    },
+    {
+      "channel": "paid_search",
+      "revenueCents": 63341815
+    },
+    {
+      "channel": "social",
+      "revenueCents": 61041870
+    },
+    {
+      "channel": "unattributed",
+      "revenueCents": 7725727
+    }
+  ]
+}

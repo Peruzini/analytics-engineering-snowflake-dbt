@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "LEITURA GUIADA  •  Compare a receita por dia para corrigir o efeito da duração dos meses. Fev/26 teve 28 dias e R$ 5.651,73/dia na base integral.",
+                    "value": "LEITURA GUIADA • Taxas usam os pedidos dos status selecionados (um status isolado pode dar 0% ou 100%). Fev/26: R$ 5.651,73/dia na base integral.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "13px",

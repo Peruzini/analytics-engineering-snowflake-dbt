@@ -42,12 +42,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Receita Reconhecida"
+                  "Property": "Receita Itens"
                 }
               },
-              "queryRef": "Medidas.Receita Reconhecida",
-              "nativeQueryRef": "Receita Reconhecida",
-              "displayName": "Receita Reconhecida"
+              "queryRef": "Medidas.Receita Itens",
+              "nativeQueryRef": "Receita Itens",
+              "displayName": "Receita dos itens"
             }
           ]
         }
@@ -62,7 +62,7 @@
                     "Entity": "Medidas"
                   }
                 },
-                "Property": "Receita Reconhecida"
+                "Property": "Receita Itens"
               }
             },
             "direction": "Descending"
@@ -153,7 +153,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita reconhecida por região'"
+                  "Value": "'Receita dos itens por região'"
                 }
               }
             },

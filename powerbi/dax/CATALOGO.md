@@ -7,9 +7,9 @@
 | Receita Reconhecida | `SUM(FatoPedidos[recognized_revenue])` | R$ #,0.00 |
 | Pedidos Totais | `DISTINCTCOUNT(FatoPedidos[order_id])` | #,0 |
 | Pedidos Concluídos | `SUM(FatoPedidos[completed_order_flag])` | #,0 |
-| Pedidos Pendentes | `CALCULATE([Pedidos Totais], FatoPedidos[order_status] = "pending")` | #,0 |
-| Pedidos Cancelados | `CALCULATE([Pedidos Totais], FatoPedidos[order_status] = "cancelled")` | #,0 |
-| Pedidos Reembolsados | `CALCULATE([Pedidos Totais], FatoPedidos[order_status] = "refunded")` | #,0 |
+| Pedidos Pendentes | `IF(NOT ISBLANK([Pedidos Totais]), COALESCE(CALCULATE([Pedidos Totais], KEEPFILTERS(FatoPedidos[order_status] = "pending")), 0))` | #,0 |
+| Pedidos Cancelados | `IF(NOT ISBLANK([Pedidos Totais]), COALESCE(CALCULATE([Pedidos Totais], KEEPFILTERS(FatoPedidos[order_status] = "cancelled")), 0))` | #,0 |
+| Pedidos Reembolsados | `IF(NOT ISBLANK([Pedidos Totais]), COALESCE(CALCULATE([Pedidos Totais], KEEPFILTERS(FatoPedidos[order_status] = "refunded")), 0))` | #,0 |
 | Ticket Médio | `DIVIDE([Receita Reconhecida], [Pedidos Concluídos])` | R$ #,0.00 |
 | Taxa Conclusão % | `DIVIDE([Pedidos Concluídos], [Pedidos Totais])` | 0.0% |
 | Taxa Reembolso % | `DIVIDE([Pedidos Reembolsados], [Pedidos Totais])` | 0.0% |
@@ -17,11 +17,11 @@
 | Descontos Itens | `SUM(FatoItens[discount_amount])` | R$ #,0.00 |
 | Reembolsos Valor | `SUM(FatoPedidos[refunded_amount])` | R$ #,0.00 |
 | Receita Itens | `SUM(FatoItens[recognized_item_revenue])` | R$ #,0.00 |
-| Unidades Pedidos Concluídos | `CALCULATE(SUM(FatoItens[quantity]), FatoItens[order_status] = "completed")` | #,0 |
+| Unidades Pedidos Concluídos | `CALCULATE(SUM(FatoItens[quantity]), KEEPFILTERS(FatoItens[order_status] = "completed"))` | #,0 |
 | Clientes Cadastrados | `DISTINCTCOUNT(DimClientes[customer_id])` | #,0 |
-| Clientes Compradores | `CALCULATE(DISTINCTCOUNT(FatoPedidos[customer_id]), FatoPedidos[order_status] = "completed")` | #,0 |
-| Receita por Cliente Comprador | `DIVIDE([Receita Reconhecida], [Clientes Compradores])` | R$ #,0.00 |
-| Receita Acumulada | `VAR UltimaData = MAX(DimData[Data]) RETURN CALCULATE([Receita Reconhecida], FILTER(ALLSELECTED(DimData[Data]), DimData[Data] <= UltimaData))` | R$ #,0.00 |
+| Clientes Compradores | `IF(NOT ISEMPTY(FatoItens), COALESCE(CALCULATE(DISTINCTCOUNT(FatoItens[customer_id]), KEEPFILTERS(FatoItens[order_status] = "completed")), 0))` | #,0 |
+| Receita por Cliente Comprador | `DIVIDE([Receita Itens], [Clientes Compradores])` | R$ #,0.00 |
+| Receita Acumulada | `VAR UltimaData = MAX(DimData[Data]) RETURN IF(NOT ISBLANK(UltimaData), CALCULATE([Receita Reconhecida], FILTER(ALLSELECTED(DimData), DimData[Data] <= UltimaData)))` | R$ #,0.00 |
 | Receita Rolling 7d | `CALCULATE([Receita Reconhecida], DATESINPERIOD(DimData[Data], MAX(DimData[Data]), -7, DAY))` | R$ #,0.00 |
 | Receita por Canal - Histórico | `SUM(ResumoCanais[recognized_revenue])` | R$ #,0.00 |
 | Budget Planejado - Total | `SUM(ResumoCanais[planned_budget_amount])` | R$ #,0.00 |
@@ -33,12 +33,12 @@
 | Descontos sobre Bruto % | `DIVIDE([Descontos Itens], [Valor Bruto Itens])` | 0.0% |
 | Receita Mês Anterior | `VAR DataAtual = MIN(DimData[Data]) VAR InicioAnterior = EOMONTH(DataAtual, -2) + 1 VAR FimAnterior = EOMONTH(DataAtual, -1) RETURN IF(HASONEVALUE(DimData[AnoMes]), CALCULATE([Receita Reconhecida], FILTER(ALL(DimData), DimData[Data] >= InicioAnterior && DimData[Data] <= FimAnterior)))` | R$ #,0.00 |
 | Variação Receita MoM % | `VAR Anterior = [Receita Mês Anterior] RETURN DIVIDE([Receita Reconhecida] - Anterior, Anterior)` | 0.0% |
-| Receita Média Móvel 7d | `VAR Fim = MAX(DimData[Data]) VAR Primeira = MINX(ALL(DimData[Data]), DimData[Data]) VAR Inicio = MAX(Primeira, Fim - 6) RETURN DIVIDE(CALCULATE([Receita Reconhecida], FILTER(ALL(DimData), DimData[Data] >= Inicio && DimData[Data] <= Fim)), Fim - Inicio + 1)` | R$ #,0.00 |
+| Receita Média Móvel 7d | `VAR Fim = MAX(DimData[Data]) VAR Primeira = MINX(ALL(DimData), DimData[Data]) VAR Inicio = MAX(Primeira, Fim - 6) RETURN IF(NOT ISBLANK(Fim), DIVIDE(CALCULATE([Receita Reconhecida], FILTER(ALL(DimData), DimData[Data] >= Inicio && DimData[Data] <= Fim)), Fim - Inicio + 1))` | R$ #,0.00 |
 | Taxa Cancelamento % | `DIVIDE([Pedidos Cancelados], [Pedidos Totais])` | 0.0% |
-| Desconto Concluídos | `CALCULATE(SUM(FatoItens[discount_amount]), FatoItens[order_status] = "completed")` | R$ #,0.00 |
-| Bruto Concluídos | `CALCULATE(SUM(FatoItens[gross_item_amount]), FatoItens[order_status] = "completed")` | R$ #,0.00 |
+| Desconto Concluídos | `CALCULATE(SUM(FatoItens[discount_amount]), KEEPFILTERS(FatoItens[order_status] = "completed"))` | R$ #,0.00 |
+| Bruto Concluídos | `CALCULATE(SUM(FatoItens[gross_item_amount]), KEEPFILTERS(FatoItens[order_status] = "completed"))` | R$ #,0.00 |
 | Taxa Desconto Concluídos % | `DIVIDE([Desconto Concluídos], [Bruto Concluídos])` | 0.0% |
-| Clientes Recorrentes (2+) | `COUNTROWS(FILTER(VALUES(DimClientes[customer_id]), CALCULATE([Pedidos Concluídos]) >= 2))` | #,0 |
+| Clientes Recorrentes (2+) | `IF(NOT ISEMPTY(FatoItens), COALESCE(COUNTROWS(FILTER(VALUES(DimClientes[customer_id]), CALCULATE(DISTINCTCOUNT(FatoItens[order_id]), KEEPFILTERS(FatoItens[order_status] = "completed")) >= 2)), 0))` | #,0 |
 | Taxa Recompra Período % | `DIVIDE([Clientes Recorrentes (2+)], [Clientes Compradores])` | 0.0% |
 | Participação Receita Canal % | `DIVIDE([Receita Reconhecida], CALCULATE([Receita Reconhecida], REMOVEFILTERS(FatoPedidos[channel])))` | 0.0% |
 | Participação Receita Produto % | `DIVIDE([Receita Itens], CALCULATE([Receita Itens], ALLSELECTED(DimProdutos)))` | 0.0% |

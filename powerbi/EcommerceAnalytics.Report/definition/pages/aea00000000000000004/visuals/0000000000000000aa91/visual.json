@@ -50,6 +50,25 @@
               "displayName": "Receita Reconhecida"
             }
           ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FatoPedidos"
+                    }
+                  },
+                  "Property": "channel"
+                }
+              },
+              "queryRef": "FatoPedidos.channel",
+              "nativeQueryRef": "channel",
+              "displayName": "Canal"
+            }
+          ]
         }
       },
       "sortDefinition": {
