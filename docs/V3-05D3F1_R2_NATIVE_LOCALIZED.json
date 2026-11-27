@@ -1,0 +1,543 @@
+{
+  "totals": [
+    {
+      "[avgCategory]": 449996.92499999097,
+      "[repurchase]": 0.9857142857142858,
+      "[ticket]": 752.5032190635451,
+      "[completion]": 0.8542857142857143
+    }
+  ],
+  "status": [
+    {
+      "FatoPedidos[Status PT]": "Pendentes",
+      "[orders]": 161,
+      "[share]": 0.03833333333333333
+    },
+    {
+      "FatoPedidos[Status PT]": "Cancelados",
+      "[orders]": 254,
+      "[share]": 0.060476190476190475
+    },
+    {
+      "FatoPedidos[Status PT]": "Concluídos",
+      "[orders]": 3588,
+      "[share]": 0.8542857142857143
+    },
+    {
+      "FatoPedidos[Status PT]": "Reembolsados",
+      "[orders]": 197,
+      "[share]": 0.04690476190476191
+    }
+  ],
+  "categories": [
+    {
+      "DimProdutos[Categoria PT]": "Acessórios",
+      "[revenue]": 345592.8199999962,
+      "[buyers]": 414,
+      "[repeat]": 375,
+      "[rate]": 0.9057971014492754,
+      "[refX]": 449996.9250000007,
+      "[refY]": 0.9857142857142858
+    },
+    {
+      "DimProdutos[Categoria PT]": "Periféricos",
+      "[revenue]": 816471.9400000066,
+      "[buyers]": 391,
+      "[repeat]": 346,
+      "[rate]": 0.8849104859335039,
+      "[refX]": 449996.9250000007,
+      "[refY]": 0.9857142857142858
+    },
+    {
+      "DimProdutos[Categoria PT]": "Office",
+      "[revenue]": 696631.4100000036,
+      "[buyers]": 385,
+      "[repeat]": 312,
+      "[rate]": 0.8103896103896104,
+      "[refX]": 449996.9250000007,
+      "[refY]": 0.9857142857142858
+    },
+    {
+      "DimProdutos[Categoria PT]": "Lifestyle",
+      "[revenue]": 236594.7499999992,
+      "[buyers]": 376,
+      "[repeat]": 307,
+      "[rate]": 0.8164893617021277,
+      "[refX]": 449996.9250000007,
+      "[refY]": 0.9857142857142858
+    },
+    {
+      "DimProdutos[Categoria PT]": "Áudio",
+      "[revenue]": 400129.06999999884,
+      "[buyers]": 334,
+      "[repeat]": 211,
+      "[rate]": 0.6317365269461078,
+      "[refX]": 449996.9250000007,
+      "[refY]": 0.9857142857142858
+    },
+    {
+      "DimProdutos[Categoria PT]": "Casa",
+      "[revenue]": 204561.55999999965,
+      "[buyers]": 335,
+      "[repeat]": 213,
+      "[rate]": 0.6358208955223881,
+      "[refX]": 449996.9250000007,
+      "[refY]": 0.9857142857142858
+    }
+  ],
+  "channels": [
+    {
+      "FatoPedidos[Canal PT]": "Social",
+      "[revenue]": 610418.7,
+      "[share]": 0.2260825448973901,
+      "[ticket]": 846.6278779472954,
+      "[completion]": 0.8046875,
+      "[refX]": 752.5032190635452,
+      "[refY]": 0.8542857142857143
+    },
+    {
+      "FatoPedidos[Canal PT]": "E-mail",
+      "[revenue]": 687763.56,
+      "[share]": 0.25472898509250924,
+      "[ticket]": 794.1842494226329,
+      "[completion]": 0.914466737064414,
+      "[refX]": 752.5032190635452,
+      "[refY]": 0.8542857142857143
+    },
+    {
+      "FatoPedidos[Canal PT]": "Busca paga",
+      "[revenue]": 633418.15,
+      "[share]": 0.23460091792108725,
+      "[ticket]": 808.9631545338442,
+      "[completion]": 0.8216159496327388,
+      "[refX]": 752.5032190635452,
+      "[refY]": 0.8542857142857143
+    },
+    {
+      "FatoPedidos[Canal PT]": "Sem atribuição",
+      "[revenue]": 77257.27,
+      "[share]": 0.02861399923269846,
+      "[ticket]": 202.77498687664044,
+      "[completion]": 0.8175965665236051,
+      "[refX]": 752.5032190635452,
+      "[refY]": 0.8542857142857143
+    },
+    {
+      "FatoPedidos[Canal PT]": "Orgânico",
+      "[revenue]": 691123.87,
+      "[share]": 0.25597355285631485,
+      "[ticket]": 825.7154958183991,
+      "[completion]": 0.8923240938166311,
+      "[refX]": 752.5032190635452,
+      "[refY]": 0.8542857142857143
+    }
+  ],
+  "cells": [
+    {
+      "DimProdutos[Categoria PT]": "Acessórios",
+      "DimClientes[region]": "SP",
+      "[revenue]": 54398.31000000018,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Acessórios",
+      "DimClientes[region]": "PR",
+      "[revenue]": 44670.270000000164,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Acessórios",
+      "DimClientes[region]": "BA",
+      "[revenue]": 52606.47000000011,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Acessórios",
+      "DimClientes[region]": "MG",
+      "[revenue]": 48656.29000000017,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Acessórios",
+      "DimClientes[region]": "RS",
+      "[revenue]": 45008.320000000145,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Acessórios",
+      "DimClientes[region]": "RJ",
+      "[revenue]": 51157.46000000012,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Acessórios",
+      "DimClientes[region]": "SC",
+      "[revenue]": 49095.70000000013,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Periféricos",
+      "DimClientes[region]": "SP",
+      "[revenue]": 110825.07000000018,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Periféricos",
+      "DimClientes[region]": "PR",
+      "[revenue]": 110584.63000000012,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Periféricos",
+      "DimClientes[region]": "BA",
+      "[revenue]": 131977.9500000002,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Periféricos",
+      "DimClientes[region]": "MG",
+      "[revenue]": 97976.7100000001,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Periféricos",
+      "DimClientes[region]": "RS",
+      "[revenue]": 119189.8200000002,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Periféricos",
+      "DimClientes[region]": "RJ",
+      "[revenue]": 113280.56000000025,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Periféricos",
+      "DimClientes[region]": "SC",
+      "[revenue]": 132637.20000000027,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Office",
+      "DimClientes[region]": "SP",
+      "[revenue]": 109085.36000000012,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Office",
+      "DimClientes[region]": "PR",
+      "[revenue]": 101264.05000000015,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Office",
+      "DimClientes[region]": "BA",
+      "[revenue]": 102351.28000000016,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Office",
+      "DimClientes[region]": "MG",
+      "[revenue]": 107757.26000000013,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Office",
+      "DimClientes[region]": "RS",
+      "[revenue]": 112666.89000000013,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Office",
+      "DimClientes[region]": "RJ",
+      "[revenue]": 74796.95000000006,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Office",
+      "DimClientes[region]": "SC",
+      "[revenue]": 88709.6200000001,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Lifestyle",
+      "DimClientes[region]": "SP",
+      "[revenue]": 32761.440000000002,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Lifestyle",
+      "DimClientes[region]": "PR",
+      "[revenue]": 34228.07000000005,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Lifestyle",
+      "DimClientes[region]": "BA",
+      "[revenue]": 31770.860000000004,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Lifestyle",
+      "DimClientes[region]": "MG",
+      "[revenue]": 30476.600000000017,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Lifestyle",
+      "DimClientes[region]": "RS",
+      "[revenue]": 35712.320000000094,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Lifestyle",
+      "DimClientes[region]": "RJ",
+      "[revenue]": 37454.99000000009,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Lifestyle",
+      "DimClientes[region]": "SC",
+      "[revenue]": 34190.47000000006,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Áudio",
+      "DimClientes[region]": "SP",
+      "[revenue]": 56941.09000000006,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Áudio",
+      "DimClientes[region]": "PR",
+      "[revenue]": 53983.280000000064,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Áudio",
+      "DimClientes[region]": "BA",
+      "[revenue]": 64610.970000000096,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Áudio",
+      "DimClientes[region]": "MG",
+      "[revenue]": 53118.76000000007,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Áudio",
+      "DimClientes[region]": "RS",
+      "[revenue]": 54653.99000000006,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Áudio",
+      "DimClientes[region]": "RJ",
+      "[revenue]": 59431.110000000066,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Áudio",
+      "DimClientes[region]": "SC",
+      "[revenue]": 57389.87000000007,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Casa",
+      "DimClientes[region]": "SP",
+      "[revenue]": 27113.140000000018,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Casa",
+      "DimClientes[region]": "PR",
+      "[revenue]": 29692.950000000004,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Casa",
+      "DimClientes[region]": "BA",
+      "[revenue]": 30152.690000000013,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Casa",
+      "DimClientes[region]": "MG",
+      "[revenue]": 28326.46000000002,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Casa",
+      "DimClientes[region]": "RS",
+      "[revenue]": 29563.60000000002,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Casa",
+      "DimClientes[region]": "RJ",
+      "[revenue]": 29240.60000000002,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[Categoria PT]": "Casa",
+      "DimClientes[region]": "SC",
+      "[revenue]": 30472.120000000014,
+      "[color]": "#D7EAF0"
+    }
+  ],
+  "mapsCategory": [
+    {
+      "DimProdutos[category]": "accessories",
+      "DimProdutos[Categoria PT]": "Acessórios"
+    },
+    {
+      "DimProdutos[category]": "peripherals",
+      "DimProdutos[Categoria PT]": "Periféricos"
+    },
+    {
+      "DimProdutos[category]": "office",
+      "DimProdutos[Categoria PT]": "Office"
+    },
+    {
+      "DimProdutos[category]": "lifestyle",
+      "DimProdutos[Categoria PT]": "Lifestyle"
+    },
+    {
+      "DimProdutos[category]": "audio",
+      "DimProdutos[Categoria PT]": "Áudio"
+    },
+    {
+      "DimProdutos[category]": "home",
+      "DimProdutos[Categoria PT]": "Casa"
+    }
+  ],
+  "mapsChannel": [
+    {
+      "FatoPedidos[channel]": "social",
+      "FatoPedidos[Canal PT]": "Social"
+    },
+    {
+      "FatoPedidos[channel]": "email",
+      "FatoPedidos[Canal PT]": "E-mail"
+    },
+    {
+      "FatoPedidos[channel]": "paid_search",
+      "FatoPedidos[Canal PT]": "Busca paga"
+    },
+    {
+      "FatoPedidos[channel]": "unattributed",
+      "FatoPedidos[Canal PT]": "Sem atribuição"
+    },
+    {
+      "FatoPedidos[channel]": "organic",
+      "FatoPedidos[Canal PT]": "Orgânico"
+    }
+  ],
+  "mapsStatus": [
+    {
+      "FatoPedidos[order_status]": "pending",
+      "FatoPedidos[Status PT]": "Pendentes"
+    },
+    {
+      "FatoPedidos[order_status]": "cancelled",
+      "FatoPedidos[Status PT]": "Cancelados"
+    },
+    {
+      "FatoPedidos[order_status]": "completed",
+      "FatoPedidos[Status PT]": "Concluídos"
+    },
+    {
+      "FatoPedidos[order_status]": "refunded",
+      "FatoPedidos[Status PT]": "Reembolsados"
+    }
+  ],
+  "mapsItemStatus": [
+    {
+      "FatoItens[order_status]": "completed",
+      "FatoItens[Status PT]": "Concluídos"
+    },
+    {
+      "FatoItens[order_status]": "cancelled",
+      "FatoItens[Status PT]": "Cancelados"
+    },
+    {
+      "FatoItens[order_status]": "refunded",
+      "FatoItens[Status PT]": "Reembolsados"
+    },
+    {
+      "FatoItens[order_status]": "pending",
+      "FatoItens[Status PT]": "Pendentes"
+    }
+  ],
+  "channelRaw": [
+    {
+      "[share]": 0.25113859469734,
+      "[revenue]": 103838.33,
+      "[orders]": 134
+    }
+  ],
+  "channelPT": [
+    {
+      "[share]": 0.25113859469734,
+      "[revenue]": 103838.33,
+      "[orders]": 134
+    }
+  ],
+  "statusRaw": [
+    {
+      "FatoPedidos[order_status]": "completed",
+      "[orders]": 3588,
+      "[share]": 0.9570552147239264
+    },
+    {
+      "FatoPedidos[order_status]": "pending",
+      "[orders]": 161,
+      "[share]": 0.04294478527607362
+    }
+  ],
+  "statusPT": [
+    {
+      "FatoPedidos[Status PT]": "Pendentes",
+      "[orders]": 161,
+      "[share]": 0.04294478527607362
+    },
+    {
+      "FatoPedidos[Status PT]": "Concluídos",
+      "[orders]": 3588,
+      "[share]": 0.9570552147239264
+    }
+  ],
+  "categoryRaw": [
+    {
+      "[rev]": 52606.47000000003,
+      "[buyers]": 60,
+      "[repeat]": 54
+    }
+  ],
+  "categoryPT": [
+    {
+      "[rev]": 52606.47000000003,
+      "[buyers]": 60,
+      "[repeat]": 54
+    }
+  ],
+  "channelSelection": [
+    {
+      "FatoPedidos[Canal PT]": "E-mail",
+      "[refX]": 809.6814034057545,
+      "[refY]": 0.903448275862069
+    },
+    {
+      "FatoPedidos[Canal PT]": "Orgânico",
+      "[refX]": 809.6814034057545,
+      "[refY]": 0.903448275862069
+    }
+  ],
+  "channelSelectionExpected": [
+    {
+      "[refX]": 809.6814034057545,
+      "[refY]": 0.903448275862069
+    }
+  ]
+}

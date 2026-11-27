@@ -1,0 +1,504 @@
+{
+  "totals": [
+    {
+      "[orders]": 4200,
+      "[items]": 8400,
+      "[revenue]": 2699981.55,
+      "[itemRevenue]": 2699981.549999946,
+      "[completed]": 3588,
+      "[buyers]": 420,
+      "[repeat]": 414,
+      "[ticket]": 752.5032190635451,
+      "[completion]": 0.8542857142857143,
+      "[mom]": -0.07972011072823627
+    }
+  ],
+  "status": [
+    {
+      "FatoPedidos[order_status]": "completed",
+      "[orders]": 3588,
+      "[share]": 0.8542857142857143
+    },
+    {
+      "FatoPedidos[order_status]": "cancelled",
+      "[orders]": 254,
+      "[share]": 0.060476190476190475
+    },
+    {
+      "FatoPedidos[order_status]": "pending",
+      "[orders]": 161,
+      "[share]": 0.03833333333333333
+    },
+    {
+      "FatoPedidos[order_status]": "refunded",
+      "[orders]": 197,
+      "[share]": 0.04690476190476191
+    }
+  ],
+  "categories": [
+    {
+      "DimProdutos[category]": "accessories",
+      "[revenue]": 345592.8199999962,
+      "[buyers]": 414,
+      "[repeat]": 375,
+      "[rate]": 0.9057971014492754
+    },
+    {
+      "DimProdutos[category]": "peripherals",
+      "[revenue]": 816471.9400000066,
+      "[buyers]": 391,
+      "[repeat]": 346,
+      "[rate]": 0.8849104859335039
+    },
+    {
+      "DimProdutos[category]": "office",
+      "[revenue]": 696631.4100000036,
+      "[buyers]": 385,
+      "[repeat]": 312,
+      "[rate]": 0.8103896103896104
+    },
+    {
+      "DimProdutos[category]": "lifestyle",
+      "[revenue]": 236594.7499999992,
+      "[buyers]": 376,
+      "[repeat]": 307,
+      "[rate]": 0.8164893617021277
+    },
+    {
+      "DimProdutos[category]": "audio",
+      "[revenue]": 400129.06999999884,
+      "[buyers]": 334,
+      "[repeat]": 211,
+      "[rate]": 0.6317365269461078
+    },
+    {
+      "DimProdutos[category]": "home",
+      "[revenue]": 204561.55999999965,
+      "[buyers]": 335,
+      "[repeat]": 213,
+      "[rate]": 0.6358208955223881
+    }
+  ],
+  "cells": [
+    {
+      "DimProdutos[category]": "accessories",
+      "DimClientes[region]": "SP",
+      "[revenue]": 54398.31000000018,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[category]": "accessories",
+      "DimClientes[region]": "PR",
+      "[revenue]": 44670.270000000164,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "accessories",
+      "DimClientes[region]": "BA",
+      "[revenue]": 52606.47000000011,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[category]": "accessories",
+      "DimClientes[region]": "MG",
+      "[revenue]": 48656.29000000017,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "accessories",
+      "DimClientes[region]": "RS",
+      "[revenue]": 45008.320000000145,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "accessories",
+      "DimClientes[region]": "RJ",
+      "[revenue]": 51157.46000000012,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[category]": "accessories",
+      "DimClientes[region]": "SC",
+      "[revenue]": 49095.70000000013,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "peripherals",
+      "DimClientes[region]": "SP",
+      "[revenue]": 110825.07000000018,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[category]": "peripherals",
+      "DimClientes[region]": "PR",
+      "[revenue]": 110584.63000000012,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[category]": "peripherals",
+      "DimClientes[region]": "BA",
+      "[revenue]": 131977.9500000002,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[category]": "peripherals",
+      "DimClientes[region]": "MG",
+      "[revenue]": 97976.7100000001,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[category]": "peripherals",
+      "DimClientes[region]": "RS",
+      "[revenue]": 119189.8200000002,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[category]": "peripherals",
+      "DimClientes[region]": "RJ",
+      "[revenue]": 113280.56000000025,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[category]": "peripherals",
+      "DimClientes[region]": "SC",
+      "[revenue]": 132637.20000000027,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[category]": "office",
+      "DimClientes[region]": "SP",
+      "[revenue]": 109085.36000000012,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[category]": "office",
+      "DimClientes[region]": "PR",
+      "[revenue]": 101264.05000000015,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[category]": "office",
+      "DimClientes[region]": "BA",
+      "[revenue]": 102351.28000000016,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[category]": "office",
+      "DimClientes[region]": "MG",
+      "[revenue]": 107757.26000000013,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[category]": "office",
+      "DimClientes[region]": "RS",
+      "[revenue]": 112666.89000000013,
+      "[color]": "#98C9D1"
+    },
+    {
+      "DimProdutos[category]": "office",
+      "DimClientes[region]": "RJ",
+      "[revenue]": 74796.95000000006,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[category]": "office",
+      "DimClientes[region]": "SC",
+      "[revenue]": 88709.6200000001,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[category]": "lifestyle",
+      "DimClientes[region]": "SP",
+      "[revenue]": 32761.440000000002,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "lifestyle",
+      "DimClientes[region]": "PR",
+      "[revenue]": 34228.07000000005,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "lifestyle",
+      "DimClientes[region]": "BA",
+      "[revenue]": 31770.860000000004,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "lifestyle",
+      "DimClientes[region]": "MG",
+      "[revenue]": 30476.600000000017,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "lifestyle",
+      "DimClientes[region]": "RS",
+      "[revenue]": 35712.320000000094,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "lifestyle",
+      "DimClientes[region]": "RJ",
+      "[revenue]": 37454.99000000009,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "lifestyle",
+      "DimClientes[region]": "SC",
+      "[revenue]": 34190.47000000006,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "audio",
+      "DimClientes[region]": "SP",
+      "[revenue]": 56941.09000000006,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[category]": "audio",
+      "DimClientes[region]": "PR",
+      "[revenue]": 53983.280000000064,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[category]": "audio",
+      "DimClientes[region]": "BA",
+      "[revenue]": 64610.970000000096,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[category]": "audio",
+      "DimClientes[region]": "MG",
+      "[revenue]": 53118.76000000007,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[category]": "audio",
+      "DimClientes[region]": "RS",
+      "[revenue]": 54653.99000000006,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[category]": "audio",
+      "DimClientes[region]": "RJ",
+      "[revenue]": 59431.110000000066,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[category]": "audio",
+      "DimClientes[region]": "SC",
+      "[revenue]": 57389.87000000007,
+      "[color]": "#BBDCE2"
+    },
+    {
+      "DimProdutos[category]": "home",
+      "DimClientes[region]": "SP",
+      "[revenue]": 27113.140000000018,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "home",
+      "DimClientes[region]": "PR",
+      "[revenue]": 29692.950000000004,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "home",
+      "DimClientes[region]": "BA",
+      "[revenue]": 30152.690000000013,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "home",
+      "DimClientes[region]": "MG",
+      "[revenue]": 28326.46000000002,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "home",
+      "DimClientes[region]": "RS",
+      "[revenue]": 29563.60000000002,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "home",
+      "DimClientes[region]": "RJ",
+      "[revenue]": 29240.60000000002,
+      "[color]": "#D7EAF0"
+    },
+    {
+      "DimProdutos[category]": "home",
+      "DimClientes[region]": "SC",
+      "[revenue]": 30472.120000000014,
+      "[color]": "#D7EAF0"
+    }
+  ],
+  "top10": [
+    {
+      "DimProdutos[product_id]": "P010",
+      "[revenue]": 308401.94999999966,
+      "[pareto]": 0.11422372497323159
+    },
+    {
+      "DimProdutos[product_id]": "P012",
+      "[revenue]": 273074.74999999977,
+      "[pareto]": 0.21536321238935846
+    },
+    {
+      "DimProdutos[product_id]": "P035",
+      "[revenue]": 220011,
+      "[pareto]": 0.29684932476668185
+    },
+    {
+      "DimProdutos[product_id]": "P015",
+      "[revenue]": 159654.06000000008,
+      "[pareto]": 0.3559808621655208
+    },
+    {
+      "DimProdutos[product_id]": "P023",
+      "[revenue]": 147184.5700000003,
+      "[pareto]": 0.4104940383759287
+    },
+    {
+      "DimProdutos[product_id]": "P024",
+      "[revenue]": 113047.00000000026,
+      "[pareto]": 0.452363583743748
+    },
+    {
+      "DimProdutos[product_id]": "P038",
+      "[revenue]": 103868.82000000012,
+      "[pareto]": 0.4908337799567555
+    },
+    {
+      "DimProdutos[product_id]": "P013",
+      "[revenue]": 97107.39000000013,
+      "[pareto]": 0.5267997257240515
+    },
+    {
+      "DimProdutos[product_id]": "P031",
+      "[revenue]": 89351.5200000001,
+      "[pareto]": 0.5598931074177154
+    },
+    {
+      "DimProdutos[product_id]": "P003",
+      "[revenue]": 82841.64000000003,
+      "[pareto]": 0.5905754059689776
+    }
+  ],
+  "channels": [
+    {
+      "FatoPedidos[channel]": "paid_search",
+      "[revenue]": 633418.15,
+      "[share]": 0.23460091792108725,
+      "[ticket]": 808.9631545338442,
+      "[completion]": 0.8216159496327388
+    },
+    {
+      "FatoPedidos[channel]": "social",
+      "[revenue]": 610418.7,
+      "[share]": 0.2260825448973901,
+      "[ticket]": 846.6278779472954,
+      "[completion]": 0.8046875
+    },
+    {
+      "FatoPedidos[channel]": "email",
+      "[revenue]": 687763.56,
+      "[share]": 0.25472898509250924,
+      "[ticket]": 794.1842494226329,
+      "[completion]": 0.914466737064414
+    },
+    {
+      "FatoPedidos[channel]": "organic",
+      "[revenue]": 691123.87,
+      "[share]": 0.25597355285631485,
+      "[ticket]": 825.7154958183991,
+      "[completion]": 0.8923240938166311
+    },
+    {
+      "FatoPedidos[channel]": "unattributed",
+      "[revenue]": 77257.27,
+      "[share]": 0.02861399923269846,
+      "[ticket]": 202.77498687664044,
+      "[completion]": 0.8175965665236051
+    }
+  ],
+  "monthly": [
+    {
+      "DimData[AnoMes]": "2025-10",
+      "[revenue]": 238223.92,
+      "[daily]": 7684.642580645162
+    },
+    {
+      "DimData[AnoMes]": "2025-11",
+      "[revenue]": 338418.72,
+      "[daily]": 11280.624
+    },
+    {
+      "DimData[AnoMes]": "2025-12",
+      "[revenue]": 300742.55,
+      "[daily]": 9701.37258064516
+    },
+    {
+      "DimData[AnoMes]": "2026-01",
+      "[revenue]": 175509.57,
+      "[daily]": 5661.599032258065
+    },
+    {
+      "DimData[AnoMes]": "2026-02",
+      "[revenue]": 158248.51,
+      "[daily]": 5651.7325
+    },
+    {
+      "DimData[AnoMes]": "2026-03",
+      "[revenue]": 192693.89,
+      "[daily]": 6215.931935483872
+    },
+    {
+      "DimData[AnoMes]": "2026-04",
+      "[revenue]": 202789.71,
+      "[daily]": 6759.657
+    },
+    {
+      "DimData[AnoMes]": "2026-05",
+      "[revenue]": 222827.54,
+      "[daily]": 7187.985161290323
+    },
+    {
+      "DimData[AnoMes]": "2026-06",
+      "[revenue]": 184126.95,
+      "[daily]": 6137.5650000000005
+    },
+    {
+      "DimData[AnoMes]": "2026-07",
+      "[revenue]": 235847.8,
+      "[daily]": 7607.993548387097
+    },
+    {
+      "DimData[AnoMes]": "2026-08",
+      "[revenue]": 234628.5,
+      "[daily]": 7568.6612903225805
+    },
+    {
+      "DimData[AnoMes]": "2026-09",
+      "[revenue]": 215923.89,
+      "[daily]": 7197.463000000001
+    }
+  ],
+  "partial": [
+    {
+      "[mom]": null
+    }
+  ],
+  "categoryFilter": [
+    {
+      "[rev]": 52606.47000000003,
+      "[buyers]": 60,
+      "[repeat]": 54
+    }
+  ],
+  "channelFilter": [
+    {
+      "[share]": 0.2559735528563149
+    }
+  ]
+}
