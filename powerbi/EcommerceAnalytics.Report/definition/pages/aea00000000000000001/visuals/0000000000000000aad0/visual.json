@@ -5,7 +5,7 @@
     "x": 27,
     "y": 920,
     "width": 1227,
-    "height": 23,
+    "height": 26,
     "z": 6000,
     "tabOrder": 6000
   },
@@ -22,7 +22,7 @@
                     "value": "DADOS SINTÉTICOS  •  Out/2025–Set/2026  |  Receita apenas de pedidos concluídos  |  Valores são uma simulação",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11px",
+                      "fontSize": "12px",
                       "color": "#64748B"
                     }
                   }
