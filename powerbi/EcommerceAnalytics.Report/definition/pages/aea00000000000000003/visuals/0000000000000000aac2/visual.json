@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "ATENÇÃO À SIMULAÇÃO • Base integral: 414/420 compradores recorrentes (98,57%). Categoria filtra itens; recompra = 2+ pedidos distintos com itens selecionados.",
+                    "value": "ATENÇÃO À SIMULAÇÃO • Base integral: 414/420 recorrentes (98,57%); filtros não alteram a nota. Recompra = 2+ pedidos distintos com itens selecionados.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "13px",
-                      "color": "#1E3A63"
+                      "color": "#103C49"
                     }
                   }
                 ],
@@ -50,7 +50,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#EFF6FF'"
+                      "Value": "'#E3EEF3'"
                     }
                   }
                 }
@@ -81,7 +81,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#BFDBFE'"
+                      "Value": "'#B8D6DF'"
                     }
                   }
                 }

@@ -3,9 +3,9 @@
   "name": "0000000000000000aa75",
   "position": {
     "x": 24,
-    "y": 638,
+    "y": 645,
     "width": 1232,
-    "height": 270,
+    "height": 263,
     "z": 5500,
     "tabOrder": 5500
   },
@@ -117,7 +117,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#15263F'"
+                      "Value": "'#0B192B'"
                     }
                   }
                 }
@@ -128,7 +128,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#F1F5F9'"
+                      "Value": "'#E3EEF3'"
                     }
                   }
                 }
@@ -143,7 +143,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10D"
+                  "Value": "11D"
                 }
               }
             },
@@ -174,7 +174,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#F8FAFC'"
+                      "Value": "'#F4F7FB'"
                     }
                   }
                 }
@@ -231,7 +231,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#DAE3EC'"
+                      "Value": "'#D8E3EB'"
                     }
                   }
                 }
@@ -283,7 +283,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#14263D'"
+                      "Value": "'#0B192B'"
                     }
                   }
                 }
@@ -306,6 +306,19 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Detalhe de produtos — mix e contribuição. Valores dependem dos filtros desta página.'"
                 }
               }
             }
