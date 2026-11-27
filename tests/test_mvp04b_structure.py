@@ -42,7 +42,7 @@ class TestMVP04BSemantics(unittest.TestCase):
             obj = load(file)
             types.append(obj["visual"]["visualType"])
             all_refs.extend(projections(obj["visual"]))
-        self.assertEqual(len(list((page / "visuals").glob("*/visual.json"))), 13)
+        self.assertEqual(len(list((page / "visuals").glob("*/visual.json"))), 16)
         self.assertIn(("FatoPedidos", "channel"), all_refs)
         self.assertIn(("DimData", "AnoMes"), all_refs)
         self.assertIn(("Medidas", "Participação Receita Canal %"), all_refs)
@@ -54,16 +54,17 @@ class TestMVP04BSemantics(unittest.TestCase):
         model = load(MODEL)["model"]
         measures = {m["name"]: m["expression"] for table in model["tables"]
                     for m in table.get("measures", [])}
-        self.assertEqual(len(measures), 39)
+        self.assertEqual(len(measures), 44)
         self.assertIn("HASONEVALUE(DimData[AnoMes])", measures["Receita Mês Anterior"])
         self.assertIn("FILTER(ALL(DimData)", measures["Receita Mês Anterior"])
         self.assertIn("DISTINCTCOUNT(DimData[Data])", measures["Receita por Dia"])
-        month_table = load(PAGES / "aea00000000000000002" / "visuals" /
-                           "0000000000000000aa6c" / "visual.json")
+        month_table = load(PAGES / "aea00000000000000001" / "visuals" /
+                           "0000000000000000aa64" / "visual.json")
         fields = set(projections(month_table["visual"]))
         self.assertIn(("DimData", "AnoMes"), fields)
         self.assertIn(("Medidas", "Variação Receita MoM %"), fields)
         self.assertIn(("Medidas", "Receita por Dia"), fields)
+        self.assertIn(("Medidas", "MoM Últimos Meses Completos %"), fields)
 
     def test_no_unjustified_business_measures(self):
         model = load(MODEL)["model"]

@@ -42,7 +42,7 @@ class TestPBIP(unittest.TestCase):
         tables = {t["name"]: {c["name"] for c in t["columns"]} |
                   {m["name"] for m in t.get("measures", [])} for t in model["tables"]}
         measure_table = next(t for t in model["tables"] if t["name"] == "Medidas")
-        self.assertEqual(len(measure_table["measures"]), 39)
+        self.assertEqual(len(measure_table["measures"]), 44)
         self.assertEqual({c["name"] for c in measure_table["columns"]}, {"Chave"})
         for path in (REPORT / "definition/pages").glob("*/visuals/*/visual.json"):
             visual = read(path)
@@ -86,7 +86,10 @@ class TestPBIP(unittest.TestCase):
                     self.assertIn(field_name, tables[table_name],
                                   f"{measure['name']}: {table_name}[{field_name}]")
                 for ref in re.findall(r"(?<![A-Za-z0-9_])\[([^\]]+)\]", dax):
-                    self.assertIn(ref, measure_names, f"{measure['name']}: [{ref}]")
+                    if ref.startswith("@"):
+                        self.assertIn(f'"{ref}"', dax, f"Undeclared virtual column: {ref}")
+                    else:
+                        self.assertIn(ref, measure_names, f"{measure['name']}: [{ref}]")
 
     def test_sort_definition_uses_query_schema_location(self):
         """PBIR sortDefinition belongs under visual.query, not visual."""
@@ -109,7 +112,7 @@ class TestPBIP(unittest.TestCase):
                 self.assertIsNotNone(spec, str(path))
                 self.assertIn(spec["Property"], projected, str(path))
                 self.assertIn(clause["direction"], {"Ascending", "Descending"}, str(path))
-        self.assertEqual(found, 8)
+        self.assertEqual(found, 15)
 
     def test_all_pbir_files_are_json(self):
         for path in REPORT.rglob("*.json"):
