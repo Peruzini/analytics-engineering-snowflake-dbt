@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "c2050000000000000002",
   "position": {
-    "x": 650,
+    "x": 24,
     "y": 379,
-    "width": 606,
-    "height": 250,
+    "width": 610,
+    "height": 220,
     "z": 4600,
     "tabOrder": 4600
   },
@@ -42,12 +42,31 @@
                       "Entity": "Medidas"
                     }
                   },
+                  "Property": "Participação Status %"
+                }
+              },
+              "queryRef": "Medidas.Participação Status %",
+              "nativeQueryRef": "Participação Status %",
+              "displayName": "Participação"
+            }
+          ]
+        },
+        "Tooltips": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
                   "Property": "Pedidos Totais"
                 }
               },
               "queryRef": "Medidas.Pedidos Totais",
               "nativeQueryRef": "Pedidos Totais",
-              "displayName": "Pedidos"
+              "displayName": "Pedidos Totais"
             }
           ]
         }
@@ -62,7 +81,7 @@
                     "Entity": "Medidas"
                   }
                 },
-                "Property": "Pedidos Totais"
+                "Property": "Participação Status %"
               }
             },
             "direction": "Descending"
@@ -153,7 +172,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pedidos por status selecionado'"
+                  "Value": "'Composição dos pedidos por status'"
                 }
               }
             },
@@ -204,7 +223,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Distribuição de pedidos por status. Respeita a seleção de status e período.'"
+                  "Value": "'Composição dos pedidos por status. Valores no contexto dos filtros.'"
                 }
               }
             }
@@ -212,6 +231,28 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "start": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "end": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }

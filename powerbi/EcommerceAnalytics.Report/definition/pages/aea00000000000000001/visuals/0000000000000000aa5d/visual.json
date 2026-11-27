@@ -28,7 +28,7 @@
               },
               "queryRef": "Medidas.Receita Reconhecida",
               "nativeQueryRef": "Receita Reconhecida",
-              "displayName": "Receita Reconhecida"
+              "displayName": "Receita reconhecida"
             }
           ]
         }
@@ -41,7 +41,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "18D"
+                  "Value": "20D"
                 }
               }
             },
@@ -60,6 +60,20 @@
               "expr": {
                 "Literal": {
                   "Value": "0D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "valueDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -82,7 +96,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita Reconhecida'"
+                  "Value": "'Receita reconhecida'"
                 }
               }
             },
@@ -200,7 +214,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita Reconhecida. Valores dependem dos filtros desta página.'"
+                  "Value": "'Receita reconhecida. Valor conforme os filtros.'"
                 }
               }
             }

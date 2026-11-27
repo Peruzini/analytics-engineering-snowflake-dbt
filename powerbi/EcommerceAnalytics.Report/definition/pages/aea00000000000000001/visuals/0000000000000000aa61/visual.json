@@ -4,7 +4,7 @@
   "position": {
     "x": 24,
     "y": 235,
-    "width": 606,
+    "width": 295,
     "height": 64,
     "z": 3000,
     "tabOrder": 3000
@@ -28,7 +28,7 @@
               },
               "queryRef": "DimData.AnoMes",
               "nativeQueryRef": "AnoMes",
-              "displayName": "Período"
+              "displayName": "Mês"
             }
           ]
         }
@@ -61,7 +61,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Período'"
+                  "Value": "'Mês'"
                 }
               }
             },
@@ -200,7 +200,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Período. Valores dependem dos filtros desta página.'"
+                  "Value": "'Filtro: Mês'"
                 }
               }
             }

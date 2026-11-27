@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "LEITURA GUIADA • Taxas refletem os status selecionados. Fev/26: R$ 5.651,73/dia na base integral; filtros não alteram esta nota.",
+                    "value": "LEITURA • Status mutuamente exclusivos, não um funil. Taxas dependem da seleção. Média móvel de 7 dias inclui dias anteriores ao início filtrado.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "13px",

@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Taxa Reembolso %"
+                  "Property": "Taxa Conclusão %"
                 }
               },
-              "queryRef": "Medidas.Taxa Reembolso %",
-              "nativeQueryRef": "Taxa Reembolso %",
-              "displayName": "Taxa Reembolso %"
+              "queryRef": "Medidas.Taxa Conclusão %",
+              "nativeQueryRef": "Taxa Conclusão %",
+              "displayName": "Conclusão"
             }
           ]
         }
@@ -41,7 +41,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "26D"
+                  "Value": "20D"
                 }
               }
             },
@@ -60,6 +60,20 @@
               "expr": {
                 "Literal": {
                   "Value": "0D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "valueDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -82,7 +96,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa Reembolso %'"
+                  "Value": "'Conclusão'"
                 }
               }
             },
@@ -200,7 +214,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa Reembolso %. Valores dependem dos filtros desta página.'"
+                  "Value": "'Conclusão. Valor conforme os filtros.'"
                 }
               }
             }

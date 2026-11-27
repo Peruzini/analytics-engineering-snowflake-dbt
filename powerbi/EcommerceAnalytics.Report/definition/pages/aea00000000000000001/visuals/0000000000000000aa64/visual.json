@@ -3,9 +3,9 @@
   "name": "0000000000000000aa64",
   "position": {
     "x": 24,
-    "y": 645,
+    "y": 793,
     "width": 1232,
-    "height": 263,
+    "height": 279,
     "z": 5500,
     "tabOrder": 5500
   },
@@ -20,15 +20,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimClientes"
+                      "Entity": "DimData"
                     }
                   },
-                  "Property": "region"
+                  "Property": "AnoMes"
                 }
               },
-              "queryRef": "DimClientes.region",
-              "nativeQueryRef": "region",
-              "displayName": "Região"
+              "queryRef": "DimData.AnoMes",
+              "nativeQueryRef": "AnoMes",
+              "displayName": "Mês"
             },
             {
               "field": {
@@ -43,7 +43,7 @@
               },
               "queryRef": "Medidas.Receita Reconhecida",
               "nativeQueryRef": "Receita Reconhecida",
-              "displayName": "Receita"
+              "displayName": "Receita Reconhecida"
             },
             {
               "field": {
@@ -53,12 +53,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Pedidos Concluídos"
+                  "Property": "Receita por Dia"
                 }
               },
-              "queryRef": "Medidas.Pedidos Concluídos",
-              "nativeQueryRef": "Pedidos Concluídos",
-              "displayName": "Pedidos concluídos"
+              "queryRef": "Medidas.Receita por Dia",
+              "nativeQueryRef": "Receita por Dia",
+              "displayName": "Receita por Dia"
             },
             {
               "field": {
@@ -68,15 +68,77 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Ticket Médio"
+                  "Property": "Pedidos Totais"
                 }
               },
-              "queryRef": "Medidas.Ticket Médio",
-              "nativeQueryRef": "Ticket Médio",
-              "displayName": "Ticket médio"
+              "queryRef": "Medidas.Pedidos Totais",
+              "nativeQueryRef": "Pedidos Totais",
+              "displayName": "Pedidos Totais"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Taxa Conclusão %"
+                }
+              },
+              "queryRef": "Medidas.Taxa Conclusão %",
+              "nativeQueryRef": "Taxa Conclusão %",
+              "displayName": "Taxa Conclusão %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Variação Receita MoM %"
+                }
+              },
+              "queryRef": "Medidas.Variação Receita MoM %",
+              "nativeQueryRef": "Variação Receita MoM %",
+              "displayName": "MoM mensal"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "MoM Últimos Meses Completos %"
+                }
+              },
+              "queryRef": "Medidas.MoM Últimos Meses Completos %",
+              "nativeQueryRef": "MoM Últimos Meses Completos %",
+              "displayName": "MoM seleção"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimData"
+                  }
+                },
+                "Property": "AnoMes"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "objects": {
@@ -252,7 +314,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita e volume por região'"
+                  "Value": "'Resumo mensal — receita, volume e comparação'"
                 }
               }
             },
@@ -303,7 +365,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita e volume por região. Valores dependem dos filtros desta página.'"
+                  "Value": "'Resumo mensal — receita, volume e comparação. Valores no contexto dos filtros.'"
                 }
               }
             }

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "0000000000000000aa69",
   "position": {
-    "x": 24,
+    "x": 642,
     "y": 235,
-    "width": 606,
+    "width": 295,
     "height": 64,
-    "z": 3000,
-    "tabOrder": 3000
+    "z": 3200,
+    "tabOrder": 3200
   },
   "visual": {
     "visualType": "slicer",
@@ -28,7 +28,7 @@
               },
               "queryRef": "FatoPedidos.order_status",
               "nativeQueryRef": "order_status",
-              "displayName": "Status dos pedidos"
+              "displayName": "Status"
             }
           ]
         }
@@ -61,7 +61,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Status dos pedidos'"
+                  "Value": "'Status'"
                 }
               }
             },
@@ -200,7 +200,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Status dos pedidos. Valores dependem dos filtros desta página.'"
+                  "Value": "'Filtro: Status'"
                 }
               }
             }

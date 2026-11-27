@@ -28,7 +28,7 @@
               },
               "queryRef": "Medidas.Pedidos Totais",
               "nativeQueryRef": "Pedidos Totais",
-              "displayName": "Pedidos Totais"
+              "displayName": "Pedidos totais"
             }
           ]
         }
@@ -41,7 +41,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "24D"
+                  "Value": "20D"
                 }
               }
             },
@@ -89,7 +89,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pedidos Totais'"
+                  "Value": "'Pedidos totais'"
                 }
               }
             },
@@ -207,7 +207,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Pedidos Totais. Valores dependem dos filtros desta página.'"
+                  "Value": "'Pedidos totais. Valor conforme os filtros.'"
                 }
               }
             }

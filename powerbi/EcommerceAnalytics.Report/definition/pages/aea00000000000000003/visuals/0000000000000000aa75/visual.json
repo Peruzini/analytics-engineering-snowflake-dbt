@@ -3,9 +3,9 @@
   "name": "0000000000000000aa75",
   "position": {
     "x": 24,
-    "y": 645,
+    "y": 895,
     "width": 1232,
-    "height": 263,
+    "height": 337,
     "z": 5500,
     "tabOrder": 5500
   },
@@ -58,7 +58,7 @@
               },
               "queryRef": "Medidas.Receita Itens",
               "nativeQueryRef": "Receita Itens",
-              "displayName": "Receita itens"
+              "displayName": "Receita Itens"
             },
             {
               "field": {
@@ -73,7 +73,7 @@
               },
               "queryRef": "Medidas.Participação Receita Produto %",
               "nativeQueryRef": "Participação Receita Produto %",
-              "displayName": "Participação"
+              "displayName": "Participação Receita Produto %"
             },
             {
               "field": {
@@ -88,10 +88,27 @@
               },
               "queryRef": "Medidas.Unidades Pedidos Concluídos",
               "nativeQueryRef": "Unidades Pedidos Concluídos",
-              "displayName": "Unidades concluídas"
+              "displayName": "Unidades Pedidos Concluídos"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Medidas"
+                  }
+                },
+                "Property": "Receita Itens"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
       }
     },
     "objects": {
@@ -267,7 +284,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Detalhe de produtos — mix e contribuição'"
+                  "Value": "'Detalhe de produtos — contribuição e unidades'"
                 }
               }
             },
@@ -318,7 +335,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Detalhe de produtos — mix e contribuição. Valores dependem dos filtros desta página.'"
+                  "Value": "'Detalhe de produtos — contribuição e unidades. Valores no contexto dos filtros.'"
                 }
               }
             }

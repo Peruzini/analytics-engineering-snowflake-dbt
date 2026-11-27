@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Taxa Desconto Concluídos %"
+                  "Property": "Taxa Cancelamento %"
                 }
               },
-              "queryRef": "Medidas.Taxa Desconto Concluídos %",
-              "nativeQueryRef": "Taxa Desconto Concluídos %",
-              "displayName": "Taxa Desconto Concluídos %"
+              "queryRef": "Medidas.Taxa Cancelamento %",
+              "nativeQueryRef": "Taxa Cancelamento %",
+              "displayName": "Cancelamento"
             }
           ]
         }
@@ -41,7 +41,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "26D"
+                  "Value": "20D"
                 }
               }
             },
@@ -60,6 +60,20 @@
               "expr": {
                 "Literal": {
                   "Value": "0D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "valueDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -82,7 +96,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa Desconto Concluídos %'"
+                  "Value": "'Cancelamento'"
                 }
               }
             },
@@ -200,7 +214,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa Desconto Concluídos %. Valores dependem dos filtros desta página.'"
+                  "Value": "'Cancelamento. Valor conforme os filtros.'"
                 }
               }
             }

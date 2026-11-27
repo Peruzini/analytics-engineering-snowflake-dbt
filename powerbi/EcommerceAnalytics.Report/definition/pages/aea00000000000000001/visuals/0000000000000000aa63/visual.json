@@ -5,7 +5,7 @@
     "x": 24,
     "y": 379,
     "width": 610,
-    "height": 250,
+    "height": 230,
     "z": 4500,
     "tabOrder": 4500
   },
@@ -168,7 +168,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita mensal vs. mês anterior'"
+                  "Value": "'Receita mensal × mês anterior'"
                 }
               }
             },
@@ -219,7 +219,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita mensal vs. mês anterior. Valores dependem dos filtros desta página.'"
+                  "Value": "'Receita mensal × mês anterior. Valores no contexto dos filtros.'"
                 }
               }
             }

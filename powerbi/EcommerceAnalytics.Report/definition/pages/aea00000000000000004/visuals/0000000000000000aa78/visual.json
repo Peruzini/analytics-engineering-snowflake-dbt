@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Taxa Conclusão %"
+                  "Property": "Ticket Médio"
                 }
               },
-              "queryRef": "Medidas.Taxa Conclusão %",
-              "nativeQueryRef": "Taxa Conclusão %",
-              "displayName": "Taxa Conclusão %"
+              "queryRef": "Medidas.Ticket Médio",
+              "nativeQueryRef": "Ticket Médio",
+              "displayName": "Ticket médio"
             }
           ]
         }
@@ -41,7 +41,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "26D"
+                  "Value": "20D"
                 }
               }
             },
@@ -60,6 +60,20 @@
               "expr": {
                 "Literal": {
                   "Value": "0D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "valueDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -82,7 +96,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa Conclusão %'"
+                  "Value": "'Ticket médio'"
                 }
               }
             },
@@ -200,7 +214,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa Conclusão %. Valores dependem dos filtros desta página.'"
+                  "Value": "'Ticket médio. Valor conforme os filtros.'"
                 }
               }
             }

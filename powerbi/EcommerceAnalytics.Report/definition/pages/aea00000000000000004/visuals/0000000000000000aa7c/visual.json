@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "0000000000000000aa7c",
   "position": {
-    "x": 650,
+    "x": 24,
     "y": 379,
-    "width": 606,
-    "height": 250,
+    "width": 610,
+    "height": 220,
     "z": 4600,
     "tabOrder": 4600
   },
@@ -28,11 +28,30 @@
               },
               "queryRef": "FatoPedidos.channel",
               "nativeQueryRef": "channel",
-              "displayName": "channel"
+              "displayName": "Canal"
             }
           ]
         },
         "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Participação Receita Canal %"
+                }
+              },
+              "queryRef": "Medidas.Participação Receita Canal %",
+              "nativeQueryRef": "Participação Receita Canal %",
+              "displayName": "Participação"
+            }
+          ]
+        },
+        "Tooltips": {
           "projections": [
             {
               "field": {
@@ -62,7 +81,7 @@
                     "Entity": "Medidas"
                   }
                 },
-                "Property": "Receita Reconhecida"
+                "Property": "Participação Receita Canal %"
               }
             },
             "direction": "Descending"
@@ -153,7 +172,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita reconhecida por canal'"
+                  "Value": "'Participação na receita por canal'"
                 }
               }
             },
@@ -204,7 +223,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita reconhecida por canal. Valores dependem dos filtros desta página.'"
+                  "Value": "'Participação na receita por canal. Valores no contexto dos filtros.'"
                 }
               }
             }
@@ -212,6 +231,28 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "valueAxis": [
+        {
+          "properties": {
+            "start": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "end": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }

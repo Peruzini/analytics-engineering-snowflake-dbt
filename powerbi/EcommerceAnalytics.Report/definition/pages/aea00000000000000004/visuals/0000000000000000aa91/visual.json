@@ -3,9 +3,9 @@
   "name": "0000000000000000aa91",
   "position": {
     "x": 24,
-    "y": 379,
-    "width": 610,
-    "height": 250,
+    "y": 615,
+    "width": 1232,
+    "height": 284,
     "z": 4500,
     "tabOrder": 4500
   },
@@ -51,7 +51,7 @@
             }
           ]
         },
-        "Series": {
+        "SmallMultiples": {
           "projections": [
             {
               "field": {
@@ -172,7 +172,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Evolução mensal da receita por canal'"
+                  "Value": "'Receita mensal por canal — pequenos múltiplos'"
                 }
               }
             },
@@ -223,7 +223,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Evolução mensal da receita por canal. Valores dependem dos filtros desta página.'"
+                  "Value": "'Receita mensal por canal — pequenos múltiplos. Valores no contexto dos filtros.'"
                 }
               }
             }

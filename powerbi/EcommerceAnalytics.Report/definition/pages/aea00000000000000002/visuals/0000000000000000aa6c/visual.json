@@ -3,9 +3,9 @@
   "name": "0000000000000000aa6c",
   "position": {
     "x": 24,
-    "y": 645,
+    "y": 855,
     "width": 1232,
-    "height": 263,
+    "height": 337,
     "z": 5500,
     "tabOrder": 5500
   },
@@ -38,42 +38,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Receita Reconhecida"
+                  "Property": "Pedidos Totais"
                 }
               },
-              "queryRef": "Medidas.Receita Reconhecida",
-              "nativeQueryRef": "Receita Reconhecida",
-              "displayName": "Receita"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas"
-                    }
-                  },
-                  "Property": "Receita por Dia"
-                }
-              },
-              "queryRef": "Medidas.Receita por Dia",
-              "nativeQueryRef": "Receita por Dia",
-              "displayName": "Receita / dia"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Medidas"
-                    }
-                  },
-                  "Property": "Variação Receita MoM %"
-                }
-              },
-              "queryRef": "Medidas.Variação Receita MoM %",
-              "nativeQueryRef": "Variação Receita MoM %",
-              "displayName": "Variação MoM"
+              "queryRef": "Medidas.Pedidos Totais",
+              "nativeQueryRef": "Pedidos Totais",
+              "displayName": "Pedidos Totais"
             },
             {
               "field": {
@@ -88,7 +58,7 @@
               },
               "queryRef": "Medidas.Pedidos Concluídos",
               "nativeQueryRef": "Pedidos Concluídos",
-              "displayName": "Concluídos"
+              "displayName": "Pedidos Concluídos"
             },
             {
               "field": {
@@ -98,12 +68,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Taxa Cancelamento %"
+                  "Property": "Pedidos Cancelados"
                 }
               },
-              "queryRef": "Medidas.Taxa Cancelamento %",
-              "nativeQueryRef": "Taxa Cancelamento %",
-              "displayName": "Cancelamento"
+              "queryRef": "Medidas.Pedidos Cancelados",
+              "nativeQueryRef": "Pedidos Cancelados",
+              "displayName": "Pedidos Cancelados"
             },
             {
               "field": {
@@ -113,15 +83,62 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Taxa Reembolso %"
+                  "Property": "Pedidos Reembolsados"
                 }
               },
-              "queryRef": "Medidas.Taxa Reembolso %",
-              "nativeQueryRef": "Taxa Reembolso %",
-              "displayName": "Reembolso"
+              "queryRef": "Medidas.Pedidos Reembolsados",
+              "nativeQueryRef": "Pedidos Reembolsados",
+              "displayName": "Pedidos Reembolsados"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Reembolsos Valor"
+                }
+              },
+              "queryRef": "Medidas.Reembolsos Valor",
+              "nativeQueryRef": "Reembolsos Valor",
+              "displayName": "Reembolsos Valor"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Receita Reconhecida"
+                }
+              },
+              "queryRef": "Medidas.Receita Reconhecida",
+              "nativeQueryRef": "Receita Reconhecida",
+              "displayName": "Receita Reconhecida"
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimData"
+                  }
+                },
+                "Property": "AnoMes"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
       }
     },
     "objects": {
@@ -297,7 +314,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Resumo mensal — evolução e qualidade dos pedidos'"
+                  "Value": "'Pedidos e receita por mês'"
                 }
               }
             },
@@ -348,7 +365,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Resumo mensal — evolução e qualidade dos pedidos. Valores dependem dos filtros desta página.'"
+                  "Value": "'Pedidos e receita por mês. Valores no contexto dos filtros.'"
                 }
               }
             }

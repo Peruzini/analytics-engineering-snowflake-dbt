@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Receita Itens"
+                  "Property": "Taxa Recompra Período %"
                 }
               },
-              "queryRef": "Medidas.Receita Itens",
-              "nativeQueryRef": "Receita Itens",
-              "displayName": "Receita Itens"
+              "queryRef": "Medidas.Taxa Recompra Período %",
+              "nativeQueryRef": "Taxa Recompra Período %",
+              "displayName": "Taxa de recompra"
             }
           ]
         }
@@ -41,7 +41,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "18D"
+                  "Value": "20D"
                 }
               }
             },
@@ -60,6 +60,20 @@
               "expr": {
                 "Literal": {
                   "Value": "0D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "valueDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -82,7 +96,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita Itens'"
+                  "Value": "'Taxa de recompra'"
                 }
               }
             },
@@ -200,7 +214,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita Itens. Valores dependem dos filtros desta página.'"
+                  "Value": "'Taxa de recompra. Valor conforme os filtros.'"
                 }
               }
             }

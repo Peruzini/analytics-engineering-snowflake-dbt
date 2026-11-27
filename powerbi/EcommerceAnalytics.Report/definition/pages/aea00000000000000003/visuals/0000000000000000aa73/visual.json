@@ -4,8 +4,8 @@
   "position": {
     "x": 24,
     "y": 379,
-    "width": 610,
-    "height": 250,
+    "width": 450,
+    "height": 240,
     "z": 4500,
     "tabOrder": 4500
   },
@@ -28,7 +28,7 @@
               },
               "queryRef": "DimProdutos.category",
               "nativeQueryRef": "category",
-              "displayName": "category"
+              "displayName": "Categoria"
             }
           ]
         },
@@ -153,7 +153,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita reconhecida por categoria'"
+                  "Value": "'Receita de itens por categoria'"
                 }
               }
             },
@@ -204,7 +204,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita reconhecida por categoria. Valores dependem dos filtros desta página.'"
+                  "Value": "'Receita de itens por categoria. Valores no contexto dos filtros.'"
                 }
               }
             }

@@ -5,7 +5,7 @@
     "x": 650,
     "y": 379,
     "width": 606,
-    "height": 250,
+    "height": 230,
     "z": 4600,
     "tabOrder": 4600
   },
@@ -47,7 +47,7 @@
               },
               "queryRef": "Medidas.Receita Reconhecida",
               "nativeQueryRef": "Receita Reconhecida",
-              "displayName": "Receita"
+              "displayName": "Receita Reconhecida"
             }
           ]
         }
@@ -153,7 +153,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita reconhecida por região'"
+                  "Value": "'Receita por região'"
                 }
               }
             },
@@ -204,7 +204,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita reconhecida por região. Compare as regiões conforme os filtros.'"
+                  "Value": "'Receita por região. Valores no contexto dos filtros.'"
                 }
               }
             }

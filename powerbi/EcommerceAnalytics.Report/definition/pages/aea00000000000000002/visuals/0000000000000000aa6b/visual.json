@@ -3,9 +3,9 @@
   "name": "0000000000000000aa6b",
   "position": {
     "x": 24,
-    "y": 379,
+    "y": 615,
     "width": 610,
-    "height": 250,
+    "height": 224,
     "z": 4500,
     "tabOrder": 4500
   },
@@ -47,7 +47,7 @@
               },
               "queryRef": "Medidas.Receita Reconhecida",
               "nativeQueryRef": "Receita Reconhecida",
-              "displayName": "Receita Reconhecida"
+              "displayName": "Receita diária"
             },
             {
               "field": {
@@ -62,7 +62,7 @@
               },
               "queryRef": "Medidas.Receita Média Móvel 7d",
               "nativeQueryRef": "Receita Média Móvel 7d",
-              "displayName": "Receita Média Móvel 7d"
+              "displayName": "Média móvel 7d"
             }
           ]
         }
@@ -168,7 +168,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita diária vs. média móvel de 7 dias'"
+                  "Value": "'Receita diária e média móvel de 7 dias'"
                 }
               }
             },
@@ -219,7 +219,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita diária vs. média móvel de 7 dias. Valores dependem dos filtros desta página.'"
+                  "Value": "'Receita diária e média móvel de 7 dias. Valores no contexto dos filtros.'"
                 }
               }
             }

@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "0000000000000000aa7a",
   "position": {
-    "x": 24,
+    "x": 951,
     "y": 235,
-    "width": 606,
+    "width": 295,
     "height": 64,
-    "z": 3000,
-    "tabOrder": 3000
+    "z": 3300,
+    "tabOrder": 3300
   },
   "visual": {
     "visualType": "slicer",
@@ -200,7 +200,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Canal. Valores dependem dos filtros desta página.'"
+                  "Value": "'Filtro: Canal'"
                 }
               }
             }
