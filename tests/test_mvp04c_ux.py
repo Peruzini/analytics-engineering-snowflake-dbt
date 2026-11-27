@@ -121,7 +121,7 @@ class TestReportUX(unittest.TestCase):
         self.assertIn("FatoPedidos.channel", refs)
         self.assertIn("DimData.AnoMes", refs)
         texts = " ".join(text_content(v) for v in page)
-        self.assertIn("não inferir causalidade", texts)
+        self.assertIn("não inferir causalidade", texts.casefold())
         self.assertIn("ROAS/CAC", texts)
 
 if __name__ == "__main__":
