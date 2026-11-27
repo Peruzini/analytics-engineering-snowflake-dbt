@@ -207,6 +207,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "Ecommerce_DimClientes_region",
+      "fieldChanges": true,
+      "filterChanges": true
     }
   }
 }

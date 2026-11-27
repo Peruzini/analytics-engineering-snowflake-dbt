@@ -207,6 +207,11 @@
           }
         }
       ]
+    },
+    "syncGroup": {
+      "groupName": "Ecommerce_DimData_AnoMes",
+      "fieldChanges": true,
+      "filterChanges": true
     }
   }
 }
