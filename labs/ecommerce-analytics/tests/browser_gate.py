@@ -66,6 +66,26 @@ def main():
                             "document.documentElement.scrollWidth <= innerWidth+1"))
                         check(prefix+"/valid SVG", page.locator("#dashboard svg").evaluate_all(
                             "(xs)=>xs.every(s=>s.viewBox.baseVal.width>0 && !/NaN|Infinity|undefined/.test(s.outerHTML))"))
+                        check(prefix+"/unique IDs", page.evaluate(
+                            "()=>{const ids=[...document.querySelectorAll('[id]')].map(x=>x.id);return new Set(ids).size===ids.length}"))
+                        check(prefix+"/chart fit", page.locator("#dashboard .chart-scroll").evaluate_all(
+                            "xs=>xs.every(x=>x.scrollWidth<=x.clientWidth+2)"))
+                        collisions = page.locator("#dashboard svg").evaluate_all(
+                            """xs=>xs.flatMap(s=>{const scatter=s.getAttribute('aria-label')||'';
+                            if(!['Produtividade e custo','Indisponibilidade e custo','Receita e recompra','Ticket e conclusão'].includes(scatter))return [];
+                            const labels=Array.from(s.querySelectorAll('g[data-asset] text'));
+                            return labels.flatMap((a,i)=>labels.slice(i+1).filter(b=>{const x=a.getBoundingClientRect(),y=b.getBoundingClientRect();
+                            return x.left<y.right&&x.right>y.left&&x.top<y.bottom&&x.bottom>y.top}).map(b=>a.textContent+' / '+b.textContent))})""")
+                        check(prefix+"/scatter labels", not collisions, collisions)
+                        if not FLEET and name=="clientes":
+                            contrast = page.locator("[data-heat-cell]").evaluate_all(
+                                """xs=>{const lum=h=>{const a=h.slice(1).match(/../g).map(x=>parseInt(x,16)/255).map(x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4);return a[0]*.2126+a[1]*.7152+a[2]*.0722};
+                                return xs.map(g=>{const a=lum(g.querySelector('rect').getAttribute('fill')),b=lum(g.querySelector('text').getAttribute('fill'));return (Math.max(a,b)+.05)/(Math.min(a,b)+.05)})}""")
+                            check(prefix+"/heatmap contrast", len(contrast)==42 and min(contrast)>=4.5,
+                                  {"cells":len(contrast),"minimum":min(contrast) if contrast else None})
+                            ticks=page.locator("#repurchase svg text").evaluate_all(
+                                "xs=>xs.map(x=>x.textContent).filter(t=>/^\\d+[,.]?\\d*%$/.test(t)).map(t=>Number(t.replace('%','').replace(',','.')))")
+                            check(prefix+"/percentage axis", bool(ticks) and max(ticks)<=100 and min(ticks)>=0,ticks)
                         clipping = page.locator("#dashboard svg.chart").evaluate_all(
                             """xs=>xs.flatMap(s=>Array.from(s.querySelectorAll('text')).map(t=>{
                             let b=t.getBoundingClientRect(),r=s.getBoundingClientRect();
