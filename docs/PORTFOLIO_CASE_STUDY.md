@@ -15,7 +15,7 @@ Um e-commerce fictício possui seis fontes: clientes, produtos, campanhas, pedid
 | Transformação | 6 staging, 2 intermediate, 7 marts dbt |
 | Qualidade | Testes Python e SQL, chaves, reconciliação por grão, reprocessamento incremental e snapshot SCD2 |
 | Plataforma | DuckDB local; Snowflake utilizado em baseline anterior |
-| BI | 9 tabelas, 5 relacionamentos, 39 medidas DAX, 4 páginas e 50 visuais PBIP/PBIR |
+| BI | 9 tabelas, 5 relacionamentos, 39 medidas DAX, 4 páginas e 52 visuais PBIP/PBIR |
 | Consumo | 7 CSVs analíticos via Power Query M; sem conexão Snowflake necessária |
 
 **Linhagem:** Python/seeds → dbt staging → intermediate → marts DuckDB → CSV → Power Query → modelo semântico/DAX → relatório PBIR.

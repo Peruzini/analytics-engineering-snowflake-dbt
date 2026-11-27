@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "LEITURA GUIADA • Taxas usam os pedidos dos status selecionados (um status isolado pode dar 0% ou 100%). Fev/26: R$ 5.651,73/dia na base integral.",
+                    "value": "LEITURA GUIADA • Taxas refletem os status selecionados. Fev/26: R$ 5.651,73/dia na base integral; filtros não alteram esta nota.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "13px",
-                      "color": "#1E3A63"
+                      "color": "#103C49"
                     }
                   }
                 ],
@@ -50,7 +50,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#EFF6FF'"
+                      "Value": "'#E3EEF3'"
                     }
                   }
                 }
@@ -81,7 +81,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#BFDBFE'"
+                      "Value": "'#B8D6DF'"
                     }
                   }
                 }

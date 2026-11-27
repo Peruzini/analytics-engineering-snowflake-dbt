@@ -5,7 +5,7 @@
     "x": 27,
     "y": 920,
     "width": 1227,
-    "height": 23,
+    "height": 26,
     "z": 6000,
     "tabOrder": 6000
   },
@@ -22,7 +22,7 @@
                     "value": "DADOS SINTÉTICOS  •  Receita por produto usa itens de pedidos concluídos; sem dados de custo para margem",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
-                      "fontSize": "11px",
+                      "fontSize": "12px",
                       "color": "#64748B"
                     }
                   }

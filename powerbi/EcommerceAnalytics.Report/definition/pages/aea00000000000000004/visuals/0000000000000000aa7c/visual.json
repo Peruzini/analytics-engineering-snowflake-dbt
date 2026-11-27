@@ -2,10 +2,10 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "0000000000000000aa7c",
   "position": {
-    "x": 644,
+    "x": 650,
     "y": 379,
-    "width": 612,
-    "height": 244,
+    "width": 606,
+    "height": 250,
     "z": 4600,
     "tabOrder": 4600
   },
@@ -117,7 +117,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#DAE3EC'"
+                      "Value": "'#D8E3EB'"
                     }
                   }
                 }
@@ -169,7 +169,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#14263D'"
+                      "Value": "'#0B192B'"
                     }
                   }
                 }
@@ -192,6 +192,19 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Receita reconhecida por canal. Valores dependem dos filtros desta página.'"
                 }
               }
             }

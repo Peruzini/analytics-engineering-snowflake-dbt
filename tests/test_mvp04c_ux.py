@@ -12,8 +12,8 @@ REPORT = BI / "EcommerceAnalytics.Report"
 PAGES = REPORT / "definition" / "pages"
 
 EXPECTED = {
-    "aea00000000000000001": ("Visão Executiva", 12, "RECEITA & PERFORMANCE"),
-    "aea00000000000000002": ("Receita e Pedidos", 12, "PEDIDOS & EFICIÊNCIA"),
+    "aea00000000000000001": ("Visão Executiva", 13, "RECEITA & PERFORMANCE"),
+    "aea00000000000000002": ("Receita e Pedidos", 13, "PEDIDOS & EFICIÊNCIA"),
     "aea00000000000000003": ("Clientes e Produtos", 13, "CLIENTES & MIX"),
     "aea00000000000000004": ("Canais e Pedidos", 13, "CANAIS & ATRIBUIÇÃO"),
 }
@@ -42,7 +42,7 @@ class TestReportUX(unittest.TestCase):
         manifest = load(PAGES / "pages.json")
         self.assertEqual(manifest["pageOrder"], list(EXPECTED))
         self.assertEqual(manifest["activePageName"], list(EXPECTED)[0])
-        self.assertEqual(sum(len(v) for v in self.page_content.values()), 50)
+        self.assertEqual(sum(len(v) for v in self.page_content.values()), 52)
         for page_id, (label, count, title) in EXPECTED.items():
             with self.subTest(page=label):
                 self.assertEqual(load(PAGES / page_id / "page.json")["displayName"], label)
@@ -93,6 +93,11 @@ class TestReportUX(unittest.TestCase):
             self.assertEqual(len(tabs), 2)
             self.assertEqual({v["position"]["y"] for v in tabs}, {235})
             self.assertEqual(len([v for v in visuals if v["visual"]["visualType"] == "tableEx"]), 1)
+            self.assertEqual(len([v for v in visuals if v["visual"]["visualType"] in {"lineChart", "clusteredBarChart"}]), 2)
+            self.assertEqual(len({v["position"]["tabOrder"] for v in visuals}), len(visuals))
+            for v in visuals:
+                if v["visual"]["visualType"] != "textbox":
+                    self.assertTrue(v["visual"]["visualContainerObjects"]["general"][0]["properties"]["altText"])
             self.assertTrue(any("filtros não alteram" in text_content(v).lower()
                                 for v in texts) if page_id == list(EXPECTED)[0] else True)
 

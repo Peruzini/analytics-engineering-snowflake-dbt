@@ -4,8 +4,8 @@
   "position": {
     "x": 24,
     "y": 379,
-    "width": 604,
-    "height": 244,
+    "width": 610,
+    "height": 250,
     "z": 4500,
     "tabOrder": 4500
   },
@@ -117,7 +117,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#DAE3EC'"
+                      "Value": "'#D8E3EB'"
                     }
                   }
                 }
@@ -169,7 +169,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#14263D'"
+                      "Value": "'#0B192B'"
                     }
                   }
                 }
@@ -192,6 +192,19 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "altText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Receita reconhecida por categoria. Valores dependem dos filtros desta página.'"
                 }
               }
             }

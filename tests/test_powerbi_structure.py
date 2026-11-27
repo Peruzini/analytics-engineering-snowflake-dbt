@@ -109,7 +109,7 @@ class TestPBIP(unittest.TestCase):
                 self.assertIsNotNone(spec, str(path))
                 self.assertIn(spec["Property"], projected, str(path))
                 self.assertIn(clause["direction"], {"Ascending", "Descending"}, str(path))
-        self.assertEqual(found, 6)
+        self.assertEqual(found, 8)
 
     def test_all_pbir_files_are_json(self):
         for path in REPORT.rglob("*.json"):

@@ -19,11 +19,11 @@
               {
                 "textRuns": [
                   {
-                    "value": "REFERÊNCIA DO PERÍODO COMPLETO • Conclusão: email 91,45% vs social 80,47%. Participação usa todos os canais no período; não inferir causalidade nem ROAS/CAC.",
+                    "value": "REFERÊNCIA DO PERÍODO COMPLETO • Email 91,45% vs social 80,47% de conclusão; filtros não alteram a nota. Não inferir causalidade nem ROAS/CAC.",
                     "textStyle": {
                       "fontFamily": "Segoe UI",
                       "fontSize": "13px",
-                      "color": "#1E3A63"
+                      "color": "#103C49"
                     }
                   }
                 ],
@@ -50,7 +50,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#EFF6FF'"
+                      "Value": "'#E3EEF3'"
                     }
                   }
                 }
@@ -81,7 +81,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#BFDBFE'"
+                      "Value": "'#B8D6DF'"
                     }
                   }
                 }
