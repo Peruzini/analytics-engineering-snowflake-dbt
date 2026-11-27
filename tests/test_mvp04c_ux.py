@@ -104,11 +104,11 @@ class TestReportUX(unittest.TestCase):
         self.assertEqual(len(bars), 1)
         refs = [v["visual"]["query"]["queryState"]["Category"]["projections"][0]["queryRef"]
                 for v in bars]
-        self.assertIn("DimProdutos.category", refs)
+        self.assertIn("DimProdutos.Categoria PT", refs)
         self.assertNotIn("DimProdutos.product_name", refs)
         matrix = next(v for v in page if v["visual"]["visualType"] == "pivotTable")
         roles = matrix["visual"]["query"]["queryState"]
-        self.assertEqual(roles["Rows"]["projections"][0]["queryRef"], "DimProdutos.category")
+        self.assertEqual(roles["Rows"]["projections"][0]["queryRef"], "DimProdutos.Categoria PT")
         self.assertEqual(roles["Columns"]["projections"][0]["queryRef"], "DimClientes.region")
         self.assertEqual(roles["Values"]["projections"][0]["queryRef"], "Medidas.Receita Itens")
         pareto = next(v for v in page if v["visual"]["visualType"] == "lineClusteredColumnComboChart")
@@ -122,14 +122,14 @@ class TestReportUX(unittest.TestCase):
         refs = [p["queryRef"] for visual in page
                 for obj in visual["visual"].get("query", {}).get("queryState", {}).values()
                 for p in obj.get("projections", [])]
-        self.assertIn("FatoPedidos.channel", refs)
+        self.assertIn("FatoPedidos.Canal PT", refs)
         self.assertIn("DimData.AnoMes", refs)
         texts = " ".join(text_content(v) for v in page)
         self.assertIn("não há investimento realizado", texts.casefold())
         self.assertIn("ROAS", texts)
         self.assertIn("CAC", texts)
         line = next(v for v in page if v["visual"]["visualType"] == "lineChart")
-        self.assertEqual(line["visual"]["query"]["queryState"]["Rows"]["projections"][0]["queryRef"], "FatoPedidos.channel")
+        self.assertEqual(line["visual"]["query"]["queryState"]["Rows"]["projections"][0]["queryRef"], "FatoPedidos.Canal PT")
 
 if __name__ == "__main__":
     unittest.main()

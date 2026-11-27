@@ -23,11 +23,11 @@
                       "Entity": "FatoItens"
                     }
                   },
-                  "Property": "order_status"
+                  "Property": "Status PT"
                 }
               },
-              "queryRef": "FatoItens.order_status",
-              "nativeQueryRef": "order_status",
+              "queryRef": "FatoItens.Status PT",
+              "nativeQueryRef": "Status PT",
               "displayName": "Status"
             }
           ]

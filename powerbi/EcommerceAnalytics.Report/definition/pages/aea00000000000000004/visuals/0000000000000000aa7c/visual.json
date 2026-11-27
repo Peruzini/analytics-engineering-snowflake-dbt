@@ -23,11 +23,11 @@
                       "Entity": "FatoPedidos"
                     }
                   },
-                  "Property": "channel"
+                  "Property": "Canal PT"
                 }
               },
-              "queryRef": "FatoPedidos.channel",
-              "nativeQueryRef": "channel",
+              "queryRef": "FatoPedidos.Canal PT",
+              "nativeQueryRef": "Canal PT",
               "displayName": "Canal"
             }
           ]
@@ -42,12 +42,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Participação Receita Canal %"
+                  "Property": "Participacao Canal PT %"
                 }
               },
-              "queryRef": "Medidas.Participação Receita Canal %",
-              "nativeQueryRef": "Participação Receita Canal %",
-              "displayName": "Participação"
+              "queryRef": "Medidas.Participacao Canal PT %",
+              "nativeQueryRef": "Participacao Canal PT %",
+              "displayName": "Participacao na receita"
             }
           ]
         },
@@ -81,7 +81,7 @@
                     "Entity": "Medidas"
                   }
                 },
-                "Property": "Participação Receita Canal %"
+                "Property": "Participacao Canal PT %"
               }
             },
             "direction": "Descending"
@@ -274,6 +274,40 @@
               "expr": {
                 "Literal": {
                   "Value": "22D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
                 }
               }
             }

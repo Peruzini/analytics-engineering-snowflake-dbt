@@ -61,11 +61,11 @@
                       "Entity": "FatoPedidos"
                     }
                   },
-                  "Property": "channel"
+                  "Property": "Canal PT"
                 }
               },
-              "queryRef": "FatoPedidos.channel",
-              "nativeQueryRef": "channel",
+              "queryRef": "FatoPedidos.Canal PT",
+              "nativeQueryRef": "Canal PT",
               "displayName": "Canal"
             }
           ]

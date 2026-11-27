@@ -152,6 +152,13 @@
             "sourceColumn": "list_price",
             "summarizeBy": "none",
             "formatString": "#,0.00"
+          },
+          {
+            "type": "calculated",
+            "name": "Categoria PT",
+            "dataType": "string",
+            "expression": "SWITCH(DimProdutos[category], \"accessories\", \"Acessórios\", \"audio\", \"Áudio\", \"home\", \"Casa\", \"lifestyle\", \"Lifestyle\", \"office\", \"Office\", \"peripherals\", \"Periféricos\", DimProdutos[category])",
+            "summarizeBy": "none"
           }
         ],
         "partitions": [
@@ -284,6 +291,20 @@
             "dataType": "int64",
             "sourceColumn": "completed_order_flag",
             "summarizeBy": "none"
+          },
+          {
+            "type": "calculated",
+            "name": "Canal PT",
+            "dataType": "string",
+            "expression": "SWITCH(FatoPedidos[channel], \"email\", \"E-mail\", \"organic\", \"Orgânico\", \"paid_search\", \"Busca paga\", \"social\", \"Social\", \"unattributed\", \"Sem atribuição\", FatoPedidos[channel])",
+            "summarizeBy": "none"
+          },
+          {
+            "type": "calculated",
+            "name": "Status PT",
+            "dataType": "string",
+            "expression": "SWITCH(FatoPedidos[order_status], \"completed\", \"Concluídos\", \"cancelled\", \"Cancelados\", \"refunded\", \"Reembolsados\", \"pending\", \"Pendentes\", FatoPedidos[order_status])",
+            "summarizeBy": "none"
           }
         ],
         "partitions": [
@@ -397,6 +418,13 @@
             "sourceColumn": "recognized_item_revenue",
             "summarizeBy": "none",
             "formatString": "#,0.00"
+          },
+          {
+            "type": "calculated",
+            "name": "Status PT",
+            "dataType": "string",
+            "expression": "SWITCH(FatoItens[order_status], \"completed\", \"Concluídos\", \"cancelled\", \"Cancelados\", \"refunded\", \"Reembolsados\", \"pending\", \"Pendentes\", FatoItens[order_status])",
+            "summarizeBy": "none"
           }
         ],
         "partitions": [
@@ -961,6 +989,42 @@
             "expression": "VAR R = [Receita Itens] RETURN IF(ISBLANK(R), \"#FFFFFF\", SWITCH(TRUE(), R >= 150000, \"#69ADB8\", R >= 100000, \"#98C9D1\", R >= 50000, \"#BBDCE2\", R >= 25000, \"#D7EAF0\", \"#EDF5F7\"))",
             "displayFolder": "Data Viz",
             "lineageTag": "383a9d3f-bd91-5804-8463-17984b2b774c"
+          },
+          {
+            "name": "Participacao Status PT %",
+            "expression": "DIVIDE([Pedidos Totais], CALCULATE([Pedidos Totais], ALLSELECTED(FatoPedidos[Status PT])))",
+            "formatString": "0.00%",
+            "displayFolder": "Data Visualization | Referencias e rotulos"
+          },
+          {
+            "name": "Participacao Canal PT %",
+            "expression": "DIVIDE([Receita Reconhecida], CALCULATE([Receita Reconhecida], REMOVEFILTERS(FatoPedidos[channel], FatoPedidos[Canal PT])))",
+            "formatString": "0.00%",
+            "displayFolder": "Data Visualization | Referencias e rotulos"
+          },
+          {
+            "name": "Ref Receita Media Categoria",
+            "expression": "DIVIDE(CALCULATE([Receita Itens], ALLSELECTED(DimProdutos[Categoria PT])), COUNTROWS(ALLSELECTED(DimProdutos[Categoria PT])))",
+            "formatString": "R$ #,0.00",
+            "displayFolder": "Data Visualization | Referencias e rotulos"
+          },
+          {
+            "name": "Ref Recompra Global",
+            "expression": "CALCULATE([Taxa Recompra Período %], ALLSELECTED(DimProdutos[Categoria PT]))",
+            "formatString": "0.00%",
+            "displayFolder": "Data Visualization | Referencias e rotulos"
+          },
+          {
+            "name": "Ref Ticket Global",
+            "expression": "CALCULATE([Ticket Médio], ALLSELECTED(FatoPedidos[Canal PT]))",
+            "formatString": "R$ #,0.00",
+            "displayFolder": "Data Visualization | Referencias e rotulos"
+          },
+          {
+            "name": "Ref Conclusao Global",
+            "expression": "CALCULATE([Taxa Conclusão %], ALLSELECTED(FatoPedidos[Canal PT]))",
+            "formatString": "0.00%",
+            "displayFolder": "Data Visualization | Referencias e rotulos"
           }
         ]
       }

@@ -1,0 +1,60 @@
+{
+  "candidate": "7718e7516a0ec635c77d17a93f6e1190d9da4dbd",
+  "base": "a5c94e568a0be69cb8a01ba82c4fe9d76ae68edc",
+  "visuals": 66,
+  "priorMeasuresPreserved": 44,
+  "addedMeasures": 6,
+  "localizedColumns": 4,
+  "sourceKeysPreserved": true,
+  "sourceDataAndRelationshipsUnchanged": true,
+  "native": {
+    "pagesLoadedAndInspected": 4,
+    "regressionComparedValues": 316,
+    "localizationAndReferenceComparedValues": 218,
+    "failures": 0,
+    "orders": 4200,
+    "items": 8400,
+    "heatmapCells": 42,
+    "months": 12,
+    "smallMultiples": 5,
+    "scatterReferenceLinesRendered": true,
+    "paretoAxis0To100Rendered": true,
+    "momRendered": true,
+    "bothMonthlyTablesShowAll12Months": true,
+    "visualEvidence": [
+      {
+        "page": "executive",
+        "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f1-r2-final-inspection/1.png",
+        "sha256": "925595cf987d3fde7a5d1801684a8607232277bba92552ba82a4f18e7a311ef1"
+      },
+      {
+        "page": "orders",
+        "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f1-r2-final-inspection/2.png",
+        "sha256": "21e847434cda905bd69ca43555c42d5a2748b11bcb55d36c52e0390ec96f9b5b"
+      },
+      {
+        "page": "customers-products",
+        "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f1-r2-final-inspection/3.png",
+        "sha256": "c98c80f76390b19a64e8457514a892a29e1298743b46e9ab5056adecb5324d4c"
+      },
+      {
+        "page": "channels",
+        "localPath": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f1-r2-final-inspection/4.png",
+        "sha256": "966417114696762172ccf183be98f601b9fc558e05cd66b0e4c2190b60643c4d"
+      }
+    ],
+    "desktopProcessesAfter": 0,
+    "newAnalysisServicesProcessesAfter": 0
+  },
+  "tests": {
+    "unittest": 49,
+    "failed": 0
+  },
+  "scope": "visual refinement PASS; full interactive, mobile, accessibility and save/reopen gates not run",
+  "issues": [
+    "System Python lacked duckdb; reran complete suite using existing project venv, no installation.",
+    "Initial native query began before load completed; readiness guard reran successfully.",
+    "Desktop close did not complete normally; only disposable test PID terminated after graceful-close attempt. No round-trip save committed.",
+    "Product detail table intentionally scrolls for full 40-product catalogue; monthly tables fit 12 months. Office/Lifestyle retained as approved lab labels and product names retained."
+  ]
+}
