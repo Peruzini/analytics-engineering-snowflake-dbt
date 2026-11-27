@@ -3,11 +3,11 @@
   "name": "0000000000000000aa7d",
   "position": {
     "x": 24,
-    "y": 915,
-    "width": 1232,
-    "height": 297,
-    "z": 5500,
-    "tabOrder": 5500
+    "y": 970,
+    "width": 1392,
+    "height": 218,
+    "z": 15000,
+    "tabOrder": 15000
   },
   "visual": {
     "visualType": "tableEx",
@@ -165,6 +165,13 @@
                   }
                 }
               }
+            },
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
             }
           }
         }
@@ -315,7 +322,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0B192B'"
+                      "Value": "'#103C49'"
                     }
                   }
                 }

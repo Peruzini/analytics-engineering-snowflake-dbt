@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "d3e2000000000000000b",
   "position": {
-    "x": 650,
-    "y": 635,
-    "width": 606,
-    "height": 244,
-    "z": 4800,
-    "tabOrder": 4800
+    "x": 728,
+    "y": 622,
+    "width": 688,
+    "height": 268,
+    "z": 15000,
+    "tabOrder": 15000
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -188,7 +188,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0B192B'"
+                      "Value": "'#103C49'"
                     }
                   }
                 }
@@ -243,17 +243,57 @@
                 }
               }
             },
-            "start": {
+            "secStart": {
               "expr": {
                 "Literal": {
                   "Value": "0D"
                 }
               }
             },
-            "end": {
+            "secEnd": {
               "expr": {
                 "Literal": {
                   "Value": "1D"
+                }
+              }
+            },
+            "secFontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "secLabelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
                 }
               }
             }

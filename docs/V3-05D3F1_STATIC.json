@@ -1,0 +1,36 @@
+{
+  "base": "226f97576b42399eb0d57f7f2388acaa9661ebf2",
+  "pages": [
+    {
+      "page": "Visão Executiva",
+      "width": 1440,
+      "height": 1100,
+      "visuals": 16,
+      "charts": 3
+    },
+    {
+      "page": "Receita e Pedidos",
+      "width": 1440,
+      "height": 1140,
+      "visuals": 17,
+      "charts": 4
+    },
+    {
+      "page": "Clientes e Produtos",
+      "width": 1440,
+      "height": 1180,
+      "visuals": 17,
+      "charts": 4
+    },
+    {
+      "page": "Canais e Pedidos",
+      "width": 1440,
+      "height": 1240,
+      "visuals": 16,
+      "charts": 3
+    }
+  ],
+  "modelUnchanged": true,
+  "static": "PASS: bounds, no overlaps, unique tab order, all query and sort fields",
+  "native": "pending"
+}

@@ -3,11 +3,11 @@
   "name": "0000000000000000aa74",
   "position": {
     "x": 490,
-    "y": 379,
-    "width": 766,
-    "height": 240,
-    "z": 4600,
-    "tabOrder": 4600
+    "y": 328,
+    "width": 926,
+    "height": 278,
+    "z": 13000,
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -171,7 +171,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0B192B'"
+                      "Value": "'#103C49'"
                     }
                   }
                 }

@@ -3,11 +3,11 @@
   "name": "c2050000000000000002",
   "position": {
     "x": 24,
-    "y": 379,
-    "width": 610,
-    "height": 220,
-    "z": 4600,
-    "tabOrder": 4600
+    "y": 328,
+    "width": 688,
+    "height": 224,
+    "z": 12000,
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -188,7 +188,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0B192B'"
+                      "Value": "'#103C49'"
                     }
                   }
                 }
@@ -247,6 +247,60 @@
               "expr": {
                 "Literal": {
                   "Value": "1D"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "preferredCategoryWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "11D"
+                }
+              }
+            },
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
                 }
               }
             }

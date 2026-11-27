@@ -3,11 +3,11 @@
   "name": "0000000000000000aa73",
   "position": {
     "x": 24,
-    "y": 379,
+    "y": 328,
     "width": 450,
-    "height": 240,
-    "z": 4500,
-    "tabOrder": 4500
+    "height": 278,
+    "z": 12000,
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -169,7 +169,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0B192B'"
+                      "Value": "'#103C49'"
                     }
                   }
                 }
@@ -212,6 +212,41 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "preferredCategoryWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }

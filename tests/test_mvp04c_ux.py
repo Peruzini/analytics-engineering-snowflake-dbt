@@ -129,7 +129,7 @@ class TestReportUX(unittest.TestCase):
         self.assertIn("ROAS", texts)
         self.assertIn("CAC", texts)
         line = next(v for v in page if v["visual"]["visualType"] == "lineChart")
-        self.assertEqual(line["visual"]["query"]["queryState"]["Series"]["projections"][0]["queryRef"], "FatoPedidos.channel")
+        self.assertEqual(line["visual"]["query"]["queryState"]["Rows"]["projections"][0]["queryRef"], "FatoPedidos.channel")
 
 if __name__ == "__main__":
     unittest.main()
