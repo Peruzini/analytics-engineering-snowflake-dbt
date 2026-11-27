@@ -27,5 +27,23 @@
       "fontSize": 24,
       "color": "#103C49"
     }
+  },
+  "visualStyles": {
+    "cardVisual": {
+      "*": {
+        "*": [
+          {
+            "$id": "default",
+            "displayUnits": 1,
+            "labelDisplayUnits": 1,
+            "titleDisplayUnits": 1,
+            "detailDisplayUnits": 1,
+            "valueDisplayUnits": 1,
+            "secLabelDisplayUnits": 1,
+            "titleLabelDisplayUnits": 1
+          }
+        ]
+      }
+    }
   }
 }
