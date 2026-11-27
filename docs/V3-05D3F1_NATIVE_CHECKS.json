@@ -1,0 +1,31 @@
+{
+  "candidate": "5f247d7a280274da6a86aac28f8a93cf4c53dea3",
+  "visualCandidate": "574dfe6db826ae8bb5847377dcf0a183d3466491",
+  "base": "226f97576b42399eb0d57f7f2388acaa9661ebf2",
+  "modelBlob": "9a4e258313a43db4cd5c4c76da54d9e2bbe99688",
+  "modelUnchanged": true,
+  "changedFiles": 72,
+  "regression": {
+    "comparedValues": 316,
+    "failures": [],
+    "tolerance": 1e-7
+  },
+  "pythonTests": {
+    "passed": 46,
+    "total": 46,
+    "exit": 0
+  },
+  "visualEvidence": {
+    "candidate": "574dfe6db826ae8bb5847377dcf0a183d3466491",
+    "scope": "4 loaded native Desktop captures inspected",
+    "path": "%USERPROFILE%/portfolio-v3-05d/ecommerce-d3f1-inspection",
+    "hashes": [
+      "3AF5564B7AB3AA8F4CF03B776117B8E4ACE80E75E2D64FD08935F5CBC9C13B56",
+      "64E485DFE41D39DCE0E69A068479D6284F077BA51FE5A73B161C3F8A9EF3A30B",
+      "AD33D54AD39B98100BC413F3D4660511B0198E6BE06CBDB51F9FBC6002724963",
+      "7E751E1CAACD5A0F0EADD942FCCD9C505A6F7214163B59D1E5413AAF42F68A00"
+    ]
+  },
+  "finalVisualGate": "PENDING: second revision loaded DAX data but UI continued to show incomplete-table/cache warning and empty visuals; refresh and save/reopen not verified. Discard blank captures.",
+  "status": "PASS structural and DAX; visual R1 approved with reservations; R2 visual pending"
+}
