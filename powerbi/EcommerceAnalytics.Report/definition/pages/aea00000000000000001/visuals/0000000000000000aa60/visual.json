@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Receita por Dia"
+                  "Property": "MoM Últimos Meses Completos %"
                 }
               },
-              "queryRef": "Medidas.Receita por Dia",
-              "nativeQueryRef": "Receita por Dia",
-              "displayName": "Receita por dia"
+              "queryRef": "Medidas.MoM Últimos Meses Completos %",
+              "nativeQueryRef": "MoM Últimos Meses Completos %",
+              "displayName": "Variação MoM"
             }
           ]
         }
@@ -76,6 +76,13 @@
                   "Value": "1D"
                 }
               }
+            },
+            "valueDecimalPlaces": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
             }
           },
           "selector": {
@@ -96,7 +103,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita por dia'"
+                  "Value": "'MoM — meses completos'"
                 }
               }
             },
@@ -214,7 +221,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita por dia. Valor conforme os filtros.'"
+                  "Value": "'Variação de receita dos dois últimos meses completos selecionados; vazio sem comparação válida.'"
                 }
               }
             }

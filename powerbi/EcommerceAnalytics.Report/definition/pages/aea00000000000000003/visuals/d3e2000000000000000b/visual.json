@@ -233,10 +233,30 @@
     },
     "drillFilterOtherVisuals": true,
     "objects": {
-      "y2Axis": [
+      "categoryAxis": [
         {
           "properties": {
-            "show": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "secShow": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -268,32 +288,6 @@
               "expr": {
                 "Literal": {
                   "Value": "0L"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "categoryAxis": [
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
                 }
               }
             }

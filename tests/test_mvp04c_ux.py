@@ -85,11 +85,11 @@ class TestReportUX(unittest.TestCase):
             self.assertEqual(banner["position"]["y"], 12)
             cards = [v for v in visuals if v["visual"]["visualType"] == "cardVisual"]
             self.assertEqual(len(cards), 4)
-            self.assertEqual({v["position"]["y"] for v in cards}, {114})
-            self.assertEqual({v["position"]["height"] for v in cards}, {108})
+            self.assertEqual({v["position"]["y"] for v in cards}, {178})
+            self.assertEqual({v["position"]["height"] for v in cards}, {92})
             tabs = [v for v in visuals if v["visual"]["visualType"] == "slicer"]
             self.assertEqual(len(tabs), 4)
-            self.assertEqual({v["position"]["y"] for v in tabs}, {235})
+            self.assertEqual({v["position"]["y"] for v in tabs}, {106})
             self.assertEqual(len([v for v in visuals if v["visual"]["visualType"] == "tableEx"]), 1)
             self.assertEqual(len([v for v in visuals if v["visual"]["visualType"] in {"lineChart", "clusteredBarChart", "scatterChart", "pivotTable", "lineClusteredColumnComboChart"}]), 3 if page_id in (list(EXPECTED)[0], list(EXPECTED)[3]) else 4)
             self.assertEqual(len({v["position"]["tabOrder"] for v in visuals}), len(visuals))
