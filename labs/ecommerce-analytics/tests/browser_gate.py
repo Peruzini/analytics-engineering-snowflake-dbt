@@ -86,6 +86,8 @@ def main():
                             ticks=page.locator("#repurchase svg text").evaluate_all(
                                 "xs=>xs.map(x=>x.textContent).filter(t=>/^\\d+[,.]?\\d*%$/.test(t)).map(t=>Number(t.replace('%','').replace(',','.')))")
                             check(prefix+"/percentage axis", bool(ticks) and max(ticks)<=100 and min(ticks)>=0,ticks)
+                        check(prefix+"/KPI single line", page.locator("#dashboard .kpi .value").evaluate_all(
+                            """xs=>xs.every(x=>{const r=document.createRange();r.selectNodeContents(x);return r.getClientRects().length===1&&x.scrollWidth<=x.clientWidth+1})"""))
                         clipping = page.locator("#dashboard svg.chart").evaluate_all(
                             """xs=>xs.flatMap(s=>Array.from(s.querySelectorAll('text')).map(t=>{
                             let b=t.getBoundingClientRect(),r=s.getBoundingClientRect();
