@@ -13,7 +13,7 @@ from __future__ import annotations
 import argparse
 import csv
 from datetime import date, datetime
-from decimal import Decimal
+from decimal import Decimal, ROUND_HALF_EVEN
 import io
 from pathlib import Path
 import subprocess
@@ -41,14 +41,38 @@ MONEY = {
     "planned_budget_amount",
 }
 
+def canonical_average_ticket(values):
+    """Round exact decimal revenue / count; reject inconsistent SQL averages.
+
+    DuckDB division returns floating point, so half-cent ties can land on
+    either side of the decimal tie. Reconstruct from the actual mart's
+    numerator and denominator, not from the committed CSV.
+    """
+    revenue_key = ("lifetime_recognized_revenue"
+                   if "lifetime_recognized_revenue" in values else "recognized_revenue")
+    count = int(values["completed_orders"])
+    actual = values["avg_completed_ticket"]
+    if count == 0:
+        if actual is not None:
+            raise ValueError("Non-null ticket without completed orders")
+        return ""
+    exact = Decimal(str(values[revenue_key])) / Decimal(count)
+    if actual is None or abs(Decimal(str(actual)) - exact) > Decimal("0.00000001"):
+        raise ValueError("SQL average ticket inconsistent with revenue / count")
+    return str(exact.quantize(Decimal("0.01"), rounding=ROUND_HALF_EVEN))
+
+
 def as_csv(cursor, column_names):
     contents = io.StringIO(newline="")
     writer = csv.writer(contents, lineterminator="\n")
     writer.writerow(column_names)
     for row in cursor.fetchall():
         output = []
+        values = dict(zip(column_names, row))
         for name, value in zip(column_names, row):
-            if value is None:
+            if name == "avg_completed_ticket":
+                output.append(canonical_average_ticket(values))
+            elif value is None:
                 output.append("")
             elif isinstance(value, (date, datetime)):
                 output.append(value.date().isoformat() if isinstance(value, datetime) else value.isoformat())
