@@ -114,7 +114,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/powerbi/data/dim_customers.csv\",",
+                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/b1c285cfd54564b2849f9e7a9c61f42c2e782b91/powerbi/data/dim_customers.csv\",",
                 "    Fonte = Csv.Document(Web.Contents(Url), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
                 "    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
                 "    Tipos = Table.TransformColumnTypes(Cabecalhos, {{\"customer_id\", type text}, {\"email\", type text}, {\"region\", type text}, {\"created_at\", type date}}, \"en-US\")",
@@ -162,7 +162,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/powerbi/data/dim_products.csv\",",
+                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/b1c285cfd54564b2849f9e7a9c61f42c2e782b91/powerbi/data/dim_products.csv\",",
                 "    Fonte = Csv.Document(Web.Contents(Url), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
                 "    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
                 "    Tipos = Table.TransformColumnTypes(Cabecalhos, {{\"product_id\", type text}, {\"product_name\", type text}, {\"category\", type text}, {\"list_price\", type number}}, \"en-US\")",
@@ -294,7 +294,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/powerbi/data/fct_orders.csv\",",
+                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/b1c285cfd54564b2849f9e7a9c61f42c2e782b91/powerbi/data/fct_orders.csv\",",
                 "    Fonte = Csv.Document(Web.Contents(Url), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
                 "    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
                 "    Tipos = Table.TransformColumnTypes(Cabecalhos, {{\"order_id\", type text}, {\"customer_id\", type text}, {\"campaign_id\", type text}, {\"channel\", type text}, {\"order_date\", type date}, {\"order_status\", type text}, {\"item_count\", Int64.Type}, {\"unit_count\", Int64.Type}, {\"gross_item_amount\", type number}, {\"discount_amount\", type number}, {\"net_item_amount\", type number}, {\"payment_count\", Int64.Type}, {\"payment_amount\", type number}, {\"recognized_revenue\", type number}, {\"refunded_amount\", type number}, {\"completed_order_flag\", Int64.Type}}, \"en-US\")",
@@ -407,7 +407,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/powerbi/data/fct_order_items.csv\",",
+                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/b1c285cfd54564b2849f9e7a9c61f42c2e782b91/powerbi/data/fct_order_items.csv\",",
                 "    Fonte = Csv.Document(Web.Contents(Url), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
                 "    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
                 "    Tipos = Table.TransformColumnTypes(Cabecalhos, {{\"order_item_id\", type text}, {\"order_id\", type text}, {\"product_id\", type text}, {\"customer_id\", type text}, {\"campaign_id\", type text}, {\"order_date\", type date}, {\"order_status\", type text}, {\"quantity\", Int64.Type}, {\"unit_price\", type number}, {\"discount_amount\", type number}, {\"gross_item_amount\", type number}, {\"net_item_amount\", type number}, {\"recognized_item_revenue\", type number}}, \"en-US\")",
@@ -515,7 +515,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/powerbi/data/mart_daily_sales.csv\",",
+                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/b1c285cfd54564b2849f9e7a9c61f42c2e782b91/powerbi/data/mart_daily_sales.csv\",",
                 "    Fonte = Csv.Document(Web.Contents(Url), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
                 "    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
                 "    Tipos = Table.TransformColumnTypes(Cabecalhos, {{\"order_date\", type date}, {\"order_count\", Int64.Type}, {\"completed_orders\", Int64.Type}, {\"pending_orders\", Int64.Type}, {\"cancelled_orders\", Int64.Type}, {\"refunded_orders\", Int64.Type}, {\"gross_order_amount\", type number}, {\"discount_amount\", type number}, {\"net_order_amount_all_statuses\", type number}, {\"recognized_revenue\", type number}, {\"refunded_amount\", type number}, {\"avg_completed_ticket\", type number}}, \"en-US\")",
@@ -622,7 +622,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/powerbi/data/mart_customer_ltv.csv\",",
+                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/b1c285cfd54564b2849f9e7a9c61f42c2e782b91/powerbi/data/mart_customer_ltv.csv\",",
                 "    Fonte = Csv.Document(Web.Contents(Url), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
                 "    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
                 "    Tipos = Table.TransformColumnTypes(Cabecalhos, {{\"customer_id\", type text}, {\"region\", type text}, {\"created_at\", type date}, {\"lifetime_orders\", Int64.Type}, {\"completed_orders\", Int64.Type}, {\"first_order_date\", type date}, {\"last_order_date\", type date}, {\"lifetime_recognized_revenue\", type number}, {\"lifetime_refunded_amount\", type number}, {\"avg_completed_ticket\", type number}}, \"en-US\")",
@@ -684,7 +684,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/powerbi/data/mart_channel_performance.csv\",",
+                "    Url = \"https://raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/b1c285cfd54564b2849f9e7a9c61f42c2e782b91/powerbi/data/mart_channel_performance.csv\",",
                 "    Fonte = Csv.Document(Web.Contents(Url), [Delimiter=\",\", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),",
                 "    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),",
                 "    Tipos = Table.TransformColumnTypes(Cabecalhos, {{\"channel\", type text}, {\"planned_budget_amount\", type number}, {\"order_count\", Int64.Type}, {\"completed_orders\", Int64.Type}, {\"recognized_revenue\", type number}, {\"refunded_amount\", type number}}, \"en-US\")",
@@ -739,18 +739,21 @@
           },
           {
             "name": "Pedidos Pendentes",
-            "expression": "CALCULATE([Pedidos Totais], FatoPedidos[order_status] = \"pending\")",
-            "formatString": "#,0"
+            "expression": "IF(NOT ISBLANK([Pedidos Totais]), COALESCE(CALCULATE([Pedidos Totais], KEEPFILTERS(FatoPedidos[order_status] = \"pending\")), 0))",
+            "formatString": "#,0",
+            "description": "Interseção com o status selecionado; zero se há pedidos, mas nenhum desse status; BLANK se não há pedidos."
           },
           {
             "name": "Pedidos Cancelados",
-            "expression": "CALCULATE([Pedidos Totais], FatoPedidos[order_status] = \"cancelled\")",
-            "formatString": "#,0"
+            "expression": "IF(NOT ISBLANK([Pedidos Totais]), COALESCE(CALCULATE([Pedidos Totais], KEEPFILTERS(FatoPedidos[order_status] = \"cancelled\")), 0))",
+            "formatString": "#,0",
+            "description": "Interseção com o status selecionado; zero se há pedidos, mas nenhum desse status; BLANK se não há pedidos."
           },
           {
             "name": "Pedidos Reembolsados",
-            "expression": "CALCULATE([Pedidos Totais], FatoPedidos[order_status] = \"refunded\")",
-            "formatString": "#,0"
+            "expression": "IF(NOT ISBLANK([Pedidos Totais]), COALESCE(CALCULATE([Pedidos Totais], KEEPFILTERS(FatoPedidos[order_status] = \"refunded\")), 0))",
+            "formatString": "#,0",
+            "description": "Interseção com o status selecionado; zero se há pedidos, mas nenhum desse status; BLANK se não há pedidos."
           },
           {
             "name": "Ticket Médio",
@@ -789,8 +792,9 @@
           },
           {
             "name": "Unidades Pedidos Concluídos",
-            "expression": "CALCULATE(SUM(FatoItens[quantity]), FatoItens[order_status] = \"completed\")",
-            "formatString": "#,0"
+            "expression": "CALCULATE(SUM(FatoItens[quantity]), KEEPFILTERS(FatoItens[order_status] = \"completed\"))",
+            "formatString": "#,0",
+            "description": "Respeita filtros existentes de itens/status, restringindo aos pedidos concluídos."
           },
           {
             "name": "Clientes Cadastrados",
@@ -799,18 +803,21 @@
           },
           {
             "name": "Clientes Compradores",
-            "expression": "CALCULATE(DISTINCTCOUNT(FatoPedidos[customer_id]), FatoPedidos[order_status] = \"completed\")",
-            "formatString": "#,0"
+            "expression": "IF(NOT ISEMPTY(FatoItens), COALESCE(CALCULATE(DISTINCTCOUNT(FatoItens[customer_id]), KEEPFILTERS(FatoItens[order_status] = \"completed\")), 0))",
+            "formatString": "#,0",
+            "description": "Clientes distintos com ao menos um item em pedido concluído no contexto de categoria, produto, região, data e demais filtros propagados."
           },
           {
             "name": "Receita por Cliente Comprador",
-            "expression": "DIVIDE([Receita Reconhecida], [Clientes Compradores])",
-            "formatString": "R$ #,0.00"
+            "expression": "DIVIDE([Receita Itens], [Clientes Compradores])",
+            "formatString": "R$ #,0.00",
+            "description": "Receita reconhecida dos itens selecionados por comprador desses itens; não soma o valor integral de pedidos mistos."
           },
           {
             "name": "Receita Acumulada",
-            "expression": "VAR UltimaData = MAX(DimData[Data]) RETURN CALCULATE([Receita Reconhecida], FILTER(ALLSELECTED(DimData[Data]), DimData[Data] <= UltimaData))",
-            "formatString": "R$ #,0.00"
+            "expression": "VAR UltimaData = MAX(DimData[Data]) RETURN IF(NOT ISBLANK(UltimaData), CALCULATE([Receita Reconhecida], FILTER(ALLSELECTED(DimData), DimData[Data] <= UltimaData)))",
+            "formatString": "R$ #,0.00",
+            "description": "Acumula as datas da seleção externa até a data atual, removendo o contexto de linha da dimensão calendário."
           },
           {
             "name": "Receita Rolling 7d",
@@ -869,8 +876,9 @@
           },
           {
             "name": "Receita Média Móvel 7d",
-            "expression": "VAR Fim = MAX(DimData[Data]) VAR Primeira = MINX(ALL(DimData[Data]), DimData[Data]) VAR Inicio = MAX(Primeira, Fim - 6) RETURN DIVIDE(CALCULATE([Receita Reconhecida], FILTER(ALL(DimData), DimData[Data] >= Inicio && DimData[Data] <= Fim)), Fim - Inicio + 1)",
-            "formatString": "R$ #,0.00"
+            "expression": "VAR Fim = MAX(DimData[Data]) VAR Primeira = MINX(ALL(DimData), DimData[Data]) VAR Inicio = MAX(Primeira, Fim - 6) RETURN IF(NOT ISBLANK(Fim), DIVIDE(CALCULATE([Receita Reconhecida], FILTER(ALL(DimData), DimData[Data] >= Inicio && DimData[Data] <= Fim)), Fim - Inicio + 1))",
+            "formatString": "R$ #,0.00",
+            "description": "Janela móvel de dias corridos atravessa a fronteira mensal e é limitada ao início real do calendário."
           },
           {
             "name": "Taxa Cancelamento %",
@@ -879,13 +887,15 @@
           },
           {
             "name": "Desconto Concluídos",
-            "expression": "CALCULATE(SUM(FatoItens[discount_amount]), FatoItens[order_status] = \"completed\")",
-            "formatString": "R$ #,0.00"
+            "expression": "CALCULATE(SUM(FatoItens[discount_amount]), KEEPFILTERS(FatoItens[order_status] = \"completed\"))",
+            "formatString": "R$ #,0.00",
+            "description": "Respeita filtros existentes de itens/status, restringindo aos pedidos concluídos."
           },
           {
             "name": "Bruto Concluídos",
-            "expression": "CALCULATE(SUM(FatoItens[gross_item_amount]), FatoItens[order_status] = \"completed\")",
-            "formatString": "R$ #,0.00"
+            "expression": "CALCULATE(SUM(FatoItens[gross_item_amount]), KEEPFILTERS(FatoItens[order_status] = \"completed\"))",
+            "formatString": "R$ #,0.00",
+            "description": "Respeita filtros existentes de itens/status, restringindo aos pedidos concluídos."
           },
           {
             "name": "Taxa Desconto Concluídos %",
@@ -894,8 +904,9 @@
           },
           {
             "name": "Clientes Recorrentes (2+)",
-            "expression": "COUNTROWS(FILTER(VALUES(DimClientes[customer_id]), CALCULATE([Pedidos Concluídos]) >= 2))",
-            "formatString": "#,0"
+            "expression": "IF(NOT ISEMPTY(FatoItens), COALESCE(COUNTROWS(FILTER(VALUES(DimClientes[customer_id]), CALCULATE(DISTINCTCOUNT(FatoItens[order_id]), KEEPFILTERS(FatoItens[order_status] = \"completed\")) >= 2)), 0))",
+            "formatString": "#,0",
+            "description": "Dois ou mais pedidos concluídos distintos contendo itens da seleção; múltiplos itens de um pedido não contam como recompra."
           },
           {
             "name": "Taxa Recompra Período %",

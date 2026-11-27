@@ -67,7 +67,8 @@ class TestPBIP(unittest.TestCase):
             expr = "\n".join(t["partitions"][0]["source"]["expression"])
             self.assertNotIn("DBT_SNOWFLAKE_PRIVATE_KEY", expr)
             if t["name"] not in ("DimData", "Medidas"):
-                self.assertIn("raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main/", expr)
+                self.assertIn("raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/b1c285cfd54564b2849f9e7a9c61f42c2e782b91/", expr)
+                self.assertNotIn("/main/powerbi/data/", expr)
                 self.assertIn("/powerbi/data/", expr)
 
     def test_dax_measure_dependencies(self):

@@ -5,7 +5,7 @@
 Entrypoint: [EcommerceAnalytics.pbip](EcommerceAnalytics.pbip). O projeto precisa ser baixado com as pastas `EcommerceAnalytics.Report` e `EcommerceAnalytics.SemanticModel` preservadas.
 
 ## Fonte
-`data/*.csv` é versionado; as consultas M do modelo leem os arquivos pelo `raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/main`. O projeto é público; configure autenticação Anônima no Power BI Desktop. Nenhuma chave Snowflake ou token GitHub é necessário.
+`data/*.csv` é versionado; as consultas M do modelo leem os arquivos pelo `raw.githubusercontent.com/Peruzini/analytics-engineering-snowflake-dbt/b1c285cfd54564b2849f9e7a9c61f42c2e782b91`. O projeto é público; configure autenticação Anônima no Power BI Desktop. Nenhuma chave Snowflake ou token GitHub é necessário.
 
 ## Antes de abrir
 1. `python scripts/local_ci.py --full` — sementes, testes Python/YAML, dbt DuckDB, incremental, snapshot e paridade dos 7 CSVs em um único banco.
@@ -18,3 +18,8 @@ Receita = completed. Budget = planejado. Reembolso separado. Agregados `ResumoCa
 UX e storytelling: [MVP04C_UX_STORYTELLING.md](../docs/MVP04C_UX_STORYTELLING.md).
 
 Documentação completa: [MVP04_POWERBI.md](../docs/MVP04_POWERBI.md) · [Case de portfólio](../docs/PORTFOLIO_CASE_STUDY.md).
+
+
+## V3-05C1
+
+[Contrato de filtros, grãos e atualização do snapshot](../docs/V3-05C1_FILTER_CONTRACT.md). A revisão dos CSVs é fixa; para adotar novos dados, reexecutar paridade e atualizar explicitamente as sete URLs e o manifesto. A publicação de CSVs em main não muda a fonte deste PBIP.

@@ -54,3 +54,8 @@ Após aprovação G4, salvar capturas autênticas em `docs/screenshots/`:
 Conferir privacidade/legibilidade, indicar versão do Desktop, commit testado e resultados G1–G4. Atualizar [estudo de caso](PORTFOLIO_CASE_STUDY.md) com essas imagens somente após existirem.
 
 O título **MVP-04D VALIDADO** só será aplicado quando todos os gates estiverem comprovados. O case permanece sintético e não demonstra impacto em operação real.
+
+
+## Complemento V3-05C1
+
+A fonte de sete CSVs está fixada no commit `b1c285cfd54564b2849f9e7a9c61f42c2e782b91`. Ver [contrato e evidências](V3-05C1_FILTER_CONTRACT.md). G1–G5 continuam pendentes até execução comprovada; a conciliação dos CSVs publicados não equivale à saída dbt atual.
