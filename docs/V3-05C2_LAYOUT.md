@@ -1,0 +1,7 @@
+# V3-05C2 — Reformulação visual E-commerce Analytics
+
+Quatro páginas de 1280 × 960; cada uma contém cabeçalho, pergunta de negócio, quatro KPIs, dois filtros locais, nota fixa identificada, dois gráficos, tabela e rodapé de dados sintéticos. Paleta navy/petróleo alinhada ao Fleet; filtros e tipografia ampliados, painéis com bordas discretas, tabelas com contraste. Visão Executiva recebeu receita por região; Receita e Pedidos recebeu distribuição por status selecionado. Clientes e Produtos mantém receita dos itens por categoria e região; Canais mantém a série por canal proposta no C1.
+
+52 visuais, 16 KPIs, oito segmentadores, oito gráficos, quatro tabelas e 16 caixas de texto. Configurados textos alternativos nos 36 visuais não textuais. As notas numéricas são referências fixas da base integral, não resultados dinâmicos. Filtros permanecem locais por página. Não foi feita mudança de DAX, Power Query ou CSVs.
+
+[Registro estático](V3-05C2_LAYOUT_STATIC.json): quatro lotes validados antes da gravação, 74 vínculos incluindo sort, zero colisões, zero referências inexistentes, zero IDs/ordens de tabulação duplicados por página. Testes de inventário, quantidade de gráficos, ordenação e altText adaptados; não executados em Python. A legenda Series, a validade dos schemas Microsoft, a renderização, a legibilidade, os textos alternativos efetivos, a navegação por teclado e as interações requerem Power BI Desktop. C3: testes e paridade dbt; D: homologação nativa; E: capturas reais. Nenhum merge automático.

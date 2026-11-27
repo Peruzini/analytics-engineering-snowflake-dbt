@@ -6,7 +6,7 @@
 
 | Gate | Critério | Estado |
 | --- | --- | --- |
-| G0 Git | Arquivos do pipeline, CSVs, 4 páginas, 50 visuais, 39 medidas presentes | Versionado; auditoria estática de fases anteriores |
+| G0 Git | Arquivos do pipeline, CSVs, 4 páginas, 52 visuais, 39 medidas presentes | Versionado; auditoria estática de fases anteriores |
 | G1 Python | Seeds determinísticas, testes unitários, YAML e estrutura PBIR | Pendente de execução atual |
 | G2 dbt DuckDB | seed, run, incremental, snapshot, test e parse Snowflake offline | Pendente de execução atual |
 | G3 CSV × dbt | 7 CSVs iguais às saídas reais dos marts DuckDB | Pendente de execução atual |
@@ -59,3 +59,8 @@ O título **MVP-04D VALIDADO** só será aplicado quando todos os gates estivere
 ## Complemento V3-05C1
 
 A fonte de sete CSVs está fixada no commit `b1c285cfd54564b2849f9e7a9c61f42c2e782b91`. Ver [contrato e evidências](V3-05C1_FILTER_CONTRACT.md). G1–G5 continuam pendentes até execução comprovada; a conciliação dos CSVs publicados não equivale à saída dbt atual.
+
+
+## Complemento V3-05C2
+
+O candidato possui 52 visuais, com os 50 IDs anteriores preservados; a auditoria histórica de G0 com 50 visuais refere-se ao baseline. A nova auditoria estática encontra-se em [V3-05C2](V3-05C2_LAYOUT.md). G1–G5 permanecem pendentes.

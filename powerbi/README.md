@@ -13,7 +13,7 @@ Entrypoint: [EcommerceAnalytics.pbip](EcommerceAnalytics.pbip). O projeto precis
 3. Abrir no Power BI Desktop e revisar conforme [checklist MVP-04D](../docs/MVP04D_RELEASE.md).
 
 ## Critérios do case
-Receita = completed. Budget = planejado. Reembolso separado. Agregados `ResumoCanais` e `ResumoDiario` não são fatos detalhados; medidas não somam grãos diferentes. Quatro páginas, 50 visuais e 39 medidas DAX estão versionadas no Git. A página de canais usa `FatoPedidos[channel]` com filtros temporais; veja [MVP-04B](../docs/MVP04B_ANALISE.md).
+Receita = completed. Budget = planejado. Reembolso separado. Agregados `ResumoCanais` e `ResumoDiario` não são fatos detalhados; medidas não somam grãos diferentes. Quatro páginas, 52 visuais e 39 medidas DAX estão versionadas no Git. A página de canais usa `FatoPedidos[channel]` com filtros temporais; veja [MVP-04B](../docs/MVP04B_ANALISE.md).
 
 UX e storytelling: [MVP04C_UX_STORYTELLING.md](../docs/MVP04C_UX_STORYTELLING.md).
 
@@ -23,3 +23,8 @@ Documentação completa: [MVP04_POWERBI.md](../docs/MVP04_POWERBI.md) · [Case d
 ## V3-05C1
 
 [Contrato de filtros, grãos e atualização do snapshot](../docs/V3-05C1_FILTER_CONTRACT.md). A revisão dos CSVs é fixa; para adotar novos dados, reexecutar paridade e atualizar explicitamente as sete URLs e o manifesto. A publicação de CSVs em main não muda a fonte deste PBIP.
+
+
+## V3-05C2 — Identidade visual
+
+[Layout, evidência e limitações](../docs/V3-05C2_LAYOUT.md). Quatro páginas, 52 visuais e duas análises gráficas por página; 39 medidas e snapshot do V3-05C1 preservados.

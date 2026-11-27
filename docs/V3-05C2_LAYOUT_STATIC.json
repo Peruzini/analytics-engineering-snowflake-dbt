@@ -1,0 +1,44 @@
+{
+  "scope": "Validation of generated page objects against candidate model; per-page checks executed before each commit. Not official schema validation or Power BI execution.",
+  "baseCommit": "113c1b9820876559afb2d27379763ec00182bd63",
+  "canvas": [
+    1280,
+    960
+  ],
+  "pages": [
+    {
+      "name": "Visão Executiva",
+      "visuals": 13,
+      "bindings": 17,
+      "commit": "48fb43e680a2f4e79934f45c83794a1a75d7a040"
+    },
+    {
+      "name": "Receita e Pedidos",
+      "visuals": 13,
+      "bindings": 20,
+      "commit": "3b724e88671d477e8f0746cc5c2c222bcc9df4dc"
+    },
+    {
+      "name": "Clientes e Produtos",
+      "visuals": 13,
+      "bindings": 17,
+      "commit": "8302e00b70ade7b41f0755f462a903b411425959"
+    },
+    {
+      "name": "Canais e Pedidos",
+      "visuals": 13,
+      "bindings": 20,
+      "commit": "cec00be0de8812ef8bae8d5690fefb2df9c1bc72"
+    }
+  ],
+  "totalVisuals": 52,
+  "bindingsIncludingSort": 74,
+  "geometryErrors": 0,
+  "duplicateIdsOrTabOrder": 0,
+  "missingBindings": 0,
+  "altTextConfigured": 36,
+  "testsUpdatedNotExecuted": [
+    "tests/test_mvp04c_ux.py",
+    "tests/test_powerbi_structure.py"
+  ]
+}
