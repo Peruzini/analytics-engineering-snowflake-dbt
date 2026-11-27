@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "0000000000000000aa62",
   "position": {
-    "x": 650,
-    "y": 235,
-    "width": 606,
-    "height": 64,
-    "z": 3100,
-    "tabOrder": 3100
+    "x": 374,
+    "y": 106,
+    "width": 340,
+    "height": 60,
+    "z": 4000,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "slicer",
@@ -200,7 +200,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Região. Valores dependem dos filtros desta página.'"
+                  "Value": "'Filtro: Região'"
                 }
               }
             }

@@ -1,0 +1,61 @@
+{
+  "base": "fb91e0a34861495342dbd7029c316f3c433d794d",
+  "originalMeasures": 39,
+  "addedMeasures": [
+    "MoM Últimos Meses Completos %",
+    "Participação Status %",
+    "Receita Top 10 Produtos",
+    "Pareto Produtos Top 10 %",
+    "Cor Heatmap Receita"
+  ],
+  "inventory": [
+    {
+      "page": "Visão Executiva",
+      "visuals": 16,
+      "charts": [
+        "clusteredBarChart",
+        "lineChart",
+        "lineChart"
+      ],
+      "width": 1280,
+      "height": 1120
+    },
+    {
+      "page": "Receita e Pedidos",
+      "visuals": 17,
+      "charts": [
+        "lineChart",
+        "lineChart",
+        "lineChart",
+        "clusteredBarChart"
+      ],
+      "width": 1280,
+      "height": 1240
+    },
+    {
+      "page": "Clientes e Produtos",
+      "visuals": 17,
+      "charts": [
+        "scatterChart",
+        "clusteredBarChart",
+        "pivotTable",
+        "lineClusteredColumnComboChart"
+      ],
+      "width": 1280,
+      "height": 1280
+    },
+    {
+      "page": "Canais e Pedidos",
+      "visuals": 16,
+      "charts": [
+        "clusteredBarChart",
+        "scatterChart",
+        "lineChart"
+      ],
+      "width": 1280,
+      "height": 1260
+    }
+  ],
+  "static": "PASS: bounds, overlaps, unique tab order, model references; original measures unchanged",
+  "native": "pending"
+}

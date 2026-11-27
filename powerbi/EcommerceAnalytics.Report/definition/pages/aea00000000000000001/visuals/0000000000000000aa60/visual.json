@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "0000000000000000aa60",
   "position": {
-    "x": 951,
-    "y": 114,
-    "width": 295,
-    "height": 108,
-    "z": 2300,
-    "tabOrder": 2300
+    "x": 1074,
+    "y": 178,
+    "width": 340,
+    "height": 92,
+    "z": 10000,
+    "tabOrder": 10000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Taxa Conclusão %"
+                  "Property": "MoM Últimos Meses Completos %"
                 }
               },
-              "queryRef": "Medidas.Taxa Conclusão %",
-              "nativeQueryRef": "Taxa Conclusão %",
-              "displayName": "Taxa Conclusão %"
+              "queryRef": "Medidas.MoM Últimos Meses Completos %",
+              "nativeQueryRef": "MoM Últimos Meses Completos %",
+              "displayName": "Variação MoM"
             }
           ]
         }
@@ -41,7 +41,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "26D"
+                  "Value": "20D"
                 }
               }
             },
@@ -60,6 +60,27 @@
               "expr": {
                 "Literal": {
                   "Value": "0D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "valueDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "valueDecimalPlaces": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
                 }
               }
             }
@@ -82,7 +103,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa Conclusão %'"
+                  "Value": "'MoM — meses completos'"
                 }
               }
             },
@@ -200,7 +221,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa Conclusão %. Valores dependem dos filtros desta página.'"
+                  "Value": "'Variação de receita dos dois últimos meses completos selecionados; vazio sem comparação válida.'"
                 }
               }
             }

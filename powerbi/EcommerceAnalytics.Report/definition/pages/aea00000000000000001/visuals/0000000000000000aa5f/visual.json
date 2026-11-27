@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "0000000000000000aa5f",
   "position": {
-    "x": 642,
-    "y": 114,
-    "width": 295,
-    "height": 108,
-    "z": 2200,
-    "tabOrder": 2200
+    "x": 724,
+    "y": 178,
+    "width": 340,
+    "height": 92,
+    "z": 9000,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -28,7 +28,7 @@
               },
               "queryRef": "Medidas.Ticket Médio",
               "nativeQueryRef": "Ticket Médio",
-              "displayName": "Ticket Médio"
+              "displayName": "Ticket médio"
             }
           ]
         }
@@ -41,7 +41,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "26D"
+                  "Value": "20D"
                 }
               }
             },
@@ -60,6 +60,20 @@
               "expr": {
                 "Literal": {
                   "Value": "0D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "valueDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -82,7 +96,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Ticket Médio'"
+                  "Value": "'Ticket médio'"
                 }
               }
             },
@@ -200,7 +214,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Ticket Médio. Valores dependem dos filtros desta página.'"
+                  "Value": "'Ticket médio. Valor conforme os filtros.'"
                 }
               }
             }

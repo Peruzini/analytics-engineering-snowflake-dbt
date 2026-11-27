@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "0000000000000000aa6a",
   "position": {
-    "x": 650,
-    "y": 235,
-    "width": 606,
-    "height": 64,
-    "z": 3100,
-    "tabOrder": 3100
+    "x": 24,
+    "y": 106,
+    "width": 340,
+    "height": 60,
+    "z": 3000,
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "slicer",
@@ -28,7 +28,7 @@
               },
               "queryRef": "DimData.AnoMes",
               "nativeQueryRef": "AnoMes",
-              "displayName": "Período"
+              "displayName": "Mês"
             }
           ]
         }
@@ -61,7 +61,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Período'"
+                  "Value": "'Mês'"
                 }
               }
             },
@@ -200,7 +200,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Período. Valores dependem dos filtros desta página.'"
+                  "Value": "'Filtro: Mês'"
                 }
               }
             }

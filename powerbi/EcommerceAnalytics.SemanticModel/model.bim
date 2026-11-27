@@ -927,6 +927,40 @@
             "name": "Receita por Dia",
             "expression": "DIVIDE([Receita Reconhecida], DISTINCTCOUNT(DimData[Data]))",
             "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "MoM Últimos Meses Completos %",
+            "expression": "VAR Fim = MAX(DimData[Data])\nVAR InicioAtual = EOMONTH(Fim, -1) + 1\nVAR FimAtual = EOMONTH(Fim, 0)\nVAR InicioAnterior = EOMONTH(Fim, -2) + 1\nVAR FimAnterior = EOMONTH(Fim, -1)\nVAR DiasAtual = COUNTROWS(FILTER(VALUES(DimData[Data]), DimData[Data] >= InicioAtual && DimData[Data] <= FimAtual))\nVAR DiasAnterior = COUNTROWS(FILTER(VALUES(DimData[Data]), DimData[Data] >= InicioAnterior && DimData[Data] <= FimAnterior))\nVAR Atual = CALCULATE([Receita Reconhecida], FILTER(ALL(DimData), DimData[Data] >= InicioAtual && DimData[Data] <= FimAtual))\nVAR Anterior = CALCULATE([Receita Reconhecida], FILTER(ALL(DimData), DimData[Data] >= InicioAnterior && DimData[Data] <= FimAnterior))\nRETURN IF(NOT ISBLANK(Fim) && DiasAtual = DAY(FimAtual) && DiasAnterior = DAY(FimAnterior) && Anterior > 0, DIVIDE(Atual-Anterior, Anterior))",
+            "displayFolder": "Data Viz",
+            "lineageTag": "796cf15a-6ee1-5e72-838a-79754b11e066",
+            "formatString": "0.00%"
+          },
+          {
+            "name": "Participação Status %",
+            "expression": "DIVIDE([Pedidos Totais], CALCULATE([Pedidos Totais], ALLSELECTED(FatoPedidos[order_status])))",
+            "displayFolder": "Data Viz",
+            "lineageTag": "d6ecfed6-7b04-59ac-8a4e-42ea9a9433f7",
+            "formatString": "0.00%"
+          },
+          {
+            "name": "Receita Top 10 Produtos",
+            "expression": "VAR IDAtual = SELECTEDVALUE(DimProdutos[product_id])\nVAR ReceitaAtual = [Receita Itens]\nVAR Pares = FILTER(ADDCOLUMNS(ALLSELECTED(DimProdutos), \"@Receita\", CALCULATE([Receita Itens])), [@Receita] > 0)\nVAR TopProdutos = TOPN(10, Pares, [@Receita], DESC, DimProdutos[product_id], ASC)\nVAR Incluido = NOT ISBLANK(IDAtual) && CONTAINS(TopProdutos, DimProdutos[product_id], IDAtual)\nRETURN IF(Incluido, ReceitaAtual)",
+            "displayFolder": "Data Viz",
+            "lineageTag": "3a4c2f71-e9aa-5592-8f69-88f40b082918",
+            "formatString": "R$ #,0.00"
+          },
+          {
+            "name": "Pareto Produtos Top 10 %",
+            "expression": "VAR IDAtual = SELECTEDVALUE(DimProdutos[product_id])\nVAR ReceitaAtual = [Receita Itens]\nVAR Pares = FILTER(ADDCOLUMNS(ALLSELECTED(DimProdutos), \"@Receita\", CALCULATE([Receita Itens])), [@Receita] > 0)\nVAR TopProdutos = TOPN(10, Pares, [@Receita], DESC, DimProdutos[product_id], ASC)\nVAR Incluido = NOT ISBLANK(IDAtual) && CONTAINS(TopProdutos, DimProdutos[product_id], IDAtual)\nRETURN IF(Incluido, DIVIDE(SUMX(FILTER(Pares, [@Receita] > ReceitaAtual || ([@Receita] = ReceitaAtual && DimProdutos[product_id] <= IDAtual)), [@Receita]), SUMX(Pares, [@Receita])))",
+            "displayFolder": "Data Viz",
+            "lineageTag": "6725cd56-a811-5e22-b535-8ba7c0db7bc8",
+            "formatString": "0.00%"
+          },
+          {
+            "name": "Cor Heatmap Receita",
+            "expression": "VAR R = [Receita Itens] RETURN IF(ISBLANK(R), \"#FFFFFF\", SWITCH(TRUE(), R >= 150000, \"#69ADB8\", R >= 100000, \"#98C9D1\", R >= 50000, \"#BBDCE2\", R >= 25000, \"#D7EAF0\", \"#EDF5F7\"))",
+            "displayFolder": "Data Viz",
+            "lineageTag": "383a9d3f-bd91-5804-8463-17984b2b774c"
           }
         ]
       }

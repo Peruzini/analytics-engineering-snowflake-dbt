@@ -3,11 +3,11 @@
   "name": "0000000000000000aa91",
   "position": {
     "x": 24,
-    "y": 379,
-    "width": 610,
-    "height": 250,
-    "z": 4500,
-    "tabOrder": 4500
+    "y": 574,
+    "width": 1392,
+    "height": 380,
+    "z": 14000,
+    "tabOrder": 14000
   },
   "visual": {
     "visualType": "lineChart",
@@ -51,7 +51,7 @@
             }
           ]
         },
-        "Series": {
+        "Rows": {
           "projections": [
             {
               "field": {
@@ -172,7 +172,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Evolução mensal da receita por canal'"
+                  "Value": "'Receita por canal — pequenos múltiplos'"
                 }
               }
             },
@@ -188,7 +188,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0B192B'"
+                      "Value": "'#103C49'"
                     }
                   }
                 }
@@ -223,7 +223,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Evolução mensal da receita por canal. Valores dependem dos filtros desta página.'"
+                  "Value": "'Receita por canal — pequenos múltiplos. Valores conforme os filtros.'"
                 }
               }
             }
@@ -231,6 +231,101 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lineStyles": [
+        {
+          "properties": {
+            "showMarker": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "strokeWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "2.5D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "showTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "smallMultiplesLayout": [
+        {
+          "properties": {
+            "rowCount": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            },
+            "columnCount": {
+              "expr": {
+                "Literal": {
+                  "Value": "3L"
+                }
+              }
+            },
+            "gridPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "6D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }

@@ -3,11 +3,11 @@
   "name": "0000000000000000aa63",
   "position": {
     "x": 24,
-    "y": 379,
-    "width": 610,
-    "height": 250,
-    "z": 4500,
-    "tabOrder": 4500
+    "y": 328,
+    "width": 688,
+    "height": 258,
+    "z": 12000,
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "lineChart",
@@ -168,7 +168,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita mensal vs. mês anterior'"
+                  "Value": "'Receita mensal × mês anterior'"
                 }
               }
             },
@@ -184,7 +184,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0B192B'"
+                      "Value": "'#103C49'"
                     }
                   }
                 }
@@ -219,7 +219,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita mensal vs. mês anterior. Valores dependem dos filtros desta página.'"
+                  "Value": "'Receita mensal × mês anterior. Valores no contexto dos filtros.'"
                 }
               }
             }
@@ -227,6 +227,74 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lineStyles": [
+        {
+          "properties": {
+            "showMarker": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "strokeWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "2.5D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "showTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }

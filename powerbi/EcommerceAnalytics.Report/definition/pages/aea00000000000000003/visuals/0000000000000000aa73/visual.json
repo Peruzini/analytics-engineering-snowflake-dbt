@@ -3,11 +3,11 @@
   "name": "0000000000000000aa73",
   "position": {
     "x": 24,
-    "y": 379,
-    "width": 610,
-    "height": 250,
-    "z": 4500,
-    "tabOrder": 4500
+    "y": 328,
+    "width": 450,
+    "height": 278,
+    "z": 12000,
+    "tabOrder": 12000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -28,7 +28,7 @@
               },
               "queryRef": "DimProdutos.category",
               "nativeQueryRef": "category",
-              "displayName": "category"
+              "displayName": "Categoria"
             }
           ]
         },
@@ -153,7 +153,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita reconhecida por categoria'"
+                  "Value": "'Receita de itens por categoria'"
                 }
               }
             },
@@ -169,7 +169,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0B192B'"
+                      "Value": "'#103C49'"
                     }
                   }
                 }
@@ -204,7 +204,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita reconhecida por categoria. Valores dependem dos filtros desta página.'"
+                  "Value": "'Receita de itens por categoria. Valores no contexto dos filtros.'"
                 }
               }
             }
@@ -212,6 +212,41 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "categoryAxis": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "preferredCategoryWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "22D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }

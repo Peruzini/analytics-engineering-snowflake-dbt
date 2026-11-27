@@ -12,10 +12,10 @@ REPORT = BI / "EcommerceAnalytics.Report"
 PAGES = REPORT / "definition" / "pages"
 
 EXPECTED = {
-    "aea00000000000000001": ("Visão Executiva", 13, "RECEITA & PERFORMANCE"),
-    "aea00000000000000002": ("Receita e Pedidos", 13, "PEDIDOS & EFICIÊNCIA"),
-    "aea00000000000000003": ("Clientes e Produtos", 13, "CLIENTES & MIX"),
-    "aea00000000000000004": ("Canais e Pedidos", 13, "CANAIS & ATRIBUIÇÃO"),
+    "aea00000000000000001": ("Visão Executiva", 16, "RECEITA & PERFORMANCE"),
+    "aea00000000000000002": ("Receita e Pedidos", 17, "PEDIDOS & EFICIÊNCIA"),
+    "aea00000000000000003": ("Clientes e Produtos", 17, "CLIENTES & MIX"),
+    "aea00000000000000004": ("Canais e Pedidos", 16, "CANAIS & ATRIBUIÇÃO"),
 }
 
 def load(path):
@@ -42,7 +42,7 @@ class TestReportUX(unittest.TestCase):
         manifest = load(PAGES / "pages.json")
         self.assertEqual(manifest["pageOrder"], list(EXPECTED))
         self.assertEqual(manifest["activePageName"], list(EXPECTED)[0])
-        self.assertEqual(sum(len(v) for v in self.page_content.values()), 52)
+        self.assertEqual(sum(len(v) for v in self.page_content.values()), 66)
         for page_id, (label, count, title) in EXPECTED.items():
             with self.subTest(page=label):
                 self.assertEqual(load(PAGES / page_id / "page.json")["displayName"], label)
@@ -52,21 +52,19 @@ class TestReportUX(unittest.TestCase):
                 )
                 self.assertIn(title, texts)
                 self.assertIn("DADOS SINTÉTICOS", texts)
-                self.assertIn("LEITURA" if page_id == list(EXPECTED)[1]
-                              else "REFERÊNCIA" if page_id in (list(EXPECTED)[0],
-                                                                 list(EXPECTED)[3])
-                              else "ATENÇÃO À SIMULAÇÃO", texts)
+                self.assertIn("LEITURA", texts)
 
     def test_no_out_of_bounds_or_visual_overlap(self):
         for page_id, visuals in self.page_content.items():
+            page = load(PAGES / page_id / "page.json")
             for idx, visual in enumerate(visuals):
                 p = visual["position"]
                 with self.subTest(page=page_id, visual=visual["name"]):
                     self.assertEqual(visual["name"], p.get("name", visual["name"]))
                     self.assertGreaterEqual(p["x"], 0)
                     self.assertGreaterEqual(p["y"], 0)
-                    self.assertLessEqual(p["x"] + p["width"], 1280)
-                    self.assertLessEqual(p["y"] + p["height"], 960)
+                    self.assertLessEqual(p["x"] + p["width"], page["width"])
+                    self.assertLessEqual(p["y"] + p["height"], page["height"])
                     self.assertGreater(p["width"], 0)
                     self.assertGreater(p["height"], 0)
                 for other in visuals[idx + 1:]:
@@ -87,28 +85,34 @@ class TestReportUX(unittest.TestCase):
             self.assertEqual(banner["position"]["y"], 12)
             cards = [v for v in visuals if v["visual"]["visualType"] == "cardVisual"]
             self.assertEqual(len(cards), 4)
-            self.assertEqual({v["position"]["y"] for v in cards}, {114})
-            self.assertEqual({v["position"]["height"] for v in cards}, {108})
+            self.assertEqual({v["position"]["y"] for v in cards}, {178})
+            self.assertEqual({v["position"]["height"] for v in cards}, {92})
             tabs = [v for v in visuals if v["visual"]["visualType"] == "slicer"]
-            self.assertEqual(len(tabs), 2)
-            self.assertEqual({v["position"]["y"] for v in tabs}, {235})
+            self.assertEqual(len(tabs), 4)
+            self.assertEqual({v["position"]["y"] for v in tabs}, {106})
             self.assertEqual(len([v for v in visuals if v["visual"]["visualType"] == "tableEx"]), 1)
-            self.assertEqual(len([v for v in visuals if v["visual"]["visualType"] in {"lineChart", "clusteredBarChart"}]), 2)
+            self.assertEqual(len([v for v in visuals if v["visual"]["visualType"] in {"lineChart", "clusteredBarChart", "scatterChart", "pivotTable", "lineClusteredColumnComboChart"}]), 3 if page_id in (list(EXPECTED)[0], list(EXPECTED)[3]) else 4)
             self.assertEqual(len({v["position"]["tabOrder"] for v in visuals}), len(visuals))
             for v in visuals:
                 if v["visual"]["visualType"] != "textbox":
                     self.assertTrue(v["visual"]["visualContainerObjects"]["general"][0]["properties"]["altText"])
-            self.assertTrue(any("filtros não alteram" in text_content(v).lower()
-                                for v in texts) if page_id == list(EXPECTED)[0] else True)
+            self.assertTrue(any("LEITURA" in text_content(v) for v in texts))
 
     def test_product_chart_uses_category_not_40_individual_bars(self):
         page = self.page_content["aea00000000000000003"]
         bars = [v for v in page if v["visual"]["visualType"] == "clusteredBarChart"]
-        self.assertEqual(len(bars), 2)
+        self.assertEqual(len(bars), 1)
         refs = [v["visual"]["query"]["queryState"]["Category"]["projections"][0]["queryRef"]
                 for v in bars]
         self.assertIn("DimProdutos.category", refs)
         self.assertNotIn("DimProdutos.product_name", refs)
+        matrix = next(v for v in page if v["visual"]["visualType"] == "pivotTable")
+        roles = matrix["visual"]["query"]["queryState"]
+        self.assertEqual(roles["Rows"]["projections"][0]["queryRef"], "DimProdutos.category")
+        self.assertEqual(roles["Columns"]["projections"][0]["queryRef"], "DimClientes.region")
+        self.assertEqual(roles["Values"]["projections"][0]["queryRef"], "Medidas.Receita Itens")
+        pareto = next(v for v in page if v["visual"]["visualType"] == "lineClusteredColumnComboChart")
+        self.assertEqual(pareto["visual"]["query"]["queryState"]["Y2"]["projections"][0]["queryRef"], "Medidas.Pareto Produtos Top 10 %")
         table = next(v for v in page if v["visual"]["visualType"] == "tableEx")
         detail = [x["queryRef"] for x in table["visual"]["query"]["queryState"]["Values"]["projections"]]
         self.assertIn("DimProdutos.product_name", detail)
@@ -121,8 +125,11 @@ class TestReportUX(unittest.TestCase):
         self.assertIn("FatoPedidos.channel", refs)
         self.assertIn("DimData.AnoMes", refs)
         texts = " ".join(text_content(v) for v in page)
-        self.assertIn("não inferir causalidade", texts.casefold())
-        self.assertIn("ROAS/CAC", texts)
+        self.assertIn("não há investimento realizado", texts.casefold())
+        self.assertIn("ROAS", texts)
+        self.assertIn("CAC", texts)
+        line = next(v for v in page if v["visual"]["visualType"] == "lineChart")
+        self.assertEqual(line["visual"]["query"]["queryState"]["Rows"]["projections"][0]["queryRef"], "FatoPedidos.channel")
 
 if __name__ == "__main__":
     unittest.main()

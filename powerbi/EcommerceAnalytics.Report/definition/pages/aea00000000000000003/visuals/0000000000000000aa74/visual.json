@@ -2,18 +2,37 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "0000000000000000aa74",
   "position": {
-    "x": 650,
-    "y": 379,
-    "width": 606,
-    "height": 250,
-    "z": 4600,
-    "tabOrder": 4600
+    "x": 490,
+    "y": 328,
+    "width": 926,
+    "height": 278,
+    "z": 13000,
+    "tabOrder": 13000
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "pivotTable",
     "query": {
       "queryState": {
-        "Category": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimProdutos"
+                    }
+                  },
+                  "Property": "category"
+                }
+              },
+              "queryRef": "DimProdutos.category",
+              "nativeQueryRef": "category",
+              "displayName": "Categoria"
+            }
+          ]
+        },
+        "Columns": {
           "projections": [
             {
               "field": {
@@ -28,11 +47,11 @@
               },
               "queryRef": "DimClientes.region",
               "nativeQueryRef": "region",
-              "displayName": "region"
+              "displayName": "Região"
             }
           ]
         },
-        "Y": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -47,27 +66,10 @@
               },
               "queryRef": "Medidas.Receita Itens",
               "nativeQueryRef": "Receita Itens",
-              "displayName": "Receita dos itens"
+              "displayName": "Receita (R$)"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Medidas"
-                  }
-                },
-                "Property": "Receita Itens"
-              }
-            },
-            "direction": "Descending"
-          }
-        ]
       }
     },
     "visualContainerObjects": {
@@ -153,7 +155,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita dos itens por região'"
+                  "Value": "'Heatmap — categoria × região (R$)'"
                 }
               }
             },
@@ -169,7 +171,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0B192B'"
+                      "Value": "'#103C49'"
                     }
                   }
                 }
@@ -204,7 +206,20 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita dos itens por região. Valores dependem dos filtros desta página.'"
+                  "Value": "'Heatmap — categoria × região (R$). Valores no contexto dos filtros.'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'None'"
                 }
               }
             }
@@ -212,6 +227,113 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0B192B'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontColorPrimary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0B192B'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Medidas"
+                        }
+                      },
+                      "Property": "Cor Heatmap Receita"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Medidas.Receita Itens",
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "rowHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }

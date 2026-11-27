@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
   "name": "0000000000000000aa67",
   "position": {
-    "x": 642,
-    "y": 114,
-    "width": 295,
-    "height": 108,
-    "z": 2200,
-    "tabOrder": 2200
+    "x": 724,
+    "y": 178,
+    "width": 340,
+    "height": 92,
+    "z": 9000,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,12 +23,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Taxa Desconto Concluídos %"
+                  "Property": "Taxa Cancelamento %"
                 }
               },
-              "queryRef": "Medidas.Taxa Desconto Concluídos %",
-              "nativeQueryRef": "Taxa Desconto Concluídos %",
-              "displayName": "Taxa Desconto Concluídos %"
+              "queryRef": "Medidas.Taxa Cancelamento %",
+              "nativeQueryRef": "Taxa Cancelamento %",
+              "displayName": "Cancelamento"
             }
           ]
         }
@@ -38,10 +38,28 @@
       "value": [
         {
           "properties": {
+            "labelPrecision": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            },
+            "valueDecimalPlaces": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "26D"
+                  "Value": "20D"
                 }
               }
             },
@@ -60,6 +78,20 @@
               "expr": {
                 "Literal": {
                   "Value": "0D"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "valueDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
@@ -82,7 +114,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa Desconto Concluídos %'"
+                  "Value": "'Cancelamento'"
                 }
               }
             },
@@ -200,7 +232,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Taxa Desconto Concluídos %. Valores dependem dos filtros desta página.'"
+                  "Value": "'Cancelamento. Valor conforme os filtros.'"
                 }
               }
             }

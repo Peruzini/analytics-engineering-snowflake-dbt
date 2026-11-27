@@ -1,0 +1,118 @@
+{
+  "candidate": "11f762f19efae69da6cb3d151a533d82ff9e4878",
+  "pythonCandidate": "1c5c0cf9b893fdc653f4222fd9c335b3e98b10c9",
+  "pythonTests": 46,
+  "checks": [
+    {
+      "name": "snapshot blobs",
+      "pass": true
+    },
+    {
+      "name": "orders",
+      "pass": true
+    },
+    {
+      "name": "items",
+      "pass": true
+    },
+    {
+      "name": "revenue order and item",
+      "pass": true
+    },
+    {
+      "name": "completed",
+      "pass": true
+    },
+    {
+      "name": "buyers and repeat",
+      "pass": true
+    },
+    {
+      "name": "ticket",
+      "pass": true
+    },
+    {
+      "name": "completion",
+      "pass": true
+    },
+    {
+      "name": "MoM full",
+      "pass": true
+    },
+    {
+      "name": "partial blank",
+      "pass": true
+    },
+    {
+      "name": "status counts/shares",
+      "pass": true
+    },
+    {
+      "name": "status shares total",
+      "pass": true
+    },
+    {
+      "name": "categories parity",
+      "pass": true
+    },
+    {
+      "name": "42 cells parity",
+      "pass": true
+    },
+    {
+      "name": "color valid",
+      "pass": true
+    },
+    {
+      "name": "heatmap palette contrast",
+      "pass": true
+    },
+    {
+      "name": "top 10 products and cumulative",
+      "pass": true
+    },
+    {
+      "name": "top 10 denominator full",
+      "pass": true
+    },
+    {
+      "name": "channels",
+      "pass": true
+    },
+    {
+      "name": "channel shares total",
+      "pass": true
+    },
+    {
+      "name": "organic filter denominator",
+      "pass": true
+    },
+    {
+      "name": "months parity",
+      "pass": true
+    },
+    {
+      "name": "accessories BA filter",
+      "pass": true
+    }
+  ],
+  "minimumPaletteContrast": 9.771726850849577,
+  "captureHashes": [
+    [
+      "ecommerce-d3e2-native-r2-inspection-loaded/1.png",
+      "BA8B2870652D0B7AE2C7819822D5E6E9433079019951A176C2BB6182A3F5C152"
+    ],
+    [
+      "ecommerce-d3e2-native-r2-inspection/2.png",
+      "C8869192E1DDFE909F200D8204A50B2FD25920FF8C292DE15476C68C4E518B71"
+    ],
+    [
+      "ecommerce-d3e2-native-r2-inspection/3.png",
+      "13668C642798C232861C6C7AA7DB01FA854B0EE4B21AD2B7CB4E34F60D976FF7"
+    ],
+    [
+      "ecommerce-d3e2-native-r2-inspection/4.png",
+      "683E9E6A83A46C19358D8BDD8EC7BC106044CE5077F0E783D3F5289A52FE9997"
+    ]
+  ]
+}
