@@ -1,15 +1,15 @@
 # MVP-04D — Validação, homologação e evidências
 
-**Status atual: PRÉ-RELEASE, não homologado.** O conteúdo está no Git, mas os testes da nova fixture e o round-trip no Desktop ainda não foram executados. Não reutilizar o PASS de **88 testes Snowflake** do baseline anterior como evidência da versão atual.
+**Status atual: PRÉ-RELEASE, G1–G3 aprovados no ambiente local; Desktop ainda não homologado.** Não reutilizar o PASS de **88 testes Snowflake** do baseline anterior como evidência da versão atual.
 
 ## Gates
 
 | Gate | Critério | Estado |
 | --- | --- | --- |
 | G0 Git | Arquivos do pipeline, CSVs, 4 páginas, 52 visuais, 39 medidas presentes | Versionado; auditoria estática de fases anteriores |
-| G1 Python | Seeds determinísticas, testes unitários, YAML e estrutura PBIR | Pendente de execução atual |
-| G2 dbt DuckDB | seed, run, incremental, snapshot, test e parse Snowflake offline | Pendente de execução atual |
-| G3 CSV × dbt | 7 CSVs iguais às saídas reais dos marts DuckDB | Pendente de execução atual |
+| G1 Python | Seeds determinísticas, testes unitários, YAML e estrutura PBIR | PASS local (V3-05C3) |
+| G2 dbt DuckDB | seed, run, incremental, snapshot, test e parse Snowflake offline | PASS local (V3-05C3) |
+| G3 CSV × dbt | 7 CSVs iguais às saídas reais dos marts DuckDB | PASS local (V3-05C3) |
 | G4 Desktop | Abrir PBIP, refresh, verificar DAX, filtros, relações e renderização | Pendente |
 | G5 Portfólio | Capturas reais das quatro páginas e evidência referenciada por commit | Pendente |
 
@@ -64,3 +64,8 @@ A fonte de sete CSVs está fixada no commit `b1c285cfd54564b2849f9e7a9c61f42c2e7
 ## Complemento V3-05C2
 
 O candidato possui 52 visuais, com os 50 IDs anteriores preservados; a auditoria histórica de G0 com 50 visuais refere-se ao baseline. A nova auditoria estática encontra-se em [V3-05C2](V3-05C2_LAYOUT.md). G1–G5 permanecem pendentes.
+
+
+## Complemento V3-05C3 — Execução local comprovada
+
+Candidato `6c247a7d2935ccbbd6b8ca4e631e00e30c616fbe`: Windows, Python 3.11.9, dbt-core 1.12.5, DuckDB adapter 1.10.1, Snowflake adapter 1.10.8 (parse fictício). 46 testes Python, 91 testes dbt, 6 seeds, 15 modelos, reexecução incremental e snapshot PASS. `POWERBI_EXPORT_MATCH` nos sete CSVs; `LOCAL_FULL_PASS`; 123 hashes SHA-256 conferidos no ambiente local. [Evidência gerada pelo script](evidence/local-validation/6c247a7d2935.json). Primeira falha: comparação textual sensível a caixa; segunda: empate decimal no ticket de C0169 (695,405), corrigido por serialização half-even com checagem da média SQL. Nenhuma fixture alterada. 19 ocorrências de aviso de depreciação dos argumentos de testes genéricos, sem falhas. G4–G5 pendentes; sem consultas Snowflake ou runner hospedado. Clone original com mudanças locais preservado por worktree isolada. Evidência publicada via conector GitHub porque o Git local não possui identidade de commit configurada.
