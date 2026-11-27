@@ -51,7 +51,7 @@
             }
           ]
         },
-        "SmallMultiples": {
+        "Series": {
           "projections": [
             {
               "field": {
@@ -172,7 +172,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita mensal por canal — pequenos múltiplos'"
+                  "Value": "'Evolução mensal da receita por canal'"
                 }
               }
             },
@@ -223,7 +223,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita mensal por canal — pequenos múltiplos. Valores no contexto dos filtros.'"
+                  "Value": "'Evolução mensal das cinco séries de canal na mesma escala; valores conforme filtros.'"
                 }
               }
             }
