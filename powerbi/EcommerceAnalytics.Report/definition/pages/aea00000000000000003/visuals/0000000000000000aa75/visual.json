@@ -5,7 +5,7 @@
     "x": 24,
     "y": 906,
     "width": 1392,
-    "height": 222,
+    "height": 294,
     "z": 16000,
     "tabOrder": 16000
   },
@@ -38,11 +38,11 @@
                       "Entity": "DimProdutos"
                     }
                   },
-                  "Property": "category"
+                  "Property": "Categoria PT"
                 }
               },
-              "queryRef": "DimProdutos.category",
-              "nativeQueryRef": "category",
+              "queryRef": "DimProdutos.Categoria PT",
+              "nativeQueryRef": "Categoria PT",
               "displayName": "Categoria"
             },
             {

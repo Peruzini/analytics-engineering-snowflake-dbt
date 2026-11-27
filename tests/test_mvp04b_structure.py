@@ -43,9 +43,9 @@ class TestMVP04BSemantics(unittest.TestCase):
             types.append(obj["visual"]["visualType"])
             all_refs.extend(projections(obj["visual"]))
         self.assertEqual(len(list((page / "visuals").glob("*/visual.json"))), 16)
-        self.assertIn(("FatoPedidos", "channel"), all_refs)
+        self.assertIn(("FatoPedidos", "Canal PT"), all_refs)
         self.assertIn(("DimData", "AnoMes"), all_refs)
-        self.assertIn(("Medidas", "Participação Receita Canal %"), all_refs)
+        self.assertIn(("Medidas", "Participacao Canal PT %"), all_refs)
         self.assertNotIn("ResumoCanais", {t for t, _ in all_refs})
         self.assertIn("lineChart", types)
         self.assertIn("clusteredBarChart", types)
@@ -54,7 +54,7 @@ class TestMVP04BSemantics(unittest.TestCase):
         model = load(MODEL)["model"]
         measures = {m["name"]: m["expression"] for table in model["tables"]
                     for m in table.get("measures", [])}
-        self.assertEqual(len(measures), 44)
+        self.assertEqual(len(measures), 50)
         self.assertIn("HASONEVALUE(DimData[AnoMes])", measures["Receita Mês Anterior"])
         self.assertIn("FILTER(ALL(DimData)", measures["Receita Mês Anterior"])
         self.assertIn("DISTINCTCOUNT(DimData[Data])", measures["Receita por Dia"])

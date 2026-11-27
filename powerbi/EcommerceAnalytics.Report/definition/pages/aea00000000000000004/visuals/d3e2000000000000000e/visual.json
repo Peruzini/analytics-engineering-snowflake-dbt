@@ -23,11 +23,11 @@
                       "Entity": "FatoPedidos"
                     }
                   },
-                  "Property": "channel"
+                  "Property": "Canal PT"
                 }
               },
-              "queryRef": "FatoPedidos.channel",
-              "nativeQueryRef": "channel",
+              "queryRef": "FatoPedidos.Canal PT",
+              "nativeQueryRef": "Canal PT",
               "displayName": "Canal"
             }
           ]
@@ -101,6 +101,36 @@
               "queryRef": "Medidas.Pedidos Totais",
               "nativeQueryRef": "Pedidos Totais",
               "displayName": "Pedidos Totais"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Ref Ticket Global"
+                }
+              },
+              "queryRef": "Medidas.Ref Ticket Global",
+              "nativeQueryRef": "Ref Ticket Global",
+              "displayName": "Ticket global"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Ref Conclusao Global"
+                }
+              },
+              "queryRef": "Medidas.Ref Conclusao Global",
+              "nativeQueryRef": "Ref Conclusao Global",
+              "displayName": "Conclusao global"
             }
           ]
         }
@@ -240,7 +270,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Ticket médio × taxa de conclusão. Valores no contexto dos filtros.'"
+                  "Value": "'Ticket e conclusao por canal. Referencias: ticket e conclusao globais da selecao; nao sao metas.'"
                 }
               }
             }
@@ -321,6 +351,144 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "xAxisReferenceLine": [
+        {
+          "selector": {
+            "id": "0"
+          },
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "value": {
+              "expr": {
+                "SelectRef": {
+                  "ExpressionName": "Medidas.Ref Ticket Global"
+                }
+              }
+            },
+            "lineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#64748B'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dashed'"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'front'"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "dataLabelShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "y1AxisReferenceLine": [
+        {
+          "selector": {
+            "id": "0"
+          },
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "value": {
+              "expr": {
+                "SelectRef": {
+                  "ExpressionName": "Medidas.Ref Conclusao Global"
+                }
+              }
+            },
+            "lineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#64748B'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dashed'"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'front'"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "dataLabelShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

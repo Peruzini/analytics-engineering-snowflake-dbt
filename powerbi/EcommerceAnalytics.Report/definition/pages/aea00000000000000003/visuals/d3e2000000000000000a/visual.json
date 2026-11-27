@@ -23,11 +23,11 @@
                       "Entity": "DimProdutos"
                     }
                   },
-                  "Property": "category"
+                  "Property": "Categoria PT"
                 }
               },
-              "queryRef": "DimProdutos.category",
-              "nativeQueryRef": "category",
+              "queryRef": "DimProdutos.Categoria PT",
+              "nativeQueryRef": "Categoria PT",
               "displayName": "Categoria"
             }
           ]
@@ -101,6 +101,36 @@
               "queryRef": "Medidas.Clientes Recorrentes (2+)",
               "nativeQueryRef": "Clientes Recorrentes (2+)",
               "displayName": "Clientes Recorrentes (2+)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Ref Receita Media Categoria"
+                }
+              },
+              "queryRef": "Medidas.Ref Receita Media Categoria",
+              "nativeQueryRef": "Ref Receita Media Categoria",
+              "displayName": "Receita media por categoria"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Medidas"
+                    }
+                  },
+                  "Property": "Ref Recompra Global"
+                }
+              },
+              "queryRef": "Medidas.Ref Recompra Global",
+              "nativeQueryRef": "Ref Recompra Global",
+              "displayName": "Recompra global"
             }
           ]
         }
@@ -240,7 +270,7 @@
             "altText": {
               "expr": {
                 "Literal": {
-                  "Value": "'Receita × taxa de recompra. Valores no contexto dos filtros.'"
+                  "Value": "'Receita por categoria e recompra. Referencias: receita media por categoria selecionada e recompra global; nao sao metas.'"
                 }
               }
             }
@@ -321,6 +351,144 @@
               "expr": {
                 "Literal": {
                   "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "xAxisReferenceLine": [
+        {
+          "selector": {
+            "id": "0"
+          },
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "value": {
+              "expr": {
+                "SelectRef": {
+                  "ExpressionName": "Medidas.Ref Receita Media Categoria"
+                }
+              }
+            },
+            "lineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#64748B'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dashed'"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'front'"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "dataLabelShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "y1AxisReferenceLine": [
+        {
+          "selector": {
+            "id": "0"
+          },
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "value": {
+              "expr": {
+                "SelectRef": {
+                  "ExpressionName": "Medidas.Ref Recompra Global"
+                }
+              }
+            },
+            "lineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#64748B'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'dashed'"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'front'"
+                }
+              }
+            },
+            "width": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "dataLabelShow": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }

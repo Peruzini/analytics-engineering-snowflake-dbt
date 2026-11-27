@@ -23,11 +23,11 @@
                       "Entity": "FatoPedidos"
                     }
                   },
-                  "Property": "order_status"
+                  "Property": "Status PT"
                 }
               },
-              "queryRef": "FatoPedidos.order_status",
-              "nativeQueryRef": "order_status",
+              "queryRef": "FatoPedidos.Status PT",
+              "nativeQueryRef": "Status PT",
               "displayName": "Status"
             }
           ]

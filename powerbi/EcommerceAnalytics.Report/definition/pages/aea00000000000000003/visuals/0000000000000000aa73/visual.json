@@ -23,11 +23,11 @@
                       "Entity": "DimProdutos"
                     }
                   },
-                  "Property": "category"
+                  "Property": "Categoria PT"
                 }
               },
-              "queryRef": "DimProdutos.category",
-              "nativeQueryRef": "category",
+              "queryRef": "DimProdutos.Categoria PT",
+              "nativeQueryRef": "Categoria PT",
               "displayName": "Categoria"
             }
           ]

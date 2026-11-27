@@ -23,11 +23,11 @@
                       "Entity": "FatoPedidos"
                     }
                   },
-                  "Property": "order_status"
+                  "Property": "Status PT"
                 }
               },
-              "queryRef": "FatoPedidos.order_status",
-              "nativeQueryRef": "order_status",
+              "queryRef": "FatoPedidos.Status PT",
+              "nativeQueryRef": "Status PT",
               "displayName": "Status"
             }
           ]
@@ -42,12 +42,12 @@
                       "Entity": "Medidas"
                     }
                   },
-                  "Property": "Participação Status %"
+                  "Property": "Participacao Status PT %"
                 }
               },
-              "queryRef": "Medidas.Participação Status %",
-              "nativeQueryRef": "Participação Status %",
-              "displayName": "Participação"
+              "queryRef": "Medidas.Participacao Status PT %",
+              "nativeQueryRef": "Participacao Status PT %",
+              "displayName": "Participacao no status"
             }
           ]
         },
@@ -81,7 +81,7 @@
                     "Entity": "Medidas"
                   }
                 },
-                "Property": "Participação Status %"
+                "Property": "Participacao Status PT %"
               }
             },
             "direction": "Descending"
@@ -301,6 +301,13 @@
               "expr": {
                 "Literal": {
                   "Value": "2L"
+                }
+              }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
                 }
               }
             }
